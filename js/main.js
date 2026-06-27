@@ -725,15 +725,20 @@ function bundledBooksSignature(scanned) {
 }
 
 async function hydrateBook(book) {
- if (!book || book.content || !book.path) return book;
- var filename = book.path.split('/').pop();
- var res = await fetch(book.path);
- if (!res.ok) throw new Error('book fetch failed: ' + book.path);
- var text = await res.text();
- var meta = parseBookMeta(filename, text);
- book.content = meta.body;
- applyParsedBookMeta(book, meta);
- return book;
+  if (!book || book.content || !book.path) return book;
+  var filename = book.path.split('/').pop();
+  try {
+    var res = await fetch(book.path, { cache: 'reload' });
+    if (!res.ok) throw new Error('book fetch failed: ' + book.path + ' (' + res.status + ')');
+    var text = await res.text();
+    var meta = parseBookMeta(filename, text);
+    book.content = meta.body;
+    applyParsedBookMeta(book, meta);
+    return book;
+  } catch (e) {
+    console.error('hydrateBook failed', e);
+    throw e;
+  }
 }
 
 
