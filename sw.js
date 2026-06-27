@@ -16,10 +16,10 @@ const SHELL_ASSETS = [
   './fonts/ZenKurenaido-latin.woff2',
   './fonts/ZenKurenaido-latin-ext.woff2',
   './books/manifest.json',
-  './icons/pwa/icon-192.png',
-  './icons/pwa/icon-512.png',
-  './icons/pwa/screenshot-wide.png',
-  './icons/pwa/screenshot-narrow.png',
+  './pwa/icon-192.png',
+  './pwa/icon-512.png',
+  './pwa/screenshot-wide.png',
+  './pwa/screenshot-narrow.png',
   './sw.js'
 ];
 
