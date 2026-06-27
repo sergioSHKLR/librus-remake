@@ -6,7 +6,7 @@ const SESSION_STORAGE_KEY = 'librus_v31_session';
 const TAB_SESSION_KEY = 'librus_v31_tab_active';
 const SETTINGS_STORAGE_KEY = 'librus_v31_settings';
 const UPLOADS_STORAGE_KEY = 'librus_v31_uploads';
-const MANIFEST_URL = './books/manifest.json';
+const MANIFEST_URL = 'books/manifest.json';
 const BOOKS_BASE = 'books/';
 /* Dev ships the full manifest (60 books). Prod uses an empty manifest. No partial fallback. */
 const BUNDLED_MANIFEST_FILES = [];
