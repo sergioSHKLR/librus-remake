@@ -20,7 +20,7 @@ const SHELL_ASSETS = [
   './icons/pwa/icon-512.png',
   './icons/pwa/screenshot-wide.png',
   './icons/pwa/screenshot-narrow.png',
-  './sw.js'   // if you copied it to root, otherwise remove or point to './pwa/sw.js'
+  './sw.js'
 ];
 
 function stashInCache(cacheName, request, response) {
