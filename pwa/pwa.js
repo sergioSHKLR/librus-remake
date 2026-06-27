@@ -42,19 +42,21 @@
   });
  }
 
- function registerServiceWorker() {
-  if (!('serviceWorker' in navigator)) return Promise.resolve(null);
-  return navigator.serviceWorker.register('./sw.js', { scope: './', updateViaCache: 'none' })
-   .then(function (registration) {
-    registerUpdateListeners(registration);
-    dispatch('librus:pwa-ready');
-    return registration;
-   })
-   .catch(function (err) {
-    console.warn('service worker registration failed', err);
-    return null;
-   });
- }
+// PWA Service Worker Registration
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./pwa/sw.js', { 
+      scope: './',
+      updateViaCache: 'none'
+    })
+    .then(reg => {
+      console.log('Service Worker registered with scope:', reg.scope);
+    })
+    .catch(err => {
+      console.error('Service Worker registration failed:', err);
+    });
+  });
+}
 
  function waitForWaitingWorker(maxAttempts) {
   return new Promise(function (resolve) {
