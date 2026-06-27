@@ -14,8 +14,6 @@
    --accent-color: #3d5c52;
    --accent-hover: #345046;
    --accent-on: #f4f8f5;
-   --topbar-bg: #8b4513;
-   --topbar-fg: #e6eee9;
    --topbar-border: color-mix(in srgb, var(--topbar-fg) 14%, var(--topbar-bg) 86%);
    --library-toolbar-bg: #d8dce0;
    --library-toolbar-fg: var(--text-primary);
@@ -23,6 +21,35 @@
    --font-size-md: 0.875rem;
    --font-size-lg: 1rem;
 
+   /* === THEME BASE - CHANGE THIS ONE LINE TO RE-THEME THE APP === */
+   --theme-base: darkgreen;
+
+   --bg-primary: var(--theme-base);
+   --topbar-bg: var(--theme-base);
+   --accent-color: var(--theme-base);
+
+   /* Light mode chrome / toolbar tints */
+   --library-toolbar-bg: color-mix(in srgb, var(--theme-base) 10%, #ffffff);
+   --bg-chrome: color-mix(in srgb, var(--theme-base) 8%, #f8f9fa);
+
+   --topbar-icon-color: color-mix(in srgb, var(--topbar-fg) 95%, transparent);
+
+      --theme-base: darkgreen;
+
+   --bg-primary: var(--theme-base);
+   --topbar-bg: var(--theme-base);
+   --accent-color: var(--theme-base);
+
+   --topbar-fg: #e6eee9;                    /* Light text/icons on dark topbar */
+   --topbar-icon-color: var(--topbar-fg);
+
+   /* Light mode chrome / toolbar tints */
+   --library-toolbar-bg: color-mix(in srgb, var(--theme-base) 10%, #ffffff);
+   --bg-chrome: color-mix(in srgb, var(--theme-base) 8%, #f8f9fa);
+
+
+
+   
    --gap-xs: 0.125rem;
    --gap-sm: 0.25rem;
    --gap-md: 0.5rem;
@@ -181,6 +208,29 @@ body.theme--dark {
    SECTION 02: FONTS — FIXED FOR YOUR TREE
    ========================================================================= */
 
+   .topbar .material-symbols-outlined,
+.topbar .icon-btn {
+   color: var(--topbar-icon-color) !important;
+}
+
+
+.library-toolbar-bg .material-symbols-outlined,
+#library-settings .toolbar .material-symbols-outlined,
+.reader-toc .toolbar .material-symbols-outlined,
+#reader-main-toolbar .material-symbols-outlined,
+.reader-context .toolbar .material-symbols-outlined,
+.reader-notes .toolbar .material-symbols-outlined,
+.library-grid-filter .material-symbols-outlined {
+   color: var(--toolbar-icon-color) !important;
+}
+
+/* Hover enhancement */
+.toolbar .icon-btn:hover:not(:disabled),
+.library-grid-filter .icon-btn:hover {
+   color: #111 !important;
+   background: rgba(0,0,0,0.08) !important;
+}
+
 /* Material Symbols */
 @font-face {
    font-family: 'Material Symbols Outlined';
@@ -242,7 +292,7 @@ body.theme--dark {
    direction: ltr;
    -webkit-font-smoothing: antialiased;
    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
-   color: inherit;
+   color: var(--topbar-icon-color);
 }
 
 
@@ -917,9 +967,8 @@ textarea:focus-visible {
    place-items: center;
    text-align: center;
    padding: var(--padding-md);
-   border-radius: var(--radius-lg);
    border: 0.0625rem solid var(--border-color);
-   background: var(--cover-bg, #ffffff);
+   background: var(--cover-bg);
    color: var(--cover-fg, #1a1d21);
    box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.12);
    overflow: hidden;
