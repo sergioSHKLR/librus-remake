@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-US" class="theme--light">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reference Lookup</title>
+    <script>
+      (function () {
+        var theme = new URLSearchParams(location.search).get('theme');
+        if (theme !== 'dark') theme = 'light';
+        document.documentElement.className = 'theme--' + theme;
+      })();
+    </script>
+    <style>
+      @font-face {
+        font-family: 'Material Symbols Outlined';
+        font-style: normal;
+        font-weight: 100 700;
+        font-display: swap;
+        src: url('../fonts/MaterialSymbolsOutlined.woff2?v=260621e') format('woff2');
+      }
+
+      /* Match --panel-context-bg from style.css SECTION 01 */
+      html.theme--light {
+        color-scheme: light;
+        --bg-secondary: #ffffff;
+        --text-muted: #5c636a;
+        --panel-bg: var(--bg-secondary);
+        --icon-muted: #9aa0a6;
+      }
+
+      html.theme--dark {
+        color-scheme: dark;
+        --bg-secondary: #1e1e1e;
+        --text-muted: #b0b8bf;
+        --panel-bg: var(--bg-secondary);
+        --icon-muted: #6c757d;
+      }
+
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--panel-bg);
+        font-family: system-ui, -apple-system, sans-serif;
+        padding: 1.5rem;
+        box-sizing: border-box;
+      }
+
+      .context-placeholder {
+        text-align: center;
+        max-width: 14rem;
+      }
+
+      .context-placeholder-icon {
+        font-family: 'Material Symbols Outlined';
+        font-size: 5.5rem;
+        line-height: 1;
+        margin-bottom: 1rem;
+        font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 48;
+        transition: color var(--duration-fast, 0.15s) ease;
+      }
+
+      .context-placeholder-icon.is-online {
+        color: color-mix(in srgb, #1c7ed6 74%, var(--icon-muted) 26%);
+        opacity: 0.58;
+      }
+
+      .context-placeholder-icon.is-offline {
+        color: color-mix(in srgb, #c92a2a 78%, var(--icon-muted) 22%);
+        opacity: 0.58;
+      }
+
+      html.theme--dark .context-placeholder-icon.is-online {
+        color: color-mix(in srgb, #4dabf7 72%, var(--icon-muted) 28%);
+      }
+
+      html.theme--dark .context-placeholder-icon.is-offline {
+        color: color-mix(in srgb, #fa5252 74%, var(--icon-muted) 26%);
+      }
+
+      .context-placeholder-text {
+        margin: 0;
+        font-size: 0.875rem;
+        line-height: 1.55;
+        color: var(--text-muted);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="context-placeholder">
+      <div class="context-placeholder-icon is-online" id="context-placeholder-icon" aria-hidden="true">&#xF15C;</div>
+      <p class="context-placeholder-text" id="context-placeholder-text">Select text in the book, then choose a lookup
+        provider above.</p>
+    </div>
+    <script>
+      (function () {
+        var ICON_ONLINE = '\uF15C';
+        var ICON_OFFLINE = '\uE2C1';
+
+        var TEXT_ONLINE = 'Select text in the book, then choose a lookup provider above.';
+        var TEXT_OFFLINE = 'You\u2019re offline. This panel is unavailable';
+
+        function applyConnectivityState(online) {
+          var el = document.getElementById('context-placeholder-icon');
+          var textEl = document.getElementById('context-placeholder-text');
+          var isOnline = online !== false && (online === true || navigator.onLine);
+          if (el) {
+            el.textContent = isOnline ? ICON_ONLINE : ICON_OFFLINE;
+            el.classList.toggle('is-online', isOnline);
+            el.classList.toggle('is-offline', !isOnline);
+          }
+          if (textEl) textEl.textContent = isOnline ? TEXT_ONLINE : TEXT_OFFLINE;
+        }
+
+        var params = new URLSearchParams(location.search);
+        var onlineParam = params.get('online');
+        var initialOnline = onlineParam === '0' ? false : onlineParam === '1' ? true : navigator.onLine;
+        applyConnectivityState(initialOnline);
+
+        window.addEventListener('online', function () { applyConnectivityState(true); });
+        window.addEventListener('offline', function () { applyConnectivityState(false); });
+        window.addEventListener('message', function (e) {
+          if (e.origin !== location.origin) return;
+          if (e.data && e.data.type === 'librus:connectivity') {
+            applyConnectivityState(!!e.data.online);
+          }
+        });
+      })();
+    </script>
+  </body>
+
+</html>
