@@ -46,7 +46,7 @@
   function registerServiceWorker() {
     if (!('serviceWorker' in navigator)) return;
 
-    navigator.serviceWorker.register('./pwa/sw.js', { 
+    navigator.serviceWorker.register('./sw.js', { 
       scope: './',
       updateViaCache: 'none'
     })
@@ -103,7 +103,7 @@
     },
     unregister: function () {
       if (!('serviceWorker' in navigator)) return Promise.resolve();
-      return navigator.serviceWorker.getRegistrations().then(regs => 
+      return navigator.serviceWorker.getRegistrations().then(regs =>
         Promise.all(regs.map(reg => reg.unregister()))
       );
     }
