@@ -736,11 +736,6 @@ async function hydrateBook(book) {
  return book;
 }
 
-var res = await fetch(book.path, { cache: 'reload' });
-if (!res.ok) {
-  console.error('Fetch failed for', book.path, res.status);
-  throw new Error('book fetch failed: ' + book.path);
-}
 
 function revalidateLibraryManifest() {
  scanBookStubs().then(function (scanned) {
