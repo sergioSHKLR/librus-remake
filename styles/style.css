@@ -1,57 +1,37 @@
-/* CACHE BUST: 2025-06-27 */
+/* CACHE BUST: 2025-06-27-v3 */
 
 /* =========================================================================
-   SECTION 01: DESIGN TOKENS | V31-260619a/u
-   ROOT VARIABLES FOR THEME, SPACING, LAYOUT DIMENSIONS
+   SECTION 01: DESIGN TOKENS
    ========================================================================= */
 :root {
    color-scheme: light;
-
-   --bg-primary: #8b4513;
-   --bg-secondary: #ffffff;
-   --bg-chrome: #e9ecef;
-   --border-color: #ced4da;
-   --text-primary: #1a1d21;
-   --text-muted: #5c636a;
-   --accent-color: #3d5c52;
-   --accent-hover: #345046;
-   --accent-on: #f4f8f5;
-   --topbar-border: color-mix(in srgb, var(--topbar-fg) 14%, var(--topbar-bg) 86%);
-   --library-toolbar-bg: #d8dce0;
-   --library-toolbar-fg: var(--text-primary);
-   --font-size-sm: 0.8125rem;
-   --font-size-md: 0.875rem;
-   --font-size-lg: 1rem;
 
    /* === THEME BASE - CHANGE THIS ONE LINE TO RE-THEME THE APP === */
    --theme-base: darkgreen;
 
    --bg-primary: var(--theme-base);
-   --topbar-bg: var(--theme-base);
+   --bg-secondary: #ffffff;
+   --bg-chrome: #e9ecef;
+   --border-color: #ced4da;
+   --text-primary: #1a1d21;
+   --text-muted: #5c636a;
    --accent-color: var(--theme-base);
+   --accent-hover: #345046;
+   --accent-on: #f4f8f5;
 
-   /* Light mode chrome / toolbar tints */
-   --library-toolbar-bg: color-mix(in srgb, var(--theme-base) 10%, #ffffff);
-   --bg-chrome: color-mix(in srgb, var(--theme-base) 8%, #f8f9fa);
-
-   --topbar-icon-color: color-mix(in srgb, var(--topbar-fg) 95%, transparent);
-
-      --theme-base: darkgreen;
-
-   --bg-primary: var(--theme-base);
    --topbar-bg: var(--theme-base);
-   --accent-color: var(--theme-base);
-
-   --topbar-fg: #e6eee9;                    /* Light text/icons on dark topbar */
+   --topbar-fg: #e6eee9;
    --topbar-icon-color: var(--topbar-fg);
+   --topbar-border: color-mix(in srgb, var(--topbar-fg) 14%, var(--topbar-bg) 86%);
 
-   /* Light mode chrome / toolbar tints */
    --library-toolbar-bg: color-mix(in srgb, var(--theme-base) 10%, #ffffff);
-   --bg-chrome: color-mix(in srgb, var(--theme-base) 8%, #f8f9fa);
+   --library-toolbar-fg: var(--text-primary);
+   --toolbar-icon-color: #1a1d21;   /* dark icons on light panels */
 
+   --font-size-sm: 0.8125rem;
+   --font-size-md: 0.875rem;
+   --font-size-lg: 1rem;
 
-
-   
    --gap-xs: 0.125rem;
    --gap-sm: 0.25rem;
    --gap-md: 0.5rem;
@@ -100,7 +80,7 @@
    --icon-highlight-hover: #b45309;
    --icon-share-hover: #1971c2;
    --icon-delete-hover: #b3261e;
-   /* Notes icons: card row lighter than compose; idle meets WCAG 3:1 non-text on card bg */
+
    --icon-notes-idle: color-mix(in srgb, var(--text-muted) 46%, var(--panel-notes-card-bg) 54%);
    --icon-notes-compose: color-mix(in srgb, var(--text-primary) 52%, var(--text-muted));
    --icon-notes-compose-disabled: color-mix(in srgb, var(--text-muted) 72%, var(--panel-notes-bg) 28%);
@@ -128,82 +108,48 @@
    --search-hit-current-ring: #e67e00;
 }
 
-body.theme--dark {
+/* =========================================================================
+   DARK MODE
+   ========================================================================= */
+body.theme--dark,
+body.theme--system {
    color-scheme: dark;
-   --bg-primary: #8b4513;
+
+   --bg-primary: #1e2a24;
    --bg-secondary: #1e1e1e;
-   --bg-chrome: #1a221f;
+   --bg-chrome: #2a2f2c;
    --border-color: #4a4a4a;
    --text-primary: #f1f3f5;
    --text-muted: #b0b8bf;
-   --accent-color: #3d5c52;
-   --accent-hover: #4a6b62;
+   --accent-color: #4a6b62;
+   --accent-hover: #5a7b72;
    --accent-on: #f4f8f5;
-   --topbar-bg: #8b4513;
+
+   --topbar-bg: #1e2a24;
    --topbar-fg: #e6eee9;
-   --topbar-border: color-mix(in srgb, var(--topbar-fg) 12%, var(--topbar-bg) 88%);
-   --library-toolbar-bg: #6a7178;
+   --topbar-icon-color: var(--topbar-fg);
+
+   --library-toolbar-bg: #2a2f2c;
    --library-toolbar-fg: #eef1f3;
-   --shadow-toolbar: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.22);
-   --shadow-menu: 0 0.25rem 1rem rgba(0, 0, 0, 0.3);
-   --shadow-overlay: 0.25rem 0 2rem rgba(0, 0, 0, 0.4);
-   --shadow-chrome: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.25);
+   --toolbar-icon-color: #f1f3f5;
+
    --panel-yellow-accent: #fab005;
    --panel-toc-bg: color-mix(in srgb, var(--library-toolbar-bg) 26%, var(--bg-secondary) 74%);
    --panel-toc-hover: color-mix(in srgb, var(--panel-toc-bg) 68%, var(--library-toolbar-bg) 32%);
-   --toc-scroll-highlight-bg: color-mix(in srgb, var(--panel-yellow-accent) 22%, var(--panel-toc-bg) 78%);
-   --panel-context-bg: var(--bg-secondary);
    --panel-notes-bg: color-mix(in srgb, var(--library-toolbar-bg) 16%, var(--bg-secondary) 84%);
    --panel-notes-card-bg: color-mix(in srgb, var(--bg-secondary) 80%, var(--panel-yellow-accent) 20%);
-   --panel-notes-input-bg: var(--panel-notes-bg);
-   --icon-reply-hover: #51cf66;
-   --icon-save-hover: #51cf66;
-   --icon-highlight-hover: #fcc419;
-   --icon-share-hover: #4dabf7;
-   --icon-delete-hover: #fa5252;
-   --search-hit-bg: #8b6914;
-   --search-hit-current-bg: #d4a017;
-   --search-hit-current-ring: #ffe566;
 }
 
-@media (prefers-color-scheme: dark) {
-   body.theme--system {
-      color-scheme: dark;
-      --bg-primary: #8b4513;
-      --bg-secondary: #1e1e1e;
-      --bg-chrome: #1a221f;
-      --border-color: #4a4a4a;
-      --text-primary: #f1f3f5;
-      --text-muted: #b0b8bf;
-      --accent-color: #3d5c52;
-      --accent-hover: #4a6b62;
-      --accent-on: #f4f8f5;
-      --topbar-bg: #8b4513;
-      --topbar-fg: #e6eee9;
-      --topbar-border: color-mix(in srgb, var(--topbar-fg) 12%, var(--topbar-bg) 88%);
-      --library-toolbar-bg: #6a7178;
-      --library-toolbar-fg: #eef1f3;
-      --shadow-toolbar: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.22);
-      --shadow-menu: 0 0.25rem 1rem rgba(0, 0, 0, 0.3);
-      --shadow-overlay: 0.25rem 0 2rem rgba(0, 0, 0, 0.4);
-      --shadow-chrome: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.25);
-      --panel-yellow-accent: #fab005;
-      --panel-toc-bg: color-mix(in srgb, var(--library-toolbar-bg) 26%, var(--bg-secondary) 74%);
-      --panel-toc-hover: color-mix(in srgb, var(--panel-toc-bg) 68%, var(--library-toolbar-bg) 32%);
-      --toc-scroll-highlight-bg: color-mix(in srgb, var(--panel-yellow-accent) 22%, var(--panel-toc-bg) 78%);
-      --panel-context-bg: var(--bg-secondary);
-      --panel-notes-bg: color-mix(in srgb, var(--library-toolbar-bg) 16%, var(--bg-secondary) 84%);
-      --panel-notes-card-bg: color-mix(in srgb, var(--bg-secondary) 80%, var(--panel-yellow-accent) 20%);
-      --panel-notes-input-bg: var(--panel-notes-bg);
-      --icon-reply-hover: #51cf66;
-      --icon-save-hover: #51cf66;
-      --icon-highlight-hover: #fcc419;
-      --icon-share-hover: #4dabf7;
-      --icon-delete-hover: #fa5252;
-      --search-hit-bg: #8b6914;
-      --search-hit-current-bg: #d4a017;
-      --search-hit-current-ring: #ffe566;
-   }
+/* Topbar icons */
+.topbar .material-symbols-outlined,
+.topbar .icon-btn {
+   color: var(--topbar-icon-color) !important;
+}
+
+/* Panel toolbar icons */
+.toolbar .material-symbols-outlined,
+.library-grid-filter .material-symbols-outlined {
+   color: var(--toolbar-icon-color) !important;
 }
 
 /* =========================================================================
