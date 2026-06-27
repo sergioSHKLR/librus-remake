@@ -3205,3 +3205,22 @@ document.addEventListener('DOMContentLoaded', function () {
   switchView('library');
  });
 });
+
+document.querySelectorAll('.book-card').forEach(card => {
+  card.addEventListener('click', function () {
+    const title = this.getAttribute('data-title');
+    const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
+    const bookPath = `books/${slug}.html`;   // or adjust filename pattern
+
+    // Load into Main pane via iframe (clean isolation)
+    const mainContent = document.querySelector('#pane-main .pane-content');
+    mainContent.innerHTML = `
+      <iframe src="${bookPath}" style="width:100%; height:100%; border:none; background:white;"></iframe>
+    `;
+
+    // Optional: also load into Context pane (e.g. Wikipedia or notes)
+    document.getElementById('context-frame').src = 'about:blank';
+
+    toggleGlobalMode(); // switch to Reader view
+  });
+});
