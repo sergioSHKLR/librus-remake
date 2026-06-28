@@ -253,21 +253,12 @@ function syncContextPlaceholderConnectivity() {
  } catch (e) { /* cross-origin or not ready */ }
 }
 
-function syncFaviconForTheme() {
- var theme = resolvedAppTheme();
- var href = theme === 'dark' ? '/favicon-dark.svg' : '/favicon-light.svg';
- document.querySelectorAll('link[rel="icon"][type="image/svg+xml"]').forEach(function (link) {
-  link.href = href;
- });
-}
-
 function changeTheme(themeValue, skipPersist) {
  document.body.className = '';
  document.body.classList.add('theme--' + themeValue);
  settings.theme = themeValue;
  var sel = document.getElementById('settings-theme-selector');
  if (sel) sel.value = themeValue;
- syncFaviconForTheme();
  var frame = document.getElementById('context-viewport');
  if (frame && isContextPlaceholderUrl(frame.src || '')) {
   frame.src = contextPlaceholderUrl();
@@ -1092,16 +1083,18 @@ function renderMdFootnotes() {
 }
 
 function renderMdBlock(type, title, lines) {
- var body = renderMdBlockLines(lines);
- if (type === 'expand') {
-  return '<details class="md-block md-block--expand">' +
-   '<summary><span class="md-block-expand-icon material-symbols-outlined" aria-hidden="true">\uE313</span>' +
-   '<span class="md-block-expand-label">' + parseInlineMarkdown(title || 'More') + '</span></summary>' +
-   '<div class="md-block-body">' + body + '</div></details>';
- }
- var titleHtml = title ? '<p class="md-block-title">' + parseInlineMarkdown(title) + '</p>' : '';
- return '<div class="md-block md-block--' + escapeHtml(type) + '">' + titleHtml +
-  '<div class="md-block-body">' + body + '</div></div>';
+  var body = renderMdBlockLines(lines);
+  if (type === 'expand') {
+    return '<details class="md-block md-block--expand">' +
+      '<summary>' +
+      '<img src="/icons/expand.svg" alt="Expand" aria-hidden="true" class="md-block-expand-icon" width="24" height="24">' +
+      '<span class="md-block-expand-label">' + parseInlineMarkdown(title || 'More') + '</span>' +
+      '</summary>' +
+      '<div class="md-block-body">' + body + '</div></details>';
+  }
+  var titleHtml = title ? '<p class="md-block-title">' + parseInlineMarkdown(title) + '</p>' : '';
+  return '<div class="md-block md-block--' + escapeHtml(type) + '">' + titleHtml +
+    '<div class="md-block-body">' + body + '</div></div>';
 }
 
 function isSkippableComment(trimmed) {
@@ -2381,16 +2374,16 @@ function updateContextLookupControls() {
 
  if (providerToggle) providerToggle.disabled = contextLoadingActive;
 
- if (reloadBtn && reloadIcon) {
+if (reloadBtn && reloadIcon) {
   reloadBtn.disabled = false;
   if (contextLoadingActive) {
    reloadBtn.classList.add('is-stop');
-   reloadIcon.textContent = '\uE5CD';
+   reloadIcon.innerHTML = '<img src="../icons/close.svg" alt="Stop" aria-hidden="true" width="24" height="24">';
    reloadBtn.title = 'Stop loading';
    reloadBtn.setAttribute('aria-label', 'Stop loading');
   } else {
    reloadBtn.classList.remove('is-stop');
-   reloadIcon.textContent = '\uE5D5';
+   reloadIcon.innerHTML = '<img src="../icons/refresh.svg" alt="Reload" aria-hidden="true" width="24" height="24">';
    reloadBtn.title = 'Reload reference';
    reloadBtn.setAttribute('aria-label', 'Reload reference');
   }
@@ -3240,9 +3233,7 @@ async function initApp() {
  syncAllInputClearButtons();
  syncSettingsBuildLabel();
  changeTheme(settings.theme, true);
- syncFaviconForTheme();
  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function () {
-  if ((settings.theme || 'system') === 'system') syncFaviconForTheme();
  });
  applyReaderFontScale();
  updateContextLookupControls();

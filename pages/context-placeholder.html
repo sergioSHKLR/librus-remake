@@ -13,14 +13,7 @@
       })();
     </script>
     <style>
-      @font-face {
-        font-family: 'Material Symbols Outlined';
-        font-style: normal;
-        font-weight: 100 700;
-        font-display: swap;
-        src: url('../fonts/MaterialSymbolsOutlined.woff2?v=260621e') format('woff2');
-      }
-
+  
       /* Match --panel-context-bg from style.css SECTION 01 */
       html.theme--light {
         color-scheme: light;
@@ -59,16 +52,7 @@
         max-width: 14rem;
       }
 
-      .context-placeholder-icon {
-        font-family: 'Material Symbols Outlined';
-        font-size: 5.5rem;
-        line-height: 1;
-        margin-bottom: 1rem;
-        font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 48;
-        transition: color var(--duration-fast, 0.15s) ease;
-      }
-
-      .context-placeholder-icon.is-online {
+          .context-placeholder-icon.is-online {
         color: color-mix(in srgb, #1c7ed6 74%, var(--icon-muted) 26%);
         opacity: 0.58;
       }
@@ -98,7 +82,7 @@
   <body>
 <div class="context-placeholder">
 
-<img src="https://sergioshklr.github.io/librus-remake/icons/online.svg" alt="Online"       alt="online" 
+<img src="../icons/online.svg" alt="Online"       alt="online" 
        id="context-placeholder-icon"
        aria-hidden="true" 
        class="context-placeholder-icon is-online"

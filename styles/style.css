@@ -156,29 +156,15 @@ body.theme--system {
 }
 
 /* Topbar icons */
-.topbar .material-symbols-outlined,
 .topbar .icon-btn {
    color: var(--topbar-icon-color) !important;
 }
 
-/* Panel toolbar icons */
-.toolbar .material-symbols-outlined,
-.library-grid-filter .material-symbols-outlined {
-   color: var(--toolbar-icon-color) !important;
-}
 
 /* =========================================================================
    SECTION 02: FONTS — FIXED FOR YOUR TREE
    ========================================================================= */
 
-/* Material Symbols */
-@font-face {
-   font-family: 'Material Symbols Outlined';
-   font-style: normal;
-   font-weight: 100;
-   font-display: swap;
-   src: url('../fonts/MaterialSymbolsOutlined.woff2') format('woff2');
-}
 
 /* Roboto Slab */
 @font-face {
@@ -216,23 +202,6 @@ body.theme--system {
    font-display: swap;
    src: url('../fonts/ZenKurenaido-latin-ext.woff2') format('woff2');
    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-
-.material-symbols-outlined {
-   font-family: 'Material Symbols Outlined';
-   font-weight: 100;
-   font-style: normal;
-   font-size: 1.25rem;
-   line-height: 1;
-   letter-spacing: normal;
-   text-transform: none;
-   display: inline-block;
-   white-space: nowrap;
-   word-wrap: normal;
-   direction: ltr;
-   -webkit-font-smoothing: antialiased;
-   font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
-   color: inherit;
 }
 
 /* =========================================================================
@@ -337,10 +306,6 @@ select {
 
 .input-clear-btn[hidden] {
    display: none;
-}
-
-.input-clear-btn .material-symbols-outlined {
-   font-size: 1.125rem;
 }
 
 input:focus,
@@ -455,11 +420,6 @@ textarea:focus-visible {
   vertical-align: middle;
 }
 
-
-.icon-btn .material-symbols-outlined {
-   font-size: var(--icon-btn-glyph-size);
-   font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
-}
 
 .icon-btn .icon-glyph-filled {
    font-variation-settings: 'FILL' 1, 'wght' 300, 'GRAD' 0, 'opsz' 24;
@@ -651,11 +611,6 @@ textarea:focus-visible {
    transition: background var(--duration-fast) ease, color var(--duration-fast) ease;
 }
 
-.context-split-search-btn .material-symbols-outlined {
-   font-size: var(--icon-btn-glyph-size);
-   font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
-}
-
 .context-split-search-btn:hover:not(:disabled) {
    background: color-mix(in srgb, currentColor 14%, transparent);
 }
@@ -711,27 +666,14 @@ textarea:focus-visible {
    cursor: pointer;
 }
 
-.context-provider-option .material-symbols-outlined {
-   font-size: 1.25rem;
-   color: var(--text-muted);
-}
-
 .context-provider-option:hover:not(:disabled),
 .context-provider-option.is-active {
    background: color-mix(in srgb, var(--accent-color) 10%, transparent);
 }
 
-.context-provider-option.is-active .material-symbols-outlined {
-   color: var(--text-primary);
-}
-
 .context-provider-option:disabled {
    opacity: 0.38;
    cursor: not-allowed;
-}
-
-#context-reload-btn.is-stop .material-symbols-outlined {
-   font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
 
 /* =========================================================================
