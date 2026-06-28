@@ -2416,6 +2416,7 @@ function bindSettingsListeners() {
  document.getElementById('settings-export-catalog-btn').addEventListener('click', exportCatalog);
  document.getElementById('settings-export-session-btn').addEventListener('click', exportSessionSnapshot);
  document.getElementById('settings-clear-cache-btn').addEventListener('click', clearLocalCache);
+ document.getElementById('settings-choose-folder-btn').addEventListener('click', chooseLibraryFolder);
 }
 
 function bindLibraryListeners() {
@@ -2779,10 +2780,29 @@ async function chooseLibraryFolder() {
       startIn: 'documents'
     });
     localStorage.setItem(LIBRARY_DIR_KEY, 'granted');
-    alert('✅ Google Drive folder selected!\n\nNotes will be saved as sidecar files in this folder and sync across devices via Google Drive.');
+    alert('✅ Google Drive folder selected!\n\nNotes will be saved as sidecar files (bookid-notes.jsonld) and sync across devices.');
     return true;
   } catch (err) {
     console.warn('Folder selection cancelled', err);
+    return false;
+  }
+}
+
+async function saveNotesToLocalFolder(bookId) {
+  if (!bookId || !libraryDirectoryHandle || !window.LibrusAnnotations) return false;
+  const annotations = LibrusAnnotations.exportBookAnnotations(bookId);
+  if (!annotations || annotations.length === 0) return false;
+
+  try {
+    const fileName = `${bookId}-notes.jsonld`;
+    const fileHandle = await libraryDirectoryHandle.getFileHandle(fileName, { create: true });
+    const writable = await fileHandle.createWritable();
+    await writable.write(JSON.stringify(annotations, null, 2));
+    await writable.close();
+    console.log(`💾 Notes saved to Google Drive: ${fileName}`);
+    return true;
+  } catch (e) {
+    console.warn('Failed to save notes to Google Drive', e);
     return false;
   }
 }
@@ -3114,8 +3134,10 @@ function saveNoteFromCompose(motivation) {
   var liveSelection = window.getSelection();
   if (isSelectionInReader(liveSelection)) {
    sectionId = sectionIdFromSelection(liveSelection);
+   saveNotesToLocalFolder(lastOpenedBookId);
   }
  }
+ 
  var annotation = LibrusAnnotations.createAnnotation({
   bookId: lastOpenedBookId,
   quote: quote || { exact: '', prefix: '', suffix: '', start: 0, end: 0 },
