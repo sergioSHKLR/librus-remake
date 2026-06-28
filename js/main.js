@@ -2772,6 +2772,15 @@ function initAppUpdateStatus() {
  renderAppUpdateStatus();
 }
 
+// Auto prompt for library folder on first run
+if (!localStorage.getItem(LIBRARY_DIR_KEY)) {
+  setTimeout(() => {
+    if (confirm('Choose a local folder to save notes persistently with your books?')) {
+      chooseLibraryFolder();
+    }
+  }, 800);
+}
+
 // =========================================================================
 // V31-260619a/p | SECTION 18: NOTES & WEB ANNOTATIONS
 // LOCAL-FIRST ANNOTATION COLLECTION (W3C WEB ANNOTATION MODEL)
