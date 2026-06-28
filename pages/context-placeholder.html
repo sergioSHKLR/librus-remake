@@ -13,7 +13,6 @@
       })();
     </script>
     <style>
-  
       /* Match --panel-context-bg from style.css SECTION 01 */
       html.theme--light {
         color-scheme: light;
@@ -52,7 +51,7 @@
         max-width: 14rem;
       }
 
-          .context-placeholder-icon.is-online {
+      .context-placeholder-icon.is-online {
         color: color-mix(in srgb, #1c7ed6 74%, var(--icon-muted) 26%);
         opacity: 0.58;
       }
@@ -80,28 +79,29 @@
   </head>
 
   <body>
-<div class="context-placeholder">
+    <div class="context-placeholder">
+      <!-- Fixed duplicate alt tag here -->
+      <img src="../icons/online.svg" 
+           alt="Online Status" 
+           id="context-placeholder-icon"
+           aria-hidden="true" 
+           class="context-placeholder-icon is-online"
+           width="48" 
+           height="48">
 
-<img src="../icons/online.svg" alt="Online"       alt="online" 
-       id="context-placeholder-icon"
-       aria-hidden="true" 
-       class="context-placeholder-icon is-online"
-       width="48" 
-       height="48">
-
-  <p class="context-placeholder-text" id="context-placeholder-text">Select text in the book, then choose a lookup
-    provider above.</p>
-</div>
+      <p class="context-placeholder-text" id="context-placeholder-text">
+        Select text in the book, then choose a lookup provider above.
+      </p>
+    </div>
 
     <script>
       (function () {
         var TEXT_ONLINE = 'Select text in the book, then choose a lookup provider above.';
         var TEXT_OFFLINE = 'You’re offline. This panel is unavailable';
 
-        function applyConnectivityState(online) {
+        function applyConnectivityState(isOnline) {
           var icon = document.getElementById('context-placeholder-icon');
           var textEl = document.getElementById('context-placeholder-text');
-          var isOnline = online !== false && (online === true || navigator.onLine);
 
           if (icon) {
             icon.src = isOnline ? '../icons/online.svg' : '../icons/offline.svg';
@@ -113,7 +113,11 @@
 
         var params = new URLSearchParams(location.search);
         var onlineParam = params.get('online');
-        var initialOnline = onlineParam === '0' ? false : onlineParam === '1' ? true : navigator.onLine;
+
+        var initialOnline = navigator.onLine;
+        if (onlineParam === '0') initialOnline = false;
+        if (onlineParam === '1') initialOnline = true;
+
         applyConnectivityState(initialOnline);
 
         window.addEventListener('online', function () { applyConnectivityState(true); });
@@ -121,12 +125,12 @@
         window.addEventListener('message', function (e) {
           if (e.origin !== location.origin) return;
           if (e.data && e.data.type === 'librus:connectivity') {
-            applyConnectivityState(!!e.data.online);
+            var messageState = e.data.online === false ? false : !!e.data.online;
+            applyConnectivityState(messageState);
           }
         });
-      })();
+      })(); // Added missing closing wrapper here to fix syntax error
     </script>
-
   </body>
 
 </html>

@@ -3,6 +3,7 @@
 /* =========================================================================
    SECTION 01: DESIGN TOKENS
    ========================================================================= */
+
 :root {
    color-scheme: light;
 
@@ -160,11 +161,9 @@ body.theme--system {
    color: var(--topbar-icon-color) !important;
 }
 
-
 /* =========================================================================
    SECTION 02: FONTS — FIXED FOR YOUR TREE
    ========================================================================= */
-
 
 /* Roboto Slab */
 @font-face {
@@ -207,6 +206,7 @@ body.theme--system {
 /* =========================================================================
    RESET & BASE
    ========================================================================= */
+
 *,
 *::before,
 *::after {
@@ -338,6 +338,7 @@ textarea:focus-visible {
    SECTION 04: UTILITIES & STATE | V31-260617s/a
    SHARED STATE CLASSES AND SCREEN-READER ONLY
    ========================================================================= */
+
 .u-sr-only {
    position: absolute !important;
    width: 0.0625rem !important;
@@ -401,6 +402,7 @@ textarea:focus-visible {
    SECTION 05: ICON-BTN & BTN-WIDE | V31-260617s/r
    CHROME BUTTONS AND WIDE CTA
    ========================================================================= */
+
 .icon-btn {
    width: var(--btn-size);
    height: var(--btn-size);
@@ -480,6 +482,7 @@ textarea:focus-visible {
    SECTION 06: APP SHELL & VIEW | V31-260617s/a
    ROOT GRID AND VIEW CONTAINERS
    ========================================================================= */
+
 .app {
    display: grid;
    grid-template-rows: auto;
@@ -501,6 +504,7 @@ textarea:focus-visible {
    SECTION 07: TOPBAR & TOOLBAR | V31-260617s/j
    HEADER CHROME AND SLOT LAYOUT
    ========================================================================= */
+
 .topbar,
 .toolbar {
    display: flex !important;
@@ -676,11 +680,15 @@ textarea:focus-visible {
    cursor: not-allowed;
 }
 
+#context-reload-btn.is-stop .material-symbols-outlined {
+   font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
 
 /* =========================================================================
    SECTION 08: LIBRARY-TOPBAR BRAND | V31-260617s/o
    BRAND LOGO AND TITLE
    ========================================================================= */
+
 .library-topbar-brand {
    display: flex;
    align-items: center;
@@ -724,6 +732,7 @@ textarea:focus-visible {
    SECTION 09: DROPDOWN | V31-260617s/a
    THEME SELECTOR MENUS
    ========================================================================= */
+
 .dropdown-container {
    position: relative;
    display: inline-block;
@@ -764,6 +773,7 @@ textarea:focus-visible {
    SECTION 10: LIBRARY-BODY | V31-260617s/d
    FILTER ROW, BOOK GRID, 6:9 AUTHOR-MATCHED COVERS
    ========================================================================= */
+
 .library-body {
    display: grid;
    grid-template-rows: auto 1fr;
@@ -926,6 +936,7 @@ textarea:focus-visible {
    SECTION 11: LIBRARY-SETTINGS | V31-260617s/q
    OVERLAY SIDEPANEL — THEME, PROVIDERS, OFF-LOAD
    ========================================================================= */
+
 .library-settings-toolbar-start {
    flex: 1;
    display: flex;
@@ -1173,6 +1184,7 @@ textarea:focus-visible {
    SECTION 12: READER SHELL | V31-260617s/h
    READER GRID AND LAYOUT WRAPPER
    ========================================================================= */
+
 .reader {
    display: grid;
    grid-template-rows: auto 1fr;
@@ -1195,6 +1207,7 @@ textarea:focus-visible {
    SECTION 13: READER COLUMNS | V31-260619a/r
    TOC, MAIN, CONTEXT, NOTES COLUMN GRIDS
    ========================================================================= */
+
 .reader-toc,
 .reader-main,
 .reader-context,
@@ -1377,6 +1390,7 @@ textarea:focus-visible {
    SECTION 14: READER-TOC | V31-260617s/a
    TOC FILTER AND LINK LIST
    ========================================================================= */
+
 .reader-toc-filter {
    display: flex;
    align-items: center;
@@ -1425,6 +1439,7 @@ textarea:focus-visible {
    SECTION 15: READER-MAIN SEARCH | V31-260619a/e
    FIXED FIELD (DESKTOP), FLEX FILL (MOBILE), HIT NAV
    ========================================================================= */
+
 .reader-main-search {
    display: flex;
    align-items: center;
@@ -1515,6 +1530,7 @@ mark.reader-search-hit.is-current {
    SECTION 16: READER-CONTENT TYPOGRAPHY | V31-260619a/s
    WIKIPEDIA-STYLE PROSE COLUMN — MAX WIDTH, CONSISTENT MARGINS
    ========================================================================= */
+
 .reader-content {
    max-width: var(--reader-prose-max-width);
    margin-inline: auto;
@@ -1733,6 +1749,7 @@ mark.reader-search-hit.is-current {
    SECTION 17: READER-NOTES | V31-260618t/t
    WEB ANNOTATION PANEL, HIGHLIGHTS, COMPOSE
    ========================================================================= */
+
 .reader-notes-filter {
    display: flex;
    align-items: center;
@@ -1980,6 +1997,7 @@ mark.reader-search-hit.is-current {
    SECTION 18: TOOLBAR SHADOW | V31-260619a/i
    LIBRARY + READER TOOLBARS — NO BOTTOM BORDER, SUBTLE DROP SHADOW
    ========================================================================= */
+
 .library-grid-filter,
 .library-settings-toolbar,
 #library-settings .toolbar,
@@ -1997,6 +2015,7 @@ mark.reader-search-hit.is-current {
    SECTION 19: RESPONSIVE LAYOUT MATRICES | V31-260617s/b
    BREAKPOINT GRID TOPOLOGY (1536 / 1200 / 768)
    ========================================================================= */
+
 @media (min-width: 96rem) {
    .reader-layout {
       grid-template-columns: var(--toc-width) minmax(0, 1fr) minmax(0, 1fr) minmax(0, var(--notes-width));
@@ -2192,6 +2211,7 @@ mark.reader-search-hit.is-current {
    SECTION 20: MOBILE REFINEMENTS | V31-260617s/j
    NARROW VIEWPORT (~511 × 1031) — LIBRARY, READER, OVERLAYS
    ========================================================================= */
+   
 @media (max-width: 48rem) {
    .library-grid-card:nth-child(n + 5) {
       content-visibility: auto;
