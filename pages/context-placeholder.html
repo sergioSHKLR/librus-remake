@@ -82,7 +82,34 @@
   <body>
 <div class="context-placeholder">
 
-<img src="https://sergioshklr.github.io/librus-remake/icons/online.svg" alt="Online"       alt="online" 
+    <!-- 1. Same folder -->
+1<img src="online.svg" alt="online">
+
+<!-- 2. Root relative -->
+2<img src="/online.svg" alt="online">
+
+<!-- 3. From pages/ up one -->
+3<img src="../online.svg" alt="online">
+
+<!-- 4. From pages/ up two -->
+4<img src="../../online.svg" alt="online">
+
+<!-- 5. From pages/ up three -->
+5<img src="../../../online.svg" alt="online">
+
+<!-- 6. Absolute from domain root (GH Pages) -->
+6<img src="/librus-remake/icons/online.svg" alt="online">
+
+<!-- 7. Full absolute URL -->
+7<img src="https://sergioshklr.github.io/librus-remake/icons/online.svg" alt="online">
+
+<!-- 8. From js/ if icons were there -->
+8<img src="../icons/online.svg" alt="online">
+
+<!-- 9. From root with leading slash + icons -->
+9<img src="/icons/online.svg" alt="online">
+
+<img src="../icons/online.svg" alt="Online"       alt="online" 
        id="context-placeholder-icon"
        aria-hidden="true" 
        class="context-placeholder-icon is-online"
