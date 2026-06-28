@@ -99,6 +99,8 @@ let lastNotesSectionId = '';
 let currentBookAnnotations = [];
 let notesReplyParentId = null;
 let notesFilterQuery = '';
+let libraryDirectoryHandle = null;
+const LIBRARY_DIR_KEY = 'librus_library_dir';
 const NOTES_COMPOSE_PLACEHOLDER = 'Select text, then save as Highlight OR Write note';
 const NOTES_COMPOSE_WITH_QUOTE_PLACEHOLDER = 'Select text, then save as Note';
 const NOTES_REPLY_PLACEHOLDER = 'Reply to selected note…';
@@ -3230,3 +3232,37 @@ document.querySelectorAll('.book-card').forEach(card => {
     toggleGlobalMode(); // switch to Reader view
   });
 });
+
+async function chooseLibraryFolder() {
+  try {
+    libraryDirectoryHandle = await window.showDirectoryPicker({
+      mode: 'readwrite',
+      startIn: 'documents'
+    });
+    localStorage.setItem(LIBRARY_DIR_KEY, 'granted');
+    alert('Library folder selected! Notes will be saved as sidecar files (*.jsonld) next to books.');
+    return true;
+  } catch (err) {
+    console.warn('Folder selection cancelled', err);
+    return false;
+  }
+}
+
+async function saveNotesToLocalFolder(bookId) {
+  if (!bookId || !libraryDirectoryHandle || !window.LibrusAnnotations) return false;
+  const annotations = LibrusAnnotations.exportBookAnnotations(bookId);
+  if (!annotations || annotations.length === 0) return false;
+
+  try {
+    const fileName = `${bookId}-notes.jsonld`;
+    const fileHandle = await libraryDirectoryHandle.getFileHandle(fileName, { create: true });
+    const writable = await fileHandle.createWritable();
+    await writable.write(JSON.stringify(annotations, null, 2));
+    await writable.close();
+    console.log(`Notes saved to disk: ${fileName}`);
+    return true;
+  } catch (e) {
+    console.warn('Failed to save notes to disk', e);
+    return false;
+  }
+}
