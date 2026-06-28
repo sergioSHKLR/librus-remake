@@ -2772,13 +2772,19 @@ function initAppUpdateStatus() {
  renderAppUpdateStatus();
 }
 
-// Auto prompt for library folder on first run
-if (!localStorage.getItem(LIBRARY_DIR_KEY)) {
-  setTimeout(() => {
-    if (confirm('Choose a local folder to save notes persistently with your books?')) {
-      chooseLibraryFolder();
-    }
-  }, 800);
+async function chooseLibraryFolder() {
+  try {
+    libraryDirectoryHandle = await window.showDirectoryPicker({
+      mode: 'readwrite',
+      startIn: 'documents'
+    });
+    localStorage.setItem(LIBRARY_DIR_KEY, 'granted');
+    alert('✅ Google Drive folder selected!\n\nNotes will be saved as sidecar files in this folder and sync across devices via Google Drive.');
+    return true;
+  } catch (err) {
+    console.warn('Folder selection cancelled', err);
+    return false;
+  }
 }
 
 // =========================================================================
