@@ -6,21 +6,15 @@ const SHELL_ASSETS = [
   './js/main.js',
   './js/annotations.js',
   './pwa/pwa.js',
-  './styles/style.css',
+  './styles/layout.css',
+  './styles/fonts.css',
+  './styles/colors.css',
   './manifest.webmanifest',
   './pages/context-placeholder.html',
   './pages/map.html',
-  './fonts/MaterialSymbolsOutlined.woff2',
-  './fonts/RobotoSlab-latin.woff2',
-  './fonts/RobotoSlab-latin-ext.woff2',
-  './fonts/ZenKurenaido-latin.woff2',
-  './fonts/ZenKurenaido-latin-ext.woff2',
   './books/manifest.json',
-  './pwa/icon-192.png',
-  './pwa/icon-512.png',
-  './pwa/screenshot-wide.png',
-  './pwa/screenshot-narrow.png',
-  './sw.js'
+  './icons/online.svg',
+  './icons/offline.svg',
 ];
 
 function stashInCache(cacheName, request, response) {
