@@ -255,7 +255,7 @@ function syncContextPlaceholderConnectivity() {
 
 function syncFaviconForTheme() {
  var theme = resolvedAppTheme();
- var href = theme === 'dark' ? 'icons/favicon-dark.svg' : 'icons/favicon-light.svg';
+ var href = theme === 'dark' ? '/favicon-dark.svg' : '/favicon-light.svg';
  document.querySelectorAll('link[rel="icon"][type="image/svg+xml"]').forEach(function (link) {
   link.href = href;
  });
@@ -857,19 +857,20 @@ function renderLibraryGrid() {
   cover.appendChild(authorEl);
 
   var deleteBtn = document.createElement('button');
-  deleteBtn.type = 'button';
-  deleteBtn.className = 'icon-btn library-grid-delete';
-  deleteBtn.title = 'Remove from library';
-  deleteBtn.setAttribute('aria-label', 'Remove ' + book.title + ' from library');
-  deleteBtn.innerHTML = '<span class="material-symbols-outlined" aria-hidden="true">&#xE872;</span>';
-  deleteBtn.addEventListener('click', function (e) {
-   e.stopPropagation();
-   if (book.source === 'upload') {
-    removeUploadedBook(book.id);
-   } else {
-    hideBook(book.id);
-   }
-  });
+deleteBtn.type = 'button';
+deleteBtn.className = 'icon-btn library-grid-delete';
+deleteBtn.title = 'Remove from library';
+deleteBtn.setAttribute('aria-label', 'Remove ' + book.title + ' from library');
+
+var deleteImg = document.createElement('img');
+deleteImg.src = 'icons/delete.svg';
+deleteImg.alt = 'Delete';
+deleteImg.setAttribute('aria-hidden', 'true');
+deleteImg.setAttribute('role', 'img');
+deleteImg.width = 20;
+deleteImg.height = 20;
+
+deleteBtn.appendChild(deleteImg);
 
   card.appendChild(cover);
   card.appendChild(deleteBtn);
@@ -2617,45 +2618,52 @@ function syncAllInputClearButtons() {
 }
 
 function initInputClearButtons() {
- var clearLabel = 'Clear';
- document.querySelectorAll('input[type="text"]').forEach(function (input) {
-  if (input.dataset.clearBound === '1') return;
-  var wrap;
-  var host = input.parentElement;
-  if (host && host.classList.contains('reader-main-search-field')) {
-   wrap = host;
-   wrap.classList.add('input-clearable');
-  } else if (!input.closest('.input-clearable')) {
-   wrap = document.createElement('div');
-   wrap.className = 'input-clearable';
-   input.parentNode.insertBefore(wrap, input);
-   wrap.appendChild(input);
-  } else {
-   wrap = input.closest('.input-clearable');
-  }
-  if (!wrap || wrap.querySelector('.input-clear-btn')) {
-   input.dataset.clearBound = '1';
-   syncInputClearButton(input);
-   return;
-  }
-  var btn = document.createElement('button');
-  btn.type = 'button';
-  btn.className = 'input-clear-btn';
-  btn.setAttribute('aria-label', clearLabel);
-  btn.hidden = true;
-  btn.innerHTML = '<span class="material-symbols-outlined" aria-hidden="true">&#xE14C;</span>';
-  btn.addEventListener('click', function () {
-   input.value = '';
-   input.dispatchEvent(new Event('input', { bubbles: true }));
-   input.dispatchEvent(new Event('change', { bubbles: true }));
-   syncInputClearButton(input);
-   input.focus();
+  document.querySelectorAll('input[type="text"]').forEach(function (input) {
+    if (input.dataset.clearBound === '1') return;
+    var wrap = input.closest('.input-clearable');
+    if (!wrap) {
+      wrap = document.createElement('div');
+      wrap.className = 'input-clearable';
+      input.parentNode.insertBefore(wrap, input);
+      wrap.appendChild(input);
+    }
+    if (wrap.querySelector('.input-clear-btn')) {
+      input.dataset.clearBound = '1';
+      syncInputClearButton(input);
+      return;
+    }
+
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'input-clear-btn';
+    btn.setAttribute('aria-label', 'Clear');
+    btn.textContent = '×';
+    btn.style.fontSize = '1.5rem';
+    btn.style.lineHeight = '1';
+    btn.style.fontWeight = 'normal';
+    btn.style.color = '#ccc';        // red
+    btn.style.border = 'none';
+    btn.style.background = 'transparent';
+    btn.style.cursor = 'pointer';
+    btn.style.padding = '0';
+    btn.style.width = '1.75rem';
+    btn.style.height = '1.75rem';
+    btn.style.display = 'flex';
+    btn.style.alignItems = 'center';
+    btn.style.justifyContent = 'center';
+
+    btn.addEventListener('click', function () {
+      input.value = '';
+      input.dispatchEvent(new Event('input', { bubbles: true }));
+      input.dispatchEvent(new Event('change', { bubbles: true }));
+      input.focus();
+      syncInputClearButton(input);
+    });
+
+    wrap.appendChild(btn);
+    input.dataset.clearBound = '1';
+    syncInputClearButton(input);
   });
-  wrap.appendChild(btn);
-  input.addEventListener('input', function () { syncInputClearButton(input); });
-  input.dataset.clearBound = '1';
-  syncInputClearButton(input);
- });
 }
 
 function bindAllListeners() {
@@ -3022,15 +3030,25 @@ function renderNotesList() {
  });
 }
 
-function createNotesIconButton(iconHtml, title, extraClass, filled) {
- var btn = document.createElement('button');
- btn.type = 'button';
- btn.className = 'icon-btn' + (extraClass ? ' ' + extraClass : '');
- btn.title = title;
- btn.setAttribute('aria-label', title);
- var glyphClass = filled ? 'material-symbols-outlined icon-glyph-filled' : 'material-symbols-outlined';
- btn.innerHTML = '<span class="' + glyphClass + '" aria-hidden="true">' + iconHtml + '</span>';
- return btn;
+function createNotesIconButton(iconPath, title, extraClass, filled) {
+  var btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'icon-btn' + (extraClass ? ' ' + extraClass : '');
+  btn.title = title;
+  btn.setAttribute('aria-label', title);
+
+  var img = document.createElement('img');
+  img.src = 'icons/' + iconPath.replace(/^icons\//, '');  // ensure leading slash
+  img.alt = title;
+  img.title = title;
+  img.setAttribute('aria-hidden', 'true');
+  img.setAttribute('role', 'img');
+  img.width = 24;
+  img.height = 24;
+  img.className = 'icon-btn-glyph';
+
+  btn.appendChild(img);
+  return btn;
 }
 
 function buildAnnotationCard(annotation, replies) {
@@ -3054,11 +3072,11 @@ function buildAnnotationCard(annotation, replies) {
  }
  var actions = document.createElement('div');
  actions.className = 'reader-notes-card-actions';
- var jumpBtn = createNotesIconButton('&#xE244;', 'Go to passage', '', true);
+ var jumpBtn = createNotesIconButton('quote.svg', 'Go to passage', '', true);
  jumpBtn.addEventListener('click', function () {
   LibrusAnnotations.scrollToAnnotation(notesViewport(), annotation);
  });
- var replyBtn = createNotesIconButton('&#xE15E;', 'Reply', 'icon-btn-reply');
+var replyBtn = createNotesIconButton('reply.svg', 'Reply', 'icon-btn-reply');
  replyBtn.addEventListener('click', function () {
   notesReplyParentId = annotation.id;
   clearNotesSelectionCache();
@@ -3071,12 +3089,11 @@ function buildAnnotationCard(annotation, replies) {
   if (cancelReplyBtn) cancelReplyBtn.classList.remove('is-hidden');
   renderNotesSelectionPreview();
  });
- var shareBtn = createNotesIconButton('&#xE80D;', 'Share note: sends the passage and comment via message, email, or another app', 'icon-btn-share');
+var shareBtn = createNotesIconButton('share.svg', 'Share note', 'icon-btn-share');
  shareBtn.addEventListener('click', function () {
   shareAnnotation(annotation);
  });
- var deleteBtn = createNotesIconButton('&#xE872;', 'Delete note', 'icon-btn-danger');
- deleteBtn.addEventListener('click', function () {
+var deleteBtn = createNotesIconButton('delete.svg', 'Delete note', 'icon-btn-danger'); deleteBtn.addEventListener('click', function () {
   if (!lastOpenedBookId || !confirm('Delete this note and its replies?')) return;
   currentBookAnnotations = LibrusAnnotations.removeAnnotation(lastOpenedBookId, annotation.id);
   if (notesReplyParentId === annotation.id) notesReplyParentId = null;

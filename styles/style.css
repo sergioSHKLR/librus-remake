@@ -449,6 +449,13 @@ textarea:focus-visible {
    transition: background var(--duration-fast) ease, color var(--duration-fast) ease;
 }
 
+.icon-btn-glyph {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+}
+
+
 .icon-btn .material-symbols-outlined {
    font-size: var(--icon-btn-glyph-size);
    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
@@ -2451,4 +2458,15 @@ mark.reader-search-hit.is-current {
 }
 .reader #read-settings-btn {
    display: none !important;
+}
+
+/* Topbar SVGs */
+.topbar img[role="img"],
+.topbar .icon-btn img {
+  filter: invert(1); /* Light icons on dark topbar */
+}
+
+body.theme--light .topbar img[role="img"],
+body.theme--light .topbar .icon-btn img {
+  filter: invert(1); /* Dark icons on light topbar */
 }

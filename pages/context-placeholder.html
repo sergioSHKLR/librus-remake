@@ -96,27 +96,33 @@
   </head>
 
   <body>
-    <div class="context-placeholder">
-      <div class="context-placeholder-icon is-online" id="context-placeholder-icon" aria-hidden="true">&#xF15C;</div>
-      <p class="context-placeholder-text" id="context-placeholder-text">Select text in the book, then choose a lookup
-        provider above.</p>
-    </div>
+<div class="context-placeholder">
+  <img src="online.svg" 
+       id="context-placeholder-icon" 
+       alt="online" 
+       aria-hidden="true" 
+       class="context-placeholder-icon is-online"
+       width="48" 
+       height="48">
+
+  <p class="context-placeholder-text" id="context-placeholder-text">Select text in the book, then choose a lookup
+    provider above.</p>
+</div>
+
     <script>
       (function () {
-        var ICON_ONLINE = '\uF15C';
-        var ICON_OFFLINE = '\uE2C1';
-
         var TEXT_ONLINE = 'Select text in the book, then choose a lookup provider above.';
-        var TEXT_OFFLINE = 'You\u2019re offline. This panel is unavailable';
+        var TEXT_OFFLINE = 'You’re offline. This panel is unavailable';
 
         function applyConnectivityState(online) {
-          var el = document.getElementById('context-placeholder-icon');
+          var icon = document.getElementById('context-placeholder-icon');
           var textEl = document.getElementById('context-placeholder-text');
           var isOnline = online !== false && (online === true || navigator.onLine);
-          if (el) {
-            el.textContent = isOnline ? ICON_ONLINE : ICON_OFFLINE;
-            el.classList.toggle('is-online', isOnline);
-            el.classList.toggle('is-offline', !isOnline);
+
+          if (icon) {
+            icon.src = isOnline ? 'icons/online.svg' : 'icons/offline.svg';
+            icon.classList.toggle('is-online', isOnline);
+            icon.classList.toggle('is-offline', !isOnline);
           }
           if (textEl) textEl.textContent = isOnline ? TEXT_ONLINE : TEXT_OFFLINE;
         }
@@ -136,6 +142,7 @@
         });
       })();
     </script>
+
   </body>
 
 </html>
