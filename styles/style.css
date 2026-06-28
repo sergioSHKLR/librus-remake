@@ -8,7 +8,7 @@
    color-scheme: light;
 
    /* === THEME BASE - CHANGE THIS ONE LINE TO RE-THEME THE APP === */
-   --theme-base: darkgreen;
+   --theme-base: seagreen;
 
    --bg-primary: var(--theme-base);
    --bg-secondary: #ffffff;
