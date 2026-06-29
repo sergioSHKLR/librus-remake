@@ -53,12 +53,10 @@
 
     .context-placeholder-icon.is-online {
       color: color-mix(in srgb, #1c7ed6 74%, var(--icon-muted) 26%);
-      opacity: 0.58;
     }
 
     .context-placeholder-icon.is-offline {
       color: color-mix(in srgb, #c92a2a 78%, var(--icon-muted) 22%);
-      opacity: 0.58;
     }
 
     html.theme--dark .context-placeholder-icon.is-online {
@@ -81,7 +79,7 @@
 <body>
   <div class="context-placeholder">
     <!-- Fixed duplicate alt tag here -->
-    <img id="context-placeholder-icon" src="../icons/online.svg" alt="Online" aria-hidden="true"
+    <img id="context-placeholder-icon" src="../icons/online-color.svg" alt="Online" aria-hidden="true"
       class="context-placeholder-icon is-online" width="48" height="48">
 
     <p class="context-placeholder-text" id="context-placeholder-text">
@@ -99,7 +97,7 @@
         var textEl = document.getElementById('context-placeholder-text');
 
         if (icon) {
-          icon.src = isOnline ? '../icons/online.svg' : '../icons/offline.svg'; icon.classList.toggle('is-online', isOnline);
+          icon.src = isOnline ? '../icons/online-color.svg' : '../icons/offline-color.svg'; icon.classList.toggle('is-online', isOnline);
           icon.classList.toggle('is-offline', !isOnline);
         }
         if (textEl) textEl.textContent = isOnline ? TEXT_ONLINE : TEXT_OFFLINE;

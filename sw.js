@@ -13,16 +13,21 @@ const SHELL_ASSETS = [
   './pages/context-placeholder.html',
   './pages/map.html',
   './books/manifest.json',
-  './icons/online.svg',
-  './icons/offline.svg',
+  './icons/online-color.svg',
+  './icons/offline-color.svg',
 ];
 
 function stashInCache(cacheName, request, response) {
- if (!response || !response.ok) return Promise.resolve();
- var copy = response.clone();
- return caches.open(cacheName).then(function (cache) {
-  return cache.put(request, copy);
- });
+  if (!response || !response.ok) return Promise.resolve();
+
+  if (!request || !request.url || request.url.startsWith('file://')) {
+    return Promise.resolve(); // silent skip
+  }
+
+  var copy = response.clone();
+  return caches.open(cacheName).then(function (cache) {
+    return cache.put(request, copy);
+  });
 }
 
 function precacheAssets(cache, assets) {
@@ -139,9 +144,13 @@ self.addEventListener('fetch', function (event) {
      var network = fetch(event.request).then(function (response) {
       if (response && response.ok) {
        var copy = response.clone();
-       cache.put(event.request, copy);
+       if (event.request && event.request.url && !event.request.url.startsWith('file://')) {
+        cache.put(event.request, copy);
+       }
       }
       return response;
+     }).catch(function () {
+      return cached;
      });
      return cached || network;
     });

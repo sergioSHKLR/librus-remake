@@ -33,7 +33,8 @@
     <link rel="icon" type="image/ico" href="/favicon.ico">
   <link rel="apple-touch-icon" href="pwa/icon-192.png">
 
-  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/fonts.css">
     
   <link rel="manifest" href="manifest.webmanifest">
   <script src="pwa/pwa.js" defer></script>
@@ -54,14 +55,14 @@
         <div class="library-topbar-start"></div>
         <div class="library-topbar-center">
           <div class="library-topbar-brand">
-            <span class="library-topbar-logo" aria-hidden="true"></span>
+            <img src="icons/brand.svg" alt="" width="36px" height="36px">
             <div class="library-topbar-brand-title">LIBRUS</div>
           </div>
         </div>
         <div class="library-topbar-end">
           <button type="button" class="icon-btn" id="library-settings-btn" title="Settings"
             aria-label="Open settings panel">
-            <img src="icons/settings.svg" alt="Settings" title="Settings" aria-hidden="true" role="img" class="icon-btn-glyph" width="24" height="24">
+            <img src="icons/settings-color.svg" alt="Settings" title="Settings" aria-hidden="true" role="img" class="icon-btn-glyph" width="24" height="24">
           </button>
         </div>
       </header>
@@ -69,10 +70,9 @@
       <!-- BLOCK 05: LIBRARY-BODY | V31-260617s/a — FILTER + DYNAMIC BOOK GRID -->
       <div class="library-body" id="library-body">
         <div class="library-grid-filter">
-          <img src="icons/filter.svg" alt="Library filter" title="Library filter" aria-hidden="true" role="img" class="icon-btn-glyph" width="24" height="24">
+          <img src="icons/filter-color.svg" alt="Library filter" title="Library filter" aria-hidden="true" role="img" class="icon-btn-glyph" width="24" height="24">
           <label for="library-filter" class="u-sr-only">Filter library</label>
-          <input type="text" id="library-filter" placeholder="Filter library...">
-          <span class="library-grid-filter-divider" role="separator" aria-hidden="true"></span>
+          <input type="text" id="library-filter" placeholder="type to filter…">
           <button type="button" class="icon-btn" id="library-upload-btn" title="Upload Markdown File"
             aria-label="Upload Markdown File">
            <img src="icons/upload.svg" alt="Upload books" title="Upload books" aria-hidden="true" role="img" class="icon-btn-glyph" width="24" height="24">
@@ -188,7 +188,7 @@
           <div class="reader-topbar-start">
             <button type="button" class="icon-btn" id="reader-back-btn" title="Back to Library"
               aria-label="Back to Library">
-              <img src="icons/home.svg" alt="Home" title="Home" aria-hidden="true" role="img" class="icon-btn-glyph" width="24" height="24">
+              <img src="icons/books.svg" alt="Home" title="Home" aria-hidden="true" role="img" class="icon-btn-glyph" width="24" height="24">
             </button>
             <button type="button" class="icon-btn" id="toc-toggle-btn" title="Table of Contents"
               aria-label="Table of Contents">
@@ -201,11 +201,11 @@
           <div class="reader-topbar-end">
             <button type="button" class="icon-btn" id="context-toggle-btn" title="Reference Panel"
               aria-label="Open reference panel">
-              <img src="icons/search.svg" alt="Consult" title="Consult" aria-hidden="true" role="img" class="icon-btn-glyph" width="24" height="24">
+              <img src="icons/search-white.svg" alt="Consult" title="Consult" aria-hidden="true" role="img" class="icon-btn-glyph" width="24" height="24">
 
             </button>
             <button type="button" class="icon-btn" id="notes-toggle-btn" title="Notes" aria-label="Notes">
-              <img src="icons/notes.svg" alt="Notes" title="Notes" aria-hidden="true" role="img" class="icon-btn-glyph" width="24" height="24">
+              <img src="icons/notes-color.svg" alt="Notes" title="Notes" aria-hidden="true" role="img" class="icon-btn-glyph" width="24" height="24">
             </button>
             <button type="button" class="icon-btn" id="read-settings-btn" title="Settings" aria-label="Open settings">
             </button>
@@ -222,9 +222,9 @@
           <aside class="reader-toc" id="reader-toc">
             <div class="toolbar reader-toc-toolbar">
               <div class="reader-toc-filter">
-               <img src="icons/filter.svg" alt="Filter" title="Filter" aria-hidden="true" role="img" class="icon-btn-glyph" width="24" height="24">
+               <img src="icons/filter-color.svg" alt="Filter" title="Filter" aria-hidden="true" role="img" class="icon-btn-glyph" width="24" height="24">
                 <label for="toc-filter-input" class="u-sr-only">Filter table of contents</label>
-                <input type="text" id="toc-filter-input" placeholder="Summary filter">
+                <input type="text" id="toc-filter-input" placeholder="type to filter…">
               </div>
             </div>
             <div class="reader-toc-body scroll-track">
@@ -237,10 +237,10 @@
             <div class="toolbar" id="reader-main-toolbar">
               <div class="reader-main-toolbar-start">
                 <div class="reader-main-search" id="reader-main-search">
-                 <img src="icons/search.svg" alt="Search" title="Search" aria-hidden="true" role="img" class="icon-btn-glyph" width="24" height="24">
+                 <img src="icons/search-blue.svg" alt="Search" title="Search" aria-hidden="true" role="img" class="icon-btn-glyph" width="24" height="24">
                   <div class="reader-main-search-field">
                     <label for="reader-search-input" class="u-sr-only">Search document</label>
-                    <input type="text" id="reader-search-input" placeholder="Find...">
+                    <input type="text" id="reader-search-input" placeholder="type to search…">
                   </div>
                   <div class="reader-main-search-meta" id="reader-search-meta">
                     <span class="reader-main-search-counter" id="reader-search-counter">0 / 0</span>
@@ -263,7 +263,7 @@
                 <button type="button" class="icon-btn" id="reader-share-btn"
                   title="Share link to this book (open a book first)"
                   aria-label="Share link to this book (open a book first)" disabled>
-                <img src="icons/share.svg" alt="Share" title="Share" aria-hidden="true" role="img" class="icon-btn-glyph" width="24" height="24">
+                <img src="icons/share-blue.svg" alt="Share" title="Share" aria-hidden="true" role="img" class="icon-btn-glyph" width="24" height="24">
                 </button>
               </div>
             </div>
@@ -291,7 +291,7 @@
                   <button type="button" class="context-split-search-btn context-split-search-main"
                     id="context-search-btn" title="Look up selection in Encyclopaedia"
                     aria-label="Look up selection in Encyclopaedia">
-                    <img src="icons/search.svg" alt="Share" title="Share" aria-hidden="true" role="img" class="icon-btn-glyph" width="24" height="24">
+                    <img src="icons/search-green.svg" alt="Share" title="Share" aria-hidden="true" role="img" class="icon-btn-glyph" width="24" height="24">
                   </button>
                   <button type="button" class="context-split-search-btn context-split-search-toggle"
                     id="context-provider-toggle" title="Choose lookup provider" aria-label="Choose lookup provider"
@@ -302,7 +302,7 @@
                     aria-label="Lookup providers">
                     <button type="button" class="context-provider-option is-active" role="menuitemradio"
                       aria-checked="true" data-provider="wiki">
-                     <img src="icons/wiki.svg" alt="Encyclopaedia" title="Encyclopaedia" aria-hidden="true" role="img" class="icon-btn-glyph" width="24" height="24">
+                     <img src="icons/wiki-color.svg" alt="Encyclopaedia" title="Encyclopaedia" aria-hidden="true" role="img" class="icon-btn-glyph" width="24" height="24">
                       <span>Encyclopaedia</span>
                     </button>
                     <button type="button" class="context-provider-option" role="menuitemradio" aria-checked="false"
@@ -312,17 +312,21 @@
                     </button>
                     <button type="button" class="context-provider-option" role="menuitemradio" aria-checked="false"
                       data-provider="map">
-                     <img src="icons/maps.svg" alt="Maps" title="Maps" aria-hidden="true" role="img" class="icon-btn-glyph" width="24" height="24">
+                     <img src="icons/map-color.svg" alt="Maps" title="Maps" aria-hidden="true" role="img" class="icon-btn-glyph" width="24" height="24">
                       <span>Map</span>
                     </button>
+
+
                   </div>
                 </div>
+  <span id="context-current-selection" class="context-current-selection">selection</span>
               </div>
+            
               <div class="reader-context-toolbar-end">
                 <button type="button" class="icon-btn" id="context-share-btn"
                   title="Share article link (load a reference first)"
                   aria-label="Share article link (load a reference first)" disabled>
-                <img src="icons/share.svg" alt="Share" title="Share" aria-hidden="true" role="img" class="icon-btn-glyph" width="24" height="24">
+                <img src="icons/share-green.svg" alt="Share" title="Share" aria-hidden="true" role="img" class="icon-btn-glyph" width="24" height="24">
                 </button>
               </div>
             </div>
@@ -343,9 +347,9 @@
           <aside class="reader-notes" id="reader-notes">
             <div class="toolbar reader-notes-toolbar">
               <div class="reader-notes-filter">
-                <img src="icons/filter.svg" alt="Notes" title="Notes" aria-hidden="true" role="img" class="icon-btn-glyph" width="24" height="24">
+                <img src="icons/filter-color.svg" alt="Notes" title="Notes" aria-hidden="true" role="img" class="icon-btn-glyph" width="24" height="24">
                 <label for="notes-filter-input" class="u-sr-only">Filter notes</label>
-                <input type="text" id="notes-filter-input" placeholder="Filter notes…" autocomplete="off">
+                <input type="text" id="notes-filter-input" placeholder="type to filter…" autocomplete="off">
               </div>
             </div>
             <div class="reader-notes-body">
@@ -361,7 +365,7 @@
                        <img src="icons/hilite.svg" alt="Highlight" title="Highlight" aria-hidden="true" role="img" class="icon-btn-glyph" width="24" height="24">
                     <button type="button" class="icon-btn icon-btn-save" id="notes-save-btn" title="Save note"
                       aria-label="Save note" disabled>
-                      <img src="icons/save.svg" alt="Save" title="Save" aria-hidden="true" role="img" class="icon-btn-glyph" width="24" height="24">
+                      <img src="icons/save-color.svg" alt="Save" title="Save" aria-hidden="true" role="img" class="icon-btn-glyph" width="24" height="24">
                     </button>
                     <button type="button" class="icon-btn is-hidden" id="notes-cancel-reply-btn" title="Cancel reply"
                       aria-label="Cancel reply">

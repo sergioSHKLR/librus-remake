@@ -8,10 +8,6 @@
   --notes-hand-font: 'Zen Kurenaido', 'Segoe Print', 'Bradley Hand', cursive;
 }
 
-body.theme--dark,
-body.theme--system {
-}
-
 @font-face {
    font-family: 'Roboto Slab';
    font-style: normal;
@@ -68,6 +64,7 @@ select {
 
 .icon-btn .icon-glyph-filled {
   font-variation-settings: 'FILL' 1, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+  background: none;
 }
 
 .btn-wide {
@@ -86,8 +83,9 @@ select {
 
 .library-topbar-brand-title {
   font-weight: 700;
-  font-size: var(--font-size-lg);
+  font-size: 1.5rem;
   letter-spacing: -0.02em;
+  font-family: Tahoma, Verdana, sans;
 }
 
 .reader-topbar-title {
@@ -426,10 +424,10 @@ mark.reader-search-hit {
   }
 }
 
-.topbar img[role="img"],
-.topbar .icon-btn img {
+.portrait-alert {
+  text-align: center;
 }
 
-body.theme--light .topbar img[role="img"],
-body.theme--light .topbar .icon-btn img {
+button.dismissable {
+  font-size: 24px;
 }
