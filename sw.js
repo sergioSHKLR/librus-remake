@@ -13,8 +13,8 @@ const SHELL_ASSETS = [
   './pages/context-placeholder.html',
   './pages/map.html',
   './books/manifest.json',
-  './icons/online-color.svg',
-  './icons/offline-color.svg',
+  './icons/online.svg',
+  './icons/offline.svg',
 ];
 
 function stashInCache(cacheName, request, response) {

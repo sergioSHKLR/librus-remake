@@ -68,9 +68,9 @@ const CONTEXT_PROVIDER_LABELS = {
   map: 'Map'
 };
 const CONTEXT_PROVIDER_ICONS = {
-  wiki: '\uF106',
-  dictionary: '\uF385',
-  map: '\uF3CA'
+  wiki: '<img src="icons/wikipedia.svg" alt="Wikipedia" width="24" height="24" aria-hidden="true">',
+  dictionary: '<img src="icons/dictionary.svg" alt="Dictionary" width="24" height="24" aria-hidden="true">',
+  map: '<img src="icons/map.svg" alt="Map" width="24" height="24" aria-hidden="true">'
 };
 let contextReloadUrl = '';
 let contextLoadPreviousUrl = '';
@@ -859,7 +859,7 @@ function renderLibraryGrid() {
     deleteBtn.setAttribute('aria-label', 'Remove ' + book.title + ' from library');
 
     var deleteImg = document.createElement('img');
-    deleteImg.src = 'icons/delete-color.svg';
+    deleteImg.src = 'icons/delete.svg';
     deleteImg.alt = 'Delete';
     deleteImg.setAttribute('aria-hidden', 'true');
     deleteImg.setAttribute('role', 'img');
@@ -1908,7 +1908,9 @@ function pushMapGeocodeToFrame(query) {
 }
 
 function normalizeMapQuery(query) {
-  return String(query || '').trim().replace(/^[\s"'\u201C\u201D\u2018\u2019]+|[\s"'\u201C\u201D\u2018\u2019.,;:!?]+$/g, '');
+  return String(query || '').trim()
+    .replace(/^[\s"']+|[\s"'\.,;:!?]+$/g, '')           // basic quotes
+    .replace(/[""'']/g, '');        // smart quotes
 }
 
 function isContextPlaceholderUrl(url) {
@@ -2186,8 +2188,8 @@ function showContextLoading(providerKey, query) {
   contextLoadingActive = true;
   contextLoadingStartedAt = Date.now();
   var label = contextProviderLabel(providerKey);
-  var quote = query ? '\u201C' + query + '\u201D' : 'your selection';
-  statusEl.textContent = 'Looking up ' + quote + ' in ' + label + '\u2026';
+  var quote = query ? '"' + query + '"' : 'your selection';
+  statusEl.textContent = 'Looking up ' + quote + ' in ' + label + '…';
   if (elapsedEl) {
     elapsedEl.classList.add('is-hidden');
     elapsedEl.textContent = '';
@@ -2204,7 +2206,7 @@ function showContextLoading(providerKey, query) {
   }, CONTEXT_LOAD_SLOW_MS);
   contextLoadingTimeoutTimer = window.setTimeout(function () {
     if (!contextLoadingActive || !statusEl) return;
-    statusEl.textContent = 'Still loading \u2014 slow connection?';
+    statusEl.textContent = 'Still loading — slow connection?';
   }, CONTEXT_LOAD_TIMEOUT_MS);
 }
 
@@ -2714,9 +2716,9 @@ function bindAllListeners() {
 // V31-260619a/o | SECTION 16: APP UPDATE STATUS
 // SETTINGS FOOTER — MOBILE_CHECK (UP TO DATE) / MOBILE_ALERT (UPDATE)
 // =========================================================================
-var APP_UPDATE_ICONS = {
-  uptodate: '\uF073',
-  update: '\uF2D3'
+const APP_UPDATE_ICONS = {
+  uptodate: '<img src="icons/current.svg" alt="Up to date" width="24" height="24" aria-hidden="true">',
+  update: '<img src="icons/expired.svg" alt="Update available" width="24" height="24" aria-hidden="true">'
 };
 
 function getAppUpdateSnapshot() {
@@ -2934,9 +2936,9 @@ function currentBookTitleForShare() {
 function buildAnnotationShareText(annotation) {
   var quote = LibrusAnnotations.getTextQuoteSelector(annotation);
   var lines = [];
-  if (quote && quote.exact) lines.push('\u201C' + quote.exact + '\u201D');
+  if (quote && quote.exact) lines.push('"' + quote.exact + '"');
   if (annotation.body && annotation.body.value) lines.push(annotation.body.value);
-  lines.push('\u2014 ' + currentBookTitleForShare());
+  lines.push('— ' + currentBookTitleForShare());
   lines.push(LIBRUS_SHARE_ATTRIBUTION);
   return lines.join('\n\n');
 }
@@ -2949,9 +2951,9 @@ function copyAnnotationShareText(text) {
 function buildAnnotationShareWebText(annotation) {
   var quote = LibrusAnnotations.getTextQuoteSelector(annotation);
   var lines = [];
-  if (quote && quote.exact) lines.push('\u201C' + quote.exact + '\u201D');
+  if (quote && quote.exact) lines.push('"' + quote.exact + '"');
   if (annotation.body && annotation.body.value) lines.push(annotation.body.value);
-  lines.push('\u2014 ' + currentBookTitleForShare());
+  lines.push('— ' + currentBookTitleForShare());
   return lines.join('\n\n');
 }
 
@@ -2998,7 +3000,7 @@ function renderNotesSelectionPreview() {
     syncNotesComposePlaceholder();
     return;
   }
-  preview.textContent = '\u201C' + quote.exact + '\u201D';
+  preview.textContent = '"' + quote.exact + '"';
   preview.classList.remove('is-empty');
   preview.hidden = false;
   if (saveBtn) saveBtn.disabled = false;
@@ -3125,7 +3127,7 @@ function buildAnnotationCard(annotation, replies) {
   shareBtn.addEventListener('click', function () {
     shareAnnotation(annotation);
   });
-  var deleteBtn = createNotesIconButton('delete-color.svg', 'Delete note', 'icon-btn-danger'); deleteBtn.addEventListener('click', function () {
+  var deleteBtn = createNotesIconButton('delete.svg', 'Delete note', 'icon-btn-danger'); deleteBtn.addEventListener('click', function () {
     if (!lastOpenedBookId || !confirm('Delete this note and its replies?')) return;
     currentBookAnnotations = LibrusAnnotations.removeAnnotation(lastOpenedBookId, annotation.id);
     if (notesReplyParentId === annotation.id) notesReplyParentId = null;

@@ -1,0 +1,113 @@
+/* Colors ------------------------------- */
+
+:root {
+  --search-hit-current-ring: goldenrod;
+}
+
+input,
+select,
+textarea {
+  border: 1px solid #ccc;
+}
+
+.topbar {
+  background-color: darkgreen;
+}
+
+.reader-toc-toolbar,
+#reader-main-toolbar,
+.reader-context-toolbar,
+.reader-notes-toolbar {
+  border-bottom: 1px solid #ccc;
+  background: whitesmoke;
+}
+
+.reader-toc-toolbar {
+  border-right: 1px solid #ccc;
+}
+
+.reader-context-toolbar,
+.reader-notes-toolbar {
+  border-left: 1px solid #ccc;
+}
+
+.reader-toc-body {
+  border-right: 1px solid #ccc;
+  background: #fff;
+}
+
+.reader-notes-body,
+.reader-context-body {
+  border-left: 1px solid #ccc;
+  background: #fff;
+}
+
+input {
+  border: 1px solid #ccc;
+}
+
+.context-provider-menu {
+  background: #fff;
+  border: 1px solid #ccc;
+}
+
+.library-topbar-brand {
+  color: #fff;
+}
+
+.reader-topbar-title {
+  color: #fff;
+}
+
+.library-grid-filter {
+  border-bottom: 1px solid #ccc;
+  background: whitesmoke;
+}
+
+.library-grid-card {
+  border: 1px solid #ccc;
+}
+
+#library-settings .toolbar {
+  background-color: #ccc;
+}
+
+.library-settings-body {
+  background: #fff;
+  border: 1px solid #ccc;
+}
+
+.reader-notes-compose-region {
+  border-bottom: 1px solid #ccc;
+  background: whitesmoke;
+}
+
+mark.reader-search-hit {
+  background: lemonchiffon;
+}
+
+mark.reader-search-hit.is-current {
+  outline: 0.125rem solid #f57c00;
+}
+
+.reader-notes-annotation {
+  border: 1px solid #ccc;
+  background: lemonchiffon;
+}
+
+#context-loading-status,
+.context-loading-text,
+#context-search-meta,
+.reader-search-meta {
+  background-color: whitesmoke !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  color: #1f2937;
+}
+
+.theme--dark #context-loading-status,
+.theme--dark .context-loading-text,
+.theme--dark #context-search-meta,
+.theme--dark .reader-search-meta {
+  background-color: #374151 !important;
+  color: #f3f4f6;
+}
