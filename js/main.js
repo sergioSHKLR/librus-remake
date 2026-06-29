@@ -3311,3 +3311,34 @@ async function saveNotesToLocalFolder(bookId) {
     return false;
   }
 }
+
+function checkOrientation() {
+  const alert = document.getElementById('portrait-alert');
+  if (!alert) return;
+
+  // Check if user already dismissed
+  if (localStorage.getItem('portraitAlertDismissed') === 'true') {
+    alert.classList.add('is-hidden');
+    return;
+  }
+
+  if (window.innerWidth < window.innerHeight && window.innerWidth < 768) {
+    alert.classList.remove('is-hidden');
+  } else {
+    alert.classList.add('is-hidden');
+  }
+}
+
+function hidePortraitAlert() {
+  const alert = document.getElementById('portrait-alert');
+  if (alert) alert.classList.add('is-hidden');
+  
+  // Remember dismissal
+  localStorage.setItem('portraitAlertDismissed', 'true');
+}
+
+window.addEventListener('resize', checkOrientation);
+window.addEventListener('orientationchange', checkOrientation);
+
+// Run on load
+document.addEventListener('DOMContentLoaded', checkOrientation);

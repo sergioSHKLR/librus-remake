@@ -8,7 +8,7 @@
    color-scheme: light;
 
    /* === THEME BASE - CHANGE THIS ONE LINE TO RE-THEME THE APP === */
-   --theme-base: seagreen;
+   --theme-base: darkgreen;
 
    --bg-primary: var(--theme-base);
    --bg-secondary: #ffffff;
@@ -27,7 +27,8 @@
 
    --library-toolbar-bg: color-mix(in srgb, var(--theme-base) 10%, #ffffff);
    --library-toolbar-fg: var(--text-primary);
-   --toolbar-icon-color: #1a1d21;   /* dark icons on light panels */
+   --toolbar-icon-color: #1a1d21;
+   /* dark icons on light panels */
 
    --font-size-sm: 0.8125rem;
    --font-size-md: 0.875rem;
@@ -47,7 +48,8 @@
    --padding-xl: 1.5rem;
 
    --topbar-height: 3.375rem;
-  --btn-size: 3.5rem;           /* larger icon buttons */
+   --btn-size: 3.5rem;
+   /* larger icon buttons */
    --btn-size-sm: 2.75rem;
    --icon-btn-glyph-size: 1.75rem;
    --icon-btn-glyph-size-sm: 1.5rem;
@@ -228,7 +230,8 @@ body {
    line-height: 1.5;
    height: 100%;
    overflow: hidden;
-   background: var(--bg-secondary);   /* prevent accent flash */
+   background: var(--bg-secondary);
+   /* prevent accent flash */
    color: var(--text-primary);
    transition: background var(--duration-fast) ease, color var(--duration-fast) ease;
 }
@@ -417,9 +420,9 @@ textarea:focus-visible {
 }
 
 .icon-btn-glyph {
-  width: 24px;
-  height: 24px;
-  vertical-align: middle;
+   width: 24px;
+   height: 24px;
+   vertical-align: middle;
 }
 
 
@@ -696,8 +699,8 @@ textarea:focus-visible {
 }
 
 .library-topbar-logo {
-   width: 1.625rem;
-   height: 1.625rem;
+   width: 1.9rem;
+   height: 1.9rem;
    flex-shrink: 0;
    display: block;
    background-color: var(--topbar-fg);
@@ -707,9 +710,10 @@ textarea:focus-visible {
 
 .library-topbar-brand-title {
    font-weight: 700;
-   font-size: var(--font-size-lg);
+   font-size: 1.5rem;
    letter-spacing: -0.02em;
    color: var(--topbar-fg);
+   font-family: Tahoma, Verdana, sans;
 }
 
 .reader-topbar-title {
@@ -890,7 +894,7 @@ textarea:focus-visible {
    line-height: 1.2;
    color: var(--cover-fg, #1a1d21);
    display: -webkit-box;
-   -webkit-line-clamp: 4;
+   line-clamp: 4;
    -webkit-box-orient: vertical;
    overflow: hidden;
 }
@@ -905,7 +909,7 @@ textarea:focus-visible {
    font-weight: 500;
    color: color-mix(in srgb, var(--cover-fg, #1a1d21) 72%, var(--text-muted));
    display: -webkit-box;
-   -webkit-line-clamp: 2;
+   line-clamp: 2;
    -webkit-box-orient: vertical;
    overflow: hidden;
 }
@@ -2211,7 +2215,7 @@ mark.reader-search-hit.is-current {
    SECTION 20: MOBILE REFINEMENTS | V31-260617s/j
    NARROW VIEWPORT (~511 × 1031) — LIBRARY, READER, OVERLAYS
    ========================================================================= */
-   
+
 @media (max-width: 48rem) {
    .library-grid-card:nth-child(n + 5) {
       content-visibility: auto;
@@ -2419,6 +2423,7 @@ mark.reader-search-hit.is-current {
       top: var(--topbar-height) !important;
    }
 }
+
 .reader #read-settings-btn {
    display: none !important;
 }
@@ -2426,10 +2431,82 @@ mark.reader-search-hit.is-current {
 /* Topbar SVGs */
 .topbar img[role="img"],
 .topbar .icon-btn img {
-  filter: invert(1); /* Light icons on dark topbar */
+   filter: invert(1);
+   /* Light icons on dark topbar */
 }
 
 body.theme--light .topbar img[role="img"],
 body.theme--light .topbar .icon-btn img {
-  filter: invert(1); /* Dark icons on light topbar */
+   filter: invert(1);
+   /* Dark icons on light topbar */
+}
+
+
+.floating-github {
+   position: fixed;
+   bottom: 20px;
+   left: 20px;
+   z-index: 9999;
+   width: 48px;
+   height: 48px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background: rgba(255, 255, 255, 0.9);
+   border-radius: 50%;
+   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+   transition: transform 0.2s ease, box-shadow 0.2s ease;
+   opacity: .5;
+}
+
+.floating-github:hover {
+   transform: scale(1.1);
+   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+   opacity: 1;
+}
+
+.portrait-alert {
+   position: fixed;
+   inset: 0;
+   background: rgba(0, 0, 0, 0.85);
+   z-index: 10000;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   color: white;
+   text-align: center;
+}
+
+.portrait-content {
+   max-width: 280px;
+}
+
+.device-animation {
+   margin-bottom: 1.5rem;
+   animation: rotateDevice 4s infinite ease-in-out;
+}
+
+.device {
+   width: 240px;
+   height: 240px;
+   filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
+}
+
+@keyframes rotateDevice {
+
+   0%,
+   100% {
+      transform: rotate(0deg);
+   }
+
+   50% {
+      transform: rotate(-90deg);
+   }
+}
+
+button.dismissable {
+   background-color: unset;
+   margin: 40px 0;
+   padding: 20px;
+   font-size: 24px;
 }

@@ -8,14 +8,14 @@
   <title>LIBRUS</title>
   <meta name="description"
     content="LIBRUS: A lightweight digital reading workspace with local markdown library and configurable lookup providers.">
-  <link rel="canonical" href="https://sergioshklr.github.io/librus-zero/">
+  <link rel="canonical" href="https://sergioshklr.github.io/librus-remake/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="librus">
   <meta property="og:title" content="LIBRUS — digital reading workspace">
   <meta property="og:description"
     content="A lightweight digital reading workspace with a local markdown library and configurable lookup providers.">
-  <meta property="og:url" content="https://sergioshklr.github.io/librus-zero/">
-  <meta property="og:image" content="https://sergioshklr.github.io/librus-zero/icons/social-card.png">
+  <meta property="og:url" content="https://sergioshklr.github.io/librus-remake/">
+  <meta property="og:image" content="https://sergioshklr.github.io/librus-remake/pwa/social-card.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="LIBRUS digital reading workspace">
@@ -23,7 +23,7 @@
   <meta name="twitter:title" content="LIBRUS — digital reading workspace">
   <meta name="twitter:description"
     content="A lightweight digital reading workspace with a local markdown library and configurable lookup providers.">
-  <meta name="twitter:image" content="https://sergioshklr.github.io/librus-zero/icons/social-card.png">
+  <meta name="twitter:image" content="https://sergioshklr.github.io/librus-remake/pwa/social-card.png">
   <meta name="twitter:image:alt" content="LIBRUS digital reading workspace">
   <meta name="theme-color" content="#8b4513">
   <meta name="mobile-web-app-capable" content="yes">
@@ -31,11 +31,9 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="librus">
     <link rel="icon" type="image/ico" href="/favicon.ico">
-  <link rel="apple-touch-icon" href="icons/pwa/icon-192.png">
+  <link rel="apple-touch-icon" href="pwa/icon-192.png">
 
-  <link rel="stylesheet" href="styles/layout.css">
-  <link rel="stylesheet" href="styles/fonts.">
-  <link rel="stylesheet" href="styles/colors.css">
+  <link rel="stylesheet" href="styles/style.css">
     
   <link rel="manifest" href="manifest.webmanifest">
   <script src="pwa/pwa.js" defer></script>
@@ -172,8 +170,7 @@
               updates</button>
           </div>
           <div class="library-settings-footer-row library-settings-footer-meta">
-            <a class="library-settings-repo" href="https://github.com/sergioSHKLR/librus-zero" target="_blank"
-              rel="noopener noreferrer">github.com/sergioSHKLR/librus-zero</a>
+        
             <span class="library-settings-build" id="settings-build-id" title="Deployed build">
               <span class="library-settings-build-label" id="settings-build-label"></span>
             </span>
@@ -383,6 +380,25 @@
         </div>
       </div>
     </div>
+    <!-- Floating GitHub Icon -->
+<a href="https://github.com/sergioSHKLR/librus-remake" 
+   target="_blank" 
+   rel="noopener noreferrer"
+   class="floating-github" 
+   title="GitHub"
+   aria-label="Link to repo on GitHub">
+  <img src="icons/github.svg" alt="GitHub" width="36" height="36">
+</a>
+
+<div id="portrait-alert" class="portrait-alert is-hidden">
+  <div class="portrait-content">
+    <div class="device-animation">
+      <img src="icons/device.svg" alt="Device" class="device">
+    </div>
+    <p>Rotate to landscape for a better experience!</p>
+    <button class="dismissable btn-wide" onclick="hidePortraitAlert()">Dismiss</button>
+  </div>
+</div>
 
   </main>
 
