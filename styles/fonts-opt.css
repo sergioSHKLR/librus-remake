@@ -3,7 +3,7 @@
 :root {
   --font-size-sm: 0.8125rem;
   --font-size-md: 0.875rem;
-  --font-size-lg: 1rem;
+  --font-size-lg: 1.25rem;
   --reader-font-family: 'Roboto Slab', Georgia, 'Times New Roman', serif;
   --notes-hand-font: 'Zen Kurenaido', 'Segoe Print', 'Bradley Hand', cursive;
 }
