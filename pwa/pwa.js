@@ -1,8 +1,9 @@
 /* Librus PWA | Cleaned V31-260620a — registration + update handling */
 (function () {
   var APP_NAME = 'LIBRUS';
-  var APP_VERSION = 'v.32';
-  var BUILD_ID = 'v32-r03';     // bump this too
+  const APP_VERSION = 'v.32';
+  const BUILD_ID = 'v32-r06';   // ← bump this on every change
+
   var waitingWorker = null;
   var registrationRef = null;
 
@@ -11,6 +12,10 @@
   }
 
   function setUpdateAvailable(worker) {
+    const badge = document.getElementById('settings-update-badge-mini');
+    if (badge) badge.classList.add('is-update');
+    const icon = document.querySelector('#library-settings-btn img');
+    if (icon) icon.src = 'icons/expired.svg';
     if (!worker) return;
     waitingWorker = worker;
     dispatch('librus:pwa-update-available', { buildId: BUILD_ID });
@@ -96,24 +101,15 @@
           window.location.reload();
         });
       });
-    },
-    clearCaches: function () {
-      if (!('caches' in window)) return Promise.resolve();
-      return caches.keys().then(keys => Promise.all(keys.map(k => caches.delete(k))));
-    },
-    unregister: function () {
-      if (!('serviceWorker' in navigator)) return Promise.resolve();
-      return navigator.serviceWorker.getRegistrations().then(regs =>
-        Promise.all(regs.map(reg => reg.unregister()))
-      );
     }
   };
+
   // Force check on page load
   window.addEventListener('load', function () {
     setTimeout(() => {
       if (window.LibrusPwa && typeof window.LibrusPwa.checkForUpdates === 'function') {
         window.LibrusPwa.checkForUpdates().catch(() => { });
       }
-    }, 1500);
+    }, 2000);
   });
 })();
