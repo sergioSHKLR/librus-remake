@@ -1223,11 +1223,18 @@ function rebuildReaderHeadingIndex() {
 
 function scheduleReaderHeadingIndexRebuild() {
   if (readerHeadingIndexRaf) return;
-  readerHeadingIndexRaf = requestAnimationFrame(function () {
-    readerHeadingIndexRaf = 0;
-    rebuildReaderHeadingIndex();
-    scheduleTocScrollSync();
-  });
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(function () {
+      rebuildReaderHeadingIndex();
+      scheduleTocScrollSync();
+    }, { timeout: 1500 });
+  } else {
+    readerHeadingIndexRaf = requestAnimationFrame(function () {
+      readerHeadingIndexRaf = 0;
+      rebuildReaderHeadingIndex();
+      scheduleTocScrollSync();
+    });
+  }
 }
 
 function getReaderActiveHeadingId() {
@@ -1290,7 +1297,7 @@ function scrollActiveTocItemIntoView(link, container) {
 }
 
 // =========================================================================
-// TOC SCROLL SYNC (optimized — reduced reflow)
+// TOC SCROLL SYNC — further optimized (idle + stronger debounce)
 var tocScrollRaf = 0;
 var lastSyncTime = 0;
 var lastTocActiveId = '';
@@ -1298,7 +1305,7 @@ var lastTocActiveId = '';
 function syncTocScrollState() {
   tocScrollRaf = 0;
   const now = performance.now();
-  if (now - lastSyncTime < 16) return; // limit to ~60fps
+  if (now - lastSyncTime < 32) return; // ~30fps max for TOC sync (less intrusive)
   lastSyncTime = now;
 
   var list = getTocList();
@@ -1318,11 +1325,15 @@ function syncTocScrollState() {
     var activeLink = list.querySelector('.reader-toc-item.is-active');
     var tocBody = document.querySelector('.reader-toc-body');
     if (activeLink && tocBody) {
-      // smoother + cheaper scroll
       activeLink.scrollIntoView({ block: 'nearest', behavior: 'auto' });
     }
     lastTocActiveId = activeId;
   }
+}
+
+function scheduleTocScrollSync() {
+  if (tocScrollRaf) return;
+  tocScrollRaf = requestAnimationFrame(syncTocScrollState);
 }
 
 function scheduleTocScrollSync() {
@@ -1558,9 +1569,17 @@ function readerMainScrollEl() {
 
 function scrollToElementInContainer(el, scrollContainer, offset) {
   if (!el || !scrollContainer) return;
-  var elRect = el.getBoundingClientRect();
-  var containerRect = scrollContainer.getBoundingClientRect();
-  scrollContainer.scrollTop += elRect.top - containerRect.top - (offset || 0);
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(function () {
+      var elRect = el.getBoundingClientRect();
+      var containerRect = scrollContainer.getBoundingClientRect();
+      scrollContainer.scrollTop += elRect.top - containerRect.top - (offset || 0);
+    });
+  } else {
+    var elRect = el.getBoundingClientRect();
+    var containerRect = scrollContainer.getBoundingClientRect();
+    scrollContainer.scrollTop += elRect.top - containerRect.top - (offset || 0);
+  }
 }
 
 function isBookShareHash(raw) {
@@ -1593,14 +1612,18 @@ function handleReaderContentLinkClick(event) {
 }
 
 function handleScrollContainerScroll(container) {
-  if (container.id === 'reader-main-scroll') scheduleTocScrollSync();
+  if (container.id === 'reader-main-scroll') {
+    scheduleTocScrollSync();
+  }
   if (container.id !== 'reader-main-scroll') return;
   if (!isMobileReaderLayout()) return;
 
   var readerContainer = document.getElementById('reader-container');
   var last = scrollTops.get(container) || 0;
   var st = container.scrollTop;
-  if (Math.abs(st - last) <= SCROLL_THRESHOLD) return;
+
+  // Stronger threshold to reduce calls
+  if (Math.abs(st - last) <= 50) return;   // increased from SCROLL_THRESHOLD
 
   if (st <= SCROLL_HIDE_OFFSET || st < last) {
     readerContainer.classList.remove('is-topbar-hidden');
