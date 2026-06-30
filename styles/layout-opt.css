@@ -1546,6 +1546,7 @@ mark.reader-search-hit.is-current {
   display: none !important;
 }
 
+/*
 .floating-github {
   position: fixed;
   bottom: 20px;
@@ -1564,7 +1565,8 @@ mark.reader-search-hit.is-current {
 .floating-github:hover {
   transform: scale(1.1);
   opacity: 1;
-}
+} 
+  */
 
 .portrait-alert {
   position: fixed;
