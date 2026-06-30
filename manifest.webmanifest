@@ -51,5 +51,11 @@
       "form_factor": "narrow",
       "label": "Reader workspace on mobile"
     }
+  ],
+  "categories": [
+    "books &amp; reference",
+    "developer",
+    "education",
+    "travel"
   ]
 }

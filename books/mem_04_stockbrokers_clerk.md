@@ -6,7 +6,7 @@ lang: en-US
 chronology: 16
 ---
 
-# The Stockbroker\u2019s Clerk
+# The Stockbroker’s Clerk
 ## The Memoirs of Sherlock Holmes
 
 

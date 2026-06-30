@@ -6,7 +6,7 @@ lang: en-US
 chronology: 40
 ---
 
-# The Adventure of the Devil's Foot
+# The Adventure of the Devil’s Foot
 ## His Last Bow
 
 

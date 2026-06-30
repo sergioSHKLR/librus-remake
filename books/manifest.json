@@ -99,73 +99,73 @@
       "lang": "en-US"
     },
     "adv_07_the_blue_carbuncle.md": {
-      "title": "The Adventure of the Blue Carbuncle",
+      "title": "The Blue Carbuncle",
       "author": "Arthur Conan Doyle",
       "order": 7,
       "lang": "en-US"
     },
     "adv_08_the_speckled_band.md": {
-      "title": "The Adventure of the Speckled Band",
+      "title": "The Speckled Band",
       "author": "Arthur Conan Doyle",
       "order": 8,
       "lang": "en-US"
     },
     "adv_09_the_engineers_thumb.md": {
-      "title": "The Adventure of the Engineer's Thumb",
+      "title": "The Engineer's Thumb",
       "author": "Arthur Conan Doyle",
       "order": 9,
       "lang": "en-US"
     },
     "adv_10_the_noble_bachelor.md": {
-      "title": "The Adventure of the Noble Bachelor",
+      "title": "The Noble Bachelor",
       "author": "Arthur Conan Doyle",
       "order": 10,
       "lang": "en-US"
     },
     "adv_11_the_beryl_coronet.md": {
-      "title": "The Adventure of the Beryl Coronet",
+      "title": "The Beryl Coronet",
       "author": "Arthur Conan Doyle",
       "order": 11,
       "lang": "en-US"
     },
     "adv_12_the_copper_beeches.md": {
-      "title": "The Adventure of the Copper Beeches",
+      "title": "The Copper Beeches",
       "author": "Arthur Conan Doyle",
       "order": 12,
       "lang": "en-US"
     },
     "cb_01_illustrious_client.md": {
-      "title": "The Adventure of the Illustrious Client",
+      "title": "The Illustrious Client",
       "author": "Arthur Conan Doyle",
       "order": 45,
       "lang": "en-US"
     },
     "cb_02_blanched_soldier.md": {
-      "title": "The Adventure of the Blanched Soldier",
+      "title": "The Blanched Soldier",
       "author": "Arthur Conan Doyle",
       "order": 46,
       "lang": "en-US"
     },
     "cb_03_mazarin_stone.md": {
-      "title": "The Adventure of the Mazarin Stone",
+      "title": "The Mazarin Stone",
       "author": "Arthur Conan Doyle",
       "order": 47,
       "lang": "en-US"
     },
     "cb_04_three_gables.md": {
-      "title": "The Adventure of the Three Gables",
+      "title": "The Three Gables",
       "author": "Arthur Conan Doyle",
       "order": 48,
       "lang": "en-US"
     },
     "cb_05_sussex_vampire.md": {
-      "title": "The Adventure of the Sussex Vampire",
+      "title": "The Sussex Vampire",
       "author": "Arthur Conan Doyle",
       "order": 49,
       "lang": "en-US"
     },
     "cb_06_three_garridebs.md": {
-      "title": "The Adventure of the Three Garridebs",
+      "title": "The Three Garridebs",
       "author": "Arthur Conan Doyle",
       "order": 50,
       "lang": "en-US"
@@ -177,19 +177,19 @@
       "lang": "en-US"
     },
     "cb_08_creeping_man.md": {
-      "title": "The Adventure of the Creeping Man",
+      "title": "The Creeping Man",
       "author": "Arthur Conan Doyle",
       "order": 52,
       "lang": "en-US"
     },
     "cb_09_lions_mane.md": {
-      "title": "The Adventure of the Lion\\u2019s Mane",
+      "title": "The Lion's Mane",
       "author": "Arthur Conan Doyle",
       "order": 53,
       "lang": "en-US"
     },
     "cb_10_veiled_lodger.md": {
-      "title": "The Adventure of the Veiled Lodger",
+      "title": "The Veiled Lodger",
       "author": "Arthur Conan Doyle",
       "order": 54,
       "lang": "en-US"
@@ -201,7 +201,7 @@
       "lang": "en-US"
     },
     "cb_12_retired_colourman.md": {
-      "title": "The Adventure of the Retired Colourman",
+      "title": "The Retired Colourman",
       "author": "Arthur Conan Doyle",
       "order": 56,
       "lang": "en-US"
@@ -213,37 +213,37 @@
       "lang": "en-US"
     },
     "hlb_02_bruce_partington_plans.md": {
-      "title": "The Adventure of the Bruce-Partington Plans",
+      "title": "The Bruce-Partington Plans",
       "author": "Arthur Conan Doyle",
       "order": 39,
       "lang": "en-US"
     },
     "hlb_03_devils_foot.md": {
-      "title": "The Adventure of the Devil's Foot",
+      "title": "The Devil's Foot",
       "author": "Arthur Conan Doyle",
       "order": 40,
       "lang": "en-US"
     },
     "hlb_04_red_circle.md": {
-      "title": "The Adventure of the Red Circle",
+      "title": "The Red Circle",
       "author": "Arthur Conan Doyle",
       "order": 41,
       "lang": "en-US"
     },
     "hlb_05_lady_frances_carfax.md": {
-      "title": "The Disappearance of Lady Frances Carfax",
+      "title": "Lady Frances Carfax",
       "author": "Arthur Conan Doyle",
       "order": 42,
       "lang": "en-US"
     },
     "hlb_06_dying_detective.md": {
-      "title": "The Adventure of the Dying Detective",
+      "title": "The Dying Detective",
       "author": "Arthur Conan Doyle",
       "order": 43,
       "lang": "en-US"
     },
     "hlb_07_his_last_bow.md": {
-      "title": "His Last Bow: The War Service of Sherlock Holmes",
+      "title": "The War Service of Sherlock Holmes",
       "author": "Arthur Conan Doyle",
       "order": 44,
       "lang": "en-US"
@@ -255,7 +255,7 @@
       "lang": "en-US"
     },
     "mem_02_cardboard_box.md": {
-      "title": "The Adventure of the Cardboard Box",
+      "title": "The Cardboard Box",
       "author": "Arthur Conan Doyle",
       "order": 14,
       "lang": "en-US"
@@ -345,31 +345,31 @@
       "lang": "en-US"
     },
     "ret_01_empty_house.md": {
-      "title": "The Adventure of the Empty House",
+      "title": "The Empty House",
       "author": "Arthur Conan Doyle",
       "order": 25,
       "lang": "en-US"
     },
     "ret_02_norwood_builder.md": {
-      "title": "The Adventure of the Norwood Builder",
+      "title": "The Norwood Builder",
       "author": "Arthur Conan Doyle",
       "order": 26,
       "lang": "en-US"
     },
     "ret_03_dancing_men.md": {
-      "title": "The Adventure of the Dancing Men",
+      "title": "The Dancing Men",
       "author": "Arthur Conan Doyle",
       "order": 27,
       "lang": "en-US"
     },
     "ret_04_solitary_cyclist.md": {
-      "title": "The Adventure of the Solitary Cyclist",
+      "title": "The Solitary Cyclist",
       "author": "Arthur Conan Doyle",
       "order": 28,
       "lang": "en-US"
     },
     "ret_05_priory_school.md": {
-      "title": "The Adventure of the Priory School",
+      "title": "The Priory School",
       "author": "Arthur Conan Doyle",
       "order": 29,
       "lang": "en-US"
@@ -387,37 +387,37 @@
       "lang": "en-US"
     },
     "ret_08_six_napoleons.md": {
-      "title": "The Adventure of the Six Napoleons",
+      "title": "The Six Napoleons",
       "author": "Arthur Conan Doyle",
       "order": 32,
       "lang": "en-US"
     },
     "ret_09_three_students.md": {
-      "title": "The Adventure of the Three Students",
+      "title": "The Three Students",
       "author": "Arthur Conan Doyle",
       "order": 33,
       "lang": "en-US"
     },
     "ret_10_golden_pince_nez.md": {
-      "title": "The Adventure of the Golden Pince-Nez",
+      "title": "The Golden Pince-Nez",
       "author": "Arthur Conan Doyle",
       "order": 34,
       "lang": "en-US"
     },
     "ret_11_missing_three_quarter.md": {
-      "title": "The Adventure of the Missing Three-Quarter",
+      "title": "The Missing Three-Quarter",
       "author": "Arthur Conan Doyle",
       "order": 35,
       "lang": "en-US"
     },
     "ret_12_abbey_grange.md": {
-      "title": "The Adventure of the Abbey Grange",
+      "title": "The Abbey Grange",
       "author": "Arthur Conan Doyle",
       "order": 36,
       "lang": "en-US"
     },
     "ret_13_second_stain.md": {
-      "title": "The Adventure of the Second Stain",
+      "title": "The Second Stain",
       "author": "Arthur Conan Doyle",
       "order": 37,
       "lang": "en-US"

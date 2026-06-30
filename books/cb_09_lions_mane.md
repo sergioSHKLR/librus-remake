@@ -6,7 +6,7 @@ lang: en-US
 chronology: 53
 ---
 
-# The Adventure of the Lion\u2019s Mane
+# The Adventure of the Lion’s Mane
 ## The Case-Book of Sherlock Holmes
 
 
