@@ -48,13 +48,7 @@
   <script src="pwa/pwa.js" defer></script>
   <script src="js/annotations.js" defer></script>
   <script src="js/main.js" defer></script>
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js')
-        .then(reg => console.log('✅ Service Worker registered'))
-        .catch(err => console.error('Service Worker registration failed', err));
-    }
-  </script>
+
 </head>
 
 <body class="theme--system">
