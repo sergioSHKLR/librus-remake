@@ -1218,10 +1218,13 @@ function rebuildReaderHeadingIndex() {
   var scrollEl = readerMainScrollEl();
   readerHeadingIndex = [];
   if (!viewport || !scrollEl) return;
+
   var headings = viewport.querySelectorAll('h2, h3, h4, h5');
   if (!headings.length) return;
+
   var scrollRect = scrollEl.getBoundingClientRect();
   var scrollTop = scrollEl.scrollTop;
+
   readerHeadingIndex = Array.from(headings).map(function (el) {
     return {
       id: el.id,
