@@ -108,9 +108,12 @@ select {
 }
 
 .library-grid-cover-title {
-  font-weight: 700;
-  font-size: var(--font-size-lg);
-  line-height: 1.2;
+  font-family: var(--reader-font-family, Georgia, 'Times New Roman', serif);
+  font-weight:700;           /* no bold */
+  font-size: 1rem;
+  line-height: 1.25;
+  text-align: center;
+  color: goldenrod;
 }
 
 .library-grid-cover-author {

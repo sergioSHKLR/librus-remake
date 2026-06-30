@@ -107,6 +107,27 @@ const NOTES_REPLY_PLACEHOLDER = 'Reply to selected note…';
 const NOTES_EMPTY_DEFAULT = 'No notes for this book yet.';
 const NOTES_EMPTY_FILTERED = 'No notes match this filter.';
 
+function cleanBookTitle(rawTitle) {
+  if (!rawTitle) return '';
+
+  let title = String(rawTitle).trim();
+
+  // Remove common prefixes
+  title = title.replace(/^The Adventure of\s+/i, '');
+  title = title.replace(/^The Adventures of\s+/i, '');
+  title = title.replace(/^A Scandal in\s+/i, '');
+
+  // Capitalize first letter if it starts with "the"
+  if (/^the\s+/i.test(title)) {
+    title = title.replace(/^the\s+/i, 'The ');
+  } else {
+    // General first-letter capitalize
+    title = title.replace(/^\w/, c => c.toUpperCase());
+  }
+
+  return title.trim();
+}
+
 // =========================================================================
 // V31-260617s/a | SECTION 03: SETTINGS PERSISTENCE
 // LOAD / SAVE USER PREFERENCES AND PROVIDERS
@@ -825,31 +846,19 @@ function renderLibraryGrid() {
     card.dataset.bookId = book.id;
     card.setAttribute('tabindex', '0');
 
-    var cover = document.createElement('div');
-    cover.className = 'library-grid-cover';
+var cover = document.createElement('div');
+cover.className = 'library-grid-cover';
 
-    // Colored spine
-    const spineColor = book.coverColor || '#1e2a24';
-    cover.style.background = `linear-gradient(to right, ${spineColor} 14px, #f5f0e8 14px)`;
-    cover.style.borderLeft = `14px solid ${spineColor}`;
+var titleEl = document.createElement('span');
+titleEl.className = 'library-grid-cover-title';
+titleEl.textContent = cleanBookTitle(sanitizeDisplayTitle(book.title));
 
-    var titleId = 'book-title-' + book.id.replace(/[^a-z0-9_-]/gi, '-');
-    var authorId = 'book-author-' + book.id.replace(/[^a-z0-9_-]/gi, '-');
+var authorEl = document.createElement('span');
+authorEl.className = 'library-grid-cover-author';
+authorEl.textContent = book.author || 'Arthur Conan Doyle';
 
-    var titleEl = document.createElement('span');
-    titleEl.className = 'library-grid-cover-title';
-    titleEl.id = titleId;
-    titleEl.textContent = sanitizeDisplayTitle(book.title);
-
-    var authorEl = document.createElement('span');
-    authorEl.className = 'library-grid-cover-author';
-    authorEl.id = authorId;
-    authorEl.textContent = book.author;
-
-    card.setAttribute('aria-labelledby', titleId + ' ' + authorId);
-
-    cover.appendChild(titleEl);
-    cover.appendChild(authorEl);
+cover.appendChild(titleEl);
+cover.appendChild(authorEl);
 
     // DELETE BUTTON
     var deleteBtn = document.createElement('button');
@@ -1223,18 +1232,11 @@ function rebuildReaderHeadingIndex() {
 
 function scheduleReaderHeadingIndexRebuild() {
   if (readerHeadingIndexRaf) return;
-  if ('requestIdleCallback' in window) {
-    requestIdleCallback(function () {
-      rebuildReaderHeadingIndex();
-      scheduleTocScrollSync();
-    }, { timeout: 1500 });
-  } else {
-    readerHeadingIndexRaf = requestAnimationFrame(function () {
-      readerHeadingIndexRaf = 0;
-      rebuildReaderHeadingIndex();
-      scheduleTocScrollSync();
-    });
-  }
+  readerHeadingIndexRaf = requestAnimationFrame(function () {
+    readerHeadingIndexRaf = 0;
+    rebuildReaderHeadingIndex();
+    scheduleTocScrollSync();
+  });
 }
 
 function getReaderActiveHeadingId() {
@@ -1296,49 +1298,24 @@ function scrollActiveTocItemIntoView(link, container) {
   }
 }
 
-// =========================================================================
-// TOC SCROLL SYNC — further optimized (idle + stronger debounce)
-var tocScrollRaf = 0;
-var lastSyncTime = 0;
-var lastTocActiveId = '';
-
 function syncTocScrollState() {
   tocScrollRaf = 0;
-  const now = performance.now();
-  if (now - lastSyncTime < 32) return; // ~30fps max for TOC sync (less intrusive)
-  lastSyncTime = now;
-
   var list = getTocList();
   if (!list) return;
-
   var activeId = getReaderActiveHeadingId();
   list.querySelectorAll('.reader-toc-item').forEach(function (link) {
     link.classList.toggle('is-active', link.dataset.section === activeId);
   });
-
   if (!activeId) {
     lastTocActiveId = '';
     return;
   }
-
   if (activeId !== lastTocActiveId) {
     var activeLink = list.querySelector('.reader-toc-item.is-active');
     var tocBody = document.querySelector('.reader-toc-body');
-    if (activeLink && tocBody) {
-      activeLink.scrollIntoView({ block: 'nearest', behavior: 'auto' });
-    }
+    scrollActiveTocItemIntoView(activeLink, tocBody);
     lastTocActiveId = activeId;
   }
-}
-
-function scheduleTocScrollSync() {
-  if (tocScrollRaf) return;
-  tocScrollRaf = requestAnimationFrame(syncTocScrollState);
-}
-
-function scheduleTocScrollSync() {
-  if (tocScrollRaf) return;
-  tocScrollRaf = requestAnimationFrame(syncTocScrollState);
 }
 
 function scheduleTocScrollSync() {
@@ -1569,17 +1546,9 @@ function readerMainScrollEl() {
 
 function scrollToElementInContainer(el, scrollContainer, offset) {
   if (!el || !scrollContainer) return;
-  if ('requestIdleCallback' in window) {
-    requestIdleCallback(function () {
-      var elRect = el.getBoundingClientRect();
-      var containerRect = scrollContainer.getBoundingClientRect();
-      scrollContainer.scrollTop += elRect.top - containerRect.top - (offset || 0);
-    });
-  } else {
-    var elRect = el.getBoundingClientRect();
-    var containerRect = scrollContainer.getBoundingClientRect();
-    scrollContainer.scrollTop += elRect.top - containerRect.top - (offset || 0);
-  }
+  var elRect = el.getBoundingClientRect();
+  var containerRect = scrollContainer.getBoundingClientRect();
+  scrollContainer.scrollTop += elRect.top - containerRect.top - (offset || 0);
 }
 
 function isBookShareHash(raw) {
@@ -1612,34 +1581,60 @@ function handleReaderContentLinkClick(event) {
 }
 
 function handleScrollContainerScroll(container) {
+  // Main reader scroll
   if (container.id === 'reader-main-scroll') {
     scheduleTocScrollSync();
+
+    if (!isMobileReaderLayout()) return;
+
+    var readerContainer = document.getElementById('reader-container');
+    var last = scrollTops.get(container) || 0;
+    var st = container.scrollTop;
+
+    if (Math.abs(st - last) <= SCROLL_THRESHOLD) return;
+
+    if (st <= SCROLL_HIDE_OFFSET || st < last) {
+      readerContainer.classList.remove('is-topbar-hidden');
+    } else if (st > last) {
+      readerContainer.classList.add('is-topbar-hidden');
+    }
+
+    scrollTops.set(container, st);
+    return;
   }
-  if (container.id !== 'reader-main-scroll') return;
+
+  // Notes panel compose region hide (narrow screens)
+  if (container.id === 'notes-body' || container.closest('#reader-notes')) {
+    handleNotesComposeHide(container);
+  }
+}
+
+function handleNotesComposeHide(container) {
   if (!isMobileReaderLayout()) return;
 
-  var readerContainer = document.getElementById('reader-container');
+  var notesPanel = document.getElementById('reader-notes');
+  if (!notesPanel) return;
+
   var last = scrollTops.get(container) || 0;
   var st = container.scrollTop;
 
-  // Stronger threshold to reduce calls
-  if (Math.abs(st - last) <= 50) return;   // increased from SCROLL_THRESHOLD
+  if (Math.abs(st - last) <= 40) return;
 
   if (st <= SCROLL_HIDE_OFFSET || st < last) {
-    readerContainer.classList.remove('is-topbar-hidden');
-  } else if (st > last) {
-    readerContainer.classList.add('is-topbar-hidden');
+    notesPanel.classList.remove('is-compose-hidden');
+  } else {
+    notesPanel.classList.add('is-compose-hidden');
   }
 
   scrollTops.set(container, st);
 }
 
-// Auto-hide notes compose area on scroll down (overlay mode)
-function handleNotesComposeScroll(container) {
-  if (!isReaderOverlayLayout()) return;
 
-  var composeArea = document.querySelector('.reader-notes-compose');
-  if (!composeArea) return;
+function handleNotesScroll(container) {
+  if (!isMobileReaderLayout()) return;
+
+  var notesPanel = document.getElementById('reader-notes');
+  if (!notesPanel) return;
 
   var last = scrollTops.get(container) || 0;
   var st = container.scrollTop;
@@ -1647,9 +1642,9 @@ function handleNotesComposeScroll(container) {
   if (Math.abs(st - last) <= SCROLL_THRESHOLD) return;
 
   if (st <= SCROLL_HIDE_OFFSET || st < last) {
-    composeArea.classList.remove('is-hidden');
+    notesPanel.classList.remove('is-compose-hidden');
   } else if (st > last) {
-    composeArea.classList.add('is-hidden');
+    notesPanel.classList.add('is-compose-hidden');
   }
 
   scrollTops.set(container, st);
@@ -1742,8 +1737,8 @@ function scrollToSearchHit(index) {
 }
 
 function updateSearchHitDisplay() {
-  var counterText = totalMatchCount > 0 
-    ? (currentMatchIndex + 1) + ' / ' + totalMatchCount 
+  var counterText = totalMatchCount > 0
+    ? (currentMatchIndex + 1) + ' / ' + totalMatchCount
     : '0 / 0';
 
   document.getElementById('reader-search-counter').innerText = counterText;
@@ -2646,11 +2641,6 @@ function bindScrollListeners() {
   document.querySelectorAll('.scroll-track').forEach(function (container) {
     container.addEventListener('scroll', function () {
       handleScrollContainerScroll(container);
-      
-      // Notes compose auto-hide
-      if (container.classList.contains('reader-notes-scroll')) {
-        handleNotesComposeScroll(container);
-      }
     }, { passive: true });
   });
 }
@@ -3266,34 +3256,35 @@ function scrollToNoteCard(annotationId) {
     behavior: 'smooth'
   });
 
-function handleNotesComposeScroll(container) {
-  if (!isReaderOverlayLayout()) return;
+  // Auto-hide notes compose area on scroll down (overlay mode)
+  function handleNotesComposeScroll(container) {
+    if (!isReaderOverlayLayout()) return;
 
-  var composeArea = document.querySelector('.reader-notes-compose');
-  if (!composeArea) return;
+    var composeArea = document.querySelector('.reader-notes-compose');
+    if (!composeArea) return;
 
-  var last = scrollTops.get(container) || 0;
-  var st = container.scrollTop;
+    var last = scrollTops.get(container) || 0;
+    var st = container.scrollTop;
 
-  if (Math.abs(st - last) <= SCROLL_THRESHOLD) return;
+    if (Math.abs(st - last) <= SCROLL_THRESHOLD) return;
 
-  if (st <= SCROLL_HIDE_OFFSET || st < last) {
-    composeArea.classList.remove('is-hidden');
-  } else if (st > last) {
-    composeArea.classList.add('is-hidden');
+    if (st <= SCROLL_HIDE_OFFSET || st < last) {
+      composeArea.classList.remove('is-hidden');
+    } else if (st > last) {
+      composeArea.classList.add('is-hidden');
+    }
+
+    scrollTops.set(container, st);
   }
-
-  scrollTops.set(container, st);
-}
 
   // Orange glow
   const originalOutline = card.style.outline;
   const originalShadow = card.style.boxShadow;
-  
+
   card.style.transition = 'outline 0.4s ease-in-out, box-shadow 0.6s ease-in-out';
   card.style.outline = '3px solid #f59e0b';
   card.style.boxShadow = '0 0 12px #fbbf24';
-  
+
   setTimeout(() => {
     card.style.transition = 'outline 0.6s ease-out, box-shadow 0.8s ease-out';
     card.style.outline = originalOutline || '';
@@ -3368,10 +3359,10 @@ function saveNoteFromCompose(motivation) {
   }
 
   // Save it
-LibrusAnnotations.addAnnotation(lastOpenedBookId, annotation);
-console.log('Saved annotation for book', lastOpenedBookId, annotation); // debug
+  LibrusAnnotations.addAnnotation(lastOpenedBookId, annotation);
+  console.log('Saved annotation for book', lastOpenedBookId, annotation); // debug
 
-// Then the rest...
+  // Then the rest...
 
   // Reset UI
   notesReplyParentId = null;

@@ -115,6 +115,7 @@ textarea:focus-visible {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
@@ -269,7 +270,9 @@ textarea:focus-visible {
   align-items: center;
 }
 
-.library-topbar-start {padding-left: var(--gap)}
+.library-topbar-start {
+  padding-left: var(--gap)
+}
 
 .reader-main-toolbar-end,
 .reader-context-toolbar-end {
@@ -530,7 +533,8 @@ textarea:focus-visible {
   width: var(--btn-size-sm);
   height: var(--btn-size-sm);
   border-radius: 50%;
-  background: #ccc;;
+  background: #ccc;
+  ;
   opacity: 0;
 }
 
@@ -1230,6 +1234,7 @@ mark.reader-search-hit.is-current {
   .reader-layout {
     grid-template-columns: var(--toc-width) minmax(0, 1fr) minmax(0, 1fr) minmax(0, var(--notes-width));
   }
+
   #toc-toggle-btn,
   #notes-toggle-btn {
     display: none !important;
@@ -1240,9 +1245,11 @@ mark.reader-search-hit.is-current {
   .reader-layout {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, var(--notes-width));
   }
+
   #reader-toc:not(.is-overlay) {
     display: none !important;
   }
+
   #notes-toggle-btn {
     display: none !important;
   }
@@ -1252,14 +1259,17 @@ mark.reader-search-hit.is-current {
   .reader.has-reader-overlay .reader-layout {
     pointer-events: none;
   }
+
   .reader.has-reader-overlay .reader-overlay-backdrop:not(.is-hidden) {
     pointer-events: auto;
     z-index: calc(var(--z-overlay) - 1);
   }
+
   .reader.has-reader-overlay .is-overlay {
     pointer-events: auto;
     z-index: var(--z-overlay);
   }
+
   #reader-toc.is-overlay {
     left: 0 !important;
     right: auto !important;
@@ -1267,6 +1277,7 @@ mark.reader-search-hit.is-current {
     max-width: calc(100% - 4.5rem);
     border-left: none;
   }
+
   #reader-notes.is-overlay {
     left: auto !important;
     right: 0 !important;
@@ -1274,6 +1285,7 @@ mark.reader-search-hit.is-current {
     max-width: calc(100% - 4.5rem);
     border-right: none;
   }
+
   #library-settings.is-overlay {
     left: auto !important;
     right: 0 !important;
@@ -1287,22 +1299,27 @@ mark.reader-search-hit.is-current {
   .reader-layout {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   }
+
   #reader-toc:not(.is-overlay),
   #reader-notes:not(.is-overlay) {
     display: none !important;
   }
+
   #reader-main-toolbar {
     min-width: 0;
   }
+
   .reader-main-search-field {
     flex: 1 1 auto;
     width: auto;
     max-width: var(--reader-main-search-width);
   }
+
   .reader-main-body,
   #main-text-viewport {
     min-width: 0;
   }
+
   .reader-content {
     max-width: 100%;
   }
@@ -1314,20 +1331,24 @@ mark.reader-search-hit.is-current {
     flex-direction: column;
     position: relative;
   }
+
   .reader-topbar-start,
   .reader-topbar-end {
     flex: 0 0 auto;
   }
+
   .reader-topbar-center {
     flex: 1 1 auto;
     min-width: 0;
     padding: 0 var(--gap);
   }
+
   .reader-topbar-title {
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 100%;
   }
+
   #reader-topbar {
     position: absolute;
     top: 0;
@@ -1338,16 +1359,19 @@ mark.reader-search-hit.is-current {
     transition: transform var(--duration-chrome) var(--ease-chrome-out);
     will-change: transform;
   }
+
   .reader.is-topbar-hidden #reader-topbar {
     transform: translate3d(0, -100%, 0);
     pointer-events: none;
     transition-timing-function: var(--ease-chrome-in);
   }
+
   #reader-main-toolbar {
     position: sticky;
     top: 0;
     z-index: var(--z-bar);
   }
+
   .reader-layout {
     flex: 1;
     min-height: 0;
@@ -1355,22 +1379,27 @@ mark.reader-search-hit.is-current {
     transition: padding-top var(--duration-chrome) var(--ease-chrome-out);
     grid-template-columns: 1fr;
   }
+
   .reader.is-topbar-hidden .reader-layout {
     padding-top: 0;
     transition-timing-function: var(--ease-chrome-in);
   }
+
   #reader-toc:not(.is-overlay),
   #reader-notes:not(.is-overlay),
   #reader-context:not(.is-overlay) {
     display: none !important;
   }
+
   #context-toggle-btn {
     display: inline-flex !important;
   }
+
   .reader.has-reader-overlay #reader-topbar {
     transform: translate3d(0, 0, 0);
     pointer-events: auto;
   }
+
   #reader-context.is-overlay {
     left: auto !important;
     right: 0 !important;
@@ -1396,53 +1425,65 @@ mark.reader-search-hit.is-current {
     --gap: 0.875rem;
     --library-settings-width: 100%;
   }
+
   .view,
   .reader {
     height: 100dvh;
     height: 100vh;
   }
+
   .app {
     width: 100%;
     max-width: 100%;
   }
+
   .topbar,
   .toolbar {
     padding: 0;
   }
+
   .library-topbar-center,
   .reader-topbar-center {
     min-width: 0;
   }
+
   .library-grid-filter {
     justify-content: flex-start;
     padding: 0 var(--padding);
     gap: var(--gap);
   }
+
   #library-filter {
     flex: 1;
     width: auto;
     max-width: none;
   }
+
   .library-grid {
     padding: var(--padding);
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--gap);
   }
+
   .library-grid-delete {
     opacity: 1;
     top: var(--gap);
     right: var(--gap);
   }
+
   .library-settings-body {
     padding: var(--padding);
   }
+
   .library-settings-hidden-item {
     flex-direction: column;
     align-items: stretch;
   }
+
   .library-settings-restore-btn {
     width: 100%;
   }
+
   #reader-main-toolbar {
     flex-wrap: nowrap;
     height: var(--topbar-height);
@@ -1450,85 +1491,106 @@ mark.reader-search-hit.is-current {
     padding: 0 var(--padding);
     gap: 0;
   }
+
   .reader-main-toolbar-start {
     flex: 1 1 auto;
     min-width: 0;
   }
+
   .reader-main-toolbar-end {
     flex: 0 0 auto;
     min-width: 0;
   }
+
   .reader-main-search {
     flex: 1 1 auto;
     min-width: 0;
   }
+
   .reader-main-search-field {
     flex: 1 1 auto;
     width: auto;
     min-width: 0;
     max-width: none;
   }
+
   #reader-search-input {
     height: 2.25rem;
     padding: 0 var(--padding);
   }
+
   .reader-main-search-meta.is-visible {
     flex-shrink: 0;
   }
+
   .reader-main-search-counter {
     padding: 0 var(--gap);
   }
+
   .reader-main-search-nav {
     width: var(--btn-size-sm);
     height: var(--btn-size-sm);
   }
+
   #reader-main-toolbar .icon-btn {
     width: var(--btn-size-sm);
     height: var(--btn-size-sm);
   }
+
   .reader-toc-filter {
     padding: 0 var(--toc-inset-inline);
     min-width: 0;
   }
+
   .reader-notes-filter {
     padding: 0 var(--padding);
     min-width: 0;
   }
+
   #toc-filter-input {
     max-width: none;
     flex: 1;
     min-width: 0;
   }
+
   #notes-filter-input {
     max-width: none;
   }
+
   .reader-toc-body {
     padding-block: var(--padding);
     padding-inline: var(--toc-inset-inline);
     -webkit-overflow-scrolling: touch;
   }
+
   .reader-notes-scroll {
     padding: var(--padding);
     -webkit-overflow-scrolling: touch;
   }
+
   .reader-notes-compose-region {
     padding: var(--padding);
   }
+
   #main-text-viewport {
     padding: var(--padding) var(--reader-prose-padding);
   }
+
   .reader-content h1 {
     margin-bottom: var(--padding);
   }
+
   .reader-content h2 {
     margin-top: 1.75rem;
   }
+
   .reader-overlay-backdrop,
   .settings-overlay-backdrop,
   .is-overlay {
     height: calc(100dvh - var(--topbar-height));
     height: calc(100vh - var(--topbar-height));
   }
+
   .is-overlay {
     top: var(--topbar-height) !important;
   }
@@ -1569,10 +1631,12 @@ mark.reader-search-hit.is-current {
 }
 
 @keyframes rotateDevice {
+
   0%,
   100% {
     transform: rotate(0deg);
   }
+
   50% {
     transform: rotate(-90deg);
   }
@@ -1599,13 +1663,26 @@ button.dismissable {
   background: none;
 }
 
-.reader-notes-compose {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* smooth ease */
-  will-change: transform, opacity;
-}
-
-.reader-notes-compose.is-hidden {
-  transform: translateY(10px);   /* push up more */
+/* Notes compose slide-up hide - clean, no !important */
+.reader-notes.is-compose-hidden .reader-notes-compose-region {
+  transform: translateY(-100%);
   opacity: 0;
   pointer-events: none;
+  height: 0;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.reader-notes-compose-region {
+  transition: transform 0.45s cubic-bezier(0.25, 0.1, 0.25, 1), 
+              opacity 0.45s ease;
+  background: inherit;
+}
+
+/* Ensure panel background stays solid */
+.reader-notes-body,
+.reader-notes-scroll,
+.reader-notes .reader-notes-body {
+  background: var(--bg-primary, #ffffff);
 }

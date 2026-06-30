@@ -33,7 +33,7 @@ textarea {
 
 .reader-toc-body {
   border-right: 1px solid #ccc;
-  background: #fff;
+  background: whitesmoke;
 }
 
 .reader-notes-body,
@@ -156,4 +156,33 @@ mark.reader-search-hit.is-current {
   opacity: 1;             /* full on hover */
   filter: brightness(1.1);
   transform: scale(1.1);
+}
+
+/* Leather-bound library covers */
+.library-grid-cover {
+  background: linear-gradient(to bottom, #4a2f1f, #3c2f2f);
+  border-left: 7px solid #2d1606;
+  box-shadow: inset 0 0 12px rgba(0,0,0,0.6);
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px 2px 2px 4px;
+}
+
+.library-grid-cover-title {
+  color: #f0d090;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: normal;
+  text-align: center;
+  padding: 8px 6px 4px;
+  line-height: 1.2;
+}
+
+.library-grid-cover-author {
+  color: white;
+  font-family: Georgia, 'Times New Roman', serif;
+  text-align: center;
+  padding: 0 6px 8px;
+  font-size: 0.9rem;
+  opacity: 0.95;
 }
