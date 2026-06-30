@@ -186,3 +186,24 @@ mark.reader-search-hit.is-current {
   font-size: 0.9rem;
   opacity: 0.95;
 }
+
+/* Holmes silhouette on every cover - pure CSS */
+.library-grid-cover {
+  position: relative;
+  overflow: hidden;
+}
+
+.library-grid-cover::before {
+  content: '';
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  transform: translateX(-50%) scaleX(-1);
+  width: 38%;
+  height: 120px;
+  background: url('holmes.svg') no-repeat center/contain;
+  opacity: 0.75;
+  filter: brightness(1.15) sepia(0.3) hue-rotate(35deg) saturate(1.8);
+  z-index: 1;
+  pointer-events: none;
+}

@@ -1687,23 +1687,18 @@ button.dismissable {
   background: var(--bg-primary, #ffffff);
 }
 
-/* Update badge on settings gear */
-#library-settings-btn {
-  position: relative;
-}
-
 .update-badge {
   position: absolute;
-  top: 6px;
-  right: 6px;
-  width: 9px;
-  height: 9px;
+  top: 4px;
+  right: 4px;
+  width: 10px;
+  height: 10px;
   background: #f59e0b;
   border-radius: 50%;
   border: 2px solid #fff;
-  box-shadow: 0 0 4px rgba(245, 158, 11, 0.9);
+  box-shadow: 0 0 5px rgba(245, 158, 11, 0.9);
   display: none;
-  z-index: 10;
+  z-index: 20;
 }
 
 .update-badge.is-update {
@@ -1713,5 +1708,5 @@ button.dismissable {
 
 @keyframes pulse {
   0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.4); }
+  50% { transform: scale(1.35); }
 }
