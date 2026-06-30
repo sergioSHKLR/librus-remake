@@ -1289,24 +1289,45 @@ function scrollActiveTocItemIntoView(link, container) {
   }
 }
 
+// =========================================================================
+// TOC SCROLL SYNC (optimized — reduced reflow)
+var tocScrollRaf = 0;
+var lastSyncTime = 0;
+var lastTocActiveId = '';
+
 function syncTocScrollState() {
   tocScrollRaf = 0;
+  const now = performance.now();
+  if (now - lastSyncTime < 16) return; // limit to ~60fps
+  lastSyncTime = now;
+
   var list = getTocList();
   if (!list) return;
+
   var activeId = getReaderActiveHeadingId();
   list.querySelectorAll('.reader-toc-item').forEach(function (link) {
     link.classList.toggle('is-active', link.dataset.section === activeId);
   });
+
   if (!activeId) {
     lastTocActiveId = '';
     return;
   }
+
   if (activeId !== lastTocActiveId) {
     var activeLink = list.querySelector('.reader-toc-item.is-active');
     var tocBody = document.querySelector('.reader-toc-body');
-    scrollActiveTocItemIntoView(activeLink, tocBody);
+    if (activeLink && tocBody) {
+      // smoother + cheaper scroll
+      activeLink.scrollIntoView({ block: 'nearest', behavior: 'auto' });
+    }
     lastTocActiveId = activeId;
   }
+}
+
+function scheduleTocScrollSync() {
+  if (tocScrollRaf) return;
+  tocScrollRaf = requestAnimationFrame(syncTocScrollState);
 }
 
 function scheduleTocScrollSync() {
