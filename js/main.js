@@ -2803,20 +2803,20 @@ function resolveAppUpdateState(snapshot) {
 
 function appUpdateCopy(state, snapshot) {
   var versionLabel = snapshot.versionLabel || '—';
-  if (state === 'update') {
-    return {
-      label: 'Update available',
-      title: 'App update available',
-      detail: 'A newer version is ready (currently ' + versionLabel + ').',
-      action: 'Refresh app'
-    };
-  }
+if (state === 'update') {
   return {
-    label: 'App up to date',
-    title: 'App up to date',
-    detail: 'Running version ' + versionLabel + '.',
-    action: 'Check for updates'
+    label: 'Update available',
+    title: 'Update available',
+    detail: 'A newer version is ready. Tap to refresh.',
+    action: 'Update now'
   };
+}
+return {
+  label: 'App is up to date',
+  title: 'App is up to date',
+  detail: 'Running the latest version.',
+  action: 'Check for updates'
+};
 }
 
 function renderAppUpdateStatus() {
@@ -2841,10 +2841,14 @@ function renderAppUpdateStatus() {
   actionBtn.setAttribute('aria-label', copy.action + '. ' + copy.detail);
   actionBtn.dataset.updateState = state;
 
-  // Mini badge on settings button
 var miniBadge = document.getElementById('settings-update-badge-mini');
 if (miniBadge) {
   miniBadge.classList.toggle('is-update', state === 'update');
+}
+
+var settingsIcon = document.querySelector('#library-settings-btn img');
+if (settingsIcon) {
+  settingsIcon.src = state === 'update' ? 'icons/expired.svg' : 'icons/current.svg';
 }
 }
 
