@@ -1,8 +1,8 @@
 /* Librus PWA | Cleaned V31-260620a — registration + update handling */
 (function () {
   var APP_NAME = 'LIBRUS';
-  var APP_VERSION = 'v.31t';
-  var BUILD_ID = 'v31-r84';
+  var APP_VERSION = 'v.32';
+  var BUILD_ID = 'v32-r01';     // bump this too
   var waitingWorker = null;
   var registrationRef = null;
 
@@ -46,17 +46,17 @@
   function registerServiceWorker() {
     if (!('serviceWorker' in navigator)) return;
 
-    navigator.serviceWorker.register('./sw.js', { 
+    navigator.serviceWorker.register('./sw.js', {
       scope: './',
       updateViaCache: 'none'
     })
-    .then(reg => {
-      console.log('✅ Service Worker registered with scope:', reg.scope);
-      registerUpdateListeners(reg);
-    })
-    .catch(err => {
-      console.error('❌ Service Worker registration failed:', err);
-    });
+      .then(reg => {
+        console.log('✅ Service Worker registered with scope:', reg.scope);
+        registerUpdateListeners(reg);
+      })
+      .catch(err => {
+        console.error('❌ Service Worker registration failed:', err);
+      });
   }
 
   // Register on load
@@ -65,7 +65,7 @@
   // Update check on visibility change
   document.addEventListener('visibilitychange', function () {
     if (document.visibilityState === 'visible' && registrationRef) {
-      registrationRef.update().catch(() => {});
+      registrationRef.update().catch(() => { });
     }
   });
 
@@ -109,11 +109,11 @@
     }
   };
   // Force check on page load
-window.addEventListener('load', function () {
-  setTimeout(() => {
-    if (window.LibrusPwa && typeof window.LibrusPwa.checkForUpdates === 'function') {
-      window.LibrusPwa.checkForUpdates().catch(() => {});
-    }
-  }, 1500);
-});
+  window.addEventListener('load', function () {
+    setTimeout(() => {
+      if (window.LibrusPwa && typeof window.LibrusPwa.checkForUpdates === 'function') {
+        window.LibrusPwa.checkForUpdates().catch(() => { });
+      }
+    }, 1500);
+  });
 })();
