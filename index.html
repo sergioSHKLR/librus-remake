@@ -5,6 +5,12 @@
   <!-- BLOCK 01: DOCUMENT HEAD | V31-260618t/u — META, TITLE, ASSETS -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;">
   <title>LIBRUS</title>
   <meta name="description"
     content="LIBRUS: A lightweight digital reading workspace with local markdown library and configurable lookup providers.">
@@ -30,8 +36,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="librus">
 
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="shortcut icon" href="favicon.svg">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="favicon.svg">
 
   <link rel="apple-touch-icon" href="pwa/icon-192.png">
 
@@ -43,6 +49,13 @@
   <script src="pwa/pwa.js" defer></script>
   <script src="js/annotations.js" defer></script>
   <script src="js/main.js" defer></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js')
+        .then(reg => console.log('✅ Service Worker registered'))
+        .catch(err => console.error('Service Worker registration failed', err));
+    }
+  </script>
 </head>
 
 <body class="theme--system">
@@ -53,14 +66,10 @@
       <!-- BLOCK 04: LIBRARY-TOPBAR | V31-260617s/s — BRAND, SETTINGS -->
       <header class="topbar" id="library-topbar">
         <div class="library-topbar-start">
-        <a href="https://github.com/sergioSHKLR/librus-remake" 
-   target="_blank" 
-   rel="noopener noreferrer" 
-   class="icon-btn floating-github" 
-   title="GitHub" 
-   aria-label="Link to repo on GitHub">
-  <img src="icons/github.svg" alt="GitHub" width="24" height="24">
-</a>
+          <a href="https://github.com/sergioSHKLR/librus-remake" target="_blank" rel="noopener noreferrer"
+            class="icon-btn floating-github" title="GitHub" aria-label="Link to repo on GitHub">
+            <img src="icons/github.svg" alt="GitHub" width="24" height="24">
+          </a>
         </div>
         <div class="library-topbar-center">
           <div class="library-topbar-brand">
@@ -69,11 +78,12 @@
           </div>
         </div>
         <div class="library-topbar-end">
-        <button type="button" class="icon-btn" id="library-settings-btn" title="Settings"
-  aria-label="Open settings panel">
-  <img src="icons/settings.svg" alt="Settings" aria-hidden="true" class="icon-btn-glyph" width="24" height="24">
-  <span class="update-badge" id="settings-update-badge-mini" aria-hidden="true"></span>
-</button>
+          <button type="button" class="icon-btn" id="library-settings-btn" title="Settings"
+            aria-label="Open settings panel">
+            <img src="icons/settings.svg" alt="Settings" aria-hidden="true" class="icon-btn-glyph" width="24"
+              height="24">
+            <span class="update-badge" id="settings-update-badge-mini" aria-hidden="true"></span>
+          </button>
         </div>
       </header>
       <!-- BLOCK 05: LIBRARY-BODY | V31-260617s/a — FILTER + DYNAMIC BOOK GRID -->
@@ -158,7 +168,7 @@
           <ul class="library-settings-hidden-list" id="settings-hidden-list"></ul>
           <p class="library-settings-hint is-hidden" id="settings-hidden-empty">No hidden books.</p>
         </section>
-  
+
         <footer class="library-settings-footer">
           <div class="library-settings-footer-update">
             <span class="library-settings-update-badge is-uptodate" id="settings-update-badge" title="App up to date">
@@ -178,11 +188,11 @@
               <span class="library-settings-build-label" id="settings-build-label"></span>
             </span>
           </div>
-                <section class="library-settings-section">
-          <h3 class="library-settings-heading">About</h3>
-          <p class="library-settings-hint">Coded with assistance from <a class="library-settings-inline-link"
-              href="https://docs.x.ai/build/overview" target="_blank" rel="noopener noreferrer">Grok Build</a>.</p>
-        </section>
+          <section class="library-settings-section">
+            <h3 class="library-settings-heading">About</h3>
+            <p class="library-settings-hint">Coded with assistance from <a class="library-settings-inline-link"
+                href="https://docs.x.ai/build/overview" target="_blank" rel="noopener noreferrer">Grok Build</a>.</p>
+          </section>
         </footer>
       </div>
     </aside>
