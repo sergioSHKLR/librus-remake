@@ -11,15 +11,26 @@
     window.dispatchEvent(new CustomEvent(name, { detail: detail || {} }));
   }
 
-  function setUpdateAvailable(worker) {
-    const badge = document.getElementById('settings-update-badge-mini');
-    if (badge) badge.classList.add('is-update');
-    const icon = document.querySelector('#library-settings-btn img');
-    if (icon) icon.src = 'icons/expired.svg';
-    if (!worker) return;
-    waitingWorker = worker;
-    dispatch('librus:pwa-update-available', { buildId: BUILD_ID });
+function setUpdateAvailable(worker) {
+  // Top gear orange dot
+  const badge = document.getElementById('settings-update-badge-mini');
+  if (badge) badge.classList.add('is-update');
+
+  // Bottom settings panel (the one you showed)
+  const updateContainer = document.getElementById('settings-update-badge');
+  if (updateContainer) {
+    updateContainer.classList.add('is-update');
+    const bottomIcon = updateContainer.querySelector('img');
+    if (bottomIcon) bottomIcon.src = 'icons/expired.svg';
+    
+    const updateLabel = document.getElementById('settings-update-detail');
+    if (updateLabel) updateLabel.textContent = 'Update available — tap to refresh';
   }
+
+  if (!worker) return;
+  waitingWorker = worker;
+  dispatch('librus:pwa-update-available', { buildId: BUILD_ID });
+}
 
   function clearUpdateAvailable() {
     waitingWorker = null;

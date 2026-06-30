@@ -64,10 +64,6 @@ input {
   background: whitesmoke;
 }
 
-.library-grid-card {
-  border: 1px solid #ccc;
-}
-
 #library-settings .toolbar {
   background-color: #ccc;
 }
@@ -161,11 +157,11 @@ mark.reader-search-hit.is-current {
 /* Leather-bound library covers */
 .library-grid-cover {
   background: linear-gradient(to bottom, #4a2f1f, #3c2f2f);
-  border-left: 7px solid #2d1606;
+  border-left: 14px solid #2d1606;
   box-shadow: inset 0 0 12px rgba(0,0,0,0.6);
   position: relative;
   overflow: hidden;
-  border-radius: 4px 2px 2px 4px;
+  border-radius: 6px 3px 3px 6px;
 }
 
 .library-grid-cover-title {
@@ -174,7 +170,7 @@ mark.reader-search-hit.is-current {
   font-family: Georgia, 'Times New Roman', serif;
   font-weight: normal;
   text-align: center;
-  padding: 8px 6px 4px;
+  padding: 18px 6px 4px;
   line-height: 1.2;
 }
 
@@ -182,7 +178,7 @@ mark.reader-search-hit.is-current {
   color: white;
   font-family: Georgia, 'Times New Roman', serif;
   text-align: center;
-  padding: 0 6px 8px;
+  padding: 0 6px 3px;
   font-size: 0.9rem;
   opacity: 0.95;
 }
@@ -197,8 +193,8 @@ mark.reader-search-hit.is-current {
 .library-grid-cover::before {
   content: '';
   position: absolute;
-  top: 0%;
-  left: 50%;
+  top: 5%;
+  left: 45%;
   transform: translateX(-50%) scaleX(-1);
   width: 45%;
   height: 100px;
@@ -206,4 +202,5 @@ mark.reader-search-hit.is-current {
   opacity: 0.9;
   z-index: 1;
   pointer-events: none;
+  border: none;
 }
