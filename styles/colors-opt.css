@@ -193,17 +193,17 @@ mark.reader-search-hit.is-current {
   overflow: hidden;
 }
 
+/* Holmes silhouette - gold */
 .library-grid-cover::before {
   content: '';
   position: absolute;
-  top: 18%;
+  top: 0%;
   left: 50%;
   transform: translateX(-50%) scaleX(-1);
-  width: 38%;
-  height: 120px;
-  background: url('holmes.svg') no-repeat center/contain;
-  opacity: 0.75;
-  filter: brightness(1.15) sepia(0.3) hue-rotate(35deg) saturate(1.8);
+  width: 45%;
+  height: 100px;
+  background: url('../images/holmes.svg') no-repeat center/contain;
+  opacity: 0.9;
   z-index: 1;
   pointer-events: none;
 }

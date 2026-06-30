@@ -46,7 +46,7 @@
     },
     {
       "src": "pwa/screenshot-narrow.png",
-      "sizes": "390x844",
+      "sizes": "407x904",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Reader workspace on mobile"
