@@ -601,16 +601,17 @@ function bookMarkdownBody(book) {
 }
 
 const COVER_STYLE_CARD = { bg: '#ffffff', fg: '#1a1d21' };
-const COVER_STYLE_LEATHER = { bg: 'hsl(14, 38%, 24%)', fg: '#f5f0e8' };
-const COVER_STYLE_UNKNOWN = { bg: 'hsl(220, 18%, 28%)', fg: '#ffffff' };
+const COVER_STYLE_UNKNOWN = { bg: '#cccccc', fg: '#ffffff' };
+
 const COVER_STYLE_AUTHOR_PALETTE = [
-  COVER_STYLE_LEATHER,
+  COVER_STYLE_CARD,
   COVER_STYLE_UNKNOWN,
-  { bg: 'hsl(155, 32%, 22%)', fg: '#f0f7f2' },
-  { bg: 'hsl(235, 40%, 24%)', fg: '#f0f2fa' },
-  { bg: 'hsl(350, 32%, 26%)', fg: '#faf0f2' },
-  { bg: 'hsl(30, 12%, 26%)', fg: '#f5f3f0' }
+  { bg: '#2a6a4f', fg: '#f0f7f2' },   // green
+  { bg: '#2a3a6a', fg: '#f0f2fa' },   // blue
+  { bg: '#6a2a4f', fg: '#faf0f2' },   // purple
+  { bg: '#6a4f2a', fg: '#f5f3f0' }    // brown
 ];
+
 
 function hashAuthorKey(author) {
   var key = (author || 'Unknown Author').trim().toLowerCase();

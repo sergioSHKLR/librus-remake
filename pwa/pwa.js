@@ -108,4 +108,12 @@
       );
     }
   };
+  // Force check on page load
+window.addEventListener('load', function () {
+  setTimeout(() => {
+    if (window.LibrusPwa && typeof window.LibrusPwa.checkForUpdates === 'function') {
+      window.LibrusPwa.checkForUpdates().catch(() => {});
+    }
+  }, 1500);
+});
 })();

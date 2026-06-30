@@ -1,5 +1,5 @@
 /* Librus service worker | V31-260620a/u — bump CACHE_VERSION on each deploy. */
-const CACHE_VERSION = 'librus-v31-r84';
+const CACHE_VERSION = 'librus-v32-r02';
 
 const SHELL_ASSETS = [
   './index.html',

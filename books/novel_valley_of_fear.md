@@ -4,6 +4,7 @@ title: The Valley of Fear
 subtitle: Sherlock Holmes novel
 lang: en-US
 chronology: 60
+color: #fff
 ---
 
 # The Valley of Fear
