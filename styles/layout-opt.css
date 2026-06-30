@@ -1577,9 +1577,16 @@ mark.reader-search-hit.is-current {
   display: flex;
   align-items: center;
   justify-content: center;
+  backdrop-filter: blur(8px);
+  background-color: hsla(0, 0%, 0%, 0.9);
 }
 
 .portrait-content {
+  background: transparent;
+  color: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  text-align: center;
   max-width: 280px;
 }
 
