@@ -2837,6 +2837,12 @@ function renderAppUpdateStatus() {
   actionBtn.title = copy.detail;
   actionBtn.setAttribute('aria-label', copy.action + '. ' + copy.detail);
   actionBtn.dataset.updateState = state;
+
+  // Mini badge on settings button
+var miniBadge = document.getElementById('settings-update-badge-mini');
+if (miniBadge) {
+  miniBadge.classList.toggle('is-update', state === 'update');
+}
 }
 
 function handleAppUpdateAction() {

@@ -1686,3 +1686,26 @@ button.dismissable {
 .reader-notes .reader-notes-body {
   background: var(--bg-primary, #ffffff);
 }
+
+.update-badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 8px;
+  height: 8px;
+  background: #f59e0b;
+  border-radius: 50%;
+  border: 1.5px solid #fff;
+  box-shadow: 0 0 4px rgba(245, 158, 11, 0.8);
+  display: none;
+}
+
+.update-badge.is-update {
+  display: block;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+}
