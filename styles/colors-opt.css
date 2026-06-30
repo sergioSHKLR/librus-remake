@@ -111,3 +111,49 @@ mark.reader-search-hit.is-current {
   background-color: #374151 !important;
   color: #f3f4f6;
 }
+
+.librus-highlight {
+  padding: 1px 3px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.librus-highlight[data-note] {
+  background-color: #a5d6ff !important; /* notes */
+}
+
+.reader-notes-annotation {
+  background-color: #ffffff;
+  transition: background-color 0.2s;
+}
+
+.reader-notes-annotation:has(.reader-notes-body-text) {   /* notes with body */
+  background-color: #e3f2fd !important;   /* light blue */
+}
+
+.reader-notes-card-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  padding-top: 8px;
+  border-top: 1px solid #eee;
+}
+
+.reader-notes-card-actions .icon-btn {
+  width: 36px;
+  height: 36px;
+  padding: 6px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  opacity: 0.5;           /* initial */
+  filter: brightness(0.85);
+}
+
+.reader-notes-card-actions .icon-btn:hover {
+  opacity: 1;             /* full on hover */
+  filter: brightness(1.1);
+  transform: scale(1.1);
+}

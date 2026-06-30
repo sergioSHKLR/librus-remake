@@ -601,17 +601,16 @@ function bookMarkdownBody(book) {
 }
 
 const COVER_STYLE_CARD = { bg: '#ffffff', fg: '#1a1d21' };
-const COVER_STYLE_UNKNOWN = { bg: '#cccccc', fg: '#ffffff' };
-
+const COVER_STYLE_LEATHER = { bg: 'hsl(14, 38%, 24%)', fg: '#f5f0e8' };
+const COVER_STYLE_UNKNOWN = { bg: 'hsl(220, 18%, 28%)', fg: '#ffffff' };
 const COVER_STYLE_AUTHOR_PALETTE = [
-  COVER_STYLE_CARD,
+  COVER_STYLE_LEATHER,
   COVER_STYLE_UNKNOWN,
-  { bg: '#2a6a4f', fg: '#f0f7f2' },   // green
-  { bg: '#2a3a6a', fg: '#f0f2fa' },   // blue
-  { bg: '#6a2a4f', fg: '#faf0f2' },   // purple
-  { bg: '#6a4f2a', fg: '#f5f3f0' }    // brown
+  { bg: 'hsl(155, 32%, 22%)', fg: '#f0f7f2' },
+  { bg: 'hsl(235, 40%, 24%)', fg: '#f0f2fa' },
+  { bg: 'hsl(350, 32%, 26%)', fg: '#faf0f2' },
+  { bg: 'hsl(30, 12%, 26%)', fg: '#f5f3f0' }
 ];
-
 
 function hashAuthorKey(author) {
   var key = (author || 'Unknown Author').trim().toLowerCase();
@@ -1586,6 +1585,27 @@ function handleScrollContainerScroll(container) {
     readerContainer.classList.remove('is-topbar-hidden');
   } else if (st > last) {
     readerContainer.classList.add('is-topbar-hidden');
+  }
+
+  scrollTops.set(container, st);
+}
+
+// Auto-hide notes compose area on scroll down (overlay mode)
+function handleNotesComposeScroll(container) {
+  if (!isReaderOverlayLayout()) return;
+
+  var composeArea = document.querySelector('.reader-notes-compose');
+  if (!composeArea) return;
+
+  var last = scrollTops.get(container) || 0;
+  var st = container.scrollTop;
+
+  if (Math.abs(st - last) <= SCROLL_THRESHOLD) return;
+
+  if (st <= SCROLL_HIDE_OFFSET || st < last) {
+    composeArea.classList.remove('is-hidden');
+  } else if (st > last) {
+    composeArea.classList.add('is-hidden');
   }
 
   scrollTops.set(container, st);
@@ -2582,6 +2602,11 @@ function bindScrollListeners() {
   document.querySelectorAll('.scroll-track').forEach(function (container) {
     container.addEventListener('scroll', function () {
       handleScrollContainerScroll(container);
+      
+      // Notes compose auto-hide
+      if (container.classList.contains('reader-notes-scroll')) {
+        handleNotesComposeScroll(container);
+      }
     }, { passive: true });
   });
 }
@@ -3090,27 +3115,40 @@ function buildAnnotationCard(annotation, replies) {
   var card = document.createElement('article');
   card.className = 'reader-notes-annotation';
   card.dataset.annotationId = annotation.id;
+
+  if (annotation.motivation === 'highlighting' && !annotation.body) {
+    card.style.backgroundColor = '#fffacd';   // lemon for pure highlights
+  } else {
+    card.style.backgroundColor = '#e0f2fe';   // pale blue for notes
+  }
+
   var quote = LibrusAnnotations.getTextQuoteSelector(annotation);
   var quoteEl = document.createElement('blockquote');
   quoteEl.className = 'reader-notes-quote';
   quoteEl.textContent = quote ? quote.exact : '(passage unavailable)';
+
   var meta = document.createElement('div');
   meta.className = 'reader-notes-meta';
   meta.textContent = annotationCardLabel(annotation) + ' · ' + formatAnnotationDate(annotation.created);
+
   card.appendChild(quoteEl);
   card.appendChild(meta);
+
   if (annotation.body && annotation.body.value) {
     var body = document.createElement('p');
     body.className = 'reader-notes-body-text';
     body.textContent = annotation.body.value;
     card.appendChild(body);
   }
+
   var actions = document.createElement('div');
   actions.className = 'reader-notes-card-actions';
+
   var jumpBtn = createNotesIconButton('quote.svg', 'Go to passage', '', true);
   jumpBtn.addEventListener('click', function () {
     LibrusAnnotations.scrollToAnnotation(notesViewport(), annotation);
   });
+
   var replyBtn = createNotesIconButton('reply.svg', 'Reply', 'icon-btn-reply');
   replyBtn.addEventListener('click', function () {
     notesReplyParentId = annotation.id;
@@ -3124,21 +3162,26 @@ function buildAnnotationCard(annotation, replies) {
     if (cancelReplyBtn) cancelReplyBtn.classList.remove('is-hidden');
     renderNotesSelectionPreview();
   });
+
   var shareBtn = createNotesIconButton('share-yellow.svg', 'Share note', 'icon-btn-share');
   shareBtn.addEventListener('click', function () {
     shareAnnotation(annotation);
   });
-  var deleteBtn = createNotesIconButton('delete.svg', 'Delete note', 'icon-btn-danger'); deleteBtn.addEventListener('click', function () {
+
+  var deleteBtn = createNotesIconButton('delete.svg', 'Delete note', 'icon-btn-danger');
+  deleteBtn.addEventListener('click', function () {
     if (!lastOpenedBookId || !confirm('Delete this note and its replies?')) return;
     currentBookAnnotations = LibrusAnnotations.removeAnnotation(lastOpenedBookId, annotation.id);
     if (notesReplyParentId === annotation.id) notesReplyParentId = null;
     refreshNotesPanel();
   });
+
   actions.appendChild(jumpBtn);
   actions.appendChild(replyBtn);
   actions.appendChild(shareBtn);
   actions.appendChild(deleteBtn);
   card.appendChild(actions);
+
   replies.filter(function (r) { return r.partOf === annotation.id; }).forEach(function (reply) {
     var replyCard = document.createElement('div');
     replyCard.className = 'reader-notes-reply';
@@ -3154,12 +3197,78 @@ function buildAnnotationCard(annotation, replies) {
     replyCard.appendChild(replyMeta);
     card.appendChild(replyCard);
   });
+
   return card;
+}
+
+function scrollToNoteCard(annotationId) {
+  var notesList = document.getElementById('notes-list');
+  if (!notesList) return;
+
+  var card = notesList.querySelector(`[data-annotation-id="${annotationId}"]`);
+  if (!card) return;
+
+  // Target the scrollable container directly
+  var scrollContainer = notesList.closest('.reader-notes-body, .scroll-track, .reader-overlay-content') || notesList;
+
+  // Calculate position manually to avoid full page scroll
+  var cardRect = card.getBoundingClientRect();
+  var containerRect = scrollContainer.getBoundingClientRect();
+
+  var targetScrollTop = scrollContainer.scrollTop + (cardRect.top - containerRect.top) - (containerRect.height / 2) + (cardRect.height / 2);
+
+  scrollContainer.scrollTo({
+    top: Math.max(0, targetScrollTop),
+    behavior: 'smooth'
+  });
+
+function handleNotesComposeScroll(container) {
+  if (!isReaderOverlayLayout()) return;
+
+  var composeArea = document.querySelector('.reader-notes-compose');
+  if (!composeArea) return;
+
+  var last = scrollTops.get(container) || 0;
+  var st = container.scrollTop;
+
+  if (Math.abs(st - last) <= SCROLL_THRESHOLD) return;
+
+  if (st <= SCROLL_HIDE_OFFSET || st < last) {
+    composeArea.classList.remove('is-hidden');
+  } else if (st > last) {
+    composeArea.classList.add('is-hidden');
+  }
+
+  scrollTops.set(container, st);
+}
+
+  // Orange glow
+  const originalOutline = card.style.outline;
+  const originalShadow = card.style.boxShadow;
+  
+  card.style.transition = 'outline 0.4s ease-in-out, box-shadow 0.6s ease-in-out';
+  card.style.outline = '3px solid #f59e0b';
+  card.style.boxShadow = '0 0 12px #fbbf24';
+  
+  setTimeout(() => {
+    card.style.transition = 'outline 0.6s ease-out, box-shadow 0.8s ease-out';
+    card.style.outline = originalOutline || '';
+    card.style.boxShadow = originalShadow || '';
+  }, 1400);
 }
 
 function applyCurrentBookHighlights() {
   var viewport = notesViewport();
   if (!viewport || !window.LibrusAnnotations) return;
+
+  // Clean old highlights
+  viewport.querySelectorAll('mark, .highlight, .librus-highlight').forEach(function (el) {
+    const parent = el.parentNode;
+    if (parent) {
+      parent.replaceChild(document.createTextNode(el.textContent), el);
+    }
+  });
+
   LibrusAnnotations.applyHighlights(viewport, currentBookAnnotations);
 }
 
@@ -3171,16 +3280,22 @@ function refreshNotesPanel() {
   }
   renderNotesSelectionPreview();
   renderNotesList();
-  applyCurrentBookHighlights();
+  requestAnimationFrame(() => {
+    applyCurrentBookHighlights();
+  });
 }
 
 function saveNoteFromCompose(motivation) {
   if (!lastOpenedBookId || !window.LibrusAnnotations) return;
+
   var quote = getNotesSelectionQuote();
   if (!quote && !notesReplyParentId) return;
+
   var input = document.getElementById('notes-input');
   var body = input ? input.value.trim() : '';
+
   if (motivation !== 'highlighting' && !body) return;
+
   var sectionId = lastNotesSectionId;
   if (!sectionId && quote) {
     var liveSelection = window.getSelection();
@@ -3198,6 +3313,7 @@ function saveNoteFromCompose(motivation) {
     partOf: notesReplyParentId || undefined,
     sectionId: sectionId
   });
+
   if (notesReplyParentId && !quote) {
     var parent = currentBookAnnotations.find(function (a) { return a.id === notesReplyParentId; });
     var parentQuote = parent ? LibrusAnnotations.getTextQuoteSelector(parent) : null;
@@ -3206,7 +3322,14 @@ function saveNoteFromCompose(motivation) {
       annotation.target.selector[1] = { type: 'FragmentSelector', value: sectionId || lastOpenedBookId };
     }
   }
-  LibrusAnnotations.addAnnotation(lastOpenedBookId, annotation);
+
+  // Save it
+LibrusAnnotations.addAnnotation(lastOpenedBookId, annotation);
+console.log('Saved annotation for book', lastOpenedBookId, annotation); // debug
+
+// Then the rest...
+
+  // Reset UI
   notesReplyParentId = null;
   if (input) {
     input.value = '';
@@ -3214,6 +3337,8 @@ function saveNoteFromCompose(motivation) {
   }
   if (motivation === 'highlighting') clearLookupSelection();
   clearNotesSelectionCache();
+
+  // CRITICAL: Refresh with highlight re-apply
   refreshNotesPanel();
 }
 

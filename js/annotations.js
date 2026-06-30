@@ -269,25 +269,51 @@
 
  function applyHighlights(viewport, annotations) {
   clearHighlights();
-  if (!viewport || !annotations.length) return { anchored: 0, total: annotations.length };
+  if (!viewport || !annotations || !annotations.length) return { anchored: 0, total: 0 };
+
   var fullText = viewport.textContent || '';
   var anchored = 0;
-  var ranges = [];
+
   annotations.forEach(function (annotation) {
-   var selector = getTextQuoteSelector(annotation);
-   if (!selector) return;
-   var offsets = resolveQuoteOffsets(fullText, selector);
-   if (!offsets) return;
-   var range = rangeFromTextOffsets(viewport, offsets.start, offsets.end);
-   if (!range) return;
-   ranges.push(range);
-   anchored++;
+    if (annotation.motivation !== 'highlighting' && !annotation.body) return;
+
+    var selector = getTextQuoteSelector(annotation);
+    if (!selector || !selector.exact) return;
+
+    var offsets = resolveQuoteOffsets(fullText, selector);
+    if (!offsets) return;
+
+    var range = rangeFromTextOffsets(viewport, offsets.start, offsets.end);
+    if (!range) return;
+
+    try {
+      var mark = document.createElement('mark');
+      mark.className = 'librus-highlight';
+      
+        if (annotation.motivation === 'highlighting' && !annotation.body) {
+        // Pure highlight - neon yellow
+        mark.style.backgroundColor = '#fff44f';   // brighter neon
+      } else {
+        // Note - keep pale blue
+        mark.style.backgroundColor = '#77c9ff';
+      }
+      
+      mark.style.padding = '1px 3px';
+      mark.style.borderRadius = '3px';
+      mark.style.cursor = 'pointer';
+
+      mark.dataset.annotationId = annotation.id;
+      mark.addEventListener('click', function () {
+        scrollToNoteCard(annotation.id);
+      });
+
+      range.surroundContents(mark);
+      anchored++;
+    } catch (e) {
+      console.warn('Highlight failed for:', selector.exact);
+    }
   });
-  if (ranges.length && global.CSS && global.CSS.highlights && global.Highlight) {
-   try {
-    global.CSS.highlights.set(HIGHLIGHT_REGISTRY, new Highlight(...ranges));
-   } catch (e) { /* Highlight API unavailable */ }
-  }
+
   return { anchored: anchored, total: annotations.length };
  }
 

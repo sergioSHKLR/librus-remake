@@ -5,6 +5,7 @@
   --topbar-bg: var(--theme-base);
   --library-toolbar-fg: var(--text-primary);
   --gap: 0.75rem;
+  --gap-sm: 0.25rem;
   --padding: 0.75rem;
   --topbar-height: 3.375rem;
   --btn-size: 3.5rem;
@@ -283,7 +284,6 @@ textarea:focus-visible {
 .reader-context-toolbar-start,
 .reader-notes-toolbar-start {
   justify-content: flex-start;
-  gap: var(--gap);
 }
 
 .library-topbar-center,
@@ -296,7 +296,6 @@ textarea:focus-visible {
 .reader-main-toolbar-end,
 .reader-context-toolbar-end {
   justify-content: flex-end;
-  gap: var(--gap);
 }
 
 .reader-context-toolbar {
@@ -308,7 +307,6 @@ textarea:focus-visible {
 .reader-context-toolbar-start {
   flex: 1 1 auto;
   min-width: 0;
-  gap: var(--gap);
   flex-wrap: nowrap;
 }
 
@@ -355,7 +353,6 @@ textarea:focus-visible {
   display: flex;
   flex-direction: column;
   min-width: 11.5rem;
-  padding: var(--gap);
   border-radius: var(--radius);
   box-shadow: var(--shadow-menu);
 }
@@ -457,14 +454,6 @@ textarea:focus-visible {
   max-width: var(--library-filter-max-width);
 }
 
-.library-grid-filter-divider {
-  flex: 0 0 auto;
-  align-self: stretch;
-  width: 0.0625rem;
-  min-height: 1.5rem;
-  margin: 0 var(--gap);
-}
-
 .library-grid-filter .icon-btn {
   flex-shrink: 0;
 }
@@ -536,11 +525,12 @@ textarea:focus-visible {
 
 .library-grid-delete {
   position: absolute;
-  top: var(--gap);
-  right: var(--gap);
+  top: var(--gap-sm);
+  right: var(--gap-sm);
   width: var(--btn-size-sm);
   height: var(--btn-size-sm);
   border-radius: 50%;
+  background: #ccc;;
   opacity: 0;
 }
 
@@ -1548,28 +1538,6 @@ mark.reader-search-hit.is-current {
   display: none !important;
 }
 
-/*
-.floating-github {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  z-index: 9999;
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  opacity: .25;
-}
-
-.floating-github:hover {
-  transform: scale(1.1);
-  opacity: 1;
-} 
-  */
-
 .portrait-alert {
   position: fixed;
   inset: 0;
@@ -1613,6 +1581,9 @@ mark.reader-search-hit.is-current {
 button.dismissable {
   margin: 40px 0;
   padding: 20px;
+  background: transparent;
+  color: white;
+  border: 1px solid white;
 }
 
 #context-loading-status,
@@ -1626,4 +1597,15 @@ button.dismissable {
 
 .icon-btn .icon-glyph-filled {
   background: none;
+}
+
+.reader-notes-compose {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* smooth ease */
+  will-change: transform, opacity;
+}
+
+.reader-notes-compose.is-hidden {
+  transform: translateY(10px);   /* push up more */
+  opacity: 0;
+  pointer-events: none;
 }
