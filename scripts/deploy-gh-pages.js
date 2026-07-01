@@ -82,6 +82,10 @@ function ensureGhPagesWorktree() {
     run('git reset --hard origin/gh-pages', { cwd: WORKTREE });
     return;
   }
+  if (fs.existsSync(WORKTREE)) {
+    fs.rmSync(WORKTREE, { recursive: true, force: true });
+  }
+  run('git worktree prune');
   run('git fetch origin gh-pages');
   run('git worktree add --detach "' + WORKTREE + '" origin/gh-pages');
 }
