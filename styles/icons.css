@@ -1,0 +1,86 @@
+/* Lucide sprite icons — color via currentColor */
+
+.icon {
+  display: block;
+  flex-shrink: 0;
+  color: currentColor;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.icon--fill {
+  fill: currentColor;
+  stroke: none;
+}
+
+.icon-btn .icon,
+.icon-btn-glyph.icon,
+svg.icon-btn-glyph {
+  width: var(--icon-btn-glyph-size, 1.75rem);
+  height: var(--icon-btn-glyph-size, 1.75rem);
+}
+
+.icon--sm {
+  width: 1rem;
+  height: 1rem;
+}
+
+.icon--md {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.icon--lg {
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+.icon-brand-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  background: #eeeeee;
+  border-radius: 0.5rem;
+  color: #111111;
+  flex-shrink: 0;
+}
+
+.icon-brand-wrap .icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.md-block-expand-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--text-muted);
+}
+
+.context-placeholder-icon {
+  width: 3rem;
+  height: 3rem;
+  color: var(--text-muted);
+}
+
+.context-offline-icon {
+  width: 3rem;
+  height: 3rem;
+  color: var(--text-muted);
+}
+
+.portrait-content .device.icon {
+  width: 4rem;
+  height: 4rem;
+  margin: 0 auto 1rem;
+  color: #eeeeee;
+}
+
+.floating-github .icon {
+  width: 2.25rem;
+  height: 2.25rem;
+}

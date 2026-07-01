@@ -698,16 +698,6 @@ textarea:focus-visible {
    gap: var(--gap-md);
 }
 
-.library-topbar-logo {
-   width: 1.9rem;
-   height: 1.9rem;
-   flex-shrink: 0;
-   display: block;
-   background-color: var(--topbar-fg);
-   -webkit-mask: url('../icons/brand.svg') center / contain no-repeat;
-   mask: url('../icons/brand.svg') center / contain no-repeat;
-}
-
 .library-topbar-brand-title {
    font-weight: 700;
    font-size: 1.5rem;

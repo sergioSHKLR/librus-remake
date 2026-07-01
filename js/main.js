@@ -7,7 +7,10 @@ const TAB_SESSION_KEY = 'librus_v31_tab_active';
 const SETTINGS_STORAGE_KEY = 'librus_v31_settings';
 const UPLOADS_STORAGE_KEY = 'librus_v31_uploads';
 const MANIFEST_URL = 'books/manifest.json';
-const BOOKS_BASE = 'books/';
+
+function getBooksBase() {
+  return typeof librusPath === 'function' ? librusPath('books/') : '/books/';
+}
 /* Dev ships the full manifest (60 books). Prod uses an empty manifest. No partial fallback. */
 const BUNDLED_MANIFEST_FILES = [];
 const SCROLL_THRESHOLD = 6;
@@ -17,12 +20,18 @@ const READER_FONT_SCALE_MIN = READER_FONT_SCALE_CYCLE[0];
 const READER_FONT_SCALE_MAX = READER_FONT_SCALE_CYCLE[READER_FONT_SCALE_CYCLE.length - 1];
 const LIBRUS_SITE_URL = 'https://librus.app';
 const LIBRUS_SHARE_ATTRIBUTION = 'Shared from ' + LIBRUS_SITE_URL;
-const CONTEXT_PLACEHOLDER_URL = 'pages/context-placeholder.html';
+function getContextPlaceholderUrl() {
+  return typeof librusPath === 'function' ? librusPath('pages/context-placeholder.html') : '/pages/context-placeholder.html';
+}
+
+function getContextPdfViewerUrl() {
+  return typeof librusPath === 'function' ? librusPath('pages/pdf-viewer.html') : '/pages/pdf-viewer.html';
+}
 
 const DEFAULT_PROVIDERS = {
   wiki: 'https://en.wikipedia.org/w/index.php?search={query}',
   dictionary: 'https://en.wiktionary.org/w/index.php?search={query}',
-  map: 'pages/map.html?q={query}'
+  map: (typeof librusPath === 'function' ? librusPath('pages/map.html') : '/pages/map.html') + '?q={query}'
 };
 
 const LEGACY_PROVIDER_URLS = {
@@ -67,11 +76,16 @@ const CONTEXT_PROVIDER_LABELS = {
   dictionary: 'Dictionary',
   map: 'Map'
 };
-const CONTEXT_PROVIDER_ICONS = {
-  wiki: '<img src="icons/wikipedia.svg" alt="Wikipedia" width="24" height="24" aria-hidden="true">',
-  dictionary: '<img src="icons/dictionary.svg" alt="Dictionary" width="24" height="24" aria-hidden="true">',
-  map: '<img src="icons/map.svg" alt="Map" width="24" height="24" aria-hidden="true">'
+const CONTEXT_PROVIDER_ICON_NAMES = {
+  wiki: 'globe',
+  dictionary: 'book-a',
+  map: 'map'
 };
+
+function getContextProviderIconHtml(providerKey) {
+  var iconName = CONTEXT_PROVIDER_ICON_NAMES[providerKey] || CONTEXT_PROVIDER_ICON_NAMES.wiki;
+  return LibrusIcons.html(iconName, { className: 'icon icon-btn-glyph' });
+}
 let contextReloadUrl = '';
 let contextLoadPreviousUrl = '';
 let contextLoadingActive = false;
@@ -86,6 +100,8 @@ let currentBookToc = [];
 let tocFilterQuery = '';
 let tocScrollRaf = 0;
 let lastTocActiveId = '';
+let tocLinkBySection = Object.create(null);
+let tocExpandedH2Ids = Object.create(null);
 const bookRenderCache = new Map();
 let readerHeadingIndex = [];
 let readerHeadingIndexRaf = 0;
@@ -95,6 +111,8 @@ function getTocList() {
 }
 let lastLookupSelection = '';
 let lastNotesSelectionQuote = null;
+let lastNotesSelectionPreview = '';
+let lastNotesSelectionSignature = '';
 let lastNotesSectionId = '';
 let currentBookAnnotations = [];
 let notesReplyParentId = null;
@@ -255,10 +273,20 @@ function resolvedAppTheme() {
   return theme;
 }
 
+function contextThemeParam() {
+  var theme = settings.theme || 'system';
+  return theme === 'light' || theme === 'dark' ? theme : 'system';
+}
+
 function contextPlaceholderUrl() {
-  return CONTEXT_PLACEHOLDER_URL
-    + '?theme=' + encodeURIComponent(resolvedAppTheme())
+  return getContextPlaceholderUrl()
+    + '?theme=' + encodeURIComponent(contextThemeParam())
     + '&online=' + (navigator.onLine ? '1' : '0');
+}
+
+function contextPdfViewerUrl() {
+  return getContextPdfViewerUrl()
+    + '?theme=' + encodeURIComponent(contextThemeParam());
 }
 
 function syncContextPlaceholderConnectivity() {
@@ -274,16 +302,26 @@ function syncContextPlaceholderConnectivity() {
   } catch (e) { /* cross-origin or not ready */ }
 }
 
+function syncThemedContextFrames() {
+  var frame = document.getElementById('context-viewport');
+  if (!frame) return;
+  var src = frame.src || '';
+  if (isContextPlaceholderUrl(src)) {
+    frame.src = contextPlaceholderUrl();
+    return;
+  }
+  if (isContextPdfViewerUrl(src)) {
+    frame.src = contextPdfViewerUrl();
+  }
+}
+
 function changeTheme(themeValue, skipPersist) {
   document.body.className = '';
   document.body.classList.add('theme--' + themeValue);
   settings.theme = themeValue;
   var sel = document.getElementById('settings-theme-selector');
   if (sel) sel.value = themeValue;
-  var frame = document.getElementById('context-viewport');
-  if (frame && isContextPlaceholderUrl(frame.src || '')) {
-    frame.src = contextPlaceholderUrl();
-  }
+  syncThemedContextFrames();
   if (!skipPersist) {
     saveSettings();
     persistSession();
@@ -702,6 +740,18 @@ function manifestIndexForBook(book) {
   return idx === -1 ? 1e9 : idx;
 }
 
+function bundledHtmlPath(filename) {
+  var entry = manifestEntryForFile(filename) || {};
+  var htmlName = entry.html || filename.replace(/\.md$/i, '.html');
+  return getBooksBase() + htmlName;
+}
+
+function bundledTocPath(filename) {
+  var entry = manifestEntryForFile(filename) || {};
+  var tocName = entry.toc || filename.replace(/\.md$/i, '.toc.json');
+  return getBooksBase() + tocName;
+}
+
 function stubBookFromFilename(filename, manifestIndex) {
   var id = slugFromFilename(filename);
   var entry = manifestEntryForFile(filename) || {};
@@ -716,9 +766,13 @@ function stubBookFromFilename(filename, manifestIndex) {
     manifestIndex: manifestIndex != null ? manifestIndex : null,
     coverBg: entry.coverBg || '',
     coverFg: entry.coverFg || '',
-    path: BOOKS_BASE + filename,
+    path: bundledHtmlPath(filename),
+    tocPath: bundledTocPath(filename),
+    mdPath: getBooksBase() + filename,
     source: 'bundled',
-    content: null
+    content: null,
+    prebuiltHtml: null,
+    prebuiltToc: null
   };
   return applyCoverStyleToBook(book);
 }
@@ -738,16 +792,51 @@ function bundledBooksSignature(scanned) {
   }).join(',');
 }
 
+function isAppShellHtml(text) {
+  if (!text) return false;
+  return /id=["']librus-app["']/.test(text) || /<main[^>]+class=["'][^"']*app/i.test(text);
+}
+
 async function hydrateBook(book) {
-  if (!book || book.content || !book.path) return book;
-  var filename = book.path.split('/').pop();
+  if (!book || !book.path) return book;
+
+  if (book.source === 'upload') {
+    if (book.content) return book;
+    var uploadFilename = book.path.split('/').pop();
+    try {
+      var uploadRes = await fetch(book.path, { cache: 'reload' });
+      if (!uploadRes.ok) throw new Error('book fetch failed: ' + book.path + ' (' + uploadRes.status + ')');
+      var uploadText = await uploadRes.text();
+      var uploadMeta = parseBookMeta(uploadFilename, uploadText);
+      book.content = uploadMeta.body;
+      applyParsedBookMeta(book, uploadMeta);
+      return book;
+    } catch (e) {
+      console.error('hydrateBook failed', e);
+      throw e;
+    }
+  }
+
+  if (book.prebuiltHtml != null) return book;
+
   try {
-    var res = await fetch(book.path, { cache: 'reload' });
-    if (!res.ok) throw new Error('book fetch failed: ' + book.path + ' (' + res.status + ')');
-    var text = await res.text();
-    var meta = parseBookMeta(filename, text);
-    book.content = meta.body;
-    applyParsedBookMeta(book, meta);
+    var htmlRes = await fetch(book.path, { cache: 'reload' });
+    if (!htmlRes.ok) throw new Error('book html fetch failed: ' + book.path + ' (' + htmlRes.status + ')');
+    var htmlText = await htmlRes.text();
+    if (isAppShellHtml(htmlText)) {
+      throw new Error('book fetch returned app shell instead of content: ' + book.path
+        + ' (check server rewrites — static files must not fall back to index.html)');
+    }
+    book.prebuiltHtml = htmlText;
+
+    var tocPath = book.tocPath;
+    if (tocPath) {
+      var tocRes = await fetch(tocPath, { cache: 'reload' });
+      book.prebuiltToc = tocRes.ok ? await tocRes.json() : [];
+    } else {
+      book.prebuiltToc = [];
+    }
+
     return book;
   } catch (e) {
     console.error('hydrateBook failed', e);
@@ -867,15 +956,7 @@ cover.appendChild(authorEl);
     deleteBtn.title = 'Remove from the library';
     deleteBtn.setAttribute('aria-label', 'Remove ' + book.title + ' from library');
 
-    var deleteImg = document.createElement('img');
-    deleteImg.src = 'icons/delete.svg';
-    deleteImg.alt = 'Delete';
-    deleteImg.setAttribute('aria-hidden', 'true');
-    deleteImg.setAttribute('role', 'img');
-    deleteImg.width = 20;
-    deleteImg.height = 20;
-
-    deleteBtn.appendChild(deleteImg);
+    deleteBtn.appendChild(LibrusIcons.svg('trash-2', { className: 'icon--sm' }));
 
     // Stop propagation on delete
     deleteBtn.addEventListener('click', function (e) {
@@ -909,290 +990,8 @@ function removeUploadedBook(bookId) {
 }
 
 // =========================================================================
-// V31-260619b/b | SECTION 11: MARKDOWN RENDER & TOC
+// V31-260619b/b | SECTION 11: BOOK CONTENT LOAD (prebuilt HTML or upload MD)
 // =========================================================================
-var TOC_MIN_LEVEL = 2;
-var TOC_MAX_LEVEL = 5;
-
-function slugifyHeading(text) {
-  return String(text || '')
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/(^-|-$)/g, '');
-}
-
-function escapeHtml(str) {
-  return String(str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-}
-
-var mdFootnoteDefs = {};
-var mdFootnoteRefs = {};
-
-function resetMdFootnoteState() {
-  mdFootnoteDefs = {};
-  mdFootnoteRefs = {};
-}
-
-function parseInlineMarkdown(text) {
-  var out = escapeHtml(text);
-  out = out.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
-  out = out.replace(/\*([^*]+)\*/g, '<em>$1</em>');
-  out = out.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, function (_, alt, url) {
-    var src = url;
-    if (/^\/assets\/images\//i.test(src)) src = src.replace(/^\/assets\/images\//i, 'images/');
-    return '<img class="md-image" src="' + escapeHtml(src) + '" alt="' + escapeHtml(alt) + '" loading="lazy" decoding="async">';
-  });
-  out = out.replace(/\[([^\]]+)\]\(#([^)]+)\)/g, function (_, label, anchor) {
-    return '<a href="#' + escapeHtml(anchor) + '">' + label + '</a>';
-  });
-  out = out.replace(/\[([^\]]+)\]\(([^)]+)\)/g, function (_, label, url) {
-    if (!/^https?:\/\//i.test(url)) return '[' + label + '](' + url + ')';
-    return '<a href="' + escapeHtml(url) + '" rel="noopener noreferrer">' + label + '</a>';
-  });
-  out = out.replace(/\[\^([^\]]+)\]/g, function (_, id) {
-    mdFootnoteRefs[id] = true;
-    return '<sup class="md-fn-ref-wrap"><a href="#fn-' + escapeHtml(id) + '" id="fnref-' + escapeHtml(id) + '" class="md-fn-ref">' + escapeHtml(id) + '</a></sup>';
-  });
-  return out;
-}
-
-function parseHeadingLine(trimmed) {
-  var hm = trimmed.match(/^(#{1,6})\s+(.+)$/);
-  if (!hm) return null;
-  var level = hm[1].length;
-  var text = hm[2];
-  var idTag = text.match(/\s*\{#([^}]+)\}\s*$/);
-  var rawText = idTag ? text.replace(/\s*\{#[^}]+\}\s*$/, '').trim() : text;
-  var id = idTag ? idTag[1] : slugifyHeading(sanitizeDisplayTitle(rawText) || rawText);
-  return {
-    level: level,
-    id: id,
-    text: rawText,
-    tocText: sanitizeDisplayTitle(rawText) || rawText
-  };
-}
-
-function listItemKind(trimmed) {
-  if (/^\d+\.\s/.test(trimmed)) return 'decimal';
-  if (/^[a-z]\)\s/i.test(trimmed)) return 'alpha';
-  if (/^-\s/.test(trimmed)) return 'bullet';
-  return null;
-}
-
-function listItemText(trimmed, kind) {
-  if (kind === 'decimal') return trimmed.replace(/^\d+\.\s*/, '');
-  if (kind === 'alpha') return trimmed.replace(/^[a-z]\)\s*/i, '');
-  if (kind === 'bullet') return trimmed.slice(2);
-  return trimmed;
-}
-
-function listTagForKind(kind) {
-  if (kind === 'bullet') return { tag: 'ul', className: 'md-block-list' };
-  if (kind === 'alpha') return { tag: 'ol', className: 'md-list md-list--alpha' };
-  return { tag: 'ol', className: 'md-list' };
-}
-
-function lineHasHardBreak(rawLine) {
-  return /  \s*$/.test(rawLine);
-}
-
-function isIndexEntryLine(text) {
-  return /\s[–—-]\s+\[[^\]]+\]\([^)]+\)/.test(text);
-}
-
-function renderParagraphGroup(para) {
-  if (!para.length) return '';
-  if (para.length === 1) {
-    return '<p>' + parseInlineMarkdown(para[0].text) + '</p>';
-  }
-  if (para.every(function (entry) { return isIndexEntryLine(entry.text); })) {
-    return para.map(function (entry) {
-      return '<p class="md-index-entry">' + parseInlineMarkdown(entry.text) + '</p>';
-    }).join('');
-  }
-  var chunks = [];
-  para.forEach(function (entry, idx) {
-    chunks.push(parseInlineMarkdown(entry.text));
-    if (idx >= para.length - 1) return;
-    if (entry.hardBreak) chunks.push('<br>');
-    else chunks.push(' ');
-  });
-  return '<p>' + chunks.join('') + '</p>';
-}
-
-function renderBodyBlocks(lines) {
-  var html = [];
-  var i = 0;
-  while (i < lines.length) {
-    var trimmed = lines[i].trim();
-    if (!trimmed) {
-      i++;
-      continue;
-    }
-    var kind = listItemKind(trimmed);
-    if (kind) {
-      var listKind = kind;
-      var items = [];
-      while (i < lines.length) {
-        var probe = lines[i].trim();
-        if (!probe) break;
-        var probeKind = listItemKind(probe);
-        if (probeKind !== listKind) break;
-        items.push(listItemText(probe, listKind));
-        i++;
-      }
-      var listMeta = listTagForKind(listKind);
-      html.push('<' + listMeta.tag + ' class="' + listMeta.className + '">' +
-        items.map(function (item) {
-          return '<li>' + parseInlineMarkdown(item) + '</li>';
-        }).join('') +
-        '</' + listMeta.tag + '>');
-      continue;
-    }
-    var para = [];
-    while (i < lines.length) {
-      var rawLine = lines[i];
-      var line = rawLine.trim();
-      if (!line) break;
-      if (listItemKind(line)) break;
-      para.push({ text: line, hardBreak: lineHasHardBreak(rawLine) });
-      i++;
-    }
-    if (para.length) {
-      html.push(renderParagraphGroup(para));
-    }
-  }
-  return html.join('');
-}
-
-function renderMdBlockLines(lines) {
-  return renderBodyBlocks(lines);
-}
-
-function extractFootnoteDefs(lines) {
-  var body = [];
-  lines.forEach(function (line) {
-    var trimmed = line.trim();
-    var match = trimmed.match(/^\[\^([^\]]+)\]:\s*(.*)$/);
-    if (match) {
-      mdFootnoteDefs[match[1]] = match[2];
-      return;
-    }
-    body.push(line);
-  });
-  return body;
-}
-
-function renderMdFootnotes() {
-  var ids = Object.keys(mdFootnoteDefs).filter(function (id) {
-    return mdFootnoteRefs[id];
-  });
-  if (!ids.length) return '';
-  ids.sort(function (a, b) {
-    var na = parseInt(a, 10);
-    var nb = parseInt(b, 10);
-    if (!isNaN(na) && !isNaN(nb)) return na - nb;
-    return a.localeCompare(b);
-  });
-  return '<section class="md-footnotes" aria-label="Notes"><ol>' +
-    ids.map(function (id) {
-      return '<li id="fn-' + escapeHtml(id) + '">' + parseInlineMarkdown(mdFootnoteDefs[id]) +
-        ' <a href="#fnref-' + escapeHtml(id) + '" class="md-fn-back" aria-label="Back">↩</a></li>';
-    }).join('') +
-    '</ol></section>';
-}
-
-function renderMdBlock(type, title, lines) {
-  var body = renderMdBlockLines(lines);
-  if (type === 'expand') {
-    return '<details class="md-block md-block--expand">' +
-      '<summary>' +
-      '<img src="/icons/expand.svg" alt="Expand" aria-hidden="true" class="md-block-expand-icon" width="24" height="24">' +
-      '<span class="md-block-expand-label">' + parseInlineMarkdown(title || 'More') + '</span>' +
-      '</summary>' +
-      '<div class="md-block-body">' + body + '</div></details>';
-  }
-  var titleHtml = title ? '<p class="md-block-title">' + parseInlineMarkdown(title) + '</p>' : '';
-  return '<div class="md-block md-block--' + escapeHtml(type) + '">' + titleHtml +
-    '<div class="md-block-body">' + body + '</div></div>';
-}
-
-function isSkippableComment(trimmed) {
-  return trimmed.indexOf('<!--') === 0;
-}
-
-function markdownToHtml(md) {
-  resetMdFootnoteState();
-  var lines = extractFootnoteDefs(md.replace(/\r\n/g, '\n').split('\n'));
-  var html = [];
-  var toc = [];
-  var i = 0;
-
-  while (i < lines.length) {
-    var trimmed = lines[i].trim();
-    if (!trimmed) {
-      i++;
-      continue;
-    }
-    if (trimmed === '<!-- PART_BREAK -->') {
-      html.push('<hr class="md-part-break" aria-hidden="true">');
-      i++;
-      continue;
-    }
-    if (isSkippableComment(trimmed)) {
-      i++;
-      continue;
-    }
-    var blockOpen = trimmed.match(/^:::\s*([\w-]+)(?:\s+(.+))?$/);
-    if (blockOpen) {
-      var blockType = blockOpen[1];
-      var blockTitle = blockOpen[2] || '';
-      var blockLines = [];
-      i++;
-      while (i < lines.length && lines[i].trim() !== ':::') {
-        blockLines.push(lines[i]);
-        i++;
-      }
-      if (i < lines.length) i++;
-      html.push(renderMdBlock(blockType, blockTitle, blockLines));
-      continue;
-    }
-    var heading = parseHeadingLine(trimmed);
-    if (heading) {
-      if (heading.level >= TOC_MIN_LEVEL && heading.level <= TOC_MAX_LEVEL) {
-        toc.push({ id: heading.id, text: heading.tocText, level: heading.level });
-      }
-      var relatedTermsClass = sanitizeDisplayTitle(heading.tocText) === 'Termos relacionados'
-        ? ' class="reader-heading--related-terms"' : '';
-      html.push('<h' + heading.level + ' id="' + escapeHtml(heading.id) + '"' + relatedTermsClass + '>' +
-        parseInlineMarkdown(heading.text) + '</h' + heading.level + '>');
-      i++;
-      continue;
-    }
-    var bodyStart = i;
-    while (i < lines.length) {
-      var probe = lines[i].trim();
-      if (!probe) break;
-      if (probe === '<!-- PART_BREAK -->' || isSkippableComment(probe)) break;
-      if (probe.match(/^:::\s*[\w-]+/) || probe === ':::') break;
-      if (probe.match(/^#{1,6}\s+/)) break;
-      i++;
-    }
-    if (i > bodyStart) {
-      html.push(renderBodyBlocks(lines.slice(bodyStart, i)));
-    } else {
-      i++;
-    }
-  }
-
-  var footnotes = renderMdFootnotes();
-  if (footnotes) html.push(footnotes);
-
-  return { html: html.join('\n'), toc: toc };
-}
-
 function getCachedBookRender(book) {
   if (!book || !book.id || book.content == null) return null;
   var cached = bookRenderCache.get(book.id);
@@ -1206,11 +1005,20 @@ function setCachedBookRender(book, parsed) {
 }
 
 function parseBookForReader(book) {
-  var cached = getCachedBookRender(book);
-  if (cached) return cached;
-  var parsed = markdownToHtml(bookMarkdownBody(book));
-  setCachedBookRender(book, parsed);
-  return parsed;
+  if (book.source === 'upload') {
+    var cached = getCachedBookRender(book);
+    if (cached) return cached;
+    var parsed = LibrusMarkdown.markdownToHtml(bookMarkdownBody(book));
+    setCachedBookRender(book, parsed);
+    return parsed;
+  }
+  if (book.prebuiltHtml != null) {
+    return { html: book.prebuiltHtml, toc: book.prebuiltToc || [] };
+  }
+  return {
+    html: '<p class="reader-empty-state">Could not load book content.</p>',
+    toc: []
+  };
 }
 
 function rebuildReaderHeadingIndex() {
@@ -1254,13 +1062,14 @@ function getReaderActiveHeadingId() {
   return activeId;
 }
 
-function createTocLink(item) {
+function createTocLink(item, extraClass) {
   var a = document.createElement('a');
   a.href = '#' + item.id;
-  a.className = 'reader-toc-item';
+  a.className = 'reader-toc-item' + (extraClass ? ' ' + extraClass : '');
   a.dataset.section = item.id;
   a.textContent = item.text;
   a.addEventListener('click', function (e) { scrollToSection(e, item.id); });
+  tocLinkBySection[item.id] = a;
   return a;
 }
 
@@ -1268,18 +1077,193 @@ function tocItemMatchesFilter(item, q) {
   return !q || item.text.toLowerCase().indexOf(q) !== -1;
 }
 
+function tocSidebarItems(items) {
+  return items.filter(function (item) { return item.level <= 4; });
+}
+
+function findContainingH2Id(sectionId) {
+  if (!sectionId || !currentBookToc.length) return '';
+  var targetIdx = -1;
+  for (var i = 0; i < currentBookToc.length; i++) {
+    if (currentBookToc[i].id === sectionId) {
+      targetIdx = i;
+      break;
+    }
+  }
+  if (targetIdx < 0) return '';
+  if (currentBookToc[targetIdx].level === 2) return sectionId;
+  for (var j = targetIdx - 1; j >= 0; j--) {
+    if (currentBookToc[j].level === 2) return currentBookToc[j].id;
+  }
+  return '';
+}
+
+function groupTocForCollapse(items) {
+  var sidebarItems = tocSidebarItems(items);
+  var groups = [];
+  var i = 0;
+  while (i < sidebarItems.length) {
+    var item = sidebarItems[i];
+    if (item.level === 2) {
+      var children = [];
+      i++;
+      while (i < sidebarItems.length && sidebarItems[i].level > 2) {
+        children.push(sidebarItems[i]);
+        i++;
+      }
+      groups.push({ type: 'h2', item: item, children: children });
+      continue;
+    }
+    groups.push({ type: 'leaf', item: item });
+    i++;
+  }
+  return groups;
+}
+
+function isTocBranchExpanded(h2Id) {
+  return !!tocExpandedH2Ids[h2Id];
+}
+
+function applyTocBranchDom(h2Id, expanded) {
+  var branch = document.querySelector('.reader-toc-branch[data-h2-id="' + h2Id + '"]');
+  if (!branch) return;
+  var childList = branch.querySelector('.reader-toc-children');
+  var toggle = branch.querySelector('.reader-toc-expand');
+  if (childList) childList.hidden = !expanded;
+  if (toggle) {
+    toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    toggle.classList.toggle('is-expanded', expanded);
+  }
+}
+
+function collapseAllTocBranches(exceptH2Id) {
+  Object.keys(tocExpandedH2Ids).forEach(function (id) {
+    if (exceptH2Id && id === exceptH2Id) return;
+    delete tocExpandedH2Ids[id];
+    applyTocBranchDom(id, false);
+  });
+}
+
+function setTocBranchExpanded(h2Id, expanded) {
+  if (!h2Id) return;
+  if (expanded) {
+    collapseAllTocBranches(h2Id);
+    tocExpandedH2Ids[h2Id] = true;
+  } else {
+    delete tocExpandedH2Ids[h2Id];
+  }
+  applyTocBranchDom(h2Id, expanded);
+}
+
+function toggleTocBranch(h2Id) {
+  if (isTocBranchExpanded(h2Id)) {
+    setTocBranchExpanded(h2Id, false);
+    return;
+  }
+  setTocBranchExpanded(h2Id, true);
+}
+
+function ensureTocBranchExpandedForSection(sectionId) {
+  var h2Id = findContainingH2Id(sectionId);
+  if (h2Id && !isTocBranchExpanded(h2Id)) {
+    setTocBranchExpanded(h2Id, true);
+  }
+}
+
+function createTocExpandButton(h2Id) {
+  var btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'reader-toc-expand';
+  btn.setAttribute('aria-label', 'Expand chapter');
+  btn.setAttribute('aria-expanded', 'false');
+  btn.dataset.h2Id = h2Id;
+  btn.appendChild(LibrusIcons.svg('chevron-down', { className: 'icon--sm' }));
+  btn.addEventListener('click', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    toggleTocBranch(h2Id);
+  });
+  return btn;
+}
+
+function appendTocChildItems(parentUl, children) {
+  children.forEach(function (child) {
+    var li = document.createElement('li');
+    li.className = 'reader-toc-child';
+    var levelClass = child.level === 4 ? 'reader-toc-item--h4' : 'reader-toc-item--h3';
+    li.appendChild(createTocLink(child, levelClass));
+    parentUl.appendChild(li);
+  });
+}
+
+function renderCollapsedTocList(list, items) {
+  var groups = groupTocForCollapse(items);
+  groups.forEach(function (group) {
+    if (group.type === 'leaf') {
+      var leafLi = document.createElement('li');
+      var leafClass = group.item.level === 4 ? 'reader-toc-item--h4'
+        : group.item.level === 3 ? 'reader-toc-item--h3'
+        : 'reader-toc-item--h2';
+      leafLi.appendChild(createTocLink(group.item, leafClass));
+      list.appendChild(leafLi);
+      return;
+    }
+
+    var h2Li = document.createElement('li');
+    h2Li.className = 'reader-toc-branch';
+    h2Li.dataset.h2Id = group.item.id;
+    var head = document.createElement('div');
+    head.className = 'reader-toc-branch-head';
+
+    if (group.children.length) {
+      var expanded = isTocBranchExpanded(group.item.id);
+      var toggle = createTocExpandButton(group.item.id);
+      toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      toggle.classList.toggle('is-expanded', expanded);
+      head.appendChild(toggle);
+    }
+
+    head.appendChild(createTocLink(group.item, 'reader-toc-item--h2'));
+    h2Li.appendChild(head);
+
+    if (group.children.length) {
+      var childUl = document.createElement('ul');
+      childUl.className = 'reader-toc-children';
+      childUl.hidden = !isTocBranchExpanded(group.item.id);
+      appendTocChildItems(childUl, group.children);
+      h2Li.appendChild(childUl);
+    }
+
+    list.appendChild(h2Li);
+  });
+}
+
+function renderFlatTocList(list, items, q) {
+  tocSidebarItems(items).forEach(function (item) {
+    if (!tocItemMatchesFilter(item, q)) return;
+    var li = document.createElement('li');
+    var levelClass = item.level === 2 ? 'reader-toc-item--h2'
+      : item.level === 3 ? 'reader-toc-item--h3'
+      : item.level === 4 ? 'reader-toc-item--h4'
+      : '';
+    li.appendChild(createTocLink(item, levelClass));
+    list.appendChild(li);
+  });
+}
+
 function renderTocList(toc) {
   currentBookToc = toc || [];
   var list = getTocList();
   if (!list) return;
   list.innerHTML = '';
+  tocLinkBySection = Object.create(null);
   var q = tocFilterQuery.toLowerCase();
-  currentBookToc.forEach(function (item) {
-    if (!tocItemMatchesFilter(item, q)) return;
-    var li = document.createElement('li');
-    li.appendChild(createTocLink(item));
-    list.appendChild(li);
-  });
+
+  if (q) {
+    renderFlatTocList(list, currentBookToc, q);
+  } else {
+    renderCollapsedTocList(list, currentBookToc);
+  }
   scheduleTocScrollSync();
 }
 
@@ -1303,22 +1287,22 @@ function scrollActiveTocItemIntoView(link, container) {
 
 function syncTocScrollState() {
   tocScrollRaf = 0;
-  var list = getTocList();
-  if (!list) return;
   var activeId = getReaderActiveHeadingId();
-  list.querySelectorAll('.reader-toc-item').forEach(function (link) {
-    link.classList.toggle('is-active', link.dataset.section === activeId);
-  });
-  if (!activeId) {
-    lastTocActiveId = '';
-    return;
+  if (activeId === lastTocActiveId) return;
+
+  if (!tocFilterQuery) {
+    ensureTocBranchExpandedForSection(activeId);
   }
-  if (activeId !== lastTocActiveId) {
-    var activeLink = list.querySelector('.reader-toc-item.is-active');
+
+  if (lastTocActiveId && tocLinkBySection[lastTocActiveId]) {
+    tocLinkBySection[lastTocActiveId].classList.remove('is-active');
+  }
+  if (activeId && tocLinkBySection[activeId]) {
+    tocLinkBySection[activeId].classList.add('is-active');
     var tocBody = document.querySelector('.reader-toc-body');
-    scrollActiveTocItemIntoView(activeLink, tocBody);
-    lastTocActiveId = activeId;
+    scrollActiveTocItemIntoView(tocLinkBySection[activeId], tocBody);
   }
+  lastTocActiveId = activeId || '';
 }
 
 function scheduleTocScrollSync() {
@@ -1360,11 +1344,18 @@ function loadBook(book, skipPersist) {
   }
   resetNotesFilters();
   lastTocActiveId = '';
+  tocLinkBySection = Object.create(null);
+  tocExpandedH2Ids = Object.create(null);
   readerHeadingIndex = [];
   renderTocList(parsed.toc);
   requestAnimationFrame(function () {
-    if (window.LibrusAnnotations && typeof LibrusAnnotations.invalidateViewportTextCache === 'function') {
-      LibrusAnnotations.invalidateViewportTextCache();
+    if (window.LibrusAnnotations) {
+      if (typeof LibrusAnnotations.invalidateViewportTextCache === 'function') {
+        LibrusAnnotations.invalidateViewportTextCache();
+      }
+      if (typeof LibrusAnnotations.bindHighlightClickHandler === 'function') {
+        LibrusAnnotations.bindHighlightClickHandler(viewport);
+      }
     }
     scheduleReaderHeadingIndexRebuild();
     refreshNotesPanel();
@@ -1814,15 +1805,43 @@ function isSelectionInReader(selection) {
   return !!(node && viewport.contains(node));
 }
 
-var lookupSelectionSyncRaf = 0;
+var SELECTION_SYNC_DEBOUNCE_MS = 120;
+var selectionSyncTimer = 0;
+var lastSelectionSignature = '';
 
-function scheduleLookupSelectionSync() {
-  if (lookupSelectionSyncRaf) cancelAnimationFrame(lookupSelectionSyncRaf);
-  lookupSelectionSyncRaf = requestAnimationFrame(function () {
-    lookupSelectionSyncRaf = 0;
+function selectionSignature() {
+  var sel = window.getSelection();
+  if (!sel || sel.rangeCount === 0) return '';
+  var range = sel.getRangeAt(0);
+  return [
+    sel.isCollapsed ? '1' : '0',
+    range.startContainer,
+    range.startOffset,
+    range.endContainer,
+    range.endOffset
+  ].join('|');
+}
+
+function scheduleSelectionSync() {
+  if (selectionSyncTimer) clearTimeout(selectionSyncTimer);
+  selectionSyncTimer = window.setTimeout(function () {
+    selectionSyncTimer = 0;
+    var signature = selectionSignature();
+    if (signature === lastSelectionSignature) return;
+    lastSelectionSignature = signature;
+
+    updateContextSelectionDisplay();
     cacheLookupSelection();
     updateContextLookupControls();
-  });
+
+    var selection = window.getSelection();
+    if (selection && !selection.isCollapsed && isSelectionInReader(selection)) {
+      lastNotesSelectionPreview = selection.toString().trim();
+    } else {
+      lastNotesSelectionPreview = '';
+    }
+    renderNotesSelectionPreview();
+  }, SELECTION_SYNC_DEBOUNCE_MS);
 }
 
 function cacheLookupSelection() {
@@ -1976,8 +1995,26 @@ function normalizeMapQuery(query) {
     .replace(/[""'']/g, '');        // smart quotes
 }
 
+function normalizePathname(pathname) {
+  var path = pathname || '/';
+  return path.replace(/\/index\.html$/i, '/').replace(/\/$/, '') || '/';
+}
+
+function isSameOriginAppShellUrl(url) {
+  if (!url || url === 'about:blank') return false;
+  try {
+    var parsed = new URL(url, window.location.href);
+    var self = new URL(window.location.href);
+    return parsed.origin === self.origin
+      && normalizePathname(parsed.pathname) === normalizePathname(self.pathname);
+  } catch (e) {
+    return false;
+  }
+}
+
 function isContextPlaceholderUrl(url) {
-  if (!url) return true;
+  if (!url || url === 'about:blank') return false;
+  if (isSameOriginAppShellUrl(url)) return false;
   try {
     var parsed = new URL(url, window.location.href);
     return /context-placeholder\.html$/i.test(parsed.pathname);
@@ -1996,21 +2033,63 @@ function isShareableContextUrl(url) {
   }
 }
 
+function isContextPdfViewerUrl(url) {
+  if (!url) return false;
+  try {
+    var parsed = new URL(url, window.location.href);
+    return /pdf-viewer\.html$/i.test(parsed.pathname);
+  } catch (e) {
+    return String(url).indexOf('pdf-viewer.html') !== -1;
+  }
+}
+
+function showContextPdfViewer() {
+  var frame = document.getElementById('context-viewport');
+  if (!frame) return;
+  contextNavigationDepth = 0;
+  isInternalBackNavigation = false;
+  contextArticleUrl = '';
+  var viewerUrl = contextPdfViewerUrl();
+  var rawSrc = frame.getAttribute('src') || frame.src || '';
+  if (!isContextPdfViewerUrl(rawSrc)) {
+    frame.src = viewerUrl;
+  } else {
+    try {
+      var current = new URL(frame.src, window.location.href);
+      var next = new URL(viewerUrl, window.location.href);
+      if (current.href !== next.href) frame.src = viewerUrl;
+    } catch (e) {
+      frame.src = viewerUrl;
+    }
+  }
+  hideContextLoading();
+  updateContextBackButtonState();
+  updateContextShareButtonState();
+}
+
 function showContextPlaceholder() {
+  if (!navigator.onLine) {
+    showContextPdfViewer();
+    return;
+  }
   var frame = document.getElementById('context-viewport');
   if (!frame) return;
   contextNavigationDepth = 0;
   isInternalBackNavigation = false;
   contextArticleUrl = '';
   var placeholderUrl = contextPlaceholderUrl();
-  try {
-    var current = new URL(frame.src || '', window.location.href);
-    var next = new URL(placeholderUrl, window.location.href);
-    if (!isContextPlaceholderUrl(frame.src || '') || current.href !== next.href) {
+  var rawSrc = frame.getAttribute('src') || frame.src || '';
+  var shouldLoad = !isContextPlaceholderUrl(rawSrc) || isSameOriginAppShellUrl(rawSrc);
+  if (shouldLoad) {
+    frame.src = placeholderUrl;
+  } else {
+    try {
+      var current = new URL(frame.src, window.location.href);
+      var next = new URL(placeholderUrl, window.location.href);
+      if (current.href !== next.href) frame.src = placeholderUrl;
+    } catch (e) {
       frame.src = placeholderUrl;
     }
-  } catch (e) {
-    frame.src = placeholderUrl;
   }
   hideContextLoading();
   updateContextBackButtonState();
@@ -2061,7 +2140,7 @@ function shareLinkGap() {
 
 function loadShareIconFile() {
   if (shareIconFileCache !== undefined) return Promise.resolve(shareIconFileCache);
-  return fetch('icons/pwa/icon-192.png')
+  return fetch('pwa/icon-192.png')
     .then(function (res) {
       if (!res.ok) throw new Error('icon unavailable');
       return res.blob();
@@ -2343,6 +2422,16 @@ function reloadContextPanel() {
   }
   var frame = document.getElementById('context-viewport');
   if (!frame) return;
+  if (!navigator.onLine) {
+    if (isContextPdfViewerUrl(frame.src || '')) {
+      try {
+        frame.contentWindow.postMessage({ type: 'librus:pdf-open' }, window.location.origin);
+      } catch (e) { /* not ready */ }
+    } else {
+      showContextPdfViewer();
+    }
+    return;
+  }
   if (isContextFrameOnPlaceholder(frame)) {
     submitContextLookup();
     return;
@@ -2428,7 +2517,7 @@ function updateContextLookupControls() {
   document.querySelectorAll('.context-provider-option').forEach(function (option) {
     var key = option.getAttribute('data-provider');
     var optionTemplate = getContextProviderTemplate(key);
-    var offlineBlocked = !online && key === 'map';
+    var offlineBlocked = !online;
     var missingTemplate = !optionTemplate;
     var active = key === providerKey;
     option.disabled = offlineBlocked || missingTemplate;
@@ -2438,7 +2527,7 @@ function updateContextLookupControls() {
 
   var searchIcon = document.getElementById('context-search-icon');
   if (searchIcon) {
-    searchIcon.textContent = CONTEXT_PROVIDER_ICONS[providerKey] || CONTEXT_PROVIDER_ICONS.wiki;
+    searchIcon.innerHTML = getContextProviderIconHtml(providerKey);
   }
 
   if (searchBtn) {
@@ -2447,24 +2536,29 @@ function updateContextLookupControls() {
     var searchTip = 'Look up selection in ' + providerLabel;
     if (contextLoadingActive) searchTip = 'Loading reference…';
     else if (!query) searchTip = 'Select text in the book to look up';
-    else if (!online) searchTip = 'Lookup unavailable offline';
+    else if (!online) searchTip = 'Lookups disabled offline — open a PDF in the reference panel';
     else if (!template) searchTip = 'Set a URL template in Settings';
     searchBtn.title = searchTip;
     searchBtn.setAttribute('aria-label', searchTip);
   }
 
-  if (providerToggle) providerToggle.disabled = contextLoadingActive;
+  if (providerToggle) providerToggle.disabled = contextLoadingActive || !online;
 
   if (reloadBtn && reloadIcon) {
     reloadBtn.disabled = false;
     if (contextLoadingActive) {
       reloadBtn.classList.add('is-stop');
-      reloadIcon.innerHTML = '<img src="../icons/close.svg" alt="Stop" aria-hidden="true" width="24" height="24">';
+      LibrusIcons.setIcon(reloadIcon, 'x', { className: 'icon icon-btn-glyph' });
       reloadBtn.title = 'Stop loading';
       reloadBtn.setAttribute('aria-label', 'Stop loading');
+    } else if (!online) {
+      reloadBtn.classList.remove('is-stop');
+      LibrusIcons.setIcon(reloadIcon, 'upload', { className: 'icon icon-btn-glyph' });
+      reloadBtn.title = 'Open PDF file';
+      reloadBtn.setAttribute('aria-label', 'Open PDF file');
     } else {
       reloadBtn.classList.remove('is-stop');
-      reloadIcon.innerHTML = '<img src="../icons/refresh.svg" alt="Reload" aria-hidden="true" width="24" height="24">';
+      LibrusIcons.setIcon(reloadIcon, 'refresh-cw', { className: 'icon icon-btn-glyph' });
       reloadBtn.title = 'Reload reference';
       reloadBtn.setAttribute('aria-label', 'Reload reference');
     }
@@ -2516,10 +2610,6 @@ function bindSettingsListeners() {
 }
 
 function bindLibraryListeners() {
-  document.getElementById('library-upload-btn').addEventListener('click', function () {
-    document.getElementById('md-upload').click();
-  });
-  document.getElementById('md-upload').addEventListener('change', handleMDUpload);
   document.getElementById('library-filter').addEventListener('input', function (e) {
     libraryFilterQuery = e.target.value.trim();
     renderLibraryGrid();
@@ -2616,7 +2706,11 @@ function bindContextListeners() {
   contextFrame.addEventListener('load', function () {
     hideContextLoading();
     var src = contextFrame.src || '';
-    if (!src || contextFrame.src === window.location.href || isContextPlaceholderUrl(src)) {
+    if (isSameOriginAppShellUrl(src)) {
+      showContextPlaceholder();
+      return;
+    }
+    if (!src || src === 'about:blank' || contextFrame.src === window.location.href || isContextPlaceholderUrl(src)) {
       contextArticleUrl = '';
       contextNavigationDepth = 0;
       updateContextBackButtonState();
@@ -2636,8 +2730,6 @@ function bindContextListeners() {
   });
   showContextPlaceholder();
   updateContextLookupControls();
-  // Line ~ 2520
-  document.addEventListener('selectionchange', updateContextSelectionDisplay);
 }
 
 function bindScrollListeners() {
@@ -2649,7 +2741,7 @@ function bindScrollListeners() {
 }
 
 function bindDocumentListeners() {
-  document.addEventListener('selectionchange', scheduleLookupSelectionSync);
+  document.addEventListener('selectionchange', scheduleSelectionSync);
   window.addEventListener('resize', function () {
     if (!isMobileReaderLayout()) resetReaderChromeState();
     syncReaderOverlayChrome();
@@ -2692,14 +2784,23 @@ function bindDocumentListeners() {
     } catch (e) { /* cross-origin */ }
   });
 
-  window.addEventListener('online', function () {
-    updateContextLookupControls();
-    syncContextPlaceholderConnectivity();
-  });
-  window.addEventListener('offline', function () {
-    updateContextLookupControls();
-    syncContextPlaceholderConnectivity();
-  });
+  window.addEventListener('online', handleConnectivityChange);
+  window.addEventListener('offline', handleConnectivityChange);
+}
+
+function handleConnectivityChange() {
+  renderAppStatusLed();
+  if (!navigator.onLine) {
+    showContextPdfViewer();
+  } else {
+    var frame = document.getElementById('context-viewport');
+    if (frame && isContextPdfViewerUrl(frame.src || '')) {
+      showContextPlaceholder();
+    } else {
+      syncContextPlaceholderConnectivity();
+    }
+  }
+  updateContextLookupControls();
 }
 
 function syncInputClearButton(input) {
@@ -2779,10 +2880,61 @@ function bindAllListeners() {
 // V31-260619a/o | SECTION 16: APP UPDATE STATUS
 // SETTINGS FOOTER — MOBILE_CHECK (UP TO DATE) / MOBILE_ALERT (UPDATE)
 // =========================================================================
-const APP_UPDATE_ICONS = {
-  uptodate: '<img src="icons/current.svg" alt="Up to date" width="24" height="24" aria-hidden="true">',
-  update: '<img src="icons/expired.svg" alt="Update available" width="24" height="24" aria-hidden="true">'
+const APP_STATUS_LED_COPY = {
+  updated: {
+    label: 'Up to date and online',
+    title: 'Up to date and online'
+  },
+  'update-available': {
+    label: 'Update available — open Settings to refresh',
+    title: 'Update available — open Settings to refresh'
+  },
+  offline: {
+    label: 'Offline — reference lookups disabled; PDF viewer only',
+    title: 'Offline — reference lookups disabled; PDF viewer only'
+  }
 };
+
+function parseBuildVersion(buildId) {
+  if (!buildId || buildId === '—') return { major: '—', rev: '' };
+  var match = String(buildId).match(/^v?(\d+)(?:-([a-z]\d+))?$/i);
+  if (!match) return { major: String(buildId), rev: '' };
+  return { major: match[1], rev: match[2] || '' };
+}
+
+function resolveAppStatusLedState(snapshot) {
+  if (!snapshot.online) return 'offline';
+  if (snapshot.updateAvailable) return 'update-available';
+  return 'updated';
+}
+
+function syncAppVersionLabel() {
+  var snapshot = getAppUpdateSnapshot();
+  var parts = parseBuildVersion(snapshot.buildId);
+  var majorEl = document.getElementById('app-version-major');
+  var revEl = document.getElementById('app-version-rev');
+  var metaEl = document.getElementById('app-version-meta');
+  if (majorEl) majorEl.textContent = parts.major;
+  if (revEl) {
+    revEl.textContent = parts.rev;
+    revEl.hidden = !parts.rev;
+  }
+  if (metaEl && snapshot.buildId && snapshot.buildId !== '—') {
+    metaEl.title = 'Deployed build ' + snapshot.buildId;
+  }
+}
+
+function renderAppStatusLed() {
+  var snapshot = getAppUpdateSnapshot();
+  var state = resolveAppStatusLedState(snapshot);
+  var copy = APP_STATUS_LED_COPY[state] || APP_STATUS_LED_COPY.updated;
+  document.querySelectorAll('[data-app-status-led]').forEach(function (led) {
+    led.className = 'status-led app-status-led ' + state;
+    led.title = copy.title;
+  });
+  var labelEl = document.getElementById('app-status-led-label');
+  if (labelEl) labelEl.textContent = copy.label;
+}
 
 function getAppUpdateSnapshot() {
   var pwa = window.LibrusPwa;
@@ -2821,35 +2973,30 @@ return {
 
 function renderAppUpdateStatus() {
   var badge = document.getElementById('settings-update-badge');
-  var iconEl = document.getElementById('settings-update-icon');
   var detailEl = document.getElementById('settings-update-detail');
   var actionBtn = document.getElementById('settings-update-action');
-  if (!badge || !iconEl || !detailEl || !actionBtn) return;
+  if (!badge || !detailEl || !actionBtn) return;
 
   var snapshot = getAppUpdateSnapshot();
   var state = resolveAppUpdateState(snapshot);
   var copy = appUpdateCopy(state, snapshot);
-  var icon = APP_UPDATE_ICONS[state] || APP_UPDATE_ICONS.uptodate;
 
   badge.classList.remove('is-update', 'is-uptodate');
   badge.classList.add('is-' + state);
   badge.title = copy.title;
-  iconEl.textContent = icon;
   detailEl.textContent = copy.label;
   actionBtn.textContent = copy.action;
   actionBtn.title = copy.detail;
   actionBtn.setAttribute('aria-label', copy.action + '. ' + copy.detail);
   actionBtn.dataset.updateState = state;
 
-var miniBadge = document.getElementById('settings-update-badge-mini');
-if (miniBadge) {
-  miniBadge.classList.toggle('is-update', state === 'update');
-}
+  var miniBadge = document.getElementById('settings-update-badge-mini');
+  if (miniBadge) {
+    miniBadge.classList.toggle('is-update', state === 'update');
+  }
 
-var settingsIcon = document.querySelector('#library-settings-btn img');
-if (settingsIcon) {
-  settingsIcon.src = state === 'update' ? 'icons/expired.svg' : 'icons/current.svg';
-}
+  renderAppStatusLed();
+  syncAppVersionLabel();
 }
 
 function handleAppUpdateAction() {
@@ -2886,6 +3033,7 @@ function bindAppUpdateListeners() {
 function initAppUpdateStatus() {
   bindAppUpdateListeners();
   renderAppUpdateStatus();
+  if (!navigator.onLine) showContextPdfViewer();
 }
 
 async function chooseLibraryFolder() {
@@ -2937,16 +3085,7 @@ function sectionIdFromSelection(selection) {
   return section ? section.id : '';
 }
 
-var notesSelectionSyncRaf = 0;
 
-function scheduleNotesSelectionSync() {
-  if (notesSelectionSyncRaf) cancelAnimationFrame(notesSelectionSyncRaf);
-  notesSelectionSyncRaf = requestAnimationFrame(function () {
-    notesSelectionSyncRaf = 0;
-    cacheNotesSelection();
-    renderNotesSelectionPreview();
-  });
-}
 
 function cacheNotesSelection() {
   var viewport = notesViewport();
@@ -2956,25 +3095,47 @@ function cacheNotesSelection() {
   if (!quote) return;
   lastNotesSelectionQuote = quote;
   lastNotesSectionId = sectionIdFromSelection(selection);
+  lastNotesSelectionSignature = selectionSignature();
+  lastNotesSelectionPreview = quote.exact;
 }
 
 function clearNotesSelectionCache() {
   lastNotesSelectionQuote = null;
+  lastNotesSelectionPreview = '';
+  lastNotesSelectionSignature = '';
   lastNotesSectionId = '';
+  lastSelectionSignature = '';
 }
 
 function getNotesSelectionQuote() {
   var viewport = notesViewport();
   var selection = window.getSelection();
   if (viewport && window.LibrusAnnotations && isSelectionInReader(selection)) {
+    var signature = selectionSignature();
+    if (lastNotesSelectionQuote && signature === lastNotesSelectionSignature) {
+      return lastNotesSelectionQuote;
+    }
     var live = LibrusAnnotations.buildTextQuoteFromSelection(viewport, selection);
     if (live) {
       lastNotesSelectionQuote = live;
       lastNotesSectionId = sectionIdFromSelection(selection);
+      lastNotesSelectionSignature = signature;
+      lastNotesSelectionPreview = live.exact;
       return live;
     }
   }
   return lastNotesSelectionQuote;
+}
+
+function getNotesSelectionDisplayText() {
+  if (lastNotesSelectionQuote && lastNotesSelectionQuote.exact) {
+    return lastNotesSelectionQuote.exact;
+  }
+  return lastNotesSelectionPreview || '';
+}
+
+function hasNotesSelection() {
+  return !!(getNotesSelectionDisplayText() || notesReplyParentId);
 }
 
 function formatAnnotationDate(iso) {
@@ -3054,8 +3215,9 @@ function syncNotesComposePlaceholder() {
     input.placeholder = NOTES_REPLY_PLACEHOLDER;
     return;
   }
-  var quote = getNotesSelectionQuote();
-  input.placeholder = quote ? NOTES_COMPOSE_WITH_QUOTE_PLACEHOLDER : NOTES_COMPOSE_PLACEHOLDER;
+  input.placeholder = hasNotesSelection()
+    ? NOTES_COMPOSE_WITH_QUOTE_PLACEHOLDER
+    : NOTES_COMPOSE_PLACEHOLDER;
 }
 
 function renderNotesSelectionPreview() {
@@ -3063,8 +3225,8 @@ function renderNotesSelectionPreview() {
   var saveBtn = document.getElementById('notes-save-btn');
   var highlightBtn = document.getElementById('notes-highlight-btn');
   if (!preview) return;
-  var quote = getNotesSelectionQuote();
-  if (!quote) {
+  var displayText = getNotesSelectionDisplayText();
+  if (!displayText) {
     preview.textContent = '';
     preview.classList.add('is-empty');
     preview.hidden = true;
@@ -3073,7 +3235,7 @@ function renderNotesSelectionPreview() {
     syncNotesComposePlaceholder();
     return;
   }
-  preview.textContent = '"' + quote.exact + '"';
+  preview.textContent = '"' + displayText + '"';
   preview.classList.remove('is-empty');
   preview.hidden = false;
   if (saveBtn) saveBtn.disabled = false;
@@ -3137,24 +3299,39 @@ function renderNotesList() {
   });
 }
 
-function createNotesIconButton(iconPath, title, extraClass, filled) {
+function appendAnnotationCard(annotation) {
+  if (!annotation || annotation.partOf) return;
+  var list = document.getElementById('notes-list');
+  var empty = document.getElementById('notes-empty');
+  if (!list) return;
+  var replies = currentBookAnnotations.filter(function (a) { return !!a.partOf; });
+  if (!annotationMatchesNotesFilter(annotation, replies)) return;
+  if (empty) empty.classList.add('is-hidden');
+  list.appendChild(buildAnnotationCard(annotation, replies));
+}
+
+function removeAnnotationCards(annotationIds) {
+  var list = document.getElementById('notes-list');
+  var empty = document.getElementById('notes-empty');
+  if (!list || !annotationIds || !annotationIds.length) return;
+  annotationIds.forEach(function (id) {
+    var card = list.querySelector('[data-annotation-id="' + id + '"]');
+    if (card) card.remove();
+  });
+  if (!list.children.length && empty) {
+    var roots = currentBookAnnotations.filter(function (a) { return !a.partOf; });
+    empty.textContent = roots.length ? NOTES_EMPTY_FILTERED : NOTES_EMPTY_DEFAULT;
+    empty.classList.remove('is-hidden');
+  }
+}
+
+function createNotesIconButton(iconName, title, extraClass) {
   var btn = document.createElement('button');
   btn.type = 'button';
   btn.className = 'icon-btn' + (extraClass ? ' ' + extraClass : '');
   btn.title = title;
   btn.setAttribute('aria-label', title);
-
-  var img = document.createElement('img');
-  img.src = 'icons/' + iconPath.replace(/^icons\//, '');  // ensure leading slash
-  img.alt = title;
-  img.title = title;
-  img.setAttribute('aria-hidden', 'true');
-  img.setAttribute('role', 'img');
-  img.width = 24;
-  img.height = 24;
-  img.className = 'icon-btn-glyph';
-
-  btn.appendChild(img);
+  btn.appendChild(LibrusIcons.svg(iconName, { className: 'icon icon-btn-glyph' }));
   return btn;
 }
 
@@ -3191,12 +3368,12 @@ function buildAnnotationCard(annotation, replies) {
   var actions = document.createElement('div');
   actions.className = 'reader-notes-card-actions';
 
-  var jumpBtn = createNotesIconButton('quote.svg', 'Go to passage', '', true);
+  var jumpBtn = createNotesIconButton('quote', 'Go to passage', '');
   jumpBtn.addEventListener('click', function () {
     LibrusAnnotations.scrollToAnnotation(notesViewport(), annotation);
   });
 
-  var replyBtn = createNotesIconButton('reply.svg', 'Reply', 'icon-btn-reply');
+  var replyBtn = createNotesIconButton('reply', 'Reply', 'icon-btn-reply');
   replyBtn.addEventListener('click', function () {
     notesReplyParentId = annotation.id;
     clearNotesSelectionCache();
@@ -3210,17 +3387,20 @@ function buildAnnotationCard(annotation, replies) {
     renderNotesSelectionPreview();
   });
 
-  var shareBtn = createNotesIconButton('share-yellow.svg', 'Share note', 'icon-btn-share');
+  var shareBtn = createNotesIconButton('share', 'Share note', 'icon-btn-share');
   shareBtn.addEventListener('click', function () {
     shareAnnotation(annotation);
   });
 
-  var deleteBtn = createNotesIconButton('delete.svg', 'Delete note', 'icon-btn-danger');
+  var deleteBtn = createNotesIconButton('trash-2', 'Delete note', 'icon-btn-danger');
   deleteBtn.addEventListener('click', function () {
     if (!lastOpenedBookId || !confirm('Delete this note and its replies?')) return;
+    var removeIds = [annotation.id].concat(
+      replies.filter(function (r) { return r.partOf === annotation.id; }).map(function (r) { return r.id; })
+    );
     currentBookAnnotations = LibrusAnnotations.removeAnnotation(lastOpenedBookId, annotation.id);
     if (notesReplyParentId === annotation.id) notesReplyParentId = null;
-    refreshNotesPanel();
+    refreshNotesPanel({ removeAnnotationIds: removeIds, keepAnnotations: true });
   });
 
   actions.appendChild(jumpBtn);
@@ -3308,34 +3488,86 @@ function scrollToNoteCard(annotationId) {
 function applyCurrentBookHighlights() {
   var viewport = notesViewport();
   if (!viewport || !window.LibrusAnnotations) return;
-
-  // Clean old highlights
-  viewport.querySelectorAll('mark, .highlight, .librus-highlight').forEach(function (el) {
-    const parent = el.parentNode;
-    if (parent) {
-      parent.replaceChild(document.createTextNode(el.textContent), el);
-    }
-  });
-
   LibrusAnnotations.applyHighlights(viewport, currentBookAnnotations);
 }
 
-function refreshNotesPanel() {
+var HIGHLIGHT_CHUNK_SIZE = 8;
+
+function applyCurrentBookHighlightsChunked() {
+  var viewport = notesViewport();
+  if (!viewport || !window.LibrusAnnotations || !currentBookAnnotations.length) return;
+
+  LibrusAnnotations.clearAllHighlightMarks(viewport);
+  var annotations = currentBookAnnotations.filter(function (annotation) {
+    return annotation.motivation === 'highlighting' || annotation.body;
+  });
+  if (!annotations.length) return;
+
+  var index = 0;
+  function step(deadline) {
+    while (index < annotations.length) {
+      if (deadline && typeof deadline.timeRemaining === 'function' && deadline.timeRemaining() <= 0 && index > 0) {
+        break;
+      }
+      for (var n = 0; n < HIGHLIGHT_CHUNK_SIZE && index < annotations.length; n++, index++) {
+        LibrusAnnotations.applySingleHighlight(viewport, annotations[index]);
+      }
+    }
+    if (index < annotations.length) {
+      var schedule = window.requestIdleCallback || function (cb) { return window.setTimeout(cb, 16); };
+      schedule(step, { timeout: 120 });
+    }
+  }
+
+  var kickoff = window.requestIdleCallback || function (cb) { return window.setTimeout(function () { cb({ timeRemaining: function () { return 16; } }); }, 0); };
+  kickoff(step, { timeout: 250 });
+}
+
+function refreshNotesPanel(options) {
+  options = options || {};
   if (!lastOpenedBookId || !window.LibrusAnnotations) {
     currentBookAnnotations = [];
-  } else {
+  } else if (!options.keepAnnotations) {
     currentBookAnnotations = LibrusAnnotations.loadForBook(lastOpenedBookId);
   }
+
+  var viewport = notesViewport();
+
+  if (options.incremental && options.annotation) {
+    appendAnnotationCard(options.annotation);
+    if (viewport) {
+      requestAnimationFrame(function () {
+        LibrusAnnotations.applySingleHighlight(viewport, options.annotation);
+      });
+    }
+    return;
+  }
+
+  if (options.removeAnnotationIds && options.removeAnnotationIds.length) {
+    removeAnnotationCards(options.removeAnnotationIds);
+    if (viewport) {
+      requestAnimationFrame(function () {
+        options.removeAnnotationIds.forEach(function (id) {
+          LibrusAnnotations.removeHighlightForAnnotation(viewport, id);
+        });
+      });
+    }
+    return;
+  }
+
   renderNotesSelectionPreview();
   renderNotesList();
-  requestAnimationFrame(() => {
-    applyCurrentBookHighlights();
-  });
+
+  if (!viewport || !window.LibrusAnnotations) return;
+  if (options.skipHighlights) return;
+
+  applyCurrentBookHighlightsChunked();
 }
 
 function saveNoteFromCompose(motivation) {
   if (!lastOpenedBookId || !window.LibrusAnnotations) return;
 
+  cacheNotesSelection();
   var quote = getNotesSelectionQuote();
   if (!quote && !notesReplyParentId) return;
 
@@ -3371,13 +3603,9 @@ function saveNoteFromCompose(motivation) {
     }
   }
 
-  // Save it
   LibrusAnnotations.addAnnotation(lastOpenedBookId, annotation);
-  console.log('Saved annotation for book', lastOpenedBookId, annotation); // debug
+  currentBookAnnotations.push(annotation);
 
-  // Then the rest...
-
-  // Reset UI
   notesReplyParentId = null;
   if (input) {
     input.value = '';
@@ -3386,8 +3614,7 @@ function saveNoteFromCompose(motivation) {
   if (motivation === 'highlighting') clearLookupSelection();
   clearNotesSelectionCache();
 
-  // CRITICAL: Refresh with highlight re-apply
-  refreshNotesPanel();
+  refreshNotesPanel({ incremental: true, annotation: annotation, keepAnnotations: true });
 }
 
 function exportCurrentBookAnnotations() {
@@ -3433,7 +3660,6 @@ function bindNotesListeners() {
   [saveBtn, highlightBtn].forEach(function (btn) {
     if (btn) btn.addEventListener('pointerdown', cacheNotesSelection);
   });
-  document.addEventListener('selectionchange', scheduleNotesSelectionSync);
 }
 
 // =========================================================================
@@ -3444,12 +3670,11 @@ async function initApp() {
   bindAllListeners();
   initAppUpdateStatus();
   syncBrandVersion();
+  syncAppVersionLabel();
   syncSettingsForm();
   syncAllInputClearButtons();
   syncSettingsBuildLabel();
   changeTheme(settings.theme, true);
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function () {
-  });
   applyReaderFontScale();
   updateContextLookupControls();
   updateReaderShareButtonState();

@@ -1,0 +1,33 @@
+{
+  "name": "librus-remake",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "build": "node build.js",
+    "icons": "node scripts/build-lucide-icons.js",
+    "pwa-assets": "node scripts/generate-pwa-assets.js",
+    "assets": "npm run icons && npm run pwa-assets",
+    "deploy": "node scripts/deploy-gh-pages.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sergioSHKLR/librus-remake.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/sergioSHKLR/librus-remake/issues"
+  },
+  "homepage": "https://github.com/sergioSHKLR/librus-remake#readme",
+  "devDependencies": {
+    "lucide-static": "^1.23.0",
+    "sharp": "^0.35.3"
+  }
+}

@@ -1,111 +1,270 @@
-/* Colors ------------------------------- */
+/* Colors — theme tokens derived from --theme-base (#333) */
 
 :root {
-  --search-hit-current-ring: goldenrod;
+  --theme-base: #333333;
+  --led-green: #34c759;
+  --led-orange: #ff9f0a;
+  --led-red: #ff453a;
+  --search-hit-current-ring: #e67e00;
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 0.15s;
+  --duration-normal: 0.25s;
+  --shadow-menu: 0 4px 16px hsla(0, 0%, 0%, 0.18);
+  --shadow-overlay: 0 8px 32px hsla(0, 0%, 0%, 0.24);
+}
+
+body.theme--light {
+  color-scheme: light;
+  --topbar-bg: var(--theme-base);
+  --topbar-fg: #f5f5f5;
+  --topbar-border: color-mix(in srgb, var(--theme-base) 82%, #ffffff);
+  --topbar-icon-color: var(--topbar-fg);
+  --bg-primary: #ffffff;
+  --bg-secondary: #eeeeee;
+  --bg-chrome: #eeeeee;
+  --border-color: color-mix(in srgb, var(--theme-base) 14%, #d4d4d4);
+  --text-primary: #111111;
+  --text-muted: #5e5e5e;
+  --library-toolbar-bg: var(--bg-chrome);
+  --library-toolbar-fg: var(--text-primary);
+  --accent-color: color-mix(in srgb, var(--theme-base) 30%, #3d7a5a);
+  --accent-hover: color-mix(in srgb, var(--accent-color) 88%, #000000);
+  --accent-on: #ffffff;
+  --input-bg: #ffffff;
+  --input-border: var(--border-color);
+  --panel-toc-bg: var(--bg-chrome);
+  --panel-notes-bg: color-mix(in srgb, var(--bg-chrome) 55%, var(--bg-secondary));
+  --panel-yellow-accent: #f5c542;
+  --search-hit-bg: #fff59d;
+  --search-hit-current-bg: #ffcc00;
+  --overlay-backdrop: hsla(0, 0%, 0%, 0.45);
+  --app-meta-fg: hsla(0, 0%, 100%, 0.82);
+  --app-meta-bg: hsla(0, 0%, 100%, 0.12);
+  --chip-bg: color-mix(in srgb, var(--theme-base) 8%, #e8e8e8);
+  --note-card-bg: #ffffff;
+  --note-card-with-body-bg: #e8f4fd;
+  --highlight-note-bg: #a5d6ff;
+}
+
+body.theme--dark {
+  color-scheme: dark;
+  --topbar-bg: var(--theme-base);
+  --topbar-fg: #f0f0f0;
+  --topbar-border: color-mix(in srgb, var(--theme-base) 70%, #666666);
+  --topbar-icon-color: var(--topbar-fg);
+  --bg-primary: color-mix(in srgb, var(--theme-base) 88%, #000000);
+  --bg-secondary: color-mix(in srgb, var(--theme-base) 78%, #0a0a0a);
+  --bg-chrome: color-mix(in srgb, var(--theme-base) 62%, #3a3a3a);
+  --border-color: color-mix(in srgb, var(--theme-base) 45%, #666666);
+  --text-primary: #f1f1f1;
+  --text-muted: #a8a8a8;
+  --library-toolbar-bg: var(--bg-chrome);
+  --library-toolbar-fg: var(--text-primary);
+  --accent-color: color-mix(in srgb, var(--theme-base) 40%, #6b9e82);
+  --accent-hover: color-mix(in srgb, var(--accent-color) 90%, #ffffff);
+  --accent-on: #111111;
+  --input-bg: color-mix(in srgb, var(--theme-base) 75%, #1a1a1a);
+  --input-border: var(--border-color);
+  --panel-toc-bg: var(--bg-chrome);
+  --panel-notes-bg: color-mix(in srgb, var(--bg-chrome) 70%, var(--bg-secondary));
+  --panel-yellow-accent: #fab005;
+  --search-hit-bg: #5c4d00;
+  --search-hit-current-bg: #8a7200;
+  --overlay-backdrop: hsla(0, 0%, 0%, 0.62);
+  --app-meta-fg: hsla(0, 0%, 100%, 0.82);
+  --app-meta-bg: hsla(0, 0%, 100%, 0.1);
+  --chip-bg: color-mix(in srgb, var(--theme-base) 55%, #444444);
+  --note-card-bg: color-mix(in srgb, var(--bg-secondary) 92%, #ffffff);
+  --note-card-with-body-bg: color-mix(in srgb, var(--bg-secondary) 70%, #4a6a8a);
+  --highlight-note-bg: color-mix(in srgb, #4a8fd4 55%, var(--bg-secondary));
+}
+
+@media (prefers-color-scheme: light) {
+  body.theme--system {
+    color-scheme: light;
+    --topbar-bg: var(--theme-base);
+    --topbar-fg: #f5f5f5;
+    --topbar-border: color-mix(in srgb, var(--theme-base) 82%, #ffffff);
+    --topbar-icon-color: var(--topbar-fg);
+    --bg-primary: #ffffff;
+    --bg-secondary: #eeeeee;
+    --bg-chrome: #eeeeee;
+    --border-color: color-mix(in srgb, var(--theme-base) 14%, #d4d4d4);
+    --text-primary: #111111;
+    --text-muted: #5e5e5e;
+    --library-toolbar-bg: var(--bg-chrome);
+    --library-toolbar-fg: var(--text-primary);
+    --accent-color: color-mix(in srgb, var(--theme-base) 30%, #3d7a5a);
+    --accent-hover: color-mix(in srgb, var(--accent-color) 88%, #000000);
+    --accent-on: #ffffff;
+    --input-bg: #ffffff;
+    --input-border: var(--border-color);
+    --panel-toc-bg: var(--bg-chrome);
+    --panel-notes-bg: color-mix(in srgb, var(--bg-chrome) 55%, var(--bg-secondary));
+    --panel-yellow-accent: #f5c542;
+    --search-hit-bg: #fff59d;
+    --search-hit-current-bg: #ffcc00;
+    --overlay-backdrop: hsla(0, 0%, 0%, 0.45);
+    --app-meta-fg: hsla(0, 0%, 100%, 0.82);
+    --app-meta-bg: hsla(0, 0%, 100%, 0.12);
+    --chip-bg: color-mix(in srgb, var(--theme-base) 8%, #e8e8e8);
+    --note-card-bg: #ffffff;
+    --note-card-with-body-bg: #e8f4fd;
+    --highlight-note-bg: #a5d6ff;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body.theme--system {
+    color-scheme: dark;
+    --topbar-bg: var(--theme-base);
+    --topbar-fg: #f0f0f0;
+    --topbar-border: color-mix(in srgb, var(--theme-base) 70%, #666666);
+    --topbar-icon-color: var(--topbar-fg);
+    --bg-primary: color-mix(in srgb, var(--theme-base) 88%, #000000);
+    --bg-secondary: color-mix(in srgb, var(--theme-base) 78%, #0a0a0a);
+    --bg-chrome: color-mix(in srgb, var(--theme-base) 62%, #3a3a3a);
+    --border-color: color-mix(in srgb, var(--theme-base) 45%, #666666);
+    --text-primary: #f1f1f1;
+    --text-muted: #a8a8a8;
+    --library-toolbar-bg: var(--bg-chrome);
+    --library-toolbar-fg: var(--text-primary);
+    --accent-color: color-mix(in srgb, var(--theme-base) 40%, #6b9e82);
+    --accent-hover: color-mix(in srgb, var(--accent-color) 90%, #ffffff);
+    --accent-on: #111111;
+    --input-bg: color-mix(in srgb, var(--theme-base) 75%, #1a1a1a);
+    --input-border: var(--border-color);
+    --panel-toc-bg: var(--bg-chrome);
+    --panel-notes-bg: color-mix(in srgb, var(--bg-chrome) 70%, var(--bg-secondary));
+    --panel-yellow-accent: #fab005;
+    --search-hit-bg: #5c4d00;
+    --search-hit-current-bg: #8a7200;
+    --overlay-backdrop: hsla(0, 0%, 0%, 0.62);
+    --app-meta-fg: hsla(0, 0%, 100%, 0.82);
+    --app-meta-bg: hsla(0, 0%, 100%, 0.1);
+    --chip-bg: color-mix(in srgb, var(--theme-base) 55%, #444444);
+    --note-card-bg: color-mix(in srgb, var(--bg-secondary) 92%, #ffffff);
+    --note-card-with-body-bg: color-mix(in srgb, var(--bg-secondary) 70%, #4a6a8a);
+    --highlight-note-bg: color-mix(in srgb, #4a8fd4 55%, var(--bg-secondary));
+  }
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.topbar {
+  background-color: var(--topbar-bg);
+  color: var(--topbar-fg);
+}
+
+.topbar .icon-btn {
+  color: var(--topbar-icon-color);
+}
+
+.toolbar {
+  background: var(--library-toolbar-bg);
+  color: var(--library-toolbar-fg);
+  border-color: var(--border-color);
 }
 
 input,
 select,
 textarea {
-  border: 1px solid #ccc;
-}
-
-.topbar {
-  background-color: darkgreen;
+  background: var(--input-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--input-border);
 }
 
 .reader-toc-toolbar,
 #reader-main-toolbar,
 .reader-context-toolbar,
 .reader-notes-toolbar {
-  border-bottom: 1px solid #ccc;
-  background: whitesmoke;
+  border-color: var(--border-color);
+  background: var(--library-toolbar-bg);
 }
 
 .reader-toc-toolbar {
-  border-right: 1px solid #ccc;
+  border-right: 1px solid var(--border-color);
 }
 
 .reader-context-toolbar,
 .reader-notes-toolbar {
-  border-left: 1px solid #ccc;
+  border-left: 1px solid var(--border-color);
 }
 
 .reader-toc-body {
-  border-right: 1px solid #ccc;
-  background: whitesmoke;
+  border-right: 1px solid var(--border-color);
+  background: var(--panel-toc-bg);
 }
 
 .reader-notes-body,
 .reader-context-body {
-  border-left: 1px solid #ccc;
-  background: #fff;
-}
-
-input {
-  border: 1px solid #ccc;
+  border-left: 1px solid var(--border-color);
+  background: var(--bg-secondary);
 }
 
 .context-provider-menu {
-  background: #fff;
-  border: 1px solid #ccc;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
 }
 
-.library-topbar-brand {
-  color: #fff;
-}
-
+.library-topbar-brand,
 .reader-topbar-title {
-  color: #fff;
+  color: var(--topbar-fg);
 }
 
 .library-grid-filter {
-  border-bottom: 1px solid #ccc;
-  background: whitesmoke;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--library-toolbar-bg);
+  color: var(--library-toolbar-fg);
+}
+
+.library-grid {
+  background: var(--bg-primary);
 }
 
 #library-settings .toolbar {
-  background-color: #ccc;
+  background-color: var(--bg-chrome);
 }
 
 .library-settings-body {
-  background: #fff;
-  border: 1px solid #ccc;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
 }
 
 .reader-notes-compose-region {
-  border-bottom: 1px solid #ccc;
-  background: whitesmoke;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--panel-notes-bg);
+}
+
+.settings-overlay-backdrop,
+.reader-overlay-backdrop {
+  background: var(--overlay-backdrop);
 }
 
 mark.reader-search-hit {
-  background: lemonchiffon;
+  background: var(--search-hit-bg);
 }
 
 mark.reader-search-hit.is-current {
-  outline: 0.125rem solid #f57c00;
+  outline: 0.125rem solid var(--search-hit-current-ring);
+  background: var(--search-hit-current-bg);
 }
 
 .reader-notes-annotation {
-  border: 1px solid #ccc;
-  background: lemonchiffon;
+  border: 1px solid var(--border-color);
+  background: var(--note-card-bg);
 }
 
 #context-loading-status,
 .context-loading-text,
 #context-search-meta,
 .reader-search-meta {
-  background-color: whitesmoke !important;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  color: #1f2937;
-}
-
-.theme--dark #context-loading-status,
-.theme--dark .context-loading-text,
-.theme--dark #context-search-meta,
-.theme--dark .reader-search-meta {
-  background-color: #374151 !important;
-  color: #f3f4f6;
+  background-color: var(--bg-chrome) !important;
+  box-shadow: var(--shadow-menu);
+  color: var(--text-primary);
 }
 
 .librus-highlight {
@@ -114,17 +273,22 @@ mark.reader-search-hit.is-current {
   cursor: pointer;
 }
 
+::highlight(librus-highlight-yellow) {
+  background-color: #fff44f;
+  color: inherit;
+}
+
+::highlight(librus-highlight-blue) {
+  background-color: #77c9ff;
+  color: inherit;
+}
+
 .librus-highlight[data-note] {
-  background-color: #a5d6ff !important; /* notes */
+  background-color: var(--highlight-note-bg) !important;
 }
 
-.reader-notes-annotation {
-  background-color: #ffffff;
-  transition: background-color 0.2s;
-}
-
-.reader-notes-annotation:has(.reader-notes-body-text) {   /* notes with body */
-  background-color: #e3f2fd !important;   /* light blue */
+.reader-notes-annotation:has(.reader-notes-body-text) {
+  background-color: var(--note-card-with-body-bg) !important;
 }
 
 .reader-notes-card-actions {
@@ -132,7 +296,7 @@ mark.reader-search-hit.is-current {
   gap: 8px;
   margin-top: 12px;
   padding-top: 8px;
-  border-top: 1px solid #eee;
+  border-top: 1px solid var(--border-color);
 }
 
 .reader-notes-card-actions .icon-btn {
@@ -144,21 +308,20 @@ mark.reader-search-hit.is-current {
   cursor: pointer;
   border-radius: 50%;
   transition: all 0.2s ease;
-  opacity: 0.5;           /* initial */
+  opacity: 0.5;
   filter: brightness(0.85);
 }
 
 .reader-notes-card-actions .icon-btn:hover {
-  opacity: 1;             /* full on hover */
+  opacity: 1;
   filter: brightness(1.1);
   transform: scale(1.1);
 }
 
-/* Leather-bound library covers */
 .library-grid-cover {
   background: linear-gradient(to bottom, #4a2f1f, #3c2f2f);
   border-left: 14px solid #2d1606;
-  box-shadow: inset 0 0 12px rgba(0,0,0,0.6);
+  box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.6);
   position: relative;
   overflow: hidden;
   border-radius: 6px 3px 3px 6px;
@@ -166,7 +329,7 @@ mark.reader-search-hit.is-current {
 
 .library-grid-cover-title {
   color: #f0d090;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
   font-family: Georgia, 'Times New Roman', serif;
   font-weight: normal;
   text-align: center;
@@ -175,7 +338,7 @@ mark.reader-search-hit.is-current {
 }
 
 .library-grid-cover-author {
-  color: white;
+  color: #ffffff;
   font-family: Georgia, 'Times New Roman', serif;
   text-align: center;
   padding: 0 6px 3px;
@@ -183,13 +346,6 @@ mark.reader-search-hit.is-current {
   opacity: 0.95;
 }
 
-/* Holmes silhouette on every cover - pure CSS */
-.library-grid-cover {
-  position: relative;
-  overflow: hidden;
-}
-
-/* Holmes silhouette - gold */
 .library-grid-cover::before {
   content: '';
   position: absolute;
@@ -203,4 +359,41 @@ mark.reader-search-hit.is-current {
   z-index: 1;
   pointer-events: none;
   border: none;
+}
+
+.library-grid-delete {
+  background: var(--chip-bg);
+}
+
+.btn-wide {
+  background: var(--accent-color);
+  color: var(--accent-on);
+}
+
+.btn-wide:hover {
+  background: var(--accent-hover);
+}
+
+.btn-wide:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.input-clear-btn {
+  background: transparent;
+  color: var(--text-muted);
+}
+
+.input-clear-btn:hover {
+  background: color-mix(in srgb, var(--text-muted) 12%, transparent);
+  color: var(--text-primary);
+}
+
+.library-settings-hint {
+  color: var(--text-muted);
+}
+
+.library-settings-heading,
+.library-settings-title {
+  color: var(--text-primary);
 }

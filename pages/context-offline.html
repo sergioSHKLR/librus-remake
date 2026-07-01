@@ -1,40 +1,13 @@
 <!DOCTYPE html>
-<html lang="en-US" class="theme--light">
+<html lang="en-US" class="theme--system">
 
 <head>
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>Offline reference</title>
- <script>
-  (function () {
-   var theme = new URLSearchParams(location.search).get('theme');
-   if (theme !== 'dark') theme = 'light';
-   document.documentElement.className = 'theme--' + theme;
-  })();
- </script>
+ <script src="context-theme.js"></script>
+ <link rel="stylesheet" href="context-theme.css">
  <style>
-
-
-  html.theme--light {
-   color-scheme: light;
-   --bg-secondary: #ffffff;
-   --text-primary: #1a1d21;
-   --text-muted: #5c636a;
-   --border-color: #ced4da;
-   --panel-bg: var(--bg-secondary);
-   --accent: #3d5c52;
-  }
-
-  html.theme--dark {
-   color-scheme: dark;
-   --bg-secondary: #1e1e1e;
-   --text-primary: #f1f3f5;
-   --text-muted: #b0b8bf;
-   --border-color: #4a4a4a;
-   --panel-bg: var(--bg-secondary);
-   --accent: #4a6b62;
-  }
-
   html,
   body {
    height: 100%;
@@ -131,6 +104,17 @@
    display: block;
    line-height: 1.45;
   }
+
+  .icon {
+   display: block;
+   color: var(--text-muted);
+  }
+
+  .context-offline-icon {
+   width: 3rem;
+   height: 3rem;
+   margin: 0 auto;
+  }
  </style>
 </head>
 
@@ -139,7 +123,7 @@
  <div class="offline-ref">
   <header class="offline-ref-header">
   <div class="offline-ref-icon" aria-hidden="true">
-  <img src="../icons/offline.svg" alt="Offline" width="48" height="48">
+  <svg class="icon context-offline-icon" aria-hidden="true"><use href="../icons/sprite.svg#wifi-off"/></svg>
 </div>
    <p class="offline-ref-title" id="offline-ref-title">Offline — search in this book</p>
    <p class="offline-ref-subtitle" id="offline-ref-subtitle">No network. Showing passages from the open book.</p>

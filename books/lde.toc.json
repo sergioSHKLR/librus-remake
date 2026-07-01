@@ -1,0 +1,7362 @@
+[
+  {
+    "id": "0",
+    "text": "0. 🗃️ Pré-textual",
+    "level": 2
+  },
+  {
+    "id": "0-00",
+    "text": "0.00. ⚖️ Avisos Legais",
+    "level": 3
+  },
+  {
+    "id": "0-01",
+    "text": "0.01. 📄 Folha de rosto",
+    "level": 3
+  },
+  {
+    "id": "0-02",
+    "text": "0.02. 📋 Sumário Geral",
+    "level": 3
+  },
+  {
+    "id": "0-03",
+    "text": "0.03. 📄 Prefácio",
+    "level": 3
+  },
+  {
+    "id": "0-04",
+    "text": "0.04. 🗂️ Introdução",
+    "level": 3
+  },
+  {
+    "id": "0-04-01",
+    "text": "0.04.01. 📄 Intro 01",
+    "level": 4
+  },
+  {
+    "id": "0-04-02",
+    "text": "0.04.02. 📄 Intro 02",
+    "level": 4
+  },
+  {
+    "id": "0-04-03",
+    "text": "0.04.03. 📄 Intro 03",
+    "level": 4
+  },
+  {
+    "id": "0-04-04",
+    "text": "0.04.04. 📄 Intro 04",
+    "level": 4
+  },
+  {
+    "id": "0-04-05",
+    "text": "0.04.05. 📄 Intro 05",
+    "level": 4
+  },
+  {
+    "id": "0-04-06",
+    "text": "0.04.06. 📄 Intro 06",
+    "level": 4
+  },
+  {
+    "id": "0-04-07",
+    "text": "0.04.07. 📄 Intro 07",
+    "level": 4
+  },
+  {
+    "id": "0-04-08",
+    "text": "0.04.08. 📄 Intro 08",
+    "level": 4
+  },
+  {
+    "id": "0-04-09",
+    "text": "0.04.09. 📄 Intro 09",
+    "level": 4
+  },
+  {
+    "id": "0-04-10",
+    "text": "0.04.10. 📄 Intro 10",
+    "level": 4
+  },
+  {
+    "id": "0-04-11",
+    "text": "0.04.11. 📄 Intro 11",
+    "level": 4
+  },
+  {
+    "id": "0-04-12",
+    "text": "0.04.12. 📄 Intro 12",
+    "level": 4
+  },
+  {
+    "id": "0-04-13",
+    "text": "0.04.13. 📄 Intro 13",
+    "level": 4
+  },
+  {
+    "id": "0-04-14",
+    "text": "0.04.14. 📄 Intro 14",
+    "level": 4
+  },
+  {
+    "id": "0-04-15",
+    "text": "0.04.15. 📄 Intro 15",
+    "level": 4
+  },
+  {
+    "id": "0-04-16",
+    "text": "0.04.16. 📄 Intro 16",
+    "level": 4
+  },
+  {
+    "id": "0-04-17",
+    "text": "0.04.17. 📄 Intro 17",
+    "level": 4
+  },
+  {
+    "id": "1",
+    "text": "1. 🗃️ Causas primárias",
+    "level": 2
+  },
+  {
+    "id": "1-01",
+    "text": "1.01. 🗂️ Deus",
+    "level": 3
+  },
+  {
+    "id": "1-01-01",
+    "text": "1.01.01. 📄 Deus e o infinito",
+    "level": 4
+  },
+  {
+    "id": "q1",
+    "text": "⃣ Q.1",
+    "level": 5
+  },
+  {
+    "id": "q2",
+    "text": "⃣ Q.2",
+    "level": 5
+  },
+  {
+    "id": "q3",
+    "text": "⃣ Q.3",
+    "level": 5
+  },
+  {
+    "id": "1-01-02",
+    "text": "1.01.02. 📄 Provas da existência de Deus",
+    "level": 4
+  },
+  {
+    "id": "q4",
+    "text": "⃣ Q.4",
+    "level": 5
+  },
+  {
+    "id": "q5",
+    "text": "⃣ Q.5",
+    "level": 5
+  },
+  {
+    "id": "q6",
+    "text": "⃣ Q.6",
+    "level": 5
+  },
+  {
+    "id": "q7",
+    "text": "⃣ Q.7",
+    "level": 5
+  },
+  {
+    "id": "q8",
+    "text": "⃣ Q.8",
+    "level": 5
+  },
+  {
+    "id": "q9",
+    "text": "⃣ Q.9",
+    "level": 5
+  },
+  {
+    "id": "1-01-03",
+    "text": "1.01.03. 📄 Atributos da Divindade",
+    "level": 4
+  },
+  {
+    "id": "q10",
+    "text": "⃣ Q.10",
+    "level": 5
+  },
+  {
+    "id": "q11",
+    "text": "⃣ Q.11",
+    "level": 5
+  },
+  {
+    "id": "q12",
+    "text": "⃣ Q.12",
+    "level": 5
+  },
+  {
+    "id": "q13",
+    "text": "⃣ Q.13",
+    "level": 5
+  },
+  {
+    "id": "1-01-04",
+    "text": "1.01.04. 📄 Panteísmo",
+    "level": 4
+  },
+  {
+    "id": "q14",
+    "text": "⃣ Q.14",
+    "level": 5
+  },
+  {
+    "id": "q15",
+    "text": "⃣ Q.15",
+    "level": 5
+  },
+  {
+    "id": "q16",
+    "text": "⃣ Q.16",
+    "level": 5
+  },
+  {
+    "id": "1-02",
+    "text": "1.02. 🗂️ Elementos gerais do Universo",
+    "level": 3
+  },
+  {
+    "id": "1-02-01",
+    "text": "1.02.01. 📄 Conhecimento do princípio das coisas",
+    "level": 4
+  },
+  {
+    "id": "q17",
+    "text": "⃣ Q.17",
+    "level": 5
+  },
+  {
+    "id": "q18",
+    "text": "⃣ Q.18",
+    "level": 5
+  },
+  {
+    "id": "q19",
+    "text": "⃣ Q.19",
+    "level": 5
+  },
+  {
+    "id": "q20",
+    "text": "⃣ Q.20",
+    "level": 5
+  },
+  {
+    "id": "1-02-02",
+    "text": "1.02.02. 📄 Espírito e Matéria",
+    "level": 4
+  },
+  {
+    "id": "q21",
+    "text": "⃣ Q.21",
+    "level": 5
+  },
+  {
+    "id": "q22",
+    "text": "⃣ Q.22",
+    "level": 5
+  },
+  {
+    "id": "q22a",
+    "text": "⃣ Q.22.a",
+    "level": 5
+  },
+  {
+    "id": "q23",
+    "text": "⃣ Q.23",
+    "level": 5
+  },
+  {
+    "id": "q23a",
+    "text": "⃣ Q.23.a",
+    "level": 5
+  },
+  {
+    "id": "q24",
+    "text": "⃣ Q.24",
+    "level": 5
+  },
+  {
+    "id": "q25",
+    "text": "⃣ Q.25",
+    "level": 5
+  },
+  {
+    "id": "q25a",
+    "text": "⃣ Q.25.a",
+    "level": 5
+  },
+  {
+    "id": "q26",
+    "text": "⃣ Q.26",
+    "level": 5
+  },
+  {
+    "id": "q27",
+    "text": "⃣ Q.27",
+    "level": 5
+  },
+  {
+    "id": "q27a",
+    "text": "⃣ Q.27.a",
+    "level": 5
+  },
+  {
+    "id": "q28",
+    "text": "⃣ Q.28",
+    "level": 5
+  },
+  {
+    "id": "1-02-03",
+    "text": "1.02.03. 📄 Propriedades da Matéria",
+    "level": 4
+  },
+  {
+    "id": "q29",
+    "text": "⃣ Q.29",
+    "level": 5
+  },
+  {
+    "id": "q30",
+    "text": "⃣ Q.30",
+    "level": 5
+  },
+  {
+    "id": "q31",
+    "text": "⃣ Q.31",
+    "level": 5
+  },
+  {
+    "id": "q32",
+    "text": "⃣ Q.32",
+    "level": 5
+  },
+  {
+    "id": "q33",
+    "text": "⃣ Q.33",
+    "level": 5
+  },
+  {
+    "id": "q33a",
+    "text": "⃣ Q.33.a",
+    "level": 5
+  },
+  {
+    "id": "q34",
+    "text": "⃣ Q.34",
+    "level": 5
+  },
+  {
+    "id": "q34a",
+    "text": "⃣ Q.34.a",
+    "level": 5
+  },
+  {
+    "id": "1-02-04",
+    "text": "1.02.04. 📄 Espaço universal",
+    "level": 4
+  },
+  {
+    "id": "q35",
+    "text": "⃣ Q.35",
+    "level": 5
+  },
+  {
+    "id": "q36",
+    "text": "⃣ Q.36",
+    "level": 5
+  },
+  {
+    "id": "1-03",
+    "text": "1.03. 🗂️ Criação",
+    "level": 3
+  },
+  {
+    "id": "1-03-01",
+    "text": "1.03.01. 📄 Formação dos mundos",
+    "level": 4
+  },
+  {
+    "id": "q37",
+    "text": "⃣ Q.37",
+    "level": 5
+  },
+  {
+    "id": "q38",
+    "text": "⃣ Q.38",
+    "level": 5
+  },
+  {
+    "id": "q39",
+    "text": "⃣ Q.39",
+    "level": 5
+  },
+  {
+    "id": "q40",
+    "text": "⃣ Q.40",
+    "level": 5
+  },
+  {
+    "id": "q41",
+    "text": "⃣ Q.41",
+    "level": 5
+  },
+  {
+    "id": "q42",
+    "text": "⃣ Q.42",
+    "level": 5
+  },
+  {
+    "id": "1-03-02",
+    "text": "1.03.02. 📄 Formação dos seres vivos",
+    "level": 4
+  },
+  {
+    "id": "q43",
+    "text": "⃣ Q.43",
+    "level": 5
+  },
+  {
+    "id": "q44",
+    "text": "⃣ Q.44",
+    "level": 5
+  },
+  {
+    "id": "q45",
+    "text": "⃣ Q.45",
+    "level": 5
+  },
+  {
+    "id": "q46",
+    "text": "⃣ Q.46",
+    "level": 5
+  },
+  {
+    "id": "q47",
+    "text": "⃣ Q.47",
+    "level": 5
+  },
+  {
+    "id": "q48",
+    "text": "⃣ Q.48",
+    "level": 5
+  },
+  {
+    "id": "q49",
+    "text": "⃣ Q.49",
+    "level": 5
+  },
+  {
+    "id": "1-03-03",
+    "text": "1.03.03. 📄 Povoamento da Terra. Adão",
+    "level": 4
+  },
+  {
+    "id": "q50",
+    "text": "⃣ Q.50",
+    "level": 5
+  },
+  {
+    "id": "q51",
+    "text": "⃣ Q.51",
+    "level": 5
+  },
+  {
+    "id": "1-03-04",
+    "text": "1.03.04. 📄 Diversidade das raças humanas",
+    "level": 4
+  },
+  {
+    "id": "q52",
+    "text": "⃣ Q.52",
+    "level": 5
+  },
+  {
+    "id": "q53",
+    "text": "⃣ Q.53",
+    "level": 5
+  },
+  {
+    "id": "q53a",
+    "text": "⃣ Q.53.a",
+    "level": 5
+  },
+  {
+    "id": "q54",
+    "text": "⃣ Q.54",
+    "level": 5
+  },
+  {
+    "id": "1-03-05",
+    "text": "1.03.05. 📄 Pluralidade dos mundos",
+    "level": 4
+  },
+  {
+    "id": "q55",
+    "text": "⃣ Q.55",
+    "level": 5
+  },
+  {
+    "id": "q56",
+    "text": "⃣ Q.56",
+    "level": 5
+  },
+  {
+    "id": "q57",
+    "text": "⃣ Q.57",
+    "level": 5
+  },
+  {
+    "id": "q58",
+    "text": "⃣ Q.58",
+    "level": 5
+  },
+  {
+    "id": "1-03-06",
+    "text": "1.03.06. 📄 Considerações e concordâncias bíblicas concernentes à Criação",
+    "level": 4
+  },
+  {
+    "id": "q59",
+    "text": "⃣ Q.59",
+    "level": 5
+  },
+  {
+    "id": "1-04",
+    "text": "1.04. 🗂️ Princípio Vital",
+    "level": 3
+  },
+  {
+    "id": "1-04-01",
+    "text": "1.04.01. 📄 Seres orgânicos e inorgânicos",
+    "level": 4
+  },
+  {
+    "id": "q60",
+    "text": "⃣ Q.60",
+    "level": 5
+  },
+  {
+    "id": "q61",
+    "text": "⃣ Q.61",
+    "level": 5
+  },
+  {
+    "id": "q62",
+    "text": "⃣ Q.62",
+    "level": 5
+  },
+  {
+    "id": "q63",
+    "text": "⃣ Q.63",
+    "level": 5
+  },
+  {
+    "id": "q64",
+    "text": "⃣ Q.64",
+    "level": 5
+  },
+  {
+    "id": "q64a",
+    "text": "⃣ Q.64.a",
+    "level": 5
+  },
+  {
+    "id": "q65",
+    "text": "⃣ Q.65",
+    "level": 5
+  },
+  {
+    "id": "q66",
+    "text": "⃣ Q.66",
+    "level": 5
+  },
+  {
+    "id": "q67",
+    "text": "⃣ Q.67",
+    "level": 5
+  },
+  {
+    "id": "q67a",
+    "text": "⃣ Q.67.a",
+    "level": 5
+  },
+  {
+    "id": "1-04-02",
+    "text": "1.04.02. 📄 A vida e a morte",
+    "level": 4
+  },
+  {
+    "id": "q68",
+    "text": "⃣ Q.68",
+    "level": 5
+  },
+  {
+    "id": "q68a",
+    "text": "⃣ Q.68.a",
+    "level": 5
+  },
+  {
+    "id": "q69",
+    "text": "⃣ Q.69",
+    "level": 5
+  },
+  {
+    "id": "q70",
+    "text": "⃣ Q.70",
+    "level": 5
+  },
+  {
+    "id": "1-04-03",
+    "text": "1.04.03. 📄 Inteligência e instinto",
+    "level": 4
+  },
+  {
+    "id": "q71",
+    "text": "⃣ Q.71",
+    "level": 5
+  },
+  {
+    "id": "q72",
+    "text": "⃣ Q.72",
+    "level": 5
+  },
+  {
+    "id": "q72a",
+    "text": "⃣ Q.72.a",
+    "level": 5
+  },
+  {
+    "id": "q73",
+    "text": "⃣ Q.73",
+    "level": 5
+  },
+  {
+    "id": "q74",
+    "text": "⃣ Q.74",
+    "level": 5
+  },
+  {
+    "id": "q75",
+    "text": "⃣ Q.75",
+    "level": 5
+  },
+  {
+    "id": "q75a",
+    "text": "⃣ Q.75.a",
+    "level": 5
+  },
+  {
+    "id": "2",
+    "text": "2. 🗃️ Mundo espiritual",
+    "level": 2
+  },
+  {
+    "id": "2-01",
+    "text": "2.01. 🗂️ Espíritos",
+    "level": 3
+  },
+  {
+    "id": "2-01-01",
+    "text": "2.01.01. 📄 Origem e natureza dos Espíritos",
+    "level": 4
+  },
+  {
+    "id": "q76",
+    "text": "⃣ Q.76",
+    "level": 5
+  },
+  {
+    "id": "q77",
+    "text": "⃣ Q.77",
+    "level": 5
+  },
+  {
+    "id": "q78",
+    "text": "⃣ Q.78",
+    "level": 5
+  },
+  {
+    "id": "q79",
+    "text": "⃣ Q.79",
+    "level": 5
+  },
+  {
+    "id": "q80",
+    "text": "⃣ Q.80",
+    "level": 5
+  },
+  {
+    "id": "q81",
+    "text": "⃣ Q.81",
+    "level": 5
+  },
+  {
+    "id": "q82",
+    "text": "⃣ Q.82",
+    "level": 5
+  },
+  {
+    "id": "q83",
+    "text": "⃣ Q.83",
+    "level": 5
+  },
+  {
+    "id": "2-01-02",
+    "text": "2.01.02. 📄 Mundo normal primitivo",
+    "level": 4
+  },
+  {
+    "id": "q84",
+    "text": "⃣ Q.84",
+    "level": 5
+  },
+  {
+    "id": "q85",
+    "text": "⃣ Q.85",
+    "level": 5
+  },
+  {
+    "id": "q86",
+    "text": "⃣ Q.86",
+    "level": 5
+  },
+  {
+    "id": "q87",
+    "text": "⃣ Q.87",
+    "level": 5
+  },
+  {
+    "id": "2-01-03",
+    "text": "2.01.03. 📄 Forma e ubiquidade dos Espíritos",
+    "level": 4
+  },
+  {
+    "id": "q88",
+    "text": "⃣ Q.88",
+    "level": 5
+  },
+  {
+    "id": "q88a",
+    "text": "⃣ Q.88.a",
+    "level": 5
+  },
+  {
+    "id": "q89",
+    "text": "⃣ Q.89",
+    "level": 5
+  },
+  {
+    "id": "q89a",
+    "text": "⃣ Q.89.a",
+    "level": 5
+  },
+  {
+    "id": "q90",
+    "text": "⃣ Q.90",
+    "level": 5
+  },
+  {
+    "id": "q91",
+    "text": "⃣ Q.91",
+    "level": 5
+  },
+  {
+    "id": "q92",
+    "text": "⃣ Q.92",
+    "level": 5
+  },
+  {
+    "id": "q92a",
+    "text": "⃣ Q.92.a",
+    "level": 5
+  },
+  {
+    "id": "2-01-04",
+    "text": "2.01.04. 📄 Perispírito",
+    "level": 4
+  },
+  {
+    "id": "q93",
+    "text": "⃣ Q.93",
+    "level": 5
+  },
+  {
+    "id": "q94",
+    "text": "⃣ Q.94",
+    "level": 5
+  },
+  {
+    "id": "q94a",
+    "text": "⃣ Q.94.a",
+    "level": 5
+  },
+  {
+    "id": "q95",
+    "text": "⃣ Q.95",
+    "level": 5
+  },
+  {
+    "id": "2-01-05",
+    "text": "2.01.05. 📄 Diferentes ordens de Espíritos",
+    "level": 4
+  },
+  {
+    "id": "q96",
+    "text": "⃣ Q.96",
+    "level": 5
+  },
+  {
+    "id": "q97",
+    "text": "⃣ Q.97",
+    "level": 5
+  },
+  {
+    "id": "q98",
+    "text": "⃣ Q.98",
+    "level": 5
+  },
+  {
+    "id": "q99",
+    "text": "⃣ Q.99",
+    "level": 5
+  },
+  {
+    "id": "2-01-06",
+    "text": "2.01.06. 📄 Escala espírita",
+    "level": 4
+  },
+  {
+    "id": "q100",
+    "text": "⃣ Q.100",
+    "level": 5
+  },
+  {
+    "id": "2-01-07",
+    "text": "2.01.07. 📄 3ª ordem – Espíritos imperfeitos",
+    "level": 4
+  },
+  {
+    "id": "q101",
+    "text": "⃣ Q.101",
+    "level": 5
+  },
+  {
+    "id": "q102",
+    "text": "⃣ Q.102",
+    "level": 5
+  },
+  {
+    "id": "q103",
+    "text": "⃣ Q.103",
+    "level": 5
+  },
+  {
+    "id": "q104",
+    "text": "⃣ Q.104",
+    "level": 5
+  },
+  {
+    "id": "q105",
+    "text": "⃣ Q.105",
+    "level": 5
+  },
+  {
+    "id": "q106",
+    "text": "⃣ Q.106",
+    "level": 5
+  },
+  {
+    "id": "2-01-08",
+    "text": "2.01.08. 📄 2ª ordem – Bons Espíritos",
+    "level": 4
+  },
+  {
+    "id": "q107",
+    "text": "⃣ Q.107",
+    "level": 5
+  },
+  {
+    "id": "q108",
+    "text": "⃣ Q.108",
+    "level": 5
+  },
+  {
+    "id": "q109",
+    "text": "⃣ Q.109",
+    "level": 5
+  },
+  {
+    "id": "q110",
+    "text": "⃣ Q.110",
+    "level": 5
+  },
+  {
+    "id": "q111",
+    "text": "⃣ Q.111",
+    "level": 5
+  },
+  {
+    "id": "2-01-09",
+    "text": "2.01.09. 📄 1ª ordem – Espíritos puros",
+    "level": 4
+  },
+  {
+    "id": "q112",
+    "text": "⃣ Q.112",
+    "level": 5
+  },
+  {
+    "id": "q113",
+    "text": "⃣ Q.113",
+    "level": 5
+  },
+  {
+    "id": "2-01-10",
+    "text": "2.01.10. 📄 Progressão dos Espíritos",
+    "level": 4
+  },
+  {
+    "id": "q114",
+    "text": "⃣ Q.114",
+    "level": 5
+  },
+  {
+    "id": "q115",
+    "text": "⃣ Q.115",
+    "level": 5
+  },
+  {
+    "id": "q115a",
+    "text": "⃣ Q.115.a",
+    "level": 5
+  },
+  {
+    "id": "q116",
+    "text": "⃣ Q.116",
+    "level": 5
+  },
+  {
+    "id": "q117",
+    "text": "⃣ Q.117",
+    "level": 5
+  },
+  {
+    "id": "q118",
+    "text": "⃣ Q.118",
+    "level": 5
+  },
+  {
+    "id": "q119",
+    "text": "⃣ Q.119",
+    "level": 5
+  },
+  {
+    "id": "q120",
+    "text": "⃣ Q.120",
+    "level": 5
+  },
+  {
+    "id": "q121",
+    "text": "⃣ Q.121",
+    "level": 5
+  },
+  {
+    "id": "q122",
+    "text": "⃣ Q.122",
+    "level": 5
+  },
+  {
+    "id": "q122a",
+    "text": "⃣ Q.122.a",
+    "level": 5
+  },
+  {
+    "id": "q122b",
+    "text": "⃣ Q.122.b",
+    "level": 5
+  },
+  {
+    "id": "q123",
+    "text": "⃣ Q.123",
+    "level": 5
+  },
+  {
+    "id": "q124",
+    "text": "⃣ Q.124",
+    "level": 5
+  },
+  {
+    "id": "q125",
+    "text": "⃣ Q.125",
+    "level": 5
+  },
+  {
+    "id": "q126",
+    "text": "⃣ Q.126",
+    "level": 5
+  },
+  {
+    "id": "q127",
+    "text": "⃣ Q.127",
+    "level": 5
+  },
+  {
+    "id": "2-01-11",
+    "text": "2.01.11. 📄 Anjos e demônios",
+    "level": 4
+  },
+  {
+    "id": "q128",
+    "text": "⃣ Q.128",
+    "level": 5
+  },
+  {
+    "id": "q129",
+    "text": "⃣ Q.129",
+    "level": 5
+  },
+  {
+    "id": "q130",
+    "text": "⃣ Q.130",
+    "level": 5
+  },
+  {
+    "id": "q131",
+    "text": "⃣ Q.131",
+    "level": 5
+  },
+  {
+    "id": "2-02",
+    "text": "2.02. 🗂️ Encarnação",
+    "level": 3
+  },
+  {
+    "id": "2-02-01",
+    "text": "2.02.01. 📄 Objetivo da encarnação",
+    "level": 4
+  },
+  {
+    "id": "q132",
+    "text": "⃣ Q.132",
+    "level": 5
+  },
+  {
+    "id": "q133",
+    "text": "⃣ Q.133",
+    "level": 5
+  },
+  {
+    "id": "q133a",
+    "text": "⃣ Q.133.a",
+    "level": 5
+  },
+  {
+    "id": "2-02-02",
+    "text": "2.02.02. 📄 A alma",
+    "level": 4
+  },
+  {
+    "id": "q134",
+    "text": "⃣ Q.134",
+    "level": 5
+  },
+  {
+    "id": "q134a",
+    "text": "⃣ Q.134.a",
+    "level": 5
+  },
+  {
+    "id": "q134b",
+    "text": "⃣ Q.134.b",
+    "level": 5
+  },
+  {
+    "id": "q135",
+    "text": "⃣ Q.135",
+    "level": 5
+  },
+  {
+    "id": "q135a",
+    "text": "⃣ Q.135.a",
+    "level": 5
+  },
+  {
+    "id": "q136",
+    "text": "⃣ Q.136",
+    "level": 5
+  },
+  {
+    "id": "q136a",
+    "text": "⃣ Q.136.a",
+    "level": 5
+  },
+  {
+    "id": "q136b",
+    "text": "⃣ Q.136.b",
+    "level": 5
+  },
+  {
+    "id": "q137",
+    "text": "⃣ Q.137",
+    "level": 5
+  },
+  {
+    "id": "q138",
+    "text": "⃣ Q.138",
+    "level": 5
+  },
+  {
+    "id": "q139",
+    "text": "⃣ Q.139",
+    "level": 5
+  },
+  {
+    "id": "q140",
+    "text": "⃣ Q.140",
+    "level": 5
+  },
+  {
+    "id": "q140a",
+    "text": "⃣ Q.140.a",
+    "level": 5
+  },
+  {
+    "id": "q141",
+    "text": "⃣ Q.141",
+    "level": 5
+  },
+  {
+    "id": "q142",
+    "text": "⃣ Q.142",
+    "level": 5
+  },
+  {
+    "id": "q143",
+    "text": "⃣ Q.143",
+    "level": 5
+  },
+  {
+    "id": "q144",
+    "text": "⃣ Q.144",
+    "level": 5
+  },
+  {
+    "id": "q145",
+    "text": "⃣ Q.145",
+    "level": 5
+  },
+  {
+    "id": "q146",
+    "text": "⃣ Q.146",
+    "level": 5
+  },
+  {
+    "id": "q146a",
+    "text": "⃣ Q.146.a",
+    "level": 5
+  },
+  {
+    "id": "2-02-03",
+    "text": "2.02.03. 📄 Materialismo",
+    "level": 4
+  },
+  {
+    "id": "q147",
+    "text": "⃣ Q.147",
+    "level": 5
+  },
+  {
+    "id": "q148",
+    "text": "⃣ Q.148",
+    "level": 5
+  },
+  {
+    "id": "2-03",
+    "text": "2.03. 🗂️ Retorno à vida espiritual",
+    "level": 3
+  },
+  {
+    "id": "2-03-01",
+    "text": "2.03.01. 📄 A alma após a morte. Vida eterna",
+    "level": 4
+  },
+  {
+    "id": "q149",
+    "text": "⃣ Q.149",
+    "level": 5
+  },
+  {
+    "id": "q150",
+    "text": "⃣ Q.150",
+    "level": 5
+  },
+  {
+    "id": "q150a",
+    "text": "⃣ Q.150.a",
+    "level": 5
+  },
+  {
+    "id": "q150b",
+    "text": "⃣ Q.150.b",
+    "level": 5
+  },
+  {
+    "id": "q151",
+    "text": "⃣ Q.151",
+    "level": 5
+  },
+  {
+    "id": "q152",
+    "text": "⃣ Q.152",
+    "level": 5
+  },
+  {
+    "id": "q153",
+    "text": "⃣ Q.153",
+    "level": 5
+  },
+  {
+    "id": "q153a",
+    "text": "⃣ Q.153.a",
+    "level": 5
+  },
+  {
+    "id": "2-03-02",
+    "text": "2.03.02. 📄 Separação da alma e do corpo",
+    "level": 4
+  },
+  {
+    "id": "q154",
+    "text": "⃣ Q.154",
+    "level": 5
+  },
+  {
+    "id": "q155",
+    "text": "⃣ Q.155",
+    "level": 5
+  },
+  {
+    "id": "q155a",
+    "text": "⃣ Q.155.a",
+    "level": 5
+  },
+  {
+    "id": "q156",
+    "text": "⃣ Q.156",
+    "level": 5
+  },
+  {
+    "id": "q157",
+    "text": "⃣ Q.157",
+    "level": 5
+  },
+  {
+    "id": "q158",
+    "text": "⃣ Q.158",
+    "level": 5
+  },
+  {
+    "id": "q159",
+    "text": "⃣ Q.159",
+    "level": 5
+  },
+  {
+    "id": "q160",
+    "text": "⃣ Q.160",
+    "level": 5
+  },
+  {
+    "id": "q161",
+    "text": "⃣ Q.161",
+    "level": 5
+  },
+  {
+    "id": "q162",
+    "text": "⃣ Q.162",
+    "level": 5
+  },
+  {
+    "id": "2-03-03",
+    "text": "2.03.03. 📄 Perturbação espiritual",
+    "level": 4
+  },
+  {
+    "id": "q163",
+    "text": "⃣ Q.163",
+    "level": 5
+  },
+  {
+    "id": "q164",
+    "text": "⃣ Q.164",
+    "level": 5
+  },
+  {
+    "id": "q165",
+    "text": "⃣ Q.165",
+    "level": 5
+  },
+  {
+    "id": "2-04",
+    "text": "2.04. 🗂️ Pluralidade das existências",
+    "level": 3
+  },
+  {
+    "id": "2-04-01",
+    "text": "2.04.01. 📄 A reencarnação",
+    "level": 4
+  },
+  {
+    "id": "q166",
+    "text": "⃣ Q.166",
+    "level": 5
+  },
+  {
+    "id": "q166a",
+    "text": "⃣ Q.166.a",
+    "level": 5
+  },
+  {
+    "id": "q166b",
+    "text": "⃣ Q.166.b",
+    "level": 5
+  },
+  {
+    "id": "q166c",
+    "text": "⃣ Q.166.c",
+    "level": 5
+  },
+  {
+    "id": "q167",
+    "text": "⃣ Q.167",
+    "level": 5
+  },
+  {
+    "id": "q168",
+    "text": "⃣ Q.168",
+    "level": 5
+  },
+  {
+    "id": "q169",
+    "text": "⃣ Q.169",
+    "level": 5
+  },
+  {
+    "id": "q170",
+    "text": "⃣ Q.170",
+    "level": 5
+  },
+  {
+    "id": "2-04-02",
+    "text": "2.04.02. 📄 Justiça da reencarnação",
+    "level": 4
+  },
+  {
+    "id": "q171",
+    "text": "⃣ Q.171",
+    "level": 5
+  },
+  {
+    "id": "2-04-03",
+    "text": "2.04.03. 📄 Encarnação nos diferentes mundos",
+    "level": 4
+  },
+  {
+    "id": "q172",
+    "text": "⃣ Q.172",
+    "level": 5
+  },
+  {
+    "id": "q173",
+    "text": "⃣ Q.173",
+    "level": 5
+  },
+  {
+    "id": "q173a",
+    "text": "⃣ Q.173.a",
+    "level": 5
+  },
+  {
+    "id": "q173b",
+    "text": "⃣ Q.173.b",
+    "level": 5
+  },
+  {
+    "id": "q174",
+    "text": "⃣ Q.174",
+    "level": 5
+  },
+  {
+    "id": "q175",
+    "text": "⃣ Q.175",
+    "level": 5
+  },
+  {
+    "id": "q175a",
+    "text": "⃣ Q.175.a",
+    "level": 5
+  },
+  {
+    "id": "q176",
+    "text": "⃣ Q.176",
+    "level": 5
+  },
+  {
+    "id": "q176a",
+    "text": "⃣ Q.176.a",
+    "level": 5
+  },
+  {
+    "id": "q176b",
+    "text": "⃣ Q.176.b",
+    "level": 5
+  },
+  {
+    "id": "q177",
+    "text": "⃣ Q.177",
+    "level": 5
+  },
+  {
+    "id": "q177a",
+    "text": "⃣ Q.177.a",
+    "level": 5
+  },
+  {
+    "id": "q178",
+    "text": "⃣ Q.178",
+    "level": 5
+  },
+  {
+    "id": "q178a",
+    "text": "⃣ Q.178.a",
+    "level": 5
+  },
+  {
+    "id": "q178b",
+    "text": "⃣ Q.178.b",
+    "level": 5
+  },
+  {
+    "id": "q179",
+    "text": "⃣ Q.179",
+    "level": 5
+  },
+  {
+    "id": "q180",
+    "text": "⃣ Q.180",
+    "level": 5
+  },
+  {
+    "id": "q181",
+    "text": "⃣ Q.181",
+    "level": 5
+  },
+  {
+    "id": "q182",
+    "text": "⃣ Q.182",
+    "level": 5
+  },
+  {
+    "id": "q183",
+    "text": "⃣ Q.183",
+    "level": 5
+  },
+  {
+    "id": "q184",
+    "text": "⃣ Q.184",
+    "level": 5
+  },
+  {
+    "id": "q184a",
+    "text": "⃣ Q.184.a",
+    "level": 5
+  },
+  {
+    "id": "q185",
+    "text": "⃣ Q.185",
+    "level": 5
+  },
+  {
+    "id": "q186",
+    "text": "⃣ Q.186",
+    "level": 5
+  },
+  {
+    "id": "q186a",
+    "text": "⃣ Q.186.a",
+    "level": 5
+  },
+  {
+    "id": "q187",
+    "text": "⃣ Q.187",
+    "level": 5
+  },
+  {
+    "id": "q188",
+    "text": "⃣ Q.188",
+    "level": 5
+  },
+  {
+    "id": "2-04-04",
+    "text": "2.04.04. 📄 Transmigrações progressivas",
+    "level": 4
+  },
+  {
+    "id": "q189",
+    "text": "⃣ Q.189",
+    "level": 5
+  },
+  {
+    "id": "q190",
+    "text": "⃣ Q.190",
+    "level": 5
+  },
+  {
+    "id": "q191",
+    "text": "⃣ Q.191",
+    "level": 5
+  },
+  {
+    "id": "q191a",
+    "text": "⃣ Q.191.a",
+    "level": 5
+  },
+  {
+    "id": "q192",
+    "text": "⃣ Q.192",
+    "level": 5
+  },
+  {
+    "id": "q192a",
+    "text": "⃣ Q.192.a",
+    "level": 5
+  },
+  {
+    "id": "q193",
+    "text": "⃣ Q.193",
+    "level": 5
+  },
+  {
+    "id": "q194",
+    "text": "⃣ Q.194",
+    "level": 5
+  },
+  {
+    "id": "q194a",
+    "text": "⃣ Q.194.a",
+    "level": 5
+  },
+  {
+    "id": "q195",
+    "text": "⃣ Q.195",
+    "level": 5
+  },
+  {
+    "id": "q196",
+    "text": "⃣ Q.196",
+    "level": 5
+  },
+  {
+    "id": "q196a",
+    "text": "⃣ Q.196.a",
+    "level": 5
+  },
+  {
+    "id": "2-04-05",
+    "text": "2.04.05. 📄 Sorte das crianças depois da morte",
+    "level": 4
+  },
+  {
+    "id": "q197",
+    "text": "⃣ Q.197",
+    "level": 5
+  },
+  {
+    "id": "q197a",
+    "text": "⃣ Q.197.a",
+    "level": 5
+  },
+  {
+    "id": "q198",
+    "text": "⃣ Q.198",
+    "level": 5
+  },
+  {
+    "id": "q199",
+    "text": "⃣ Q.199",
+    "level": 5
+  },
+  {
+    "id": "q199a",
+    "text": "⃣ Q.199.a",
+    "level": 5
+  },
+  {
+    "id": "2-04-06",
+    "text": "2.04.06. 📄 Sexos nos Espíritos",
+    "level": 4
+  },
+  {
+    "id": "q200",
+    "text": "⃣ Q.200",
+    "level": 5
+  },
+  {
+    "id": "q201",
+    "text": "⃣ Q.201",
+    "level": 5
+  },
+  {
+    "id": "q202",
+    "text": "⃣ Q.202",
+    "level": 5
+  },
+  {
+    "id": "2-04-07",
+    "text": "2.04.07. 📄 Parentesco, filiação",
+    "level": 4
+  },
+  {
+    "id": "q203",
+    "text": "⃣ Q.203",
+    "level": 5
+  },
+  {
+    "id": "q204",
+    "text": "⃣ Q.204",
+    "level": 5
+  },
+  {
+    "id": "q205",
+    "text": "⃣ Q.205",
+    "level": 5
+  },
+  {
+    "id": "q205a",
+    "text": "⃣ Q.205.a",
+    "level": 5
+  },
+  {
+    "id": "q206",
+    "text": "⃣ Q.206",
+    "level": 5
+  },
+  {
+    "id": "2-04-08",
+    "text": "2.04.08. 📄 Parecenças físicas e morais",
+    "level": 4
+  },
+  {
+    "id": "q207",
+    "text": "⃣ Q.207",
+    "level": 5
+  },
+  {
+    "id": "q207a",
+    "text": "⃣ Q.207.a",
+    "level": 5
+  },
+  {
+    "id": "q208",
+    "text": "⃣ Q.208",
+    "level": 5
+  },
+  {
+    "id": "q209",
+    "text": "⃣ Q.209",
+    "level": 5
+  },
+  {
+    "id": "q210",
+    "text": "⃣ Q.210",
+    "level": 5
+  },
+  {
+    "id": "q211",
+    "text": "⃣ Q.211",
+    "level": 5
+  },
+  {
+    "id": "q212",
+    "text": "⃣ Q.212",
+    "level": 5
+  },
+  {
+    "id": "q213",
+    "text": "⃣ Q.213",
+    "level": 5
+  },
+  {
+    "id": "q214",
+    "text": "⃣ Q.214",
+    "level": 5
+  },
+  {
+    "id": "q215",
+    "text": "⃣ Q.215",
+    "level": 5
+  },
+  {
+    "id": "q216",
+    "text": "⃣ Q.216",
+    "level": 5
+  },
+  {
+    "id": "q217",
+    "text": "⃣ Q.217",
+    "level": 5
+  },
+  {
+    "id": "2-04-09",
+    "text": "2.04.09. 📄 Ideias inatas",
+    "level": 4
+  },
+  {
+    "id": "q218",
+    "text": "⃣ Q.218",
+    "level": 5
+  },
+  {
+    "id": "q218a",
+    "text": "⃣ Q.218.a",
+    "level": 5
+  },
+  {
+    "id": "q218b",
+    "text": "⃣ Q.218.b",
+    "level": 5
+  },
+  {
+    "id": "q219",
+    "text": "⃣ Q.219",
+    "level": 5
+  },
+  {
+    "id": "q220",
+    "text": "⃣ Q.220",
+    "level": 5
+  },
+  {
+    "id": "q221",
+    "text": "⃣ Q.221",
+    "level": 5
+  },
+  {
+    "id": "q221a",
+    "text": "⃣ Q.221.a",
+    "level": 5
+  },
+  {
+    "id": "2-05",
+    "text": "2.05. 🗂️ Considerações sobre as existências",
+    "level": 3
+  },
+  {
+    "id": "q222",
+    "text": "Q.222",
+    "level": 4
+  },
+  {
+    "id": "2-06",
+    "text": "2.06. 🗂️ Vida espírita",
+    "level": 3
+  },
+  {
+    "id": "2-06-01",
+    "text": "2.06.01. 📄 Espíritos errantes",
+    "level": 4
+  },
+  {
+    "id": "q223",
+    "text": "⃣ Q.223",
+    "level": 5
+  },
+  {
+    "id": "q224",
+    "text": "⃣ Q.224",
+    "level": 5
+  },
+  {
+    "id": "q224a",
+    "text": "⃣ Q.224.a",
+    "level": 5
+  },
+  {
+    "id": "q224b",
+    "text": "⃣ Q.224.b",
+    "level": 5
+  },
+  {
+    "id": "q225",
+    "text": "⃣ Q.225",
+    "level": 5
+  },
+  {
+    "id": "q226",
+    "text": "⃣ Q.226",
+    "level": 5
+  },
+  {
+    "id": "q227",
+    "text": "⃣ Q.227",
+    "level": 5
+  },
+  {
+    "id": "q228",
+    "text": "⃣ Q.228",
+    "level": 5
+  },
+  {
+    "id": "q229",
+    "text": "⃣ Q.229",
+    "level": 5
+  },
+  {
+    "id": "q230",
+    "text": "⃣ Q.230",
+    "level": 5
+  },
+  {
+    "id": "q231",
+    "text": "⃣ Q.231",
+    "level": 5
+  },
+  {
+    "id": "q232",
+    "text": "⃣ Q.232",
+    "level": 5
+  },
+  {
+    "id": "q233",
+    "text": "⃣ Q.233",
+    "level": 5
+  },
+  {
+    "id": "2-06-02",
+    "text": "2.06.02. 📄 Mundos transitórios",
+    "level": 4
+  },
+  {
+    "id": "q234",
+    "text": "⃣ Q.234",
+    "level": 5
+  },
+  {
+    "id": "q234a",
+    "text": "⃣ Q.234.a",
+    "level": 5
+  },
+  {
+    "id": "q235",
+    "text": "⃣ Q.235",
+    "level": 5
+  },
+  {
+    "id": "q236",
+    "text": "⃣ Q.236",
+    "level": 5
+  },
+  {
+    "id": "q236a",
+    "text": "⃣ Q.236.a",
+    "level": 5
+  },
+  {
+    "id": "q236b",
+    "text": "⃣ Q.236.b",
+    "level": 5
+  },
+  {
+    "id": "q236c",
+    "text": "⃣ Q.236.c",
+    "level": 5
+  },
+  {
+    "id": "q236d",
+    "text": "⃣ Q.236.d",
+    "level": 5
+  },
+  {
+    "id": "q236e",
+    "text": "⃣ Q.236.e",
+    "level": 5
+  },
+  {
+    "id": "2-06-03",
+    "text": "2.06.03. 📄 Percepções, sensações e sofrimentos dos Espíritos",
+    "level": 4
+  },
+  {
+    "id": "q237",
+    "text": "⃣ Q.237",
+    "level": 5
+  },
+  {
+    "id": "q238",
+    "text": "⃣ Q.238",
+    "level": 5
+  },
+  {
+    "id": "q239",
+    "text": "⃣ Q.239",
+    "level": 5
+  },
+  {
+    "id": "q240",
+    "text": "⃣ Q.240",
+    "level": 5
+  },
+  {
+    "id": "q241",
+    "text": "⃣ Q.241",
+    "level": 5
+  },
+  {
+    "id": "q242",
+    "text": "⃣ Q.242",
+    "level": 5
+  },
+  {
+    "id": "q243",
+    "text": "⃣ Q.243",
+    "level": 5
+  },
+  {
+    "id": "q243a",
+    "text": "⃣ Q.243.a",
+    "level": 5
+  },
+  {
+    "id": "q244",
+    "text": "⃣ Q.244",
+    "level": 5
+  },
+  {
+    "id": "q244a",
+    "text": "⃣ Q.244.a",
+    "level": 5
+  },
+  {
+    "id": "q244b",
+    "text": "⃣ Q.244.b",
+    "level": 5
+  },
+  {
+    "id": "q245",
+    "text": "⃣ Q.245",
+    "level": 5
+  },
+  {
+    "id": "q246",
+    "text": "⃣ Q.246",
+    "level": 5
+  },
+  {
+    "id": "q247",
+    "text": "⃣ Q.247",
+    "level": 5
+  },
+  {
+    "id": "q248",
+    "text": "⃣ Q.248",
+    "level": 5
+  },
+  {
+    "id": "q249",
+    "text": "⃣ Q.249",
+    "level": 5
+  },
+  {
+    "id": "q249a",
+    "text": "⃣ Q.249.a",
+    "level": 5
+  },
+  {
+    "id": "q250",
+    "text": "⃣ Q.250",
+    "level": 5
+  },
+  {
+    "id": "q251",
+    "text": "⃣ Q.251",
+    "level": 5
+  },
+  {
+    "id": "q252",
+    "text": "⃣ Q.252",
+    "level": 5
+  },
+  {
+    "id": "q253",
+    "text": "⃣ Q.253",
+    "level": 5
+  },
+  {
+    "id": "q254",
+    "text": "⃣ Q.254",
+    "level": 5
+  },
+  {
+    "id": "q255",
+    "text": "⃣ Q.255",
+    "level": 5
+  },
+  {
+    "id": "q256",
+    "text": "⃣ Q.256",
+    "level": 5
+  },
+  {
+    "id": "2-06-04",
+    "text": "2.06.04. 📄 Ensaio teórico da sensação nos Espíritos",
+    "level": 4
+  },
+  {
+    "id": "q257",
+    "text": "⃣ Q.257",
+    "level": 5
+  },
+  {
+    "id": "2-06-05",
+    "text": "2.06.05. 📄 Escolha das provas",
+    "level": 4
+  },
+  {
+    "id": "q258",
+    "text": "⃣ Q.258",
+    "level": 5
+  },
+  {
+    "id": "q258a",
+    "text": "⃣ Q.258.a",
+    "level": 5
+  },
+  {
+    "id": "q259",
+    "text": "⃣ Q.259",
+    "level": 5
+  },
+  {
+    "id": "q260",
+    "text": "⃣ Q.260",
+    "level": 5
+  },
+  {
+    "id": "q260a",
+    "text": "⃣ Q.260.a",
+    "level": 5
+  },
+  {
+    "id": "q261",
+    "text": "⃣ Q.261",
+    "level": 5
+  },
+  {
+    "id": "q262",
+    "text": "⃣ Q.262",
+    "level": 5
+  },
+  {
+    "id": "q262a",
+    "text": "⃣ Q.262.a",
+    "level": 5
+  },
+  {
+    "id": "q263",
+    "text": "⃣ Q.263",
+    "level": 5
+  },
+  {
+    "id": "q264",
+    "text": "⃣ Q.264",
+    "level": 5
+  },
+  {
+    "id": "q265",
+    "text": "⃣ Q.265",
+    "level": 5
+  },
+  {
+    "id": "q266",
+    "text": "⃣ Q.266",
+    "level": 5
+  },
+  {
+    "id": "q267",
+    "text": "⃣ Q.267",
+    "level": 5
+  },
+  {
+    "id": "q267a",
+    "text": "⃣ Q.267.a",
+    "level": 5
+  },
+  {
+    "id": "q268",
+    "text": "⃣ Q.268",
+    "level": 5
+  },
+  {
+    "id": "q269",
+    "text": "⃣ Q.269",
+    "level": 5
+  },
+  {
+    "id": "q270",
+    "text": "⃣ Q.270",
+    "level": 5
+  },
+  {
+    "id": "q271",
+    "text": "⃣ Q.271",
+    "level": 5
+  },
+  {
+    "id": "q272",
+    "text": "⃣ Q.272",
+    "level": 5
+  },
+  {
+    "id": "q273",
+    "text": "⃣ Q.273",
+    "level": 5
+  },
+  {
+    "id": "2-06-06",
+    "text": "2.06.06. 📄 As relações no além-túmulo",
+    "level": 4
+  },
+  {
+    "id": "q274",
+    "text": "⃣ Q.274",
+    "level": 5
+  },
+  {
+    "id": "q274a",
+    "text": "⃣ Q.274.a",
+    "level": 5
+  },
+  {
+    "id": "q275",
+    "text": "⃣ Q.275",
+    "level": 5
+  },
+  {
+    "id": "q275a",
+    "text": "⃣ Q.275.a",
+    "level": 5
+  },
+  {
+    "id": "q276",
+    "text": "⃣ Q.276",
+    "level": 5
+  },
+  {
+    "id": "q277",
+    "text": "⃣ Q.277",
+    "level": 5
+  },
+  {
+    "id": "q278",
+    "text": "⃣ Q.278",
+    "level": 5
+  },
+  {
+    "id": "q279",
+    "text": "⃣ Q.279",
+    "level": 5
+  },
+  {
+    "id": "q280",
+    "text": "⃣ Q.280",
+    "level": 5
+  },
+  {
+    "id": "q281",
+    "text": "⃣ Q.281",
+    "level": 5
+  },
+  {
+    "id": "q282",
+    "text": "⃣ Q.282",
+    "level": 5
+  },
+  {
+    "id": "q283",
+    "text": "⃣ Q.283",
+    "level": 5
+  },
+  {
+    "id": "q284",
+    "text": "⃣ Q.284",
+    "level": 5
+  },
+  {
+    "id": "q285",
+    "text": "⃣ Q.285",
+    "level": 5
+  },
+  {
+    "id": "q285a",
+    "text": "⃣ Q.285.a",
+    "level": 5
+  },
+  {
+    "id": "q286",
+    "text": "⃣ Q.286",
+    "level": 5
+  },
+  {
+    "id": "q287",
+    "text": "⃣ Q.287",
+    "level": 5
+  },
+  {
+    "id": "q288",
+    "text": "⃣ Q.288",
+    "level": 5
+  },
+  {
+    "id": "q289",
+    "text": "⃣ Q.289",
+    "level": 5
+  },
+  {
+    "id": "q290",
+    "text": "⃣ Q.290",
+    "level": 5
+  },
+  {
+    "id": "2-06-07",
+    "text": "2.06.07. 📄 Relações de simpatia e de antipatia entre os Espíritos. Metades eternas",
+    "level": 4
+  },
+  {
+    "id": "q291",
+    "text": "⃣ Q.291",
+    "level": 5
+  },
+  {
+    "id": "q292",
+    "text": "⃣ Q.292",
+    "level": 5
+  },
+  {
+    "id": "q293",
+    "text": "⃣ Q.293",
+    "level": 5
+  },
+  {
+    "id": "q294",
+    "text": "⃣ Q.294",
+    "level": 5
+  },
+  {
+    "id": "q295",
+    "text": "⃣ Q.295",
+    "level": 5
+  },
+  {
+    "id": "q296",
+    "text": "⃣ Q.296",
+    "level": 5
+  },
+  {
+    "id": "q297",
+    "text": "⃣ Q.297",
+    "level": 5
+  },
+  {
+    "id": "q298",
+    "text": "⃣ Q.298",
+    "level": 5
+  },
+  {
+    "id": "q299",
+    "text": "⃣ Q.299",
+    "level": 5
+  },
+  {
+    "id": "q300",
+    "text": "⃣ Q.300",
+    "level": 5
+  },
+  {
+    "id": "q301",
+    "text": "⃣ Q.301",
+    "level": 5
+  },
+  {
+    "id": "q302",
+    "text": "⃣ Q.302",
+    "level": 5
+  },
+  {
+    "id": "q303",
+    "text": "⃣ Q.303",
+    "level": 5
+  },
+  {
+    "id": "q303a",
+    "text": "⃣ Q.303.a",
+    "level": 5
+  },
+  {
+    "id": "2-06-08",
+    "text": "2.06.08. 📄 Recordação da existência corpórea",
+    "level": 4
+  },
+  {
+    "id": "q304",
+    "text": "⃣ Q.304",
+    "level": 5
+  },
+  {
+    "id": "q305",
+    "text": "⃣ Q.305",
+    "level": 5
+  },
+  {
+    "id": "q306",
+    "text": "⃣ Q.306",
+    "level": 5
+  },
+  {
+    "id": "q306a",
+    "text": "⃣ Q.306.a",
+    "level": 5
+  },
+  {
+    "id": "q306b",
+    "text": "⃣ Q.306.b",
+    "level": 5
+  },
+  {
+    "id": "q307",
+    "text": "⃣ Q.307",
+    "level": 5
+  },
+  {
+    "id": "q308",
+    "text": "⃣ Q.308",
+    "level": 5
+  },
+  {
+    "id": "q309",
+    "text": "⃣ Q.309",
+    "level": 5
+  },
+  {
+    "id": "q309a",
+    "text": "⃣ Q.309.a",
+    "level": 5
+  },
+  {
+    "id": "q310",
+    "text": "⃣ Q.310",
+    "level": 5
+  },
+  {
+    "id": "q311",
+    "text": "⃣ Q.311",
+    "level": 5
+  },
+  {
+    "id": "q312",
+    "text": "⃣ Q.312",
+    "level": 5
+  },
+  {
+    "id": "q313",
+    "text": "⃣ Q.313",
+    "level": 5
+  },
+  {
+    "id": "q314",
+    "text": "⃣ Q.314",
+    "level": 5
+  },
+  {
+    "id": "q315",
+    "text": "⃣ Q.315",
+    "level": 5
+  },
+  {
+    "id": "q316",
+    "text": "⃣ Q.316",
+    "level": 5
+  },
+  {
+    "id": "q317",
+    "text": "⃣ Q.317",
+    "level": 5
+  },
+  {
+    "id": "q318",
+    "text": "⃣ Q.318",
+    "level": 5
+  },
+  {
+    "id": "q319",
+    "text": "⃣ Q.319",
+    "level": 5
+  },
+  {
+    "id": "2-06-09",
+    "text": "2.06.09. 📄 Comemoração dos mortos. Funerais",
+    "level": 4
+  },
+  {
+    "id": "q320",
+    "text": "⃣ Q.320",
+    "level": 5
+  },
+  {
+    "id": "q321",
+    "text": "⃣ Q.321",
+    "level": 5
+  },
+  {
+    "id": "q321a",
+    "text": "⃣ Q.321.a",
+    "level": 5
+  },
+  {
+    "id": "q321b",
+    "text": "⃣ Q.321.b",
+    "level": 5
+  },
+  {
+    "id": "q322",
+    "text": "⃣ Q.322",
+    "level": 5
+  },
+  {
+    "id": "q323",
+    "text": "⃣ Q.323",
+    "level": 5
+  },
+  {
+    "id": "q324",
+    "text": "⃣ Q.324",
+    "level": 5
+  },
+  {
+    "id": "q325",
+    "text": "⃣ Q.325",
+    "level": 5
+  },
+  {
+    "id": "q325a",
+    "text": "⃣ Q.325.a",
+    "level": 5
+  },
+  {
+    "id": "q326",
+    "text": "⃣ Q.326",
+    "level": 5
+  },
+  {
+    "id": "q327",
+    "text": "⃣ Q.327",
+    "level": 5
+  },
+  {
+    "id": "q327a",
+    "text": "⃣ Q.327.a",
+    "level": 5
+  },
+  {
+    "id": "q328",
+    "text": "⃣ Q.328",
+    "level": 5
+  },
+  {
+    "id": "q329",
+    "text": "⃣ Q.329",
+    "level": 5
+  },
+  {
+    "id": "2-07",
+    "text": "2.07. 🗂️ Volta à vida material",
+    "level": 3
+  },
+  {
+    "id": "2-07-01",
+    "text": "2.07.01. 📄 Prelúdio da volta",
+    "level": 4
+  },
+  {
+    "id": "q330",
+    "text": "⃣ Q.330",
+    "level": 5
+  },
+  {
+    "id": "q330a",
+    "text": "⃣ Q.330.a",
+    "level": 5
+  },
+  {
+    "id": "q331",
+    "text": "⃣ Q.331",
+    "level": 5
+  },
+  {
+    "id": "q332",
+    "text": "⃣ Q.332",
+    "level": 5
+  },
+  {
+    "id": "q333",
+    "text": "⃣ Q.333",
+    "level": 5
+  },
+  {
+    "id": "q334",
+    "text": "⃣ Q.334",
+    "level": 5
+  },
+  {
+    "id": "q335",
+    "text": "⃣ Q.335",
+    "level": 5
+  },
+  {
+    "id": "q335a",
+    "text": "⃣ Q.335.a",
+    "level": 5
+  },
+  {
+    "id": "q336",
+    "text": "⃣ Q.336",
+    "level": 5
+  },
+  {
+    "id": "q337",
+    "text": "⃣ Q.337",
+    "level": 5
+  },
+  {
+    "id": "q338",
+    "text": "⃣ Q.338",
+    "level": 5
+  },
+  {
+    "id": "q339",
+    "text": "⃣ Q.339",
+    "level": 5
+  },
+  {
+    "id": "q340",
+    "text": "⃣ Q.340",
+    "level": 5
+  },
+  {
+    "id": "q341",
+    "text": "⃣ Q.341",
+    "level": 5
+  },
+  {
+    "id": "q342",
+    "text": "⃣ Q.342",
+    "level": 5
+  },
+  {
+    "id": "q343",
+    "text": "⃣ Q.343",
+    "level": 5
+  },
+  {
+    "id": "2-07-02",
+    "text": "2.07.02. 📄 União do espírito e do corpo",
+    "level": 4
+  },
+  {
+    "id": "q344",
+    "text": "⃣ Q.344",
+    "level": 5
+  },
+  {
+    "id": "q345",
+    "text": "⃣ Q.345",
+    "level": 5
+  },
+  {
+    "id": "q346",
+    "text": "⃣ Q.346",
+    "level": 5
+  },
+  {
+    "id": "q346a",
+    "text": "⃣ Q.346.a",
+    "level": 5
+  },
+  {
+    "id": "q347",
+    "text": "⃣ Q.347",
+    "level": 5
+  },
+  {
+    "id": "q348",
+    "text": "⃣ Q.348",
+    "level": 5
+  },
+  {
+    "id": "q349",
+    "text": "⃣ Q.349",
+    "level": 5
+  },
+  {
+    "id": "q350",
+    "text": "⃣ Q.350",
+    "level": 5
+  },
+  {
+    "id": "q351",
+    "text": "⃣ Q.351",
+    "level": 5
+  },
+  {
+    "id": "q352",
+    "text": "⃣ Q.352",
+    "level": 5
+  },
+  {
+    "id": "q353",
+    "text": "⃣ Q.353",
+    "level": 5
+  },
+  {
+    "id": "q354",
+    "text": "⃣ Q.354",
+    "level": 5
+  },
+  {
+    "id": "q355",
+    "text": "⃣ Q.355",
+    "level": 5
+  },
+  {
+    "id": "q356",
+    "text": "⃣ Q.356",
+    "level": 5
+  },
+  {
+    "id": "q356a",
+    "text": "⃣ Q.356.a",
+    "level": 5
+  },
+  {
+    "id": "q356b",
+    "text": "⃣ Q.356.b",
+    "level": 5
+  },
+  {
+    "id": "q357",
+    "text": "⃣ Q.357",
+    "level": 5
+  },
+  {
+    "id": "q358",
+    "text": "⃣ Q.358",
+    "level": 5
+  },
+  {
+    "id": "q359",
+    "text": "⃣ Q.359",
+    "level": 5
+  },
+  {
+    "id": "q360",
+    "text": "⃣ Q.360",
+    "level": 5
+  },
+  {
+    "id": "2-07-03",
+    "text": "2.07.03. 📄 Faculdades morais e intelectuais do homem",
+    "level": 4
+  },
+  {
+    "id": "q361",
+    "text": "⃣ Q.361",
+    "level": 5
+  },
+  {
+    "id": "q361a",
+    "text": "⃣ Q.361.a",
+    "level": 5
+  },
+  {
+    "id": "q362",
+    "text": "⃣ Q.362",
+    "level": 5
+  },
+  {
+    "id": "q363",
+    "text": "⃣ Q.363",
+    "level": 5
+  },
+  {
+    "id": "q364",
+    "text": "⃣ Q.364",
+    "level": 5
+  },
+  {
+    "id": "q365",
+    "text": "⃣ Q.365",
+    "level": 5
+  },
+  {
+    "id": "q366",
+    "text": "⃣ Q.366",
+    "level": 5
+  },
+  {
+    "id": "2-07-04",
+    "text": "2.07.04. 📄 Influência do corpo",
+    "level": 4
+  },
+  {
+    "id": "q367",
+    "text": "⃣ Q.367",
+    "level": 5
+  },
+  {
+    "id": "q368",
+    "text": "⃣ Q.368",
+    "level": 5
+  },
+  {
+    "id": "q368a",
+    "text": "⃣ Q.368.a",
+    "level": 5
+  },
+  {
+    "id": "q369",
+    "text": "⃣ Q.369",
+    "level": 5
+  },
+  {
+    "id": "q370",
+    "text": "⃣ Q.370",
+    "level": 5
+  },
+  {
+    "id": "q370a",
+    "text": "⃣ Q.370.a",
+    "level": 5
+  },
+  {
+    "id": "2-07-05",
+    "text": "2.07.05. 📄 Idiotismo, loucura",
+    "level": 4
+  },
+  {
+    "id": "q371",
+    "text": "⃣ Q.371",
+    "level": 5
+  },
+  {
+    "id": "q372",
+    "text": "⃣ Q.372",
+    "level": 5
+  },
+  {
+    "id": "q372a",
+    "text": "⃣ Q.372.a",
+    "level": 5
+  },
+  {
+    "id": "q373",
+    "text": "⃣ Q.373",
+    "level": 5
+  },
+  {
+    "id": "q373a",
+    "text": "⃣ Q.373.a",
+    "level": 5
+  },
+  {
+    "id": "q374",
+    "text": "⃣ Q.374",
+    "level": 5
+  },
+  {
+    "id": "q375",
+    "text": "⃣ Q.375",
+    "level": 5
+  },
+  {
+    "id": "q375a",
+    "text": "⃣ Q.375.a",
+    "level": 5
+  },
+  {
+    "id": "q376",
+    "text": "⃣ Q.376",
+    "level": 5
+  },
+  {
+    "id": "q377",
+    "text": "⃣ Q.377",
+    "level": 5
+  },
+  {
+    "id": "q378",
+    "text": "⃣ Q.378",
+    "level": 5
+  },
+  {
+    "id": "2-07-06",
+    "text": "2.07.06. 📄 A infância",
+    "level": 4
+  },
+  {
+    "id": "q379",
+    "text": "⃣ Q.379",
+    "level": 5
+  },
+  {
+    "id": "q380",
+    "text": "⃣ Q.380",
+    "level": 5
+  },
+  {
+    "id": "q381",
+    "text": "⃣ Q.381",
+    "level": 5
+  },
+  {
+    "id": "q382",
+    "text": "⃣ Q.382",
+    "level": 5
+  },
+  {
+    "id": "q383",
+    "text": "⃣ Q.383",
+    "level": 5
+  },
+  {
+    "id": "q384",
+    "text": "⃣ Q.384",
+    "level": 5
+  },
+  {
+    "id": "q385",
+    "text": "⃣ Q.385",
+    "level": 5
+  },
+  {
+    "id": "2-07-07",
+    "text": "2.07.07. 📄 Simpatia e antipatia materiais",
+    "level": 4
+  },
+  {
+    "id": "q386",
+    "text": "⃣ Q.386",
+    "level": 5
+  },
+  {
+    "id": "q386a",
+    "text": "⃣ Q.386.a",
+    "level": 5
+  },
+  {
+    "id": "q387",
+    "text": "⃣ Q.387",
+    "level": 5
+  },
+  {
+    "id": "q388",
+    "text": "⃣ Q.388",
+    "level": 5
+  },
+  {
+    "id": "q389",
+    "text": "⃣ Q.389",
+    "level": 5
+  },
+  {
+    "id": "q390",
+    "text": "⃣ Q.390",
+    "level": 5
+  },
+  {
+    "id": "q391",
+    "text": "⃣ Q.391",
+    "level": 5
+  },
+  {
+    "id": "2-07-08",
+    "text": "2.07.08. 📄 Esquecimento do passado",
+    "level": 4
+  },
+  {
+    "id": "q392",
+    "text": "⃣ Q.392",
+    "level": 5
+  },
+  {
+    "id": "q393",
+    "text": "⃣ Q.393",
+    "level": 5
+  },
+  {
+    "id": "q394",
+    "text": "⃣ Q.394",
+    "level": 5
+  },
+  {
+    "id": "q395",
+    "text": "⃣ Q.395",
+    "level": 5
+  },
+  {
+    "id": "q396",
+    "text": "⃣ Q.396",
+    "level": 5
+  },
+  {
+    "id": "q397",
+    "text": "⃣ Q.397",
+    "level": 5
+  },
+  {
+    "id": "q398",
+    "text": "⃣ Q.398",
+    "level": 5
+  },
+  {
+    "id": "q398a",
+    "text": "⃣ Q.398.a",
+    "level": 5
+  },
+  {
+    "id": "q399",
+    "text": "⃣ Q.399",
+    "level": 5
+  },
+  {
+    "id": "2-08",
+    "text": "2.08. 🗂️ Emancipação da alma",
+    "level": 3
+  },
+  {
+    "id": "2-08-01",
+    "text": "2.08.01. 📄 O sono e os sonhos",
+    "level": 4
+  },
+  {
+    "id": "q400",
+    "text": "⃣ Q.400",
+    "level": 5
+  },
+  {
+    "id": "q401",
+    "text": "⃣ Q.401",
+    "level": 5
+  },
+  {
+    "id": "q402",
+    "text": "⃣ Q.402",
+    "level": 5
+  },
+  {
+    "id": "q403",
+    "text": "⃣ Q.403",
+    "level": 5
+  },
+  {
+    "id": "q404",
+    "text": "⃣ Q.404",
+    "level": 5
+  },
+  {
+    "id": "q405",
+    "text": "⃣ Q.405",
+    "level": 5
+  },
+  {
+    "id": "q406",
+    "text": "⃣ Q.406",
+    "level": 5
+  },
+  {
+    "id": "q407",
+    "text": "⃣ Q.407",
+    "level": 5
+  },
+  {
+    "id": "q408",
+    "text": "⃣ Q.408",
+    "level": 5
+  },
+  {
+    "id": "q409",
+    "text": "⃣ Q.409",
+    "level": 5
+  },
+  {
+    "id": "q410",
+    "text": "⃣ Q.410",
+    "level": 5
+  },
+  {
+    "id": "q410a",
+    "text": "⃣ Q.410.a",
+    "level": 5
+  },
+  {
+    "id": "q411",
+    "text": "⃣ Q.411",
+    "level": 5
+  },
+  {
+    "id": "q412",
+    "text": "⃣ Q.412",
+    "level": 5
+  },
+  {
+    "id": "2-08-02",
+    "text": "2.08.02. 📄 Visitas espíritas entre pessoas vivas",
+    "level": 4
+  },
+  {
+    "id": "q413",
+    "text": "⃣ Q.413",
+    "level": 5
+  },
+  {
+    "id": "q414",
+    "text": "⃣ Q.414",
+    "level": 5
+  },
+  {
+    "id": "q415",
+    "text": "⃣ Q.415",
+    "level": 5
+  },
+  {
+    "id": "q416",
+    "text": "⃣ Q.416",
+    "level": 5
+  },
+  {
+    "id": "q417",
+    "text": "⃣ Q.417",
+    "level": 5
+  },
+  {
+    "id": "q418",
+    "text": "⃣ Q.418",
+    "level": 5
+  },
+  {
+    "id": "2-08-03",
+    "text": "2.08.03. 📄 Transmissão oculta do pensamento",
+    "level": 4
+  },
+  {
+    "id": "q419",
+    "text": "⃣ Q.419",
+    "level": 5
+  },
+  {
+    "id": "q420",
+    "text": "⃣ Q.420",
+    "level": 5
+  },
+  {
+    "id": "q421",
+    "text": "⃣ Q.421",
+    "level": 5
+  },
+  {
+    "id": "2-08-04",
+    "text": "2.08.04. 📄 Letargia, catalepsia, mortes aparentes",
+    "level": 4
+  },
+  {
+    "id": "q422",
+    "text": "⃣ Q.422",
+    "level": 5
+  },
+  {
+    "id": "q422a",
+    "text": "⃣ Q.422.a",
+    "level": 5
+  },
+  {
+    "id": "q423",
+    "text": "⃣ Q.423",
+    "level": 5
+  },
+  {
+    "id": "q424",
+    "text": "⃣ Q.424",
+    "level": 5
+  },
+  {
+    "id": "2-08-05",
+    "text": "2.08.05. 📄 Sonambulismo",
+    "level": 4
+  },
+  {
+    "id": "q425",
+    "text": "⃣ Q.425",
+    "level": 5
+  },
+  {
+    "id": "q426",
+    "text": "⃣ Q.426",
+    "level": 5
+  },
+  {
+    "id": "q427",
+    "text": "⃣ Q.427",
+    "level": 5
+  },
+  {
+    "id": "q428",
+    "text": "⃣ Q.428",
+    "level": 5
+  },
+  {
+    "id": "q429",
+    "text": "⃣ Q.429",
+    "level": 5
+  },
+  {
+    "id": "q430",
+    "text": "⃣ Q.430",
+    "level": 5
+  },
+  {
+    "id": "q431",
+    "text": "⃣ Q.431",
+    "level": 5
+  },
+  {
+    "id": "q432",
+    "text": "⃣ Q.432",
+    "level": 5
+  },
+  {
+    "id": "q433",
+    "text": "⃣ Q.433",
+    "level": 5
+  },
+  {
+    "id": "q434",
+    "text": "⃣ Q.434",
+    "level": 5
+  },
+  {
+    "id": "q435",
+    "text": "⃣ Q.435",
+    "level": 5
+  },
+  {
+    "id": "q436",
+    "text": "⃣ Q.436",
+    "level": 5
+  },
+  {
+    "id": "q437",
+    "text": "⃣ Q.437",
+    "level": 5
+  },
+  {
+    "id": "q438",
+    "text": "⃣ Q.438",
+    "level": 5
+  },
+  {
+    "id": "2-08-06",
+    "text": "2.08.06. 📄 Êxtase",
+    "level": 4
+  },
+  {
+    "id": "q439",
+    "text": "⃣ Q.439",
+    "level": 5
+  },
+  {
+    "id": "q440",
+    "text": "⃣ Q.440",
+    "level": 5
+  },
+  {
+    "id": "q441",
+    "text": "⃣ Q.441",
+    "level": 5
+  },
+  {
+    "id": "q442",
+    "text": "⃣ Q.442",
+    "level": 5
+  },
+  {
+    "id": "q443",
+    "text": "⃣ Q.443",
+    "level": 5
+  },
+  {
+    "id": "q444",
+    "text": "⃣ Q.444",
+    "level": 5
+  },
+  {
+    "id": "q445",
+    "text": "⃣ Q.445",
+    "level": 5
+  },
+  {
+    "id": "q446",
+    "text": "⃣ Q.446",
+    "level": 5
+  },
+  {
+    "id": "2-08-07",
+    "text": "2.08.07. 📄 Dupla vista",
+    "level": 4
+  },
+  {
+    "id": "q447",
+    "text": "⃣ Q.447",
+    "level": 5
+  },
+  {
+    "id": "q448",
+    "text": "⃣ Q.448",
+    "level": 5
+  },
+  {
+    "id": "q449",
+    "text": "⃣ Q.449",
+    "level": 5
+  },
+  {
+    "id": "q450",
+    "text": "⃣ Q.450",
+    "level": 5
+  },
+  {
+    "id": "q450a",
+    "text": "⃣ Q.450.a",
+    "level": 5
+  },
+  {
+    "id": "q451",
+    "text": "⃣ Q.451",
+    "level": 5
+  },
+  {
+    "id": "q452",
+    "text": "⃣ Q.452",
+    "level": 5
+  },
+  {
+    "id": "q453",
+    "text": "⃣ Q.453",
+    "level": 5
+  },
+  {
+    "id": "q454",
+    "text": "⃣ Q.454",
+    "level": 5
+  },
+  {
+    "id": "q454a",
+    "text": "⃣ Q.454.a",
+    "level": 5
+  },
+  {
+    "id": "2-08-08",
+    "text": "2.08.08. 📄 Resumo teórico do sonambulismo, do êxtase e da dupla vista",
+    "level": 4
+  },
+  {
+    "id": "q455",
+    "text": "⃣ Q.455",
+    "level": 5
+  },
+  {
+    "id": "2-09",
+    "text": "2.09. 🗂️ Intervenção no mundo material",
+    "level": 3
+  },
+  {
+    "id": "2-09-01",
+    "text": "2.09.01. 📄 Faculdade que têm os Espíritos de penetrar os nossos pensamentos",
+    "level": 4
+  },
+  {
+    "id": "q456",
+    "text": "⃣ Q.456",
+    "level": 5
+  },
+  {
+    "id": "q457",
+    "text": "⃣ Q.457",
+    "level": 5
+  },
+  {
+    "id": "q457a",
+    "text": "⃣ Q.457.a",
+    "level": 5
+  },
+  {
+    "id": "q458",
+    "text": "⃣ Q.458",
+    "level": 5
+  },
+  {
+    "id": "2-09-02",
+    "text": "2.09.02. 📄 Influência oculta dos Espíritos em nossos pensamentos e atos",
+    "level": 4
+  },
+  {
+    "id": "q459",
+    "text": "⃣ Q.459",
+    "level": 5
+  },
+  {
+    "id": "q460",
+    "text": "⃣ Q.460",
+    "level": 5
+  },
+  {
+    "id": "q461",
+    "text": "⃣ Q.461",
+    "level": 5
+  },
+  {
+    "id": "q462",
+    "text": "⃣ Q.462",
+    "level": 5
+  },
+  {
+    "id": "q463",
+    "text": "⃣ Q.463",
+    "level": 5
+  },
+  {
+    "id": "q464",
+    "text": "⃣ Q.464",
+    "level": 5
+  },
+  {
+    "id": "q465",
+    "text": "⃣ Q.465",
+    "level": 5
+  },
+  {
+    "id": "q465a",
+    "text": "⃣ Q.465.a",
+    "level": 5
+  },
+  {
+    "id": "q465b",
+    "text": "⃣ Q.465.b",
+    "level": 5
+  },
+  {
+    "id": "q466",
+    "text": "⃣ Q.466",
+    "level": 5
+  },
+  {
+    "id": "q467",
+    "text": "⃣ Q.467",
+    "level": 5
+  },
+  {
+    "id": "q468",
+    "text": "⃣ Q.468",
+    "level": 5
+  },
+  {
+    "id": "q469",
+    "text": "⃣ Q.469",
+    "level": 5
+  },
+  {
+    "id": "q470",
+    "text": "⃣ Q.470",
+    "level": 5
+  },
+  {
+    "id": "q471",
+    "text": "⃣ Q.471",
+    "level": 5
+  },
+  {
+    "id": "q472",
+    "text": "⃣ Q.472",
+    "level": 5
+  },
+  {
+    "id": "2-09-03",
+    "text": "2.09.03. 📄 Possessos",
+    "level": 4
+  },
+  {
+    "id": "q473",
+    "text": "⃣ Q.473",
+    "level": 5
+  },
+  {
+    "id": "q474",
+    "text": "⃣ Q.474",
+    "level": 5
+  },
+  {
+    "id": "q475",
+    "text": "⃣ Q.475",
+    "level": 5
+  },
+  {
+    "id": "q476",
+    "text": "⃣ Q.476",
+    "level": 5
+  },
+  {
+    "id": "q477",
+    "text": "⃣ Q.477",
+    "level": 5
+  },
+  {
+    "id": "q478",
+    "text": "⃣ Q.478",
+    "level": 5
+  },
+  {
+    "id": "q479",
+    "text": "⃣ Q.479",
+    "level": 5
+  },
+  {
+    "id": "q480",
+    "text": "⃣ Q.480",
+    "level": 5
+  },
+  {
+    "id": "2-09-04",
+    "text": "2.09.04. 📄 Convulsionários",
+    "level": 4
+  },
+  {
+    "id": "q481",
+    "text": "⃣ Q.481",
+    "level": 5
+  },
+  {
+    "id": "q481a",
+    "text": "⃣ Q.481.a",
+    "level": 5
+  },
+  {
+    "id": "q482",
+    "text": "⃣ Q.482",
+    "level": 5
+  },
+  {
+    "id": "q483",
+    "text": "⃣ Q.483",
+    "level": 5
+  },
+  {
+    "id": "2-09-05",
+    "text": "2.09.05. 📄 Afeição que os Espíritos votam a certas pessoas",
+    "level": 4
+  },
+  {
+    "id": "q484",
+    "text": "⃣ Q.484",
+    "level": 5
+  },
+  {
+    "id": "q485",
+    "text": "⃣ Q.485",
+    "level": 5
+  },
+  {
+    "id": "q486",
+    "text": "⃣ Q.486",
+    "level": 5
+  },
+  {
+    "id": "q487",
+    "text": "⃣ Q.487",
+    "level": 5
+  },
+  {
+    "id": "q488",
+    "text": "⃣ Q.488",
+    "level": 5
+  },
+  {
+    "id": "q488a",
+    "text": "⃣ Q.488.a",
+    "level": 5
+  },
+  {
+    "id": "2-09-06",
+    "text": "2.09.06. 📄 Anjos da guarda. Espíritos protetores, familiares ou simpáticos",
+    "level": 4
+  },
+  {
+    "id": "q489",
+    "text": "⃣ Q.489",
+    "level": 5
+  },
+  {
+    "id": "q490",
+    "text": "⃣ Q.490",
+    "level": 5
+  },
+  {
+    "id": "q491",
+    "text": "⃣ Q.491",
+    "level": 5
+  },
+  {
+    "id": "q492",
+    "text": "⃣ Q.492",
+    "level": 5
+  },
+  {
+    "id": "q493",
+    "text": "⃣ Q.493",
+    "level": 5
+  },
+  {
+    "id": "q493a",
+    "text": "⃣ Q.493.a",
+    "level": 5
+  },
+  {
+    "id": "q494",
+    "text": "⃣ Q.494",
+    "level": 5
+  },
+  {
+    "id": "q495",
+    "text": "⃣ Q.495",
+    "level": 5
+  },
+  {
+    "id": "q496",
+    "text": "⃣ Q.496",
+    "level": 5
+  },
+  {
+    "id": "q497",
+    "text": "⃣ Q.497",
+    "level": 5
+  },
+  {
+    "id": "q498",
+    "text": "⃣ Q.498",
+    "level": 5
+  },
+  {
+    "id": "q499",
+    "text": "⃣ Q.499",
+    "level": 5
+  },
+  {
+    "id": "q500",
+    "text": "⃣ Q.500",
+    "level": 5
+  },
+  {
+    "id": "q501",
+    "text": "⃣ Q.501",
+    "level": 5
+  },
+  {
+    "id": "q502",
+    "text": "⃣ Q.502",
+    "level": 5
+  },
+  {
+    "id": "q502a",
+    "text": "⃣ Q.502.a",
+    "level": 5
+  },
+  {
+    "id": "q503",
+    "text": "⃣ Q.503",
+    "level": 5
+  },
+  {
+    "id": "q504",
+    "text": "⃣ Q.504",
+    "level": 5
+  },
+  {
+    "id": "q504a",
+    "text": "⃣ Q.504.a",
+    "level": 5
+  },
+  {
+    "id": "q505",
+    "text": "⃣ Q.505",
+    "level": 5
+  },
+  {
+    "id": "q506",
+    "text": "⃣ Q.506",
+    "level": 5
+  },
+  {
+    "id": "q507",
+    "text": "⃣ Q.507",
+    "level": 5
+  },
+  {
+    "id": "q508",
+    "text": "⃣ Q.508",
+    "level": 5
+  },
+  {
+    "id": "q509",
+    "text": "⃣ Q.509",
+    "level": 5
+  },
+  {
+    "id": "q510",
+    "text": "⃣ Q.510",
+    "level": 5
+  },
+  {
+    "id": "q511",
+    "text": "⃣ Q.511",
+    "level": 5
+  },
+  {
+    "id": "q512",
+    "text": "⃣ Q.512",
+    "level": 5
+  },
+  {
+    "id": "q513",
+    "text": "⃣ Q.513",
+    "level": 5
+  },
+  {
+    "id": "q513a",
+    "text": "⃣ Q.513.a",
+    "level": 5
+  },
+  {
+    "id": "q514",
+    "text": "⃣ Q.514",
+    "level": 5
+  },
+  {
+    "id": "q515",
+    "text": "⃣ Q.515",
+    "level": 5
+  },
+  {
+    "id": "q516",
+    "text": "⃣ Q.516",
+    "level": 5
+  },
+  {
+    "id": "q517",
+    "text": "⃣ Q.517",
+    "level": 5
+  },
+  {
+    "id": "q518",
+    "text": "⃣ Q.518",
+    "level": 5
+  },
+  {
+    "id": "q519",
+    "text": "⃣ Q.519",
+    "level": 5
+  },
+  {
+    "id": "q520",
+    "text": "⃣ Q.520",
+    "level": 5
+  },
+  {
+    "id": "q521",
+    "text": "⃣ Q.521",
+    "level": 5
+  },
+  {
+    "id": "2-09-07",
+    "text": "2.09.07. 📄 Pressentimentos",
+    "level": 4
+  },
+  {
+    "id": "q522",
+    "text": "⃣ Q.522",
+    "level": 5
+  },
+  {
+    "id": "q523",
+    "text": "⃣ Q.523",
+    "level": 5
+  },
+  {
+    "id": "q524",
+    "text": "⃣ Q.524",
+    "level": 5
+  },
+  {
+    "id": "2-09-08",
+    "text": "2.09.08. 📄 Influência dos Espíritos nos acontecimentos da vida",
+    "level": 4
+  },
+  {
+    "id": "q525",
+    "text": "⃣ Q.525",
+    "level": 5
+  },
+  {
+    "id": "q525a",
+    "text": "⃣ Q.525.a",
+    "level": 5
+  },
+  {
+    "id": "q526",
+    "text": "⃣ Q.526",
+    "level": 5
+  },
+  {
+    "id": "q527",
+    "text": "⃣ Q.527",
+    "level": 5
+  },
+  {
+    "id": "q528",
+    "text": "⃣ Q.528",
+    "level": 5
+  },
+  {
+    "id": "q529",
+    "text": "⃣ Q.529",
+    "level": 5
+  },
+  {
+    "id": "q529a",
+    "text": "⃣ Q.529.a",
+    "level": 5
+  },
+  {
+    "id": "q530",
+    "text": "⃣ Q.530",
+    "level": 5
+  },
+  {
+    "id": "q530a",
+    "text": "⃣ Q.530.a",
+    "level": 5
+  },
+  {
+    "id": "q531",
+    "text": "⃣ Q.531",
+    "level": 5
+  },
+  {
+    "id": "q531a",
+    "text": "⃣ Q.531.a",
+    "level": 5
+  },
+  {
+    "id": "q532",
+    "text": "⃣ Q.532",
+    "level": 5
+  },
+  {
+    "id": "q533",
+    "text": "⃣ Q.533",
+    "level": 5
+  },
+  {
+    "id": "q533a",
+    "text": "⃣ Q.533.a",
+    "level": 5
+  },
+  {
+    "id": "q534",
+    "text": "⃣ Q.534",
+    "level": 5
+  },
+  {
+    "id": "q535",
+    "text": "⃣ Q.535",
+    "level": 5
+  },
+  {
+    "id": "q535a",
+    "text": "⃣ Q.535.a",
+    "level": 5
+  },
+  {
+    "id": "q535b",
+    "text": "⃣ Q.535.b",
+    "level": 5
+  },
+  {
+    "id": "2-09-09",
+    "text": "2.09.09. 📄 Ação dos Espíritos nos fenômenos da Natureza",
+    "level": 4
+  },
+  {
+    "id": "q536",
+    "text": "⃣ Q.536",
+    "level": 5
+  },
+  {
+    "id": "q536a",
+    "text": "⃣ Q.536.a",
+    "level": 5
+  },
+  {
+    "id": "q536b",
+    "text": "⃣ Q.536.b",
+    "level": 5
+  },
+  {
+    "id": "q537",
+    "text": "⃣ Q.537",
+    "level": 5
+  },
+  {
+    "id": "q537a",
+    "text": "⃣ Q.537.a",
+    "level": 5
+  },
+  {
+    "id": "q538",
+    "text": "⃣ Q.538",
+    "level": 5
+  },
+  {
+    "id": "q538a",
+    "text": "⃣ Q.538.a",
+    "level": 5
+  },
+  {
+    "id": "q539",
+    "text": "⃣ Q.539",
+    "level": 5
+  },
+  {
+    "id": "q540",
+    "text": "⃣ Q.540",
+    "level": 5
+  },
+  {
+    "id": "2-09-10",
+    "text": "2.09.10. 📄 Os Espíritos durante os combates",
+    "level": 4
+  },
+  {
+    "id": "q541",
+    "text": "⃣ Q.541",
+    "level": 5
+  },
+  {
+    "id": "q542",
+    "text": "⃣ Q.542",
+    "level": 5
+  },
+  {
+    "id": "q543",
+    "text": "⃣ Q.543",
+    "level": 5
+  },
+  {
+    "id": "q544",
+    "text": "⃣ Q.544",
+    "level": 5
+  },
+  {
+    "id": "q545",
+    "text": "⃣ Q.545",
+    "level": 5
+  },
+  {
+    "id": "q546",
+    "text": "⃣ Q.546",
+    "level": 5
+  },
+  {
+    "id": "q547",
+    "text": "⃣ Q.547",
+    "level": 5
+  },
+  {
+    "id": "q547a",
+    "text": "⃣ Q.547.a",
+    "level": 5
+  },
+  {
+    "id": "q548",
+    "text": "⃣ Q.548",
+    "level": 5
+  },
+  {
+    "id": "2-09-11",
+    "text": "2.09.11. 📄 Pactos",
+    "level": 4
+  },
+  {
+    "id": "q549",
+    "text": "⃣ Q.549",
+    "level": 5
+  },
+  {
+    "id": "q550",
+    "text": "⃣ Q.550",
+    "level": 5
+  },
+  {
+    "id": "2-09-12",
+    "text": "2.09.12. 📄 Poder oculto. Talismãs. Feiticeiros",
+    "level": 4
+  },
+  {
+    "id": "q551",
+    "text": "⃣ Q.551",
+    "level": 5
+  },
+  {
+    "id": "q552",
+    "text": "⃣ Q.552",
+    "level": 5
+  },
+  {
+    "id": "q553",
+    "text": "⃣ Q.553",
+    "level": 5
+  },
+  {
+    "id": "q553a",
+    "text": "⃣ Q.553.a",
+    "level": 5
+  },
+  {
+    "id": "q554",
+    "text": "⃣ Q.554",
+    "level": 5
+  },
+  {
+    "id": "q555",
+    "text": "⃣ Q.555",
+    "level": 5
+  },
+  {
+    "id": "q556",
+    "text": "⃣ Q.556",
+    "level": 5
+  },
+  {
+    "id": "2-09-13",
+    "text": "2.09.13. 📄 Bênçãos e maldições",
+    "level": 4
+  },
+  {
+    "id": "q557",
+    "text": "⃣ Q.557",
+    "level": 5
+  },
+  {
+    "id": "2-10",
+    "text": "2.10. 🗂️ Ocupações e missões",
+    "level": 3
+  },
+  {
+    "id": "2-10-01",
+    "text": "Subcapítulo",
+    "level": 4
+  },
+  {
+    "id": "q558",
+    "text": "⃣ Q.558",
+    "level": 5
+  },
+  {
+    "id": "q559",
+    "text": "⃣ Q.559",
+    "level": 5
+  },
+  {
+    "id": "q560",
+    "text": "⃣ Q.560",
+    "level": 5
+  },
+  {
+    "id": "q561",
+    "text": "⃣ Q.561",
+    "level": 5
+  },
+  {
+    "id": "q562",
+    "text": "⃣ Q.562",
+    "level": 5
+  },
+  {
+    "id": "q562a",
+    "text": "⃣ Q.562.a",
+    "level": 5
+  },
+  {
+    "id": "q563",
+    "text": "⃣ Q.563",
+    "level": 5
+  },
+  {
+    "id": "q563a",
+    "text": "⃣ Q.563.a",
+    "level": 5
+  },
+  {
+    "id": "q564",
+    "text": "⃣ Q.564",
+    "level": 5
+  },
+  {
+    "id": "q565",
+    "text": "⃣ Q.565",
+    "level": 5
+  },
+  {
+    "id": "q566",
+    "text": "⃣ Q.566",
+    "level": 5
+  },
+  {
+    "id": "q566a",
+    "text": "⃣ Q.566.a",
+    "level": 5
+  },
+  {
+    "id": "q567",
+    "text": "⃣ Q.567",
+    "level": 5
+  },
+  {
+    "id": "q568",
+    "text": "⃣ Q.568",
+    "level": 5
+  },
+  {
+    "id": "q569",
+    "text": "⃣ Q.569",
+    "level": 5
+  },
+  {
+    "id": "q570",
+    "text": "⃣ Q.570",
+    "level": 5
+  },
+  {
+    "id": "q571",
+    "text": "⃣ Q.571",
+    "level": 5
+  },
+  {
+    "id": "q572",
+    "text": "⃣ Q.572",
+    "level": 5
+  },
+  {
+    "id": "q572a",
+    "text": "⃣ Q.572.a",
+    "level": 5
+  },
+  {
+    "id": "q573",
+    "text": "⃣ Q.573",
+    "level": 5
+  },
+  {
+    "id": "q574",
+    "text": "⃣ Q.574",
+    "level": 5
+  },
+  {
+    "id": "q574a",
+    "text": "⃣ Q.574.a",
+    "level": 5
+  },
+  {
+    "id": "q575",
+    "text": "⃣ Q.575",
+    "level": 5
+  },
+  {
+    "id": "q576",
+    "text": "⃣ Q.576",
+    "level": 5
+  },
+  {
+    "id": "q577",
+    "text": "⃣ Q.577",
+    "level": 5
+  },
+  {
+    "id": "q578",
+    "text": "⃣ Q.578",
+    "level": 5
+  },
+  {
+    "id": "q578a",
+    "text": "⃣ Q.578.a",
+    "level": 5
+  },
+  {
+    "id": "q579",
+    "text": "⃣ Q.579",
+    "level": 5
+  },
+  {
+    "id": "q580",
+    "text": "⃣ Q.580",
+    "level": 5
+  },
+  {
+    "id": "q581",
+    "text": "⃣ Q.581",
+    "level": 5
+  },
+  {
+    "id": "q582",
+    "text": "⃣ Q.582",
+    "level": 5
+  },
+  {
+    "id": "q583",
+    "text": "⃣ Q.583",
+    "level": 5
+  },
+  {
+    "id": "q583a",
+    "text": "⃣ Q.583.a",
+    "level": 5
+  },
+  {
+    "id": "q584",
+    "text": "⃣ Q.584",
+    "level": 5
+  },
+  {
+    "id": "q584a",
+    "text": "⃣ Q.584.a",
+    "level": 5
+  },
+  {
+    "id": "2-11",
+    "text": "2.11. 🗂️ Os três reinos",
+    "level": 3
+  },
+  {
+    "id": "2-11-01",
+    "text": "2.11.01. 📄 Os minerais e as plantas",
+    "level": 4
+  },
+  {
+    "id": "q585",
+    "text": "⃣ Q.585",
+    "level": 5
+  },
+  {
+    "id": "q586",
+    "text": "⃣ Q.586",
+    "level": 5
+  },
+  {
+    "id": "q587",
+    "text": "⃣ Q.587",
+    "level": 5
+  },
+  {
+    "id": "q588",
+    "text": "⃣ Q.588",
+    "level": 5
+  },
+  {
+    "id": "q589",
+    "text": "⃣ Q.589",
+    "level": 5
+  },
+  {
+    "id": "q590",
+    "text": "⃣ Q.590",
+    "level": 5
+  },
+  {
+    "id": "q591",
+    "text": "⃣ Q.591",
+    "level": 5
+  },
+  {
+    "id": "2-11-02",
+    "text": "2.11.02. 📄 Os animais e o homem",
+    "level": 4
+  },
+  {
+    "id": "q592",
+    "text": "⃣ Q.592",
+    "level": 5
+  },
+  {
+    "id": "q593",
+    "text": "⃣ Q.593",
+    "level": 5
+  },
+  {
+    "id": "q594",
+    "text": "⃣ Q.594",
+    "level": 5
+  },
+  {
+    "id": "q594a",
+    "text": "⃣ Q.594.a",
+    "level": 5
+  },
+  {
+    "id": "q595",
+    "text": "⃣ Q.595",
+    "level": 5
+  },
+  {
+    "id": "q596",
+    "text": "⃣ Q.596",
+    "level": 5
+  },
+  {
+    "id": "q597",
+    "text": "⃣ Q.597",
+    "level": 5
+  },
+  {
+    "id": "q597a",
+    "text": "⃣ Q.597.a",
+    "level": 5
+  },
+  {
+    "id": "q598",
+    "text": "⃣ Q.598",
+    "level": 5
+  },
+  {
+    "id": "q599",
+    "text": "⃣ Q.599",
+    "level": 5
+  },
+  {
+    "id": "q600",
+    "text": "⃣ Q.600",
+    "level": 5
+  },
+  {
+    "id": "q601",
+    "text": "⃣ Q.601",
+    "level": 5
+  },
+  {
+    "id": "q602",
+    "text": "⃣ Q.602",
+    "level": 5
+  },
+  {
+    "id": "q603",
+    "text": "⃣ Q.603",
+    "level": 5
+  },
+  {
+    "id": "q604",
+    "text": "⃣ Q.604",
+    "level": 5
+  },
+  {
+    "id": "q604a",
+    "text": "⃣ Q.604.a",
+    "level": 5
+  },
+  {
+    "id": "q605",
+    "text": "⃣ Q.605",
+    "level": 5
+  },
+  {
+    "id": "q605a",
+    "text": "⃣ Q.605.a",
+    "level": 5
+  },
+  {
+    "id": "q606",
+    "text": "⃣ Q.606",
+    "level": 5
+  },
+  {
+    "id": "q606a",
+    "text": "⃣ Q.606.a",
+    "level": 5
+  },
+  {
+    "id": "q607",
+    "text": "⃣ Q.607",
+    "level": 5
+  },
+  {
+    "id": "q607a",
+    "text": "⃣ Q.607.a",
+    "level": 5
+  },
+  {
+    "id": "q607b",
+    "text": "⃣ Q.607.b",
+    "level": 5
+  },
+  {
+    "id": "q608",
+    "text": "⃣ Q.608",
+    "level": 5
+  },
+  {
+    "id": "q609",
+    "text": "⃣ Q.609",
+    "level": 5
+  },
+  {
+    "id": "q610",
+    "text": "⃣ Q.610",
+    "level": 5
+  },
+  {
+    "id": "2-11-03",
+    "text": "2.11.03. 📄 Metempsicose",
+    "level": 4
+  },
+  {
+    "id": "q611",
+    "text": "⃣ Q.611",
+    "level": 5
+  },
+  {
+    "id": "q612",
+    "text": "⃣ Q.612",
+    "level": 5
+  },
+  {
+    "id": "q613",
+    "text": "⃣ Q.613",
+    "level": 5
+  },
+  {
+    "id": "3",
+    "text": "3. 🗃️ Leis morais",
+    "level": 2
+  },
+  {
+    "id": "3-01",
+    "text": "3.01. 🗂️ Lei divina",
+    "level": 3
+  },
+  {
+    "id": "3-01-01",
+    "text": "3.01.01. 📄 Caracteres da lei natural",
+    "level": 4
+  },
+  {
+    "id": "q614",
+    "text": "⃣ Q.614",
+    "level": 5
+  },
+  {
+    "id": "q615",
+    "text": "⃣ Q.615",
+    "level": 5
+  },
+  {
+    "id": "q616",
+    "text": "⃣ Q.616",
+    "level": 5
+  },
+  {
+    "id": "q617",
+    "text": "⃣ Q.617",
+    "level": 5
+  },
+  {
+    "id": "q617a",
+    "text": "⃣ Q.617.a",
+    "level": 5
+  },
+  {
+    "id": "q618",
+    "text": "⃣ Q.618",
+    "level": 5
+  },
+  {
+    "id": "3-01-02",
+    "text": "3.01.02. 📄 Conhecimento da lei natural",
+    "level": 4
+  },
+  {
+    "id": "q619",
+    "text": "⃣ Q.619",
+    "level": 5
+  },
+  {
+    "id": "q620",
+    "text": "⃣ Q.620",
+    "level": 5
+  },
+  {
+    "id": "q621",
+    "text": "⃣ Q.621",
+    "level": 5
+  },
+  {
+    "id": "q621a",
+    "text": "⃣ Q.621.a",
+    "level": 5
+  },
+  {
+    "id": "q622",
+    "text": "⃣ Q.622",
+    "level": 5
+  },
+  {
+    "id": "q623",
+    "text": "⃣ Q.623",
+    "level": 5
+  },
+  {
+    "id": "q624",
+    "text": "⃣ Q.624",
+    "level": 5
+  },
+  {
+    "id": "q625",
+    "text": "⃣ Q.625",
+    "level": 5
+  },
+  {
+    "id": "q626",
+    "text": "⃣ Q.626",
+    "level": 5
+  },
+  {
+    "id": "q627",
+    "text": "⃣ Q.627",
+    "level": 5
+  },
+  {
+    "id": "q628",
+    "text": "⃣ Q.628",
+    "level": 5
+  },
+  {
+    "id": "3-01-03",
+    "text": "3.01.03. 📄 O bem e o mal",
+    "level": 4
+  },
+  {
+    "id": "q629",
+    "text": "⃣ Q.629",
+    "level": 5
+  },
+  {
+    "id": "q630",
+    "text": "⃣ Q.630",
+    "level": 5
+  },
+  {
+    "id": "q631",
+    "text": "⃣ Q.631",
+    "level": 5
+  },
+  {
+    "id": "q632",
+    "text": "⃣ Q.632",
+    "level": 5
+  },
+  {
+    "id": "q633",
+    "text": "⃣ Q.633",
+    "level": 5
+  },
+  {
+    "id": "q634",
+    "text": "⃣ Q.634",
+    "level": 5
+  },
+  {
+    "id": "q635",
+    "text": "⃣ Q.635",
+    "level": 5
+  },
+  {
+    "id": "q636",
+    "text": "⃣ Q.636",
+    "level": 5
+  },
+  {
+    "id": "q637",
+    "text": "⃣ Q.637",
+    "level": 5
+  },
+  {
+    "id": "q638",
+    "text": "⃣ Q.638",
+    "level": 5
+  },
+  {
+    "id": "q639",
+    "text": "⃣ Q.639",
+    "level": 5
+  },
+  {
+    "id": "q640",
+    "text": "⃣ Q.640",
+    "level": 5
+  },
+  {
+    "id": "q641",
+    "text": "⃣ Q.641",
+    "level": 5
+  },
+  {
+    "id": "q642",
+    "text": "⃣ Q.642",
+    "level": 5
+  },
+  {
+    "id": "q643",
+    "text": "⃣ Q.643",
+    "level": 5
+  },
+  {
+    "id": "q644",
+    "text": "⃣ Q.644",
+    "level": 5
+  },
+  {
+    "id": "q645",
+    "text": "⃣ Q.645",
+    "level": 5
+  },
+  {
+    "id": "q646",
+    "text": "⃣ Q.646",
+    "level": 5
+  },
+  {
+    "id": "3-01-04",
+    "text": "3.01.04. 📄 Divisão da lei natural",
+    "level": 4
+  },
+  {
+    "id": "q647",
+    "text": "⃣ Q.647",
+    "level": 5
+  },
+  {
+    "id": "q648",
+    "text": "⃣ Q.648",
+    "level": 5
+  },
+  {
+    "id": "3-02",
+    "text": "3.02. 🗂️ Lei de adoração",
+    "level": 3
+  },
+  {
+    "id": "3-02-01",
+    "text": "3.02.01. 📄 Objetivo da adoração",
+    "level": 4
+  },
+  {
+    "id": "q649",
+    "text": "⃣ Q.649",
+    "level": 5
+  },
+  {
+    "id": "q650",
+    "text": "⃣ Q.650",
+    "level": 5
+  },
+  {
+    "id": "q651",
+    "text": "⃣ Q.651",
+    "level": 5
+  },
+  {
+    "id": "q652",
+    "text": "⃣ Q.652",
+    "level": 5
+  },
+  {
+    "id": "3-02-02",
+    "text": "3.02.02. 📄 Adoração exterior",
+    "level": 4
+  },
+  {
+    "id": "q653",
+    "text": "⃣ Q.653",
+    "level": 5
+  },
+  {
+    "id": "q653a",
+    "text": "⃣ Q.653.a",
+    "level": 5
+  },
+  {
+    "id": "q654",
+    "text": "⃣ Q.654",
+    "level": 5
+  },
+  {
+    "id": "q655",
+    "text": "⃣ Q.655",
+    "level": 5
+  },
+  {
+    "id": "q656",
+    "text": "⃣ Q.656",
+    "level": 5
+  },
+  {
+    "id": "3-02-03",
+    "text": "3.02.03. 📄 Vida contemplativa",
+    "level": 4
+  },
+  {
+    "id": "q657",
+    "text": "⃣ Q.657",
+    "level": 5
+  },
+  {
+    "id": "3-02-04",
+    "text": "3.02.04. 📄 A prece",
+    "level": 4
+  },
+  {
+    "id": "q658",
+    "text": "⃣ Q.658",
+    "level": 5
+  },
+  {
+    "id": "q659",
+    "text": "⃣ Q.659",
+    "level": 5
+  },
+  {
+    "id": "q660",
+    "text": "⃣ Q.660",
+    "level": 5
+  },
+  {
+    "id": "q660a",
+    "text": "⃣ Q.660.a",
+    "level": 5
+  },
+  {
+    "id": "q661",
+    "text": "⃣ Q.661",
+    "level": 5
+  },
+  {
+    "id": "q662",
+    "text": "⃣ Q.662",
+    "level": 5
+  },
+  {
+    "id": "q663",
+    "text": "⃣ Q.663",
+    "level": 5
+  },
+  {
+    "id": "q664",
+    "text": "⃣ Q.664",
+    "level": 5
+  },
+  {
+    "id": "q665",
+    "text": "⃣ Q.665",
+    "level": 5
+  },
+  {
+    "id": "q666",
+    "text": "⃣ Q.666",
+    "level": 5
+  },
+  {
+    "id": "3-02-05",
+    "text": "3.02.05. 📄 Politeísmo",
+    "level": 4
+  },
+  {
+    "id": "q667",
+    "text": "⃣ Q.667",
+    "level": 5
+  },
+  {
+    "id": "q668",
+    "text": "⃣ Q.668",
+    "level": 5
+  },
+  {
+    "id": "3-02-06",
+    "text": "3.02.06. 📄 Sacrifícios",
+    "level": 4
+  },
+  {
+    "id": "q669",
+    "text": "⃣ Q.669",
+    "level": 5
+  },
+  {
+    "id": "q669a",
+    "text": "⃣ Q.669.a",
+    "level": 5
+  },
+  {
+    "id": "q669b",
+    "text": "⃣ Q.669.b",
+    "level": 5
+  },
+  {
+    "id": "q670",
+    "text": "⃣ Q.670",
+    "level": 5
+  },
+  {
+    "id": "q671",
+    "text": "⃣ Q.671",
+    "level": 5
+  },
+  {
+    "id": "q672",
+    "text": "⃣ Q.672",
+    "level": 5
+  },
+  {
+    "id": "q673",
+    "text": "⃣ Q.673",
+    "level": 5
+  },
+  {
+    "id": "3-03",
+    "text": "3.03. 🗂️ Lei do trabalho",
+    "level": 3
+  },
+  {
+    "id": "3-03-01",
+    "text": "3.03.01. 📄 Necessidade do trabalho",
+    "level": 4
+  },
+  {
+    "id": "q674",
+    "text": "⃣ Q.674",
+    "level": 5
+  },
+  {
+    "id": "q675",
+    "text": "⃣ Q.675",
+    "level": 5
+  },
+  {
+    "id": "q676",
+    "text": "⃣ Q.676",
+    "level": 5
+  },
+  {
+    "id": "q677",
+    "text": "⃣ Q.677",
+    "level": 5
+  },
+  {
+    "id": "q678",
+    "text": "⃣ Q.678",
+    "level": 5
+  },
+  {
+    "id": "q679",
+    "text": "⃣ Q.679",
+    "level": 5
+  },
+  {
+    "id": "q680",
+    "text": "⃣ Q.680",
+    "level": 5
+  },
+  {
+    "id": "q681",
+    "text": "⃣ Q.681",
+    "level": 5
+  },
+  {
+    "id": "3-03-02",
+    "text": "3.03.02. 📄 Limite do trabalho. Repouso",
+    "level": 4
+  },
+  {
+    "id": "q682",
+    "text": "⃣ Q.682",
+    "level": 5
+  },
+  {
+    "id": "q683",
+    "text": "⃣ Q.683",
+    "level": 5
+  },
+  {
+    "id": "q684",
+    "text": "⃣ Q.684",
+    "level": 5
+  },
+  {
+    "id": "q685",
+    "text": "⃣ Q.685",
+    "level": 5
+  },
+  {
+    "id": "q685a",
+    "text": "⃣ Q.685.a",
+    "level": 5
+  },
+  {
+    "id": "3-04",
+    "text": "3.04. 🗂️ Lei de reprodução",
+    "level": 3
+  },
+  {
+    "id": "3-04-01",
+    "text": "3.04.01. 📄 População do globo",
+    "level": 4
+  },
+  {
+    "id": "q686",
+    "text": "⃣ Q.686",
+    "level": 5
+  },
+  {
+    "id": "q687",
+    "text": "⃣ Q.687",
+    "level": 5
+  },
+  {
+    "id": "3-04-02",
+    "text": "3.04.02. 📄 Sucessão e aperfeiçoamento das raças",
+    "level": 4
+  },
+  {
+    "id": "q688",
+    "text": "⃣ Q.688",
+    "level": 5
+  },
+  {
+    "id": "q689",
+    "text": "⃣ Q.689",
+    "level": 5
+  },
+  {
+    "id": "q690",
+    "text": "⃣ Q.690",
+    "level": 5
+  },
+  {
+    "id": "q691",
+    "text": "⃣ Q.691",
+    "level": 5
+  },
+  {
+    "id": "q692",
+    "text": "⃣ Q.692",
+    "level": 5
+  },
+  {
+    "id": "q692a",
+    "text": "⃣ Q.692.a",
+    "level": 5
+  },
+  {
+    "id": "3-04-03",
+    "text": "3.04.03. 📄 Obstáculos à reprodução",
+    "level": 4
+  },
+  {
+    "id": "q693",
+    "text": "⃣ Q.693",
+    "level": 5
+  },
+  {
+    "id": "q693a",
+    "text": "⃣ Q.693.a",
+    "level": 5
+  },
+  {
+    "id": "q694",
+    "text": "⃣ Q.694",
+    "level": 5
+  },
+  {
+    "id": "3-04-04",
+    "text": "3.04.04. 📄 Casamento e celibato",
+    "level": 4
+  },
+  {
+    "id": "q695",
+    "text": "⃣ Q.695",
+    "level": 5
+  },
+  {
+    "id": "q696",
+    "text": "⃣ Q.696",
+    "level": 5
+  },
+  {
+    "id": "q697",
+    "text": "⃣ Q.697",
+    "level": 5
+  },
+  {
+    "id": "q698",
+    "text": "⃣ Q.698",
+    "level": 5
+  },
+  {
+    "id": "q699",
+    "text": "⃣ Q.699",
+    "level": 5
+  },
+  {
+    "id": "3-04-05",
+    "text": "3.04.05. 📄 Poligamia",
+    "level": 4
+  },
+  {
+    "id": "q700",
+    "text": "⃣ Q.700",
+    "level": 5
+  },
+  {
+    "id": "q701",
+    "text": "⃣ Q.701",
+    "level": 5
+  },
+  {
+    "id": "3-05",
+    "text": "3.05. 🗂️ Lei de conservação",
+    "level": 3
+  },
+  {
+    "id": "3-05-01",
+    "text": "3.05.01. 📄 Instinto de conservação",
+    "level": 4
+  },
+  {
+    "id": "q702",
+    "text": "⃣ Q.702",
+    "level": 5
+  },
+  {
+    "id": "q703",
+    "text": "⃣ Q.703",
+    "level": 5
+  },
+  {
+    "id": "3-05-02",
+    "text": "3.05.02. 📄 Meios de conservação",
+    "level": 4
+  },
+  {
+    "id": "q704",
+    "text": "⃣ Q.704",
+    "level": 5
+  },
+  {
+    "id": "q705",
+    "text": "⃣ Q.705",
+    "level": 5
+  },
+  {
+    "id": "q706",
+    "text": "⃣ Q.706",
+    "level": 5
+  },
+  {
+    "id": "q707",
+    "text": "⃣ Q.707",
+    "level": 5
+  },
+  {
+    "id": "q708",
+    "text": "⃣ Q.708",
+    "level": 5
+  },
+  {
+    "id": "q709",
+    "text": "⃣ Q.709",
+    "level": 5
+  },
+  {
+    "id": "q710",
+    "text": "⃣ Q.710",
+    "level": 5
+  },
+  {
+    "id": "3-05-03",
+    "text": "3.05.03. 📄 Gozo dos bens terrenos",
+    "level": 4
+  },
+  {
+    "id": "q711",
+    "text": "⃣ Q.711",
+    "level": 5
+  },
+  {
+    "id": "q712",
+    "text": "⃣ Q.712",
+    "level": 5
+  },
+  {
+    "id": "q712a",
+    "text": "⃣ Q.712.a",
+    "level": 5
+  },
+  {
+    "id": "q713",
+    "text": "⃣ Q.713",
+    "level": 5
+  },
+  {
+    "id": "q714",
+    "text": "⃣ Q.714",
+    "level": 5
+  },
+  {
+    "id": "q714a",
+    "text": "⃣ Q.714.a",
+    "level": 5
+  },
+  {
+    "id": "3-05-04",
+    "text": "3.05.04. 📄 Necessário e supérfluo",
+    "level": 4
+  },
+  {
+    "id": "q715",
+    "text": "⃣ Q.715",
+    "level": 5
+  },
+  {
+    "id": "q716",
+    "text": "⃣ Q.716",
+    "level": 5
+  },
+  {
+    "id": "q717",
+    "text": "⃣ Q.717",
+    "level": 5
+  },
+  {
+    "id": "3-05-05",
+    "text": "3.05.05. 📄 Privações voluntárias. Mortificações",
+    "level": 4
+  },
+  {
+    "id": "q718",
+    "text": "⃣ Q.718",
+    "level": 5
+  },
+  {
+    "id": "q719",
+    "text": "⃣ Q.719",
+    "level": 5
+  },
+  {
+    "id": "q720",
+    "text": "⃣ Q.720",
+    "level": 5
+  },
+  {
+    "id": "q720a",
+    "text": "⃣ Q.720.a",
+    "level": 5
+  },
+  {
+    "id": "q721",
+    "text": "⃣ Q.721",
+    "level": 5
+  },
+  {
+    "id": "q722",
+    "text": "⃣ Q.722",
+    "level": 5
+  },
+  {
+    "id": "q723",
+    "text": "⃣ Q.723",
+    "level": 5
+  },
+  {
+    "id": "q724",
+    "text": "⃣ Q.724",
+    "level": 5
+  },
+  {
+    "id": "q725",
+    "text": "⃣ Q.725",
+    "level": 5
+  },
+  {
+    "id": "q726",
+    "text": "⃣ Q.726",
+    "level": 5
+  },
+  {
+    "id": "q727",
+    "text": "⃣ Q.727",
+    "level": 5
+  },
+  {
+    "id": "3-06",
+    "text": "3.06. 🗂️ Lei de destruição",
+    "level": 3
+  },
+  {
+    "id": "3-06-01",
+    "text": "3.06.01. 📄 Destruição necessária e destruição abusiva",
+    "level": 4
+  },
+  {
+    "id": "q728",
+    "text": "⃣ Q.728",
+    "level": 5
+  },
+  {
+    "id": "q728a",
+    "text": "⃣ Q.728.a",
+    "level": 5
+  },
+  {
+    "id": "q729",
+    "text": "⃣ Q.729",
+    "level": 5
+  },
+  {
+    "id": "q730",
+    "text": "⃣ Q.730",
+    "level": 5
+  },
+  {
+    "id": "q731",
+    "text": "⃣ Q.731",
+    "level": 5
+  },
+  {
+    "id": "q732",
+    "text": "⃣ Q.732",
+    "level": 5
+  },
+  {
+    "id": "q733",
+    "text": "⃣ Q.733",
+    "level": 5
+  },
+  {
+    "id": "q734",
+    "text": "⃣ Q.734",
+    "level": 5
+  },
+  {
+    "id": "q735",
+    "text": "⃣ Q.735",
+    "level": 5
+  },
+  {
+    "id": "q736",
+    "text": "⃣ Q.736",
+    "level": 5
+  },
+  {
+    "id": "3-06-02",
+    "text": "3.06.02. 📄 Flagelos destruidores",
+    "level": 4
+  },
+  {
+    "id": "q737",
+    "text": "⃣ Q.737",
+    "level": 5
+  },
+  {
+    "id": "q738",
+    "text": "⃣ Q.738",
+    "level": 5
+  },
+  {
+    "id": "q738a",
+    "text": "⃣ Q.738.a",
+    "level": 5
+  },
+  {
+    "id": "q738b",
+    "text": "⃣ Q.738.b",
+    "level": 5
+  },
+  {
+    "id": "q739",
+    "text": "⃣ Q.739",
+    "level": 5
+  },
+  {
+    "id": "q740",
+    "text": "⃣ Q.740",
+    "level": 5
+  },
+  {
+    "id": "q741",
+    "text": "⃣ Q.741",
+    "level": 5
+  },
+  {
+    "id": "3-06-03",
+    "text": "3.06.03. 📄 Guerras",
+    "level": 4
+  },
+  {
+    "id": "q742",
+    "text": "⃣ Q.742",
+    "level": 5
+  },
+  {
+    "id": "q743",
+    "text": "⃣ Q.743",
+    "level": 5
+  },
+  {
+    "id": "q744",
+    "text": "⃣ Q.744",
+    "level": 5
+  },
+  {
+    "id": "q744a",
+    "text": "⃣ Q.744.a",
+    "level": 5
+  },
+  {
+    "id": "q745",
+    "text": "⃣ Q.745",
+    "level": 5
+  },
+  {
+    "id": "3-06-04",
+    "text": "3.06.04. 📄 Assassínio",
+    "level": 4
+  },
+  {
+    "id": "q746",
+    "text": "⃣ Q.746",
+    "level": 5
+  },
+  {
+    "id": "q747",
+    "text": "⃣ Q.747",
+    "level": 5
+  },
+  {
+    "id": "q748",
+    "text": "⃣ Q.748",
+    "level": 5
+  },
+  {
+    "id": "q749",
+    "text": "⃣ Q.749",
+    "level": 5
+  },
+  {
+    "id": "q750",
+    "text": "⃣ Q.750",
+    "level": 5
+  },
+  {
+    "id": "q751",
+    "text": "⃣ Q.751",
+    "level": 5
+  },
+  {
+    "id": "3-06-05",
+    "text": "3.06.05. 📄 Crueldade",
+    "level": 4
+  },
+  {
+    "id": "q752",
+    "text": "⃣ Q.752",
+    "level": 5
+  },
+  {
+    "id": "q753",
+    "text": "⃣ Q.753",
+    "level": 5
+  },
+  {
+    "id": "q754",
+    "text": "⃣ Q.754",
+    "level": 5
+  },
+  {
+    "id": "q755",
+    "text": "⃣ Q.755",
+    "level": 5
+  },
+  {
+    "id": "q756",
+    "text": "⃣ Q.756",
+    "level": 5
+  },
+  {
+    "id": "3-06-06",
+    "text": "3.06.06. 📄 Duelo",
+    "level": 4
+  },
+  {
+    "id": "q757",
+    "text": "⃣ Q.757",
+    "level": 5
+  },
+  {
+    "id": "q758",
+    "text": "⃣ Q.758",
+    "level": 5
+  },
+  {
+    "id": "q758a",
+    "text": "⃣ Q.758.a",
+    "level": 5
+  },
+  {
+    "id": "q759",
+    "text": "⃣ Q.759",
+    "level": 5
+  },
+  {
+    "id": "q759a",
+    "text": "⃣ Q.759.a",
+    "level": 5
+  },
+  {
+    "id": "3-06-07",
+    "text": "3.06.07. 📄 Pena de morte",
+    "level": 4
+  },
+  {
+    "id": "q760",
+    "text": "⃣ Q.760",
+    "level": 5
+  },
+  {
+    "id": "q761",
+    "text": "⃣ Q.761",
+    "level": 5
+  },
+  {
+    "id": "q762",
+    "text": "⃣ Q.762",
+    "level": 5
+  },
+  {
+    "id": "q763",
+    "text": "⃣ Q.763",
+    "level": 5
+  },
+  {
+    "id": "q764",
+    "text": "⃣ Q.764",
+    "level": 5
+  },
+  {
+    "id": "q765",
+    "text": "⃣ Q.765",
+    "level": 5
+  },
+  {
+    "id": "3-07",
+    "text": "3.07. 🗂️ Lei de sociedade",
+    "level": 3
+  },
+  {
+    "id": "3-07-01",
+    "text": "3.07.01. 📄 Necessidade da vida social",
+    "level": 4
+  },
+  {
+    "id": "q766",
+    "text": "⃣ Q.766",
+    "level": 5
+  },
+  {
+    "id": "q767",
+    "text": "⃣ Q.767",
+    "level": 5
+  },
+  {
+    "id": "q768",
+    "text": "⃣ Q.768",
+    "level": 5
+  },
+  {
+    "id": "3-07-02",
+    "text": "3.07.02. 📄 Vida de insulamento. Voto de silêncio",
+    "level": 4
+  },
+  {
+    "id": "q769",
+    "text": "⃣ Q.769",
+    "level": 5
+  },
+  {
+    "id": "q770",
+    "text": "⃣ Q.770",
+    "level": 5
+  },
+  {
+    "id": "q770a",
+    "text": "⃣ Q.770.a",
+    "level": 5
+  },
+  {
+    "id": "q771",
+    "text": "⃣ Q.771",
+    "level": 5
+  },
+  {
+    "id": "q771a",
+    "text": "⃣ Q.771.a",
+    "level": 5
+  },
+  {
+    "id": "q772",
+    "text": "⃣ Q.772",
+    "level": 5
+  },
+  {
+    "id": "3-07-03",
+    "text": "3.07.03. 📄 Laços de família",
+    "level": 4
+  },
+  {
+    "id": "q773",
+    "text": "⃣ Q.773",
+    "level": 5
+  },
+  {
+    "id": "q774",
+    "text": "⃣ Q.774",
+    "level": 5
+  },
+  {
+    "id": "q775",
+    "text": "⃣ Q.775",
+    "level": 5
+  },
+  {
+    "id": "3-08",
+    "text": "3.08. 🗂️ Lei do progresso",
+    "level": 3
+  },
+  {
+    "id": "3-08-01",
+    "text": "3.08.01. 📄 Estado de natureza",
+    "level": 4
+  },
+  {
+    "id": "q776",
+    "text": "⃣ Q.776",
+    "level": 5
+  },
+  {
+    "id": "q777",
+    "text": "⃣ Q.777",
+    "level": 5
+  },
+  {
+    "id": "q778",
+    "text": "⃣ Q.778",
+    "level": 5
+  },
+  {
+    "id": "3-08-02",
+    "text": "3.08.02. 📄 Marcha do progresso",
+    "level": 4
+  },
+  {
+    "id": "q779",
+    "text": "⃣ Q.779",
+    "level": 5
+  },
+  {
+    "id": "q780",
+    "text": "⃣ Q.780",
+    "level": 5
+  },
+  {
+    "id": "q780a",
+    "text": "⃣ Q.780.a",
+    "level": 5
+  },
+  {
+    "id": "q780b",
+    "text": "⃣ Q.780.b",
+    "level": 5
+  },
+  {
+    "id": "q781",
+    "text": "⃣ Q.781",
+    "level": 5
+  },
+  {
+    "id": "q781a",
+    "text": "⃣ Q.781.a",
+    "level": 5
+  },
+  {
+    "id": "q782",
+    "text": "⃣ Q.782",
+    "level": 5
+  },
+  {
+    "id": "q783",
+    "text": "⃣ Q.783",
+    "level": 5
+  },
+  {
+    "id": "q784",
+    "text": "⃣ Q.784",
+    "level": 5
+  },
+  {
+    "id": "q785",
+    "text": "⃣ Q.785",
+    "level": 5
+  },
+  {
+    "id": "3-08-03",
+    "text": "3.08.03. 📄 Povos degenerados",
+    "level": 4
+  },
+  {
+    "id": "q786",
+    "text": "⃣ Q.786",
+    "level": 5
+  },
+  {
+    "id": "q787",
+    "text": "⃣ Q.787",
+    "level": 5
+  },
+  {
+    "id": "q787a",
+    "text": "⃣ Q.787.a",
+    "level": 5
+  },
+  {
+    "id": "q787b",
+    "text": "⃣ Q.787.b",
+    "level": 5
+  },
+  {
+    "id": "q788",
+    "text": "⃣ Q.788",
+    "level": 5
+  },
+  {
+    "id": "q789",
+    "text": "⃣ Q.789",
+    "level": 5
+  },
+  {
+    "id": "3-08-04",
+    "text": "3.08.04. 📄 Civilização",
+    "level": 4
+  },
+  {
+    "id": "q790",
+    "text": "⃣ Q.790",
+    "level": 5
+  },
+  {
+    "id": "q790a",
+    "text": "⃣ Q.790.a",
+    "level": 5
+  },
+  {
+    "id": "q791",
+    "text": "⃣ Q.791",
+    "level": 5
+  },
+  {
+    "id": "q792",
+    "text": "⃣ Q.792",
+    "level": 5
+  },
+  {
+    "id": "q792a",
+    "text": "⃣ Q.792.a",
+    "level": 5
+  },
+  {
+    "id": "q793",
+    "text": "⃣ Q.793",
+    "level": 5
+  },
+  {
+    "id": "3-08-05",
+    "text": "3.08.05. 📄 Progresso da legislação humana",
+    "level": 4
+  },
+  {
+    "id": "q794",
+    "text": "⃣ Q.794",
+    "level": 5
+  },
+  {
+    "id": "q795",
+    "text": "⃣ Q.795",
+    "level": 5
+  },
+  {
+    "id": "q796",
+    "text": "⃣ Q.796",
+    "level": 5
+  },
+  {
+    "id": "q797",
+    "text": "⃣ Q.797",
+    "level": 5
+  },
+  {
+    "id": "3-08-06",
+    "text": "3.08.06. 📄 Influência do Espiritismo no progresso",
+    "level": 4
+  },
+  {
+    "id": "q798",
+    "text": "⃣ Q.798",
+    "level": 5
+  },
+  {
+    "id": "q799",
+    "text": "⃣ Q.799",
+    "level": 5
+  },
+  {
+    "id": "q800",
+    "text": "⃣ Q.800",
+    "level": 5
+  },
+  {
+    "id": "q801",
+    "text": "⃣ Q.801",
+    "level": 5
+  },
+  {
+    "id": "q802",
+    "text": "⃣ Q.802",
+    "level": 5
+  },
+  {
+    "id": "3-09",
+    "text": "3.09. 🗂️ Lei de igualdade",
+    "level": 3
+  },
+  {
+    "id": "3-09-01",
+    "text": "3.09.01. 📄 Igualdade natural",
+    "level": 4
+  },
+  {
+    "id": "q803",
+    "text": "⃣ Q.803",
+    "level": 5
+  },
+  {
+    "id": "3-09-02",
+    "text": "3.09.02. 📄 Desigualdade das aptidões",
+    "level": 4
+  },
+  {
+    "id": "q804",
+    "text": "⃣ Q.804",
+    "level": 5
+  },
+  {
+    "id": "q805",
+    "text": "⃣ Q.805",
+    "level": 5
+  },
+  {
+    "id": "3-09-03",
+    "text": "3.09.03. 📄 Desigualdades sociais",
+    "level": 4
+  },
+  {
+    "id": "q806",
+    "text": "⃣ Q.806",
+    "level": 5
+  },
+  {
+    "id": "q806a",
+    "text": "⃣ Q.806.a",
+    "level": 5
+  },
+  {
+    "id": "q807",
+    "text": "⃣ Q.807",
+    "level": 5
+  },
+  {
+    "id": "3-09-04",
+    "text": "3.09.04. 📄 Desigualdade das riquezas",
+    "level": 4
+  },
+  {
+    "id": "q808",
+    "text": "⃣ Q.808",
+    "level": 5
+  },
+  {
+    "id": "q808a",
+    "text": "⃣ Q.808.a",
+    "level": 5
+  },
+  {
+    "id": "q809",
+    "text": "⃣ Q.809",
+    "level": 5
+  },
+  {
+    "id": "q810",
+    "text": "⃣ Q.810",
+    "level": 5
+  },
+  {
+    "id": "q811",
+    "text": "⃣ Q.811",
+    "level": 5
+  },
+  {
+    "id": "q811a",
+    "text": "⃣ Q.811.a",
+    "level": 5
+  },
+  {
+    "id": "q812",
+    "text": "⃣ Q.812",
+    "level": 5
+  },
+  {
+    "id": "q812a",
+    "text": "⃣ Q.812.a",
+    "level": 5
+  },
+  {
+    "id": "q813",
+    "text": "⃣ Q.813",
+    "level": 5
+  },
+  {
+    "id": "3-09-05",
+    "text": "3.09.05. 📄 As provas de riqueza e de miséria",
+    "level": 4
+  },
+  {
+    "id": "q814",
+    "text": "⃣ Q.814",
+    "level": 5
+  },
+  {
+    "id": "q815",
+    "text": "⃣ Q.815",
+    "level": 5
+  },
+  {
+    "id": "q816",
+    "text": "⃣ Q.816",
+    "level": 5
+  },
+  {
+    "id": "3-09-06",
+    "text": "3.09.06. 📄 Igualdade dos direitos do homem e da mulher",
+    "level": 4
+  },
+  {
+    "id": "q817",
+    "text": "⃣ Q.817",
+    "level": 5
+  },
+  {
+    "id": "q818",
+    "text": "⃣ Q.818",
+    "level": 5
+  },
+  {
+    "id": "q819",
+    "text": "⃣ Q.819",
+    "level": 5
+  },
+  {
+    "id": "q820",
+    "text": "⃣ Q.820",
+    "level": 5
+  },
+  {
+    "id": "q821",
+    "text": "⃣ Q.821",
+    "level": 5
+  },
+  {
+    "id": "q822",
+    "text": "⃣ Q.822",
+    "level": 5
+  },
+  {
+    "id": "q822a",
+    "text": "⃣ Q.822.a",
+    "level": 5
+  },
+  {
+    "id": "3-09-07",
+    "text": "3.09.07. 📄 Igualdade perante o túmulo",
+    "level": 4
+  },
+  {
+    "id": "q823",
+    "text": "⃣ Q.823",
+    "level": 5
+  },
+  {
+    "id": "q823a",
+    "text": "⃣ Q.823.a",
+    "level": 5
+  },
+  {
+    "id": "q824",
+    "text": "⃣ Q.824",
+    "level": 5
+  },
+  {
+    "id": "3-10",
+    "text": "3.10. 🗂️ Lei de liberdade",
+    "level": 3
+  },
+  {
+    "id": "3-10-01",
+    "text": "3.10.01. 📄 Liberdade natural",
+    "level": 4
+  },
+  {
+    "id": "q825",
+    "text": "⃣ Q.825",
+    "level": 5
+  },
+  {
+    "id": "q826",
+    "text": "⃣ Q.826",
+    "level": 5
+  },
+  {
+    "id": "q827",
+    "text": "⃣ Q.827",
+    "level": 5
+  },
+  {
+    "id": "q828",
+    "text": "⃣ Q.828",
+    "level": 5
+  },
+  {
+    "id": "q828a",
+    "text": "⃣ Q.828.a",
+    "level": 5
+  },
+  {
+    "id": "3-10-02",
+    "text": "3.10.02. 📄 Escravidão",
+    "level": 4
+  },
+  {
+    "id": "q829",
+    "text": "⃣ Q.829",
+    "level": 5
+  },
+  {
+    "id": "q830",
+    "text": "⃣ Q.830",
+    "level": 5
+  },
+  {
+    "id": "q831",
+    "text": "⃣ Q.831",
+    "level": 5
+  },
+  {
+    "id": "q832",
+    "text": "⃣ Q.832",
+    "level": 5
+  },
+  {
+    "id": "3-10-03",
+    "text": "3.10.03. 📄 Liberdade de pensar",
+    "level": 4
+  },
+  {
+    "id": "q833",
+    "text": "⃣ Q.833",
+    "level": 5
+  },
+  {
+    "id": "q834",
+    "text": "⃣ Q.834",
+    "level": 5
+  },
+  {
+    "id": "3-10-04",
+    "text": "3.10.04. 📄 Liberdade de consciência",
+    "level": 4
+  },
+  {
+    "id": "q835",
+    "text": "⃣ Q.835",
+    "level": 5
+  },
+  {
+    "id": "q836",
+    "text": "⃣ Q.836",
+    "level": 5
+  },
+  {
+    "id": "q837",
+    "text": "⃣ Q.837",
+    "level": 5
+  },
+  {
+    "id": "q838",
+    "text": "⃣ Q.838",
+    "level": 5
+  },
+  {
+    "id": "q839",
+    "text": "⃣ Q.839",
+    "level": 5
+  },
+  {
+    "id": "q840",
+    "text": "⃣ Q.840",
+    "level": 5
+  },
+  {
+    "id": "q841",
+    "text": "⃣ Q.841",
+    "level": 5
+  },
+  {
+    "id": "q842",
+    "text": "⃣ Q.842",
+    "level": 5
+  },
+  {
+    "id": "3-10-05",
+    "text": "3.10.05. 📄 Livre-arbítrio",
+    "level": 4
+  },
+  {
+    "id": "q843",
+    "text": "⃣ Q.843",
+    "level": 5
+  },
+  {
+    "id": "q844",
+    "text": "⃣ Q.844",
+    "level": 5
+  },
+  {
+    "id": "q845",
+    "text": "⃣ Q.845",
+    "level": 5
+  },
+  {
+    "id": "q846",
+    "text": "⃣ Q.846",
+    "level": 5
+  },
+  {
+    "id": "q847",
+    "text": "⃣ Q.847",
+    "level": 5
+  },
+  {
+    "id": "q848",
+    "text": "⃣ Q.848",
+    "level": 5
+  },
+  {
+    "id": "q849",
+    "text": "⃣ Q.849",
+    "level": 5
+  },
+  {
+    "id": "q850",
+    "text": "⃣ Q.850",
+    "level": 5
+  },
+  {
+    "id": "3-10-06",
+    "text": "3.10.06. 📄 Fatalidade",
+    "level": 4
+  },
+  {
+    "id": "q851",
+    "text": "⃣ Q.851",
+    "level": 5
+  },
+  {
+    "id": "q852",
+    "text": "⃣ Q.852",
+    "level": 5
+  },
+  {
+    "id": "q853",
+    "text": "⃣ Q.853",
+    "level": 5
+  },
+  {
+    "id": "q853a",
+    "text": "⃣ Q.853.a",
+    "level": 5
+  },
+  {
+    "id": "q854",
+    "text": "⃣ Q.854",
+    "level": 5
+  },
+  {
+    "id": "q855",
+    "text": "⃣ Q.855",
+    "level": 5
+  },
+  {
+    "id": "q856",
+    "text": "⃣ Q.856",
+    "level": 5
+  },
+  {
+    "id": "q857",
+    "text": "⃣ Q.857",
+    "level": 5
+  },
+  {
+    "id": "q858",
+    "text": "⃣ Q.858",
+    "level": 5
+  },
+  {
+    "id": "q859",
+    "text": "⃣ Q.859",
+    "level": 5
+  },
+  {
+    "id": "q859a",
+    "text": "⃣ Q.859.a",
+    "level": 5
+  },
+  {
+    "id": "q860",
+    "text": "⃣ Q.860",
+    "level": 5
+  },
+  {
+    "id": "q861",
+    "text": "⃣ Q.861",
+    "level": 5
+  },
+  {
+    "id": "q862",
+    "text": "⃣ Q.862",
+    "level": 5
+  },
+  {
+    "id": "q863",
+    "text": "⃣ Q.863",
+    "level": 5
+  },
+  {
+    "id": "q864",
+    "text": "⃣ Q.864",
+    "level": 5
+  },
+  {
+    "id": "q865",
+    "text": "⃣ Q.865",
+    "level": 5
+  },
+  {
+    "id": "q866",
+    "text": "⃣ Q.866",
+    "level": 5
+  },
+  {
+    "id": "q867",
+    "text": "⃣ Q.867",
+    "level": 5
+  },
+  {
+    "id": "3-10-07",
+    "text": "3.10.07. 📄 Conhecimento do futuro",
+    "level": 4
+  },
+  {
+    "id": "q868",
+    "text": "⃣ Q.868",
+    "level": 5
+  },
+  {
+    "id": "q869",
+    "text": "⃣ Q.869",
+    "level": 5
+  },
+  {
+    "id": "q870",
+    "text": "⃣ Q.870",
+    "level": 5
+  },
+  {
+    "id": "q871",
+    "text": "⃣ Q.871",
+    "level": 5
+  },
+  {
+    "id": "3-10-08",
+    "text": "Resumo teórico do móvel das ações humanas",
+    "level": 4
+  },
+  {
+    "id": "q872",
+    "text": "⃣ Q.872",
+    "level": 5
+  },
+  {
+    "id": "3-11",
+    "text": "3.11. 🗂️ Lei de justiça, amor, e caridade",
+    "level": 3
+  },
+  {
+    "id": "3-11-01",
+    "text": "3.11.01. 📄 Justiça e direitos naturais",
+    "level": 4
+  },
+  {
+    "id": "q873",
+    "text": "⃣ Q.873",
+    "level": 5
+  },
+  {
+    "id": "q874",
+    "text": "⃣ Q.874",
+    "level": 5
+  },
+  {
+    "id": "q875",
+    "text": "⃣ Q.875",
+    "level": 5
+  },
+  {
+    "id": "q875a",
+    "text": "⃣ Q.875.a",
+    "level": 5
+  },
+  {
+    "id": "q876",
+    "text": "⃣ Q.876",
+    "level": 5
+  },
+  {
+    "id": "q877",
+    "text": "⃣ Q.877",
+    "level": 5
+  },
+  {
+    "id": "q878",
+    "text": "⃣ Q.878",
+    "level": 5
+  },
+  {
+    "id": "q878a",
+    "text": "⃣ Q.878.a",
+    "level": 5
+  },
+  {
+    "id": "q879",
+    "text": "⃣ Q.879",
+    "level": 5
+  },
+  {
+    "id": "3-11-02",
+    "text": "3.11.02. 📄 Direito de propriedade. Roubo",
+    "level": 4
+  },
+  {
+    "id": "q880",
+    "text": "⃣ Q.880",
+    "level": 5
+  },
+  {
+    "id": "q881",
+    "text": "⃣ Q.881",
+    "level": 5
+  },
+  {
+    "id": "q882",
+    "text": "⃣ Q.882",
+    "level": 5
+  },
+  {
+    "id": "q883",
+    "text": "⃣ Q.883",
+    "level": 5
+  },
+  {
+    "id": "q883a",
+    "text": "⃣ Q.883.a",
+    "level": 5
+  },
+  {
+    "id": "q884",
+    "text": "⃣ Q.884",
+    "level": 5
+  },
+  {
+    "id": "q885",
+    "text": "⃣ Q.885",
+    "level": 5
+  },
+  {
+    "id": "3-11-03",
+    "text": "3.11.03. 📄 Caridade e amor do próximo",
+    "level": 4
+  },
+  {
+    "id": "q886",
+    "text": "⃣ Q.886",
+    "level": 5
+  },
+  {
+    "id": "q887",
+    "text": "⃣ Q.887",
+    "level": 5
+  },
+  {
+    "id": "q888",
+    "text": "⃣ Q.888",
+    "level": 5
+  },
+  {
+    "id": "q888a",
+    "text": "⃣ Q.888.a",
+    "level": 5
+  },
+  {
+    "id": "q889",
+    "text": "⃣ Q.889",
+    "level": 5
+  },
+  {
+    "id": "3-11-04",
+    "text": "3.11.04. 📄 Amor materno e filial",
+    "level": 4
+  },
+  {
+    "id": "q890",
+    "text": "⃣ Q.890",
+    "level": 5
+  },
+  {
+    "id": "q891",
+    "text": "⃣ Q.891",
+    "level": 5
+  },
+  {
+    "id": "q892",
+    "text": "⃣ Q.892",
+    "level": 5
+  },
+  {
+    "id": "3-12",
+    "text": "3.12. 🗂️ Perfeição moral",
+    "level": 3
+  },
+  {
+    "id": "3-12-01",
+    "text": "3.12.01. 📄 As virtudes e os vícios",
+    "level": 4
+  },
+  {
+    "id": "q893",
+    "text": "⃣ Q.893",
+    "level": 5
+  },
+  {
+    "id": "q894",
+    "text": "⃣ Q.894",
+    "level": 5
+  },
+  {
+    "id": "q895",
+    "text": "⃣ Q.895",
+    "level": 5
+  },
+  {
+    "id": "q896",
+    "text": "⃣ Q.896",
+    "level": 5
+  },
+  {
+    "id": "q897",
+    "text": "⃣ Q.897",
+    "level": 5
+  },
+  {
+    "id": "q897a",
+    "text": "⃣ Q.897.a",
+    "level": 5
+  },
+  {
+    "id": "q897b",
+    "text": "⃣ Q.897.b",
+    "level": 5
+  },
+  {
+    "id": "q898",
+    "text": "⃣ Q.898",
+    "level": 5
+  },
+  {
+    "id": "q899",
+    "text": "⃣ Q.899",
+    "level": 5
+  },
+  {
+    "id": "q900",
+    "text": "⃣ Q.900",
+    "level": 5
+  },
+  {
+    "id": "q901",
+    "text": "⃣ Q.901",
+    "level": 5
+  },
+  {
+    "id": "q902",
+    "text": "⃣ Q.902",
+    "level": 5
+  },
+  {
+    "id": "q903",
+    "text": "⃣ Q.903",
+    "level": 5
+  },
+  {
+    "id": "q904",
+    "text": "⃣ Q.904",
+    "level": 5
+  },
+  {
+    "id": "q904a",
+    "text": "⃣ Q.904.a",
+    "level": 5
+  },
+  {
+    "id": "q905",
+    "text": "⃣ Q.905",
+    "level": 5
+  },
+  {
+    "id": "q906",
+    "text": "⃣ Q.906",
+    "level": 5
+  },
+  {
+    "id": "3-12-02",
+    "text": "3.12.02. 📄 Paixões",
+    "level": 4
+  },
+  {
+    "id": "q907",
+    "text": "⃣ Q.907",
+    "level": 5
+  },
+  {
+    "id": "q908",
+    "text": "⃣ Q.908",
+    "level": 5
+  },
+  {
+    "id": "q909",
+    "text": "⃣ Q.909",
+    "level": 5
+  },
+  {
+    "id": "q910",
+    "text": "⃣ Q.910",
+    "level": 5
+  },
+  {
+    "id": "q911",
+    "text": "⃣ Q.911",
+    "level": 5
+  },
+  {
+    "id": "q912",
+    "text": "⃣ Q.912",
+    "level": 5
+  },
+  {
+    "id": "3-12-03",
+    "text": "3.12.03. 📄 O egoísmo",
+    "level": 4
+  },
+  {
+    "id": "q913",
+    "text": "⃣ Q.913",
+    "level": 5
+  },
+  {
+    "id": "q914",
+    "text": "⃣ Q.914",
+    "level": 5
+  },
+  {
+    "id": "q915",
+    "text": "⃣ Q.915",
+    "level": 5
+  },
+  {
+    "id": "q916",
+    "text": "⃣ Q.916",
+    "level": 5
+  },
+  {
+    "id": "q917",
+    "text": "⃣ Q.917",
+    "level": 5
+  },
+  {
+    "id": "3-12-04",
+    "text": "3.12.04. 📄 Caracteres do homem de bem",
+    "level": 4
+  },
+  {
+    "id": "q918",
+    "text": "⃣ Q.918",
+    "level": 5
+  },
+  {
+    "id": "3-12-05",
+    "text": "3.12.05. 📄 Conhecimento de si mesmo",
+    "level": 4
+  },
+  {
+    "id": "q919",
+    "text": "⃣ Q.919",
+    "level": 5
+  },
+  {
+    "id": "q919a",
+    "text": "⃣ Q.919.a",
+    "level": 5
+  },
+  {
+    "id": "4",
+    "text": "4. 🗃️ Esperanças e Consolações",
+    "level": 2
+  },
+  {
+    "id": "4-01",
+    "text": "4.01. 🗂️ Penas e felicidades materiais",
+    "level": 3
+  },
+  {
+    "id": "4-01-01",
+    "text": "4.01.01. 📄 Felicidade e infelicidade relativas",
+    "level": 4
+  },
+  {
+    "id": "q920",
+    "text": "⃣ Q.920",
+    "level": 5
+  },
+  {
+    "id": "q921",
+    "text": "⃣ Q.921",
+    "level": 5
+  },
+  {
+    "id": "q922",
+    "text": "⃣ Q.922",
+    "level": 5
+  },
+  {
+    "id": "q923",
+    "text": "⃣ Q.923",
+    "level": 5
+  },
+  {
+    "id": "q924",
+    "text": "⃣ Q.924",
+    "level": 5
+  },
+  {
+    "id": "q925",
+    "text": "⃣ Q.925",
+    "level": 5
+  },
+  {
+    "id": "q926",
+    "text": "⃣ Q.926",
+    "level": 5
+  },
+  {
+    "id": "q927",
+    "text": "⃣ Q.927",
+    "level": 5
+  },
+  {
+    "id": "q928",
+    "text": "⃣ Q.928",
+    "level": 5
+  },
+  {
+    "id": "q928a",
+    "text": "⃣ Q.928.a",
+    "level": 5
+  },
+  {
+    "id": "q929",
+    "text": "⃣ Q.929",
+    "level": 5
+  },
+  {
+    "id": "q930",
+    "text": "⃣ Q.930",
+    "level": 5
+  },
+  {
+    "id": "q931",
+    "text": "⃣ Q.931",
+    "level": 5
+  },
+  {
+    "id": "q932",
+    "text": "⃣ Q.932",
+    "level": 5
+  },
+  {
+    "id": "q933",
+    "text": "⃣ Q.933",
+    "level": 5
+  },
+  {
+    "id": "4-01-02",
+    "text": "4.01.02. 📄 Perda dos entes queridos",
+    "level": 4
+  },
+  {
+    "id": "q934",
+    "text": "⃣ Q.934",
+    "level": 5
+  },
+  {
+    "id": "q935",
+    "text": "⃣ Q.935",
+    "level": 5
+  },
+  {
+    "id": "q936",
+    "text": "⃣ Q.936",
+    "level": 5
+  },
+  {
+    "id": "4-01-03",
+    "text": "4.01.03. 📄 Decepções. Ingratidão. Afeições destruídas",
+    "level": 4
+  },
+  {
+    "id": "q937",
+    "text": "⃣ Q.937",
+    "level": 5
+  },
+  {
+    "id": "q938",
+    "text": "⃣ Q.938",
+    "level": 5
+  },
+  {
+    "id": "q938a",
+    "text": "⃣ Q.938.a",
+    "level": 5
+  },
+  {
+    "id": "4-01-04",
+    "text": "4.01.04. 📄 Uniões antipáticas",
+    "level": 4
+  },
+  {
+    "id": "q939",
+    "text": "⃣ Q.939",
+    "level": 5
+  },
+  {
+    "id": "q940",
+    "text": "⃣ Q.940",
+    "level": 5
+  },
+  {
+    "id": "q940a",
+    "text": "⃣ Q.940.a",
+    "level": 5
+  },
+  {
+    "id": "4-01-05",
+    "text": "4.01.05. 📄 Temor da morte",
+    "level": 4
+  },
+  {
+    "id": "q941",
+    "text": "⃣ Q.941",
+    "level": 5
+  },
+  {
+    "id": "q942",
+    "text": "⃣ Q.942",
+    "level": 5
+  },
+  {
+    "id": "4-01-06",
+    "text": "4.01.06. 📄 Desgosto da vida. Suicídio",
+    "level": 4
+  },
+  {
+    "id": "q943",
+    "text": "⃣ Q.943",
+    "level": 5
+  },
+  {
+    "id": "q944",
+    "text": "⃣ Q.944",
+    "level": 5
+  },
+  {
+    "id": "q944a",
+    "text": "⃣ Q.944.a",
+    "level": 5
+  },
+  {
+    "id": "q945",
+    "text": "⃣ Q.945",
+    "level": 5
+  },
+  {
+    "id": "q946",
+    "text": "⃣ Q.946",
+    "level": 5
+  },
+  {
+    "id": "q946a",
+    "text": "⃣ Q.946.a",
+    "level": 5
+  },
+  {
+    "id": "q947",
+    "text": "⃣ Q.947",
+    "level": 5
+  },
+  {
+    "id": "q948",
+    "text": "⃣ Q.948",
+    "level": 5
+  },
+  {
+    "id": "q949",
+    "text": "⃣ Q.949",
+    "level": 5
+  },
+  {
+    "id": "q950",
+    "text": "⃣ Q.950",
+    "level": 5
+  },
+  {
+    "id": "q951",
+    "text": "⃣ Q.951",
+    "level": 5
+  },
+  {
+    "id": "q952",
+    "text": "⃣ Q.952",
+    "level": 5
+  },
+  {
+    "id": "q952a",
+    "text": "⃣ Q.952.a",
+    "level": 5
+  },
+  {
+    "id": "q953",
+    "text": "⃣ Q.953",
+    "level": 5
+  },
+  {
+    "id": "q953a",
+    "text": "⃣ Q.953.a",
+    "level": 5
+  },
+  {
+    "id": "q953b",
+    "text": "⃣ Q.953.b",
+    "level": 5
+  },
+  {
+    "id": "q954",
+    "text": "⃣ Q.954",
+    "level": 5
+  },
+  {
+    "id": "q955",
+    "text": "⃣ Q.955",
+    "level": 5
+  },
+  {
+    "id": "q956",
+    "text": "⃣ Q.956",
+    "level": 5
+  },
+  {
+    "id": "q957",
+    "text": "⃣ Q.957",
+    "level": 5
+  },
+  {
+    "id": "4-02",
+    "text": "4.02. 🗂️ Penas e felicidades futuras",
+    "level": 3
+  },
+  {
+    "id": "4-02-01",
+    "text": "4.02.01. 📄 O nada. Vida futura",
+    "level": 4
+  },
+  {
+    "id": "q958",
+    "text": "⃣ Q.958",
+    "level": 5
+  },
+  {
+    "id": "q959",
+    "text": "⃣ Q.959",
+    "level": 5
+  },
+  {
+    "id": "4-02-02",
+    "text": "4.02.02. 📄 Intuição das penas e gozos futuros",
+    "level": 4
+  },
+  {
+    "id": "q960",
+    "text": "⃣ Q.960",
+    "level": 5
+  },
+  {
+    "id": "q961",
+    "text": "⃣ Q.961",
+    "level": 5
+  },
+  {
+    "id": "q962",
+    "text": "⃣ Q.962",
+    "level": 5
+  },
+  {
+    "id": "4-02-03",
+    "text": "4.02.03. 📄 Intervenção de Deus nas penas e recompensas",
+    "level": 4
+  },
+  {
+    "id": "q963",
+    "text": "⃣ Q.963",
+    "level": 5
+  },
+  {
+    "id": "q964",
+    "text": "⃣ Q.964",
+    "level": 5
+  },
+  {
+    "id": "4-02-04",
+    "text": "4.02.04. 📄 Natureza das penas e gozos futuros",
+    "level": 4
+  },
+  {
+    "id": "q965",
+    "text": "⃣ Q.965",
+    "level": 5
+  },
+  {
+    "id": "q966",
+    "text": "⃣ Q.966",
+    "level": 5
+  },
+  {
+    "id": "q967",
+    "text": "⃣ Q.967",
+    "level": 5
+  },
+  {
+    "id": "q968",
+    "text": "⃣ Q.968",
+    "level": 5
+  },
+  {
+    "id": "q969",
+    "text": "⃣ Q.969",
+    "level": 5
+  },
+  {
+    "id": "q970",
+    "text": "⃣ Q.970",
+    "level": 5
+  },
+  {
+    "id": "q971",
+    "text": "⃣ Q.971",
+    "level": 5
+  },
+  {
+    "id": "q971a",
+    "text": "⃣ Q.971.a",
+    "level": 5
+  },
+  {
+    "id": "q972",
+    "text": "⃣ Q.972",
+    "level": 5
+  },
+  {
+    "id": "q972a",
+    "text": "⃣ Q.972.a",
+    "level": 5
+  },
+  {
+    "id": "q973",
+    "text": "⃣ Q.973",
+    "level": 5
+  },
+  {
+    "id": "q974",
+    "text": "⃣ Q.974",
+    "level": 5
+  },
+  {
+    "id": "q974a",
+    "text": "⃣ Q.974.a",
+    "level": 5
+  },
+  {
+    "id": "q975",
+    "text": "⃣ Q.975",
+    "level": 5
+  },
+  {
+    "id": "q976",
+    "text": "⃣ Q.976",
+    "level": 5
+  },
+  {
+    "id": "q976a",
+    "text": "⃣ Q.976.a",
+    "level": 5
+  },
+  {
+    "id": "q977",
+    "text": "⃣ Q.977",
+    "level": 5
+  },
+  {
+    "id": "q977a",
+    "text": "⃣ Q.977.a",
+    "level": 5
+  },
+  {
+    "id": "q978",
+    "text": "⃣ Q.978",
+    "level": 5
+  },
+  {
+    "id": "q979",
+    "text": "⃣ Q.979",
+    "level": 5
+  },
+  {
+    "id": "q980",
+    "text": "⃣ Q.980",
+    "level": 5
+  },
+  {
+    "id": "q981",
+    "text": "⃣ Q.981",
+    "level": 5
+  },
+  {
+    "id": "q982",
+    "text": "⃣ Q.982",
+    "level": 5
+  },
+  {
+    "id": "4-02-05",
+    "text": "4.02.05. 📄 Penas temporais",
+    "level": 4
+  },
+  {
+    "id": "q983",
+    "text": "⃣ Q.983",
+    "level": 5
+  },
+  {
+    "id": "q984",
+    "text": "⃣ Q.984",
+    "level": 5
+  },
+  {
+    "id": "q985",
+    "text": "⃣ Q.985",
+    "level": 5
+  },
+  {
+    "id": "q986",
+    "text": "⃣ Q.986",
+    "level": 5
+  },
+  {
+    "id": "q987",
+    "text": "⃣ Q.987",
+    "level": 5
+  },
+  {
+    "id": "q988",
+    "text": "⃣ Q.988",
+    "level": 5
+  },
+  {
+    "id": "q989",
+    "text": "⃣ Q.989",
+    "level": 5
+  },
+  {
+    "id": "4-02-06",
+    "text": "4.02.06. 📄 Expiação e arrependimento",
+    "level": 4
+  },
+  {
+    "id": "q990",
+    "text": "⃣ Q.990",
+    "level": 5
+  },
+  {
+    "id": "q991",
+    "text": "⃣ Q.991",
+    "level": 5
+  },
+  {
+    "id": "q992",
+    "text": "⃣ Q.992",
+    "level": 5
+  },
+  {
+    "id": "q993",
+    "text": "⃣ Q.993",
+    "level": 5
+  },
+  {
+    "id": "q994",
+    "text": "⃣ Q.994",
+    "level": 5
+  },
+  {
+    "id": "q995",
+    "text": "⃣ Q.995",
+    "level": 5
+  },
+  {
+    "id": "q995a",
+    "text": "⃣ Q.995.a",
+    "level": 5
+  },
+  {
+    "id": "q996",
+    "text": "⃣ Q.996",
+    "level": 5
+  },
+  {
+    "id": "q997",
+    "text": "⃣ Q.997",
+    "level": 5
+  },
+  {
+    "id": "q998",
+    "text": "⃣ Q.998",
+    "level": 5
+  },
+  {
+    "id": "q999",
+    "text": "⃣ Q.999",
+    "level": 5
+  },
+  {
+    "id": "q999a",
+    "text": "⃣ Q.999.a",
+    "level": 5
+  },
+  {
+    "id": "q1000",
+    "text": "⃣ Q.1000",
+    "level": 5
+  },
+  {
+    "id": "q1001",
+    "text": "⃣ Q.1001",
+    "level": 5
+  },
+  {
+    "id": "q1002",
+    "text": "⃣ Q.1002",
+    "level": 5
+  },
+  {
+    "id": "4-02-07",
+    "text": "4.02.07. 📄 Duração das penas futuras",
+    "level": 4
+  },
+  {
+    "id": "q1003",
+    "text": "⃣ Q.1003",
+    "level": 5
+  },
+  {
+    "id": "q1004",
+    "text": "⃣ Q.1004",
+    "level": 5
+  },
+  {
+    "id": "q1005",
+    "text": "⃣ Q.1005",
+    "level": 5
+  },
+  {
+    "id": "q1006",
+    "text": "⃣ Q.1006",
+    "level": 5
+  },
+  {
+    "id": "q1007",
+    "text": "⃣ Q.1007",
+    "level": 5
+  },
+  {
+    "id": "q1008",
+    "text": "⃣ Q.1008",
+    "level": 5
+  },
+  {
+    "id": "q1009",
+    "text": "⃣ Q.1009",
+    "level": 5
+  },
+  {
+    "id": "4-02-08",
+    "text": "4.02.08. 📄 Ressurreição da carne",
+    "level": 4
+  },
+  {
+    "id": "q1010",
+    "text": "⃣ Q.1010",
+    "level": 5
+  },
+  {
+    "id": "q1011",
+    "text": "⃣ Q.1011",
+    "level": 5
+  },
+  {
+    "id": "4-02-09",
+    "text": "4.02.09. 📄 Paraíso, inferno e purgatório",
+    "level": 4
+  },
+  {
+    "id": "q1012",
+    "text": "⃣ Q.1012",
+    "level": 5
+  },
+  {
+    "id": "q1012a",
+    "text": "⃣ Q.1012.a",
+    "level": 5
+  },
+  {
+    "id": "q1013",
+    "text": "⃣ Q.1013",
+    "level": 5
+  },
+  {
+    "id": "q1014",
+    "text": "⃣ Q.1014",
+    "level": 5
+  },
+  {
+    "id": "q1014a",
+    "text": "⃣ Q.1014.a",
+    "level": 5
+  },
+  {
+    "id": "q1015",
+    "text": "⃣ Q.1015",
+    "level": 5
+  },
+  {
+    "id": "q1016",
+    "text": "⃣ Q.1016",
+    "level": 5
+  },
+  {
+    "id": "q1017",
+    "text": "⃣ Q.1017",
+    "level": 5
+  },
+  {
+    "id": "q1018",
+    "text": "⃣ Q.1018",
+    "level": 5
+  },
+  {
+    "id": "q1019",
+    "text": "⃣ Q.1019",
+    "level": 5
+  },
+  {
+    "id": "5",
+    "text": "5. 🗃️ Conclusão",
+    "level": 2
+  },
+  {
+    "id": "5-01",
+    "text": "Conclusão",
+    "level": 3
+  },
+  {
+    "id": "5-01-01",
+    "text": "5.01. 📄 Conclusão 01",
+    "level": 4
+  },
+  {
+    "id": "5-01-02",
+    "text": "5.02. 📄 Conclusão 02",
+    "level": 4
+  },
+  {
+    "id": "5-01-03",
+    "text": "5.03. 📄 Conclusão 03",
+    "level": 4
+  },
+  {
+    "id": "5-01-04",
+    "text": "5.04. 📄 Conclusão 04",
+    "level": 4
+  },
+  {
+    "id": "5-01-05",
+    "text": "5.05. 📄 Conclusão 05",
+    "level": 4
+  },
+  {
+    "id": "5-01-06",
+    "text": "5.06. 📄 Conclusão 06",
+    "level": 4
+  },
+  {
+    "id": "5-01-07",
+    "text": "5.07. 📄 Conclusão 07",
+    "level": 4
+  },
+  {
+    "id": "5-01-08",
+    "text": "5.08. 📄 Conclusão 08",
+    "level": 4
+  },
+  {
+    "id": "5-01-09",
+    "text": "5.09. 📄 Conclusão 09",
+    "level": 4
+  },
+  {
+    "id": "6",
+    "text": "6. 🗃️ Pós-textual",
+    "level": 2
+  },
+  {
+    "id": "6-01-nota-explicativa-27",
+    "text": "6.01. 📄 Nota explicativa [^27]",
+    "level": 3
+  },
+  {
+    "id": "6-02",
+    "text": "6.02. 🗂️ Índice geral",
+    "level": 3
+  },
+  {
+    "id": "6-02-01",
+    "text": "Termos relacionados",
+    "level": 4
+  },
+  {
+    "id": "a",
+    "text": "A",
+    "level": 5
+  },
+  {
+    "id": "b",
+    "text": "B",
+    "level": 5
+  },
+  {
+    "id": "c",
+    "text": "C",
+    "level": 5
+  },
+  {
+    "id": "d",
+    "text": "D",
+    "level": 5
+  },
+  {
+    "id": "e",
+    "text": "E",
+    "level": 5
+  },
+  {
+    "id": "f",
+    "text": "F",
+    "level": 5
+  },
+  {
+    "id": "g",
+    "text": "G",
+    "level": 5
+  },
+  {
+    "id": "h",
+    "text": "H",
+    "level": 5
+  },
+  {
+    "id": "i",
+    "text": "I",
+    "level": 5
+  },
+  {
+    "id": "j",
+    "text": "J",
+    "level": 5
+  },
+  {
+    "id": "l",
+    "text": "L",
+    "level": 5
+  },
+  {
+    "id": "m",
+    "text": "M",
+    "level": 5
+  },
+  {
+    "id": "n",
+    "text": "N",
+    "level": 5
+  },
+  {
+    "id": "o",
+    "text": "O",
+    "level": 5
+  },
+  {
+    "id": "p",
+    "text": "P",
+    "level": 5
+  },
+  {
+    "id": "q",
+    "text": "Q",
+    "level": 5
+  },
+  {
+    "id": "r",
+    "text": "R",
+    "level": 5
+  },
+  {
+    "id": "s",
+    "text": "S",
+    "level": 5
+  },
+  {
+    "id": "t",
+    "text": "T",
+    "level": 5
+  },
+  {
+    "id": "u",
+    "text": "U",
+    "level": 5
+  },
+  {
+    "id": "v",
+    "text": "V",
+    "level": 5
+  },
+  {
+    "id": "z",
+    "text": "Z",
+    "level": 5
+  },
+  {
+    "id": "6-03",
+    "text": "6.03. 📝 Notas de rodapé",
+    "level": 3
+  }
+]

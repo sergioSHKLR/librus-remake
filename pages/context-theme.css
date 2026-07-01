@@ -1,0 +1,49 @@
+/* Context panel pages — mirrors app theme tokens (light / dark / system). */
+
+html.theme--light {
+  color-scheme: light;
+  --bg-secondary: #eeeeee;
+  --text-primary: #111111;
+  --text-muted: #5e5e5e;
+  --border-color: color-mix(in srgb, #333333 14%, #d4d4d4);
+  --panel-bg: var(--bg-secondary);
+  --icon-muted: var(--text-muted);
+  --accent: color-mix(in srgb, #333333 30%, #3d7a5a);
+}
+
+html.theme--dark {
+  color-scheme: dark;
+  --bg-secondary: color-mix(in srgb, #333333 78%, #0a0a0a);
+  --text-primary: #f1f1f1;
+  --text-muted: #a8a8a8;
+  --border-color: color-mix(in srgb, #333333 45%, #666666);
+  --panel-bg: var(--bg-secondary);
+  --icon-muted: var(--text-muted);
+  --accent: color-mix(in srgb, #333333 40%, #6b9e82);
+}
+
+@media (prefers-color-scheme: light) {
+  html.theme--system {
+    color-scheme: light;
+    --bg-secondary: #eeeeee;
+    --text-primary: #111111;
+    --text-muted: #5e5e5e;
+    --border-color: color-mix(in srgb, #333333 14%, #d4d4d4);
+    --panel-bg: var(--bg-secondary);
+    --icon-muted: var(--text-muted);
+    --accent: color-mix(in srgb, #333333 30%, #3d7a5a);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  html.theme--system {
+    color-scheme: dark;
+    --bg-secondary: color-mix(in srgb, #333333 78%, #0a0a0a);
+    --text-primary: #f1f1f1;
+    --text-muted: #a8a8a8;
+    --border-color: color-mix(in srgb, #333333 45%, #666666);
+    --panel-bg: var(--bg-secondary);
+    --icon-muted: var(--text-muted);
+    --accent: color-mix(in srgb, #333333 40%, #6b9e82);
+  }
+}

@@ -2,7 +2,7 @@
 (function () {
   var APP_NAME = 'LIBRUS';
   const APP_VERSION = 'v.32';
-  const BUILD_ID = 'v32-r06';   // ← bump this on every change
+  const BUILD_ID = 'v32-r21';   // ← bump this on every change
 
   var waitingWorker = null;
   var registrationRef = null;
@@ -20,9 +20,6 @@ function setUpdateAvailable(worker) {
   const updateContainer = document.getElementById('settings-update-badge');
   if (updateContainer) {
     updateContainer.classList.add('is-update');
-    const bottomIcon = updateContainer.querySelector('img');
-    if (bottomIcon) bottomIcon.src = 'icons/expired.svg';
-    
     const updateLabel = document.getElementById('settings-update-detail');
     if (updateLabel) updateLabel.textContent = 'Update available — tap to refresh';
   }

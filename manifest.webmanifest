@@ -7,8 +7,8 @@
   "scope": "./",
   "display": "standalone",
   "orientation": "any",
-  "background_color": "#fff",
-  "theme_color": "#006400",
+  "background_color": "#333333",
+  "theme_color": "#333333",
   "lang": "en-US",
   "icons": [
     {
@@ -53,7 +53,7 @@
     }
   ],
   "categories": [
-    "books &amp; reference",
+    "books & reference",
     "developer",
     "education",
     "travel"
