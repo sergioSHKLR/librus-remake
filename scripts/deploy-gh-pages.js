@@ -82,8 +82,22 @@ function ensureGhPagesWorktree() {
     run('git reset --hard origin/gh-pages', { cwd: WORKTREE });
     return;
   }
+  if (fs.existsSync(WORKTREE)) {
+    fs.rmSync(WORKTREE, { recursive: true, force: true });
+  }
+  run('git worktree prune');
   run('git fetch origin gh-pages');
   run('git worktree add --detach "' + WORKTREE + '" origin/gh-pages');
+}
+
+function readBuildId() {
+  try {
+    const pwa = fs.readFileSync(path.join(ROOT, 'pwa/pwa.js'), 'utf8');
+    const m = pwa.match(/BUILD_ID\s*=\s*'([^']+)'/);
+    return m ? m[1] : 'v32-r21';
+  } catch (e) {
+    return 'v32-r21';
+  }
 }
 
 function main() {
@@ -113,16 +127,6 @@ function main() {
   console.log('  prod → ' + REPO_BASE);
   console.log('  dev  → ' + DEV_BASE);
   console.log('Push: git -C .gh-pages-work push origin HEAD:gh-pages');
-}
-
-function readBuildId() {
-  try {
-    const pwa = fs.readFileSync(path.join(ROOT, 'pwa/pwa.js'), 'utf8');
-    const m = pwa.match(/BUILD_ID\s*=\s*'([^']+)'/);
-    return m ? m[1] : 'v32-r21';
-  } catch (e) {
-    return 'v32-r21';
-  }
 }
 
 main();
