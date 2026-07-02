@@ -1,5 +1,5 @@
 {
-  "builtAt": "2026-07-02T01:54:57.769Z",
+  "builtAt": "2026-07-02T06:50:01.546Z",
   "files": [
     "adv_01_scandal_in_bohemia.md",
     "adv_02_red_headed_league.md",
@@ -32,7 +32,6 @@
     "hlb_05_lady_frances_carfax.md",
     "hlb_06_dying_detective.md",
     "hlb_07_his_last_bow.md",
-    "lde.md",
     "mem_01_silver_blaze.md",
     "mem_02_cardboard_box.md",
     "mem_03_yellow_face.md",
@@ -311,14 +310,6 @@
       "lang": "en-US",
       "html": "hlb_07_his_last_bow.html",
       "toc": "hlb_07_his_last_bow.toc.json"
-    },
-    "lde.md": {
-      "title": "O Livro dos Espíritos",
-      "author": "Allan Kardec",
-      "order": 1,
-      "lang": "pt-BR",
-      "html": "lde.html",
-      "toc": "lde.toc.json"
     },
     "mem_01_silver_blaze.md": {
       "title": "Silver Blaze",
