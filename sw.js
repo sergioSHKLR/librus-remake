@@ -1,5 +1,5 @@
 /* Librus service worker | nano-SSG — bump CACHE_VERSION on each deploy. */
-const CACHE_VERSION = 'librus-v32-r21';
+const CACHE_VERSION = 'librus-v32-r22';
 
 const SHELL_ASSETS = [
   './index.html',
@@ -89,6 +89,16 @@ function fetchGeocode(query) {
   });
 }
 
+function cacheFirst(request) {
+  return caches.match(request, { ignoreSearch: true }).then(function (cached) {
+    if (cached) return cached;
+    return fetch(request).then(function (response) {
+      if (response && response.ok) stashInCache(CACHE_VERSION, request, response);
+      return response;
+    });
+  });
+}
+
 function networkFirst(request) {
   var pathname = new URL(request.url).pathname;
   var isBookHtml = /\/books\/[^/]+\.html$/i.test(pathname);
@@ -107,7 +117,7 @@ function networkFirst(request) {
     stashInCache(CACHE_VERSION, request, response);
     return response;
   }).catch(function () {
-    return caches.match(request);
+    return caches.match(request, { ignoreSearch: true });
   });
 }
 
@@ -162,7 +172,12 @@ self.addEventListener('fetch', function (event) {
     return;
   }
 
-  if (isBookAsset(url.pathname) || isStaticPage(url.pathname) || isShellAsset(url.pathname)) {
+  if (isStaticPage(url.pathname)) {
+    event.respondWith(cacheFirst(event.request));
+    return;
+  }
+
+  if (isBookAsset(url.pathname) || isShellAsset(url.pathname)) {
     event.respondWith(networkFirst(event.request));
   }
 });

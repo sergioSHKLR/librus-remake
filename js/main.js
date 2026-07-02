@@ -2456,6 +2456,7 @@ function isContextFrameOnPlaceholder(frame) {
   if (!frame) return true;
   var src = frame.src || '';
   if (!src || src === window.location.href) return true;
+  if (isContextPdfViewerUrl(src)) return true;
   if (isContextPlaceholderUrl(src)) return true;
   try {
     return isContextPlaceholderUrl(frame.contentWindow.location.href);
@@ -2710,12 +2711,13 @@ function bindContextListeners() {
       showContextPlaceholder();
       return;
     }
-    if (!src || src === 'about:blank' || contextFrame.src === window.location.href || isContextPlaceholderUrl(src)) {
+    if (!src || src === 'about:blank' || contextFrame.src === window.location.href
+        || isContextPlaceholderUrl(src) || isContextPdfViewerUrl(src)) {
       contextArticleUrl = '';
       contextNavigationDepth = 0;
       updateContextBackButtonState();
       updateContextShareButtonState();
-      syncContextPlaceholderConnectivity();
+      if (isContextPlaceholderUrl(src)) syncContextPlaceholderConnectivity();
       return;
     }
     syncContextArticleUrl();
@@ -3387,7 +3389,7 @@ function buildAnnotationCard(annotation, replies) {
     renderNotesSelectionPreview();
   });
 
-  var shareBtn = createNotesIconButton('share', 'Share note', 'icon-btn-share');
+  var shareBtn = createNotesIconButton('share-2', 'Share note', 'icon-btn-share');
   shareBtn.addEventListener('click', function () {
     shareAnnotation(annotation);
   });

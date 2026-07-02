@@ -2,6 +2,17 @@
 
 Production deploy log for the `librus-remake` rewrite (major **32**).
 
+## V32-r22 — 2026-07-01 — Icons, enlarged brand, offline PDF viewer
+
+**Build:** `v32-r22` · **Cache:** `librus-v32-r22`
+
+| Area | Change |
+|------|--------|
+| Icons | Lucide `share` → `share-2`, `library` → `library-big` (sprite + aliases) |
+| Brand | Enlarged columns-4 in favicon / PWA SVGs; PNGs regenerated from existing sources |
+| Offline | `pages/*` cache-first + `ignoreSearch` so `pdf-viewer.html?theme=…` loads offline |
+| Context | PDF viewer treated as shell state (back/share); reload opens file picker when offline |
+
 ## V32-r21 — 2026-07-01 — Docs refresh, prod/dev branches, GH Pages deploy
 
 **Build:** `v32-r21` · **Cache:** `librus-v32-r21`

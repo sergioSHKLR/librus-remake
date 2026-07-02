@@ -13,14 +13,24 @@ const BRAND_FG = '#111111';
 const FG = '#f5f5f5';
 const MUTED = '#8a8a8a';
 
-function columns4Mark(x, y, size, stroke) {
-  const pad = size * 0.18;
-  const outer = size - pad * 2;
-  const col = outer / 4;
-  return `<rect x="${x + pad}" y="${y + pad}" width="${outer}" height="${outer}" rx="${size * 0.08}" fill="none" stroke="${BRAND_FG}" stroke-width="${stroke}" stroke-linejoin="round"/>
-  <path d="M${x + pad + col} ${y + pad}v${outer}" stroke="${BRAND_FG}" stroke-width="${stroke}" stroke-linecap="round"/>
-  <path d="M${x + pad + col * 2} ${y + pad}v${outer}" stroke="${BRAND_FG}" stroke-width="${stroke}" stroke-linecap="round"/>
-  <path d="M${x + pad + col * 3} ${y + pad}v${outer}" stroke="${BRAND_FG}" stroke-width="${stroke}" stroke-linecap="round"/>`;
+function columns4Mark(tileX, tileY, tileSize, stroke) {
+  const inset = tileSize * 0.18;
+  const iconSize = tileSize - inset * 2;
+  const ix = tileX + inset;
+  const iy = tileY + inset;
+  const col = iconSize / 4;
+  const rx = iconSize * 0.08;
+  return `<rect x="${ix}" y="${iy}" width="${iconSize}" height="${iconSize}" rx="${rx}" fill="none" stroke="${BRAND_FG}" stroke-width="${stroke}" stroke-linejoin="round"/>
+  <path d="M${ix + col} ${iy}v${iconSize}" stroke="${BRAND_FG}" stroke-width="${stroke}" stroke-linecap="round"/>
+  <path d="M${ix + col * 2} ${iy}v${iconSize}" stroke="${BRAND_FG}" stroke-width="${stroke}" stroke-linecap="round"/>
+  <path d="M${ix + col * 3} ${iy}v${iconSize}" stroke="${BRAND_FG}" stroke-width="${stroke}" stroke-linecap="round"/>`;
+}
+
+function readSvgOrDefault(filePath, fallback) {
+  if (fs.existsSync(filePath)) {
+    return fs.readFileSync(filePath, 'utf8');
+  }
+  return fallback;
 }
 
 const brandMarkSvg = `<?xml version="1.0" encoding="UTF-8"?>
@@ -101,23 +111,27 @@ async function svgToPng(svg, outPath, width, height) {
 
 async function main() {
   fs.mkdirSync(PWA, { recursive: true });
-  fs.writeFileSync(path.join(ROOT, 'favicon.svg'), faviconSvg);
-  fs.writeFileSync(path.join(PWA, 'brand-mark.svg'), brandMarkSvg);
+  const faviconPath = path.join(ROOT, 'favicon.svg');
+  const brandPath = path.join(PWA, 'brand-mark.svg');
+  const faviconSource = readSvgOrDefault(faviconPath, faviconSvg);
+  const brandSource = readSvgOrDefault(brandPath, brandMarkSvg);
+  if (!fs.existsSync(faviconPath)) fs.writeFileSync(faviconPath, faviconSource);
+  if (!fs.existsSync(brandPath)) fs.writeFileSync(brandPath, brandSource);
 
   const jobs = [
-    [brandMarkSvg, path.join(PWA, 'icon-192.png'), 192, 192],
-    [brandMarkSvg, path.join(PWA, 'icon-512.png'), 512, 512],
-    [brandMarkSvg, path.join(ROOT, 'icons', 'apple-touch-icon.png'), 180, 180],
+    [brandSource, path.join(PWA, 'icon-192.png'), 192, 192],
+    [brandSource, path.join(PWA, 'icon-512.png'), 512, 512],
+    [brandSource, path.join(ROOT, 'icons', 'apple-touch-icon.png'), 180, 180],
     [maskableSvg, path.join(PWA, 'icon-maskable-192.png'), 192, 192],
     [maskableSvg, path.join(PWA, 'icon-maskable-512.png'), 512, 512],
-    [brandMarkSvg, path.join(PWA, '1024.png'), 1024, 1024],
+    [brandSource, path.join(PWA, '1024.png'), 1024, 1024],
     [screenshotWideSvg(), path.join(PWA, 'screenshot-wide.png'), 1280, 720],
     [screenshotNarrowSvg(), path.join(PWA, 'screenshot-narrow.png'), 407, 904],
     [socialCardSvg(), path.join(PWA, 'social-card.png'), 1200, 630],
-    [faviconSvg, path.join(ROOT, 'favicon.png'), 32, 32],
-    [faviconSvg, path.join(ROOT, 'favicon-32.png'), 32, 32],
-    [brandMarkSvg, path.join(ROOT, 'icon-192.png'), 192, 192],
-    [brandMarkSvg, path.join(ROOT, 'icon-512.png'), 512, 512],
+    [faviconSource, path.join(ROOT, 'favicon.png'), 32, 32],
+    [faviconSource, path.join(ROOT, 'favicon-32.png'), 32, 32],
+    [brandSource, path.join(ROOT, 'icon-192.png'), 192, 192],
+    [brandSource, path.join(ROOT, 'icon-512.png'), 512, 512],
   ];
 
   for (const [svg, out, w, h] of jobs) {
