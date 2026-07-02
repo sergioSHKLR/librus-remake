@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* Generate PWA PNGs, screenshots, and social card from user logo or SVG sources. */
+/* Generate PWA PNGs from columns-4 brand SVGs (brand-mark.svg, favicon.svg). */
 const fs = require('fs');
 const path = require('path');
 const sharp = require('sharp');
@@ -12,13 +12,6 @@ const BRAND_BG = '#222222';
 const BRAND_FG = '#eeeeee';
 const FG = '#f5f5f5';
 const MUTED = '#8a8a8a';
-
-const LOGO_NAMES = [
-  'librus logo.svg',
-  'librus-logo.svg',
-  'librus logo.png',
-  'librus-logo.png',
-];
 
 function columns4Mark(tileX, tileY, tileSize, stroke) {
   const inset = tileSize * 0.18;
@@ -38,14 +31,6 @@ function readSvgOrDefault(filePath, fallback) {
     return fs.readFileSync(filePath, 'utf8');
   }
   return fallback;
-}
-
-function findUserLogo() {
-  for (const name of LOGO_NAMES) {
-    const candidate = path.join(PWA, name);
-    if (fs.existsSync(candidate)) return candidate;
-  }
-  return null;
 }
 
 const brandMarkSvg = `<?xml version="1.0" encoding="UTF-8"?>
@@ -124,79 +109,32 @@ async function svgToPng(svg, outPath, width, height) {
   await sharp(Buffer.from(svg)).resize(width, height).png().toFile(outPath);
 }
 
-function themeBackground() {
-  return { r: 51, g: 51, b: 51, alpha: 1 };
-}
-
-async function rasterLogo(outPath, width, height, options) {
-  const logo = findUserLogo();
-  if (!logo) return false;
-  const fit = options && options.fit ? options.fit : 'cover';
-  const background = options && options.background ? options.background : themeBackground();
-  await sharp(logo)
-    .resize(width, height, { fit: fit, background: background })
-    .png()
-    .toFile(outPath);
-  return true;
-}
-
-async function writeRasterOrSvg(outPath, width, height, svgSource, rasterOptions) {
-  if (await rasterLogo(outPath, width, height, rasterOptions)) {
-    return 'logo';
-  }
-  await svgToPng(svgSource, outPath, width, height);
-  return 'svg';
-}
-
 async function main() {
   fs.mkdirSync(PWA, { recursive: true });
   const faviconPath = path.join(ROOT, 'favicon.svg');
   const brandPath = path.join(PWA, 'brand-mark.svg');
-  const userLogo = findUserLogo();
   const faviconSource = readSvgOrDefault(faviconPath, faviconSvg);
   const brandSource = readSvgOrDefault(brandPath, brandMarkSvg);
   if (!fs.existsSync(faviconPath)) fs.writeFileSync(faviconPath, faviconSource);
   if (!fs.existsSync(brandPath)) fs.writeFileSync(brandPath, brandSource);
 
-  if (userLogo) {
-    console.log('using user logo:', path.relative(ROOT, userLogo));
-  }
-
-  const iconJobs = [
-    [path.join(PWA, 'icon-192.png'), 192, 192, brandSource, { fit: 'contain', background: themeBackground() }],
-    [path.join(PWA, 'icon-512.png'), 512, 512, brandSource, { fit: 'contain', background: themeBackground() }],
-    [path.join(ROOT, 'icons', 'apple-touch-icon.png'), 180, 180, brandSource, { fit: 'contain', background: themeBackground() }],
-    [path.join(PWA, 'icon-maskable-192.png'), 192, 192, maskableSvg, { fit: 'contain', background: themeBackground() }],
-    [path.join(PWA, 'icon-maskable-512.png'), 512, 512, maskableSvg, { fit: 'contain', background: themeBackground() }],
-    [path.join(PWA, '1024.png'), 1024, 1024, brandSource, { fit: 'contain', background: themeBackground() }],
-    [path.join(ROOT, 'icon-192.png'), 192, 192, brandSource, { fit: 'contain', background: themeBackground() }],
-    [path.join(ROOT, 'icon-512.png'), 512, 512, brandSource, { fit: 'contain', background: themeBackground() }],
-  ];
-
-  for (const [out, w, h, svg, opts] of iconJobs) {
-    const source = await writeRasterOrSvg(out, w, h, svg, opts);
-    console.log('wrote', path.relative(ROOT, out), '(' + source + ')');
-  }
-
-  const faviconJobs = [
-    [path.join(ROOT, 'favicon.png'), 32, 32],
-    [path.join(ROOT, 'favicon-32.png'), 32, 32],
-  ];
-  for (const [out, w, h] of faviconJobs) {
-    if (!(await rasterLogo(out, w, h, { fit: 'contain', background: themeBackground() }))) {
-      await svgToPng(faviconSource, out, w, h);
-      console.log('wrote', path.relative(ROOT, out), '(svg)');
-    } else {
-      console.log('wrote', path.relative(ROOT, out), '(logo)');
-    }
-  }
-
-  const promoJobs = [
+  const jobs = [
+    [brandSource, path.join(PWA, 'icon-192.png'), 192, 192],
+    [brandSource, path.join(PWA, 'icon-512.png'), 512, 512],
+    [brandSource, path.join(ROOT, 'icons', 'apple-touch-icon.png'), 180, 180],
+    [maskableSvg, path.join(PWA, 'icon-maskable-192.png'), 192, 192],
+    [maskableSvg, path.join(PWA, 'icon-maskable-512.png'), 512, 512],
+    [brandSource, path.join(PWA, '1024.png'), 1024, 1024],
     [screenshotWideSvg(), path.join(PWA, 'screenshot-wide.png'), 1280, 720],
     [screenshotNarrowSvg(), path.join(PWA, 'screenshot-narrow.png'), 407, 904],
     [socialCardSvg(), path.join(PWA, 'social-card.png'), 1200, 630],
+    [faviconSource, path.join(ROOT, 'favicon.png'), 32, 32],
+    [faviconSource, path.join(ROOT, 'favicon-32.png'), 32, 32],
+    [brandSource, path.join(ROOT, 'icon-192.png'), 192, 192],
+    [brandSource, path.join(ROOT, 'icon-512.png'), 512, 512],
   ];
-  for (const [svg, out, w, h] of promoJobs) {
+
+  for (const [svg, out, w, h] of jobs) {
     await svgToPng(svg, out, w, h);
     console.log('wrote', path.relative(ROOT, out));
   }

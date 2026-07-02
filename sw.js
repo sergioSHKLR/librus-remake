@@ -1,5 +1,5 @@
 /* Librus service worker | nano-SSG — bump CACHE_VERSION on each deploy. */
-const CACHE_VERSION = 'librus-v32-r27';
+const CACHE_VERSION = 'librus-v32-r28';
 
 const SHELL_ASSETS = [
   './index.html',
@@ -24,7 +24,7 @@ const SHELL_ASSETS = [
   './books/manifest.json',
   './icons/expand.svg',
   './images/vine.png',
-  './pwa/librus logo.png',
+  './pwa/brand-mark.svg',
 ];
 
 function stashInCache(cacheName, request, response) {

@@ -2,6 +2,14 @@
 
 Production deploy log for the `librus-remake` rewrite (major **32**).
 
+## V32-r28 — 2026-07-01 — Brand = columns-4 (not notebook PNG)
+
+**Build:** `v32-r28` · **Cache:** `librus-v32-r28`
+
+| Area | Change |
+|------|--------|
+| Brand | Topbar + PWA/favicon use columns-4 mark (`brand-mark.svg` / sprite), not `librus logo.png` |
+
 ## V32-r27 — 2026-07-01 — Two-row library topbar + user logo
 
 **Build:** `v32-r27` · **Cache:** `librus-v32-r27`
