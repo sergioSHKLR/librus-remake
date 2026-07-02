@@ -2,6 +2,14 @@
 
 Production deploy log for the `librus-remake` rewrite (major **32**).
 
+## V32-r25 — 2026-07-01 — Inverted brand icon
+
+**Build:** `v32-r25` · **Cache:** `librus-v32-r25`
+
+| Area | Change |
+|------|--------|
+| Brand | Inverted columns-4: `#eee` on `#222` pill (UI, favicon, PWA assets) |
+
 ## V32-r24 — 2026-07-01 — SW fix, brand #222, TOC icon
 
 **Build:** `v32-r24` · **Cache:** `librus-v32-r24`

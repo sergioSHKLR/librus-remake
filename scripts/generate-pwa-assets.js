@@ -8,8 +8,8 @@ const ROOT = path.join(__dirname, '..');
 const PWA = path.join(ROOT, 'pwa');
 
 const THEME = '#333333';
-const BRAND_BG = '#eeeeee';
-const BRAND_FG = '#222222';
+const BRAND_BG = '#222222';
+const BRAND_FG = '#eeeeee';
 const FG = '#f5f5f5';
 const MUTED = '#8a8a8a';
 
