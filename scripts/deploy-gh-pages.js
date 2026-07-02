@@ -22,7 +22,7 @@ const DEPLOY_EXCLUDE = new Set([
   'git',
 ]);
 
-const DEPLOY_EXCLUDE_FILE = /\.md$/i;
+const DEPLOY_EXCLUDE_FILE = /(?:\.md$|^Screenshot\b.*\.png$)/i;
 
 function run(cmd, opts) {
   console.log('$', cmd);
