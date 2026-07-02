@@ -1,5 +1,5 @@
 /* Librus service worker | nano-SSG — bump CACHE_VERSION on each deploy. */
-const CACHE_VERSION = 'librus-v32-r32';
+const CACHE_VERSION = 'librus-v32-r33';
 
 const SHELL_ASSETS = [
   './index.html',
