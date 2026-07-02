@@ -598,11 +598,9 @@ function coverStyleFromFrontmatter(meta) {
   return { bg: bg, fg: fg };
 }
 
-function inferAuthorFromBody(body, id) {
+function inferAuthorFromBody(body) {
   var authorLine = body.match(/^author:\s*(.+)$/im);
   if (authorLine) return authorLine[1].trim();
-  if (/^adv_/i.test(id)) return 'Arthur Conan Doyle';
-  if (/sherlock|watson|holmes/i.test(body.slice(0, 500))) return 'Arthur Conan Doyle';
   return 'Unknown Author';
 }
 
@@ -627,7 +625,7 @@ function parseBookMeta(filename, text) {
     if (h1) title = sanitizeDisplayTitle(h1[1].trim());
     else if (h2) title = sanitizeDisplayTitle(h2[1].trim());
   }
-  author = meta.author || inferAuthorFromBody(body, id);
+  author = meta.author || inferAuthorFromBody(body);
   var cover = coverStyleFromFrontmatter(meta);
   var order = chronologyFromFrontmatter(meta);
   return {
@@ -659,43 +657,12 @@ function bookMarkdownBody(book) {
   return parseFrontmatter(book.content).body;
 }
 
-const COVER_STYLE_CARD = { bg: '#ffffff', fg: '#1a1d21' };
-const COVER_STYLE_LEATHER = { bg: 'hsl(14, 38%, 24%)', fg: '#f5f0e8' };
-const COVER_STYLE_UNKNOWN = { bg: 'hsl(220, 18%, 28%)', fg: '#ffffff' };
-const COVER_STYLE_AUTHOR_PALETTE = [
-  COVER_STYLE_LEATHER,
-  COVER_STYLE_UNKNOWN,
-  { bg: 'hsl(155, 32%, 22%)', fg: '#f0f7f2' },
-  { bg: 'hsl(235, 40%, 24%)', fg: '#f0f2fa' },
-  { bg: 'hsl(350, 32%, 26%)', fg: '#faf0f2' },
-  { bg: 'hsl(30, 12%, 26%)', fg: '#f5f3f0' }
-];
-
-function hashAuthorKey(author) {
-  var key = (author || 'Unknown Author').trim().toLowerCase();
-  var hash = 0;
-  for (var i = 0; i < key.length; i++) {
-    hash = key.charCodeAt(i) + ((hash << 5) - hash);
-  }
-  return Math.abs(hash);
-}
-
-function coverStyleForAuthor(author) {
-  var name = (author || 'Unknown Author').trim();
-  if (/^arthur\s+conan\s+doyle$/i.test(name)) {
-    return COVER_STYLE_LEATHER;
-  }
-  if (!name || /^unknown\s+author$/i.test(name)) {
-    return COVER_STYLE_UNKNOWN;
-  }
-  var paletteStart = 2;
-  var idx = paletteStart + (hashAuthorKey(name) % (COVER_STYLE_AUTHOR_PALETTE.length - paletteStart));
-  return COVER_STYLE_AUTHOR_PALETTE[idx];
-}
-
 function applyCoverStyleToBook(book) {
-  book.coverBg = COVER_STYLE_CARD.bg;
-  book.coverFg = COVER_STYLE_CARD.fg;
+  if (!book) return book;
+  if (!book.coverBg && !book.coverFg) {
+    book.coverBg = '';
+    book.coverFg = '';
+  }
   return book;
 }
 
@@ -755,7 +722,7 @@ function bundledTocPath(filename) {
 function stubBookFromFilename(filename, manifestIndex) {
   var id = slugFromFilename(filename);
   var entry = manifestEntryForFile(filename) || {};
-  var author = entry.author || (/^adv_/i.test(id) ? 'Arthur Conan Doyle' : 'Unknown Author');
+  var author = entry.author || 'Unknown Author';
   var book = {
     id: id,
     title: entry.title || titleFromSlug(id),
@@ -935,19 +902,23 @@ function renderLibraryGrid() {
     card.dataset.bookId = book.id;
     card.setAttribute('tabindex', '0');
 
-var cover = document.createElement('div');
-cover.className = 'library-grid-cover';
+    var cover = document.createElement('div');
+    cover.className = 'library-grid-cover';
+    if (book.coverBg) cover.style.background = book.coverBg;
+    if (book.coverFg) cover.style.color = book.coverFg;
 
-var titleEl = document.createElement('span');
-titleEl.className = 'library-grid-cover-title';
-titleEl.textContent = cleanBookTitle(sanitizeDisplayTitle(book.title));
+    var titleEl = document.createElement('span');
+    titleEl.className = 'library-grid-cover-title';
+    titleEl.textContent = cleanBookTitle(sanitizeDisplayTitle(book.title));
+    if (book.coverFg) titleEl.style.color = book.coverFg;
 
-var authorEl = document.createElement('span');
-authorEl.className = 'library-grid-cover-author';
-authorEl.textContent = book.author || 'Arthur Conan Doyle';
+    var authorEl = document.createElement('span');
+    authorEl.className = 'library-grid-cover-author';
+    authorEl.textContent = book.author || '';
+    if (book.coverFg) authorEl.style.color = book.coverFg;
 
-cover.appendChild(titleEl);
-cover.appendChild(authorEl);
+    cover.appendChild(titleEl);
+    cover.appendChild(authorEl);
 
     // DELETE BUTTON
     var deleteBtn = document.createElement('button');
