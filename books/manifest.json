@@ -1,5 +1,16 @@
 {
-  "builtAt": "2026-07-02T07:37:16.148Z",
-  "files": [],
-  "entries": {}
+  "builtAt": "2026-07-02T07:48:02.305Z",
+  "files": [
+    "mars_welcome_onboarding.md"
+  ],
+  "entries": {
+    "mars_welcome_onboarding.md": {
+      "title": "Welcome to Mars!",
+      "author": "Mars Colonial Authority — Personnel Division",
+      "order": 1,
+      "lang": "en-US",
+      "html": "mars_welcome_onboarding.html",
+      "toc": "mars_welcome_onboarding.toc.json"
+    }
+  }
 }

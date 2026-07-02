@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-label="Memorial to the First Generation">
+  <rect width="640" height="280" fill="#12080c"/>
+  <rect x="24" y="24" width="592" height="232" rx="8" fill="#1c1014" stroke="#8b1c2e" stroke-width="2"/>
+  <rect x="40" y="48" width="4" height="184" fill="#c41e3a"/>
+  <text x="58" y="78" fill="#f2e8ea" font-family="Georgia, serif" font-size="22">In remembrance of the First Generation</text>
+  <text x="58" y="108" fill="#b8a0a8" font-family="system-ui, sans-serif" font-size="13">Landers who reached Mars and did not return to Earth</text>
+  <g fill="#c9a227" opacity="0.9">
+    <polygon points="120,200 128,176 136,200"/>
+    <polygon points="200,200 208,168 216,200"/>
+    <polygon points="280,200 288,182 296,200"/>
+    <polygon points="360,200 368,160 376,200"/>
+    <polygon points="440,200 448,172 456,200"/>
+    <polygon points="520,200 528,186 536,200"/>
+  </g>
+  <text x="58" y="220" fill="#9a8088" font-family="system-ui, sans-serif" font-size="12" font-style="italic">Their sacrifice secured the beachhead. Your duty is to endure.</text>
+</svg>

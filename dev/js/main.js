@@ -1330,6 +1330,7 @@ function openEmptyReader() {
   readerTitleEl.textContent = 'Select a book';
   readerTitleEl.title = '';
   var viewport = document.getElementById('main-text-viewport');
+  delete viewport.dataset.bookId;
   viewport.replaceChildren();
   viewport.insertAdjacentHTML(
     'afterbegin',
@@ -1374,6 +1375,7 @@ function loadBook(book, skipPersist) {
   readerTitleEl.title = displayTitle;
   var parsed = parseBookForReader(book);
   var viewport = document.getElementById('main-text-viewport');
+  viewport.dataset.bookId = book.id;
   viewport.replaceChildren();
   viewport.insertAdjacentHTML('afterbegin', parsed.html);
   var scrollEl = readerMainScrollEl();

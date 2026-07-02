@@ -420,3 +420,21 @@ mark.reader-search-hit.is-current {
 .library-settings-title {
   color: var(--text-primary);
 }
+
+#main-text-viewport[data-book-id="mars_welcome_onboarding"] {
+  border-left: 0.25rem solid #c41e3a;
+  padding-left: calc(var(--reader-prose-padding) + 0.4rem);
+  background: color-mix(in srgb, #c41e3a 3%, var(--bg-primary));
+}
+
+.md-block--briefing {
+  background: color-mix(in srgb, #c41e3a 8%, var(--bg-primary));
+  border-left-color: #c41e3a;
+}
+
+#main-text-viewport[data-book-id="mars_welcome_onboarding"] .md-block--box {
+  border-left: 0.25rem solid #c41e3a;
+  background: color-mix(in srgb, #c41e3a 6%, var(--bg-primary));
+  border-radius: 0 var(--radius) var(--radius) 0;
+  text-align: left;
+}

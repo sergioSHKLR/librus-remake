@@ -1190,6 +1190,7 @@ mark.reader-search-hit.is-current {
 .md-block {
   margin: var(--padding) 0;
   padding: var(--padding) var(--padding);
+  border-left: 0.25rem solid var(--border-color);
   border-radius: 0 var(--radius) var(--radius) 0;
 }
 
