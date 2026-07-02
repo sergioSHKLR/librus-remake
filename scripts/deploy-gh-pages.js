@@ -19,6 +19,7 @@ const DEPLOY_EXCLUDE = new Set([
   'package-lock.json',
   'README,md',
   'scripts',
+  'git',
 ]);
 
 const DEPLOY_EXCLUDE_FILE = /\.md$/i;
@@ -116,6 +117,10 @@ function main() {
   injectBaseHref(path.join(devDir, 'index.html'), DEV_BASE);
 
   const buildId = readBuildId();
+  const worktreeGit = path.join(WORKTREE, '.git');
+  if (!fs.existsSync(worktreeGit)) {
+    throw new Error('gh-pages worktree .git pointer missing at ' + worktreeGit);
+  }
   run('git add -A', { cwd: WORKTREE });
   try {
     run('git commit -m "deploy ' + buildId + ': prod root + dev subpath"', { cwd: WORKTREE });

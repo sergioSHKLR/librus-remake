@@ -1,5 +1,5 @@
 /* Librus service worker | nano-SSG — bump CACHE_VERSION on each deploy. */
-const CACHE_VERSION = 'librus-v32-r22';
+const CACHE_VERSION = 'librus-v32-r24';
 
 const SHELL_ASSETS = [
   './index.html',
@@ -89,14 +89,24 @@ function fetchGeocode(query) {
   });
 }
 
+function asResponse(value) {
+  return value instanceof Response ? value : Response.error();
+}
+
+function matchCached(request) {
+  return caches.match(request, { ignoreSearch: true });
+}
+
 function cacheFirst(request) {
-  return caches.match(request, { ignoreSearch: true }).then(function (cached) {
+  return matchCached(request).then(function (cached) {
     if (cached) return cached;
     return fetch(request).then(function (response) {
       if (response && response.ok) stashInCache(CACHE_VERSION, request, response);
       return response;
+    }).catch(function () {
+      return matchCached(request);
     });
-  });
+  }).then(asResponse);
 }
 
 function networkFirst(request) {
@@ -117,8 +127,8 @@ function networkFirst(request) {
     stashInCache(CACHE_VERSION, request, response);
     return response;
   }).catch(function () {
-    return caches.match(request, { ignoreSearch: true });
-  });
+    return matchCached(request);
+  }).then(asResponse);
 }
 
 self.addEventListener('install', function (event) {

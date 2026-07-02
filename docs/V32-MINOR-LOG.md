@@ -2,6 +2,17 @@
 
 Production deploy log for the `librus-remake` rewrite (major **32**).
 
+## V32-r24 — 2026-07-01 — SW fix, brand #222, TOC icon
+
+**Build:** `v32-r24` · **Cache:** `librus-v32-r24`
+
+| Area | Change |
+|------|--------|
+| SW | `cacheFirst` / `networkFirst` always resolve to `Response` (fixes offline PDF TypeError) |
+| Brand | columns-4 foreground `#222` on `#eee` pill (UI, favicon, PWA SVGs) |
+| Icons | TOC toggle: Lucide `list` → `table-of-contents` |
+| Deploy | Exclude stray root `git` file so gh-pages worktree stays valid |
+
 ## V32-r22 — 2026-07-01 — Icons, enlarged brand, offline PDF viewer
 
 **Build:** `v32-r22` · **Cache:** `librus-v32-r22`
