@@ -2,7 +2,7 @@
 (function () {
   var APP_NAME = 'LIBRUS';
   const APP_VERSION = 'v.32';
-  const BUILD_ID = 'v32-r33';   // ← bump this on every change
+  const BUILD_ID = 'v32-r34';   // ← bump this on every change
 
   var waitingWorker = null;
   var registrationRef = null;
