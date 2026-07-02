@@ -235,8 +235,8 @@ textarea {
   color: var(--topbar-fg);
 }
 
-.library-grid-filter {
-  border-bottom: 1px solid var(--border-color);
+.library-grid-filter,
+#library-topbar .library-topbar-secondary {
   background: var(--library-toolbar-bg);
   color: var(--library-toolbar-fg);
 }

@@ -3667,8 +3667,15 @@ function bindNotesListeners() {
 // =========================================================================
 // V31-260617s/r | SECTION 19: BOOTSTRAP
 // =========================================================================
+function syncBrandLogo() {
+  var logo = document.getElementById('library-topbar-logo');
+  if (!logo || typeof librusPath !== 'function') return;
+  logo.src = librusPath('pwa/librus logo.png');
+}
+
 async function initApp() {
   defaultReaderHtml = document.getElementById('main-text-viewport').innerHTML;
+  syncBrandLogo();
   bindAllListeners();
   initAppUpdateStatus();
   syncBrandVersion();
