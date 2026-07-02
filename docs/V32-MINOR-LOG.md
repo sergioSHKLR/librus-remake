@@ -2,6 +2,17 @@
 
 Production deploy log for the `librus-remake` rewrite (major **32**).
 
+## V32-r29 — 2026-07-01 — Brand scale, CSS trim, centered filter
+
+**Build:** `v32-r29` · **Cache:** `librus-v32-r29`
+
+| Area | Change |
+|------|--------|
+| Brand | Single `#222` canvas, enlarged columns-4; topbar icon fills 2rem (no extra pill) |
+| PWA | Favicon/maskable mark ~85% of tile (was triple-nested + 18% inset) |
+| CSS | Merged highlight vars; dropped accent/topbar-icon aliases |
+| Layout | Library filter centered on landscape (`--library-filter-max-width`) |
+
 ## V32-r28 — 2026-07-01 — Brand = columns-4 (not notebook PNG)
 
 **Build:** `v32-r28` · **Cache:** `librus-v32-r28`

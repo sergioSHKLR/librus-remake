@@ -559,17 +559,6 @@ textarea:focus-visible {
   min-width: 0;
 }
 
-#library-topbar .library-grid-filter {
-  justify-content: flex-start;
-}
-
-#library-topbar .library-grid-filter .input-clearable,
-#library-topbar #library-filter {
-  flex: 1 1 auto;
-  width: auto;
-  max-width: none;
-}
-
 .library-grid-filter-icon {
   flex-shrink: 0;
 }

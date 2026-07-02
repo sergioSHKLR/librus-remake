@@ -1,7 +1,8 @@
-/* Colors — theme tokens derived from --theme-base (#333) */
+/* Colors — theme tokens derived from --theme-base (#222) */
 
 :root {
-  --theme-base: #222;
+  --theme-base: #222222;
+  --brand-fg: #eeeeee;
   --led-green: #34c759;
   --led-orange: #ff9f0a;
   --led-red: #ff453a;
@@ -18,7 +19,6 @@ body.theme--light {
   --topbar-bg: var(--theme-base);
   --topbar-fg: #f5f5f5;
   --topbar-border: color-mix(in srgb, var(--theme-base) 82%, #ffffff);
-  --topbar-icon-color: var(--topbar-fg);
   --bg-primary: #ffffff;
   --bg-secondary: #eeeeee;
   --bg-chrome: #eeeeee;
@@ -27,9 +27,6 @@ body.theme--light {
   --text-muted: #5e5e5e;
   --library-toolbar-bg: var(--bg-chrome);
   --library-toolbar-fg: var(--text-primary);
-  --accent-color: color-mix(in srgb, var(--theme-base) 30%, #222);
-  --accent-hover: color-mix(in srgb, var(--accent-color) 88%, #000000);
-  --accent-on: #ffffff;
   --input-bg: #ffffff;
   --input-border: var(--border-color);
   --panel-toc-bg: var(--bg-chrome);
@@ -45,10 +42,8 @@ body.theme--light {
   --note-card-with-body-bg: #e8f4fd;
   --note-quote-bg: color-mix(in srgb, var(--panel-yellow-accent) 14%, var(--bg-secondary));
   --highlight-note-bg: #a5d6ff;
-  --highlight-yellow-bg: #fff44f;
-  --highlight-blue-bg: #77c9ff;
-  --highlight-yellow-mark: #fff44f;
-  --highlight-blue-mark: #a5d6ff;
+  --highlight-yellow: #fff44f;
+  --highlight-blue: #a5d6ff;
 }
 
 body.theme--dark {
@@ -56,7 +51,6 @@ body.theme--dark {
   --topbar-bg: var(--theme-base);
   --topbar-fg: #f0f0f0;
   --topbar-border: color-mix(in srgb, var(--theme-base) 70%, #666666);
-  --topbar-icon-color: var(--topbar-fg);
   --bg-primary: color-mix(in srgb, var(--theme-base) 88%, #000000);
   --bg-secondary: color-mix(in srgb, var(--theme-base) 78%, #0a0a0a);
   --bg-chrome: color-mix(in srgb, var(--theme-base) 62%, #3a3a3a);
@@ -65,9 +59,6 @@ body.theme--dark {
   --text-muted: #a8a8a8;
   --library-toolbar-bg: var(--bg-chrome);
   --library-toolbar-fg: var(--text-primary);
-  --accent-color: color-mix(in srgb, var(--theme-base) 40%, #6b9e82);
-  --accent-hover: color-mix(in srgb, var(--accent-color) 90%, #ffffff);
-  --accent-on: #111111;
   --input-bg: color-mix(in srgb, var(--theme-base) 75%, #1a1a1a);
   --input-border: var(--border-color);
   --panel-toc-bg: var(--bg-chrome);
@@ -83,10 +74,8 @@ body.theme--dark {
   --note-card-with-body-bg: color-mix(in srgb, var(--bg-chrome) 50%, #2a4a62);
   --note-quote-bg: color-mix(in srgb, var(--bg-chrome) 75%, #3d3500);
   --highlight-note-bg: color-mix(in srgb, #2a6a9e 42%, var(--bg-chrome));
-  --highlight-yellow-bg: #6b5a12;
-  --highlight-blue-bg: #1a4a68;
-  --highlight-yellow-mark: #7a6818;
-  --highlight-blue-mark: color-mix(in srgb, #3a8fd4 48%, var(--bg-chrome));
+  --highlight-yellow: #7a6818;
+  --highlight-blue: color-mix(in srgb, #3a8fd4 48%, var(--bg-chrome));
 }
 
 @media (prefers-color-scheme: light) {
@@ -95,7 +84,6 @@ body.theme--dark {
     --topbar-bg: var(--theme-base);
     --topbar-fg: #f5f5f5;
     --topbar-border: color-mix(in srgb, var(--theme-base) 82%, #ffffff);
-    --topbar-icon-color: var(--topbar-fg);
     --bg-primary: #ffffff;
     --bg-secondary: #eeeeee;
     --bg-chrome: #eeeeee;
@@ -104,9 +92,6 @@ body.theme--dark {
     --text-muted: #5e5e5e;
     --library-toolbar-bg: var(--bg-chrome);
     --library-toolbar-fg: var(--text-primary);
-    --accent-color: color-mix(in srgb, var(--theme-base) 30%, #3d7a5a);
-    --accent-hover: color-mix(in srgb, var(--accent-color) 88%, #000000);
-    --accent-on: #ffffff;
     --input-bg: #ffffff;
     --input-border: var(--border-color);
     --panel-toc-bg: var(--bg-chrome);
@@ -122,10 +107,8 @@ body.theme--dark {
     --note-card-with-body-bg: #e8f4fd;
     --note-quote-bg: color-mix(in srgb, var(--panel-yellow-accent) 14%, var(--bg-secondary));
     --highlight-note-bg: #a5d6ff;
-    --highlight-yellow-bg: #fff44f;
-    --highlight-blue-bg: #77c9ff;
-    --highlight-yellow-mark: #fff44f;
-    --highlight-blue-mark: #a5d6ff;
+    --highlight-yellow: #fff44f;
+    --highlight-blue: #a5d6ff;
   }
 }
 
@@ -135,7 +118,6 @@ body.theme--dark {
     --topbar-bg: var(--theme-base);
     --topbar-fg: #f0f0f0;
     --topbar-border: color-mix(in srgb, var(--theme-base) 70%, #666666);
-    --topbar-icon-color: var(--topbar-fg);
     --bg-primary: color-mix(in srgb, var(--theme-base) 88%, #000000);
     --bg-secondary: color-mix(in srgb, var(--theme-base) 78%, #0a0a0a);
     --bg-chrome: color-mix(in srgb, var(--theme-base) 62%, #3a3a3a);
@@ -144,9 +126,6 @@ body.theme--dark {
     --text-muted: #a8a8a8;
     --library-toolbar-bg: var(--bg-chrome);
     --library-toolbar-fg: var(--text-primary);
-    --accent-color: color-mix(in srgb, var(--theme-base) 40%, #6b9e82);
-    --accent-hover: color-mix(in srgb, var(--accent-color) 90%, #ffffff);
-    --accent-on: #111111;
     --input-bg: color-mix(in srgb, var(--theme-base) 75%, #1a1a1a);
     --input-border: var(--border-color);
     --panel-toc-bg: var(--bg-chrome);
@@ -162,10 +141,8 @@ body.theme--dark {
     --note-card-with-body-bg: color-mix(in srgb, var(--bg-chrome) 50%, #2a4a62);
     --note-quote-bg: color-mix(in srgb, var(--bg-chrome) 75%, #3d3500);
     --highlight-note-bg: color-mix(in srgb, #2a6a9e 42%, var(--bg-chrome));
-    --highlight-yellow-bg: #6b5a12;
-    --highlight-blue-bg: #1a4a68;
-    --highlight-yellow-mark: #7a6818;
-    --highlight-blue-mark: color-mix(in srgb, #3a8fd4 48%, var(--bg-chrome));
+    --highlight-yellow: #7a6818;
+    --highlight-blue: color-mix(in srgb, #3a8fd4 48%, var(--bg-chrome));
   }
 }
 
@@ -180,7 +157,7 @@ body {
 }
 
 .topbar .icon-btn {
-  color: var(--topbar-icon-color);
+  color: var(--topbar-fg);
 }
 
 .toolbar {
@@ -310,21 +287,21 @@ mark.reader-search-hit.is-current {
 }
 
 ::highlight(librus-highlight-yellow) {
-  background-color: var(--highlight-yellow-bg);
+  background-color: var(--highlight-yellow);
   color: inherit;
 }
 
 ::highlight(librus-highlight-blue) {
-  background-color: var(--highlight-blue-bg);
+  background-color: var(--highlight-blue);
   color: inherit;
 }
 
 .librus-highlight--yellow {
-  background-color: var(--highlight-yellow-mark) !important;
+  background-color: var(--highlight-yellow) !important;
 }
 
 .librus-highlight--blue {
-  background-color: var(--highlight-blue-mark) !important;
+  background-color: var(--highlight-blue) !important;
 }
 
 .librus-highlight[data-note] {
