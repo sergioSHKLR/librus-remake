@@ -18,10 +18,10 @@
   overflow: hidden;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 90% 60% at 15% 25%, rgba(40, 12, 62, 0.12), transparent 68%),
-    radial-gradient(ellipse 70% 55% at 82% 68%, rgba(12, 28, 72, 0.12), transparent 70%),
-    radial-gradient(ellipse 55% 40% at 48% 88%, rgba(32, 10, 58, 0.08), transparent 65%),
-    linear-gradient(165deg, #050508 0%, #080612 38%, #050810 72%, #03040a 100%);
+    radial-gradient(ellipse 90% 60% at 15% 25%, rgba(62, 18, 98, 0.18), transparent 68%),
+    radial-gradient(ellipse 70% 55% at 82% 68%, rgba(18, 42, 108, 0.17), transparent 70%),
+    radial-gradient(ellipse 55% 40% at 48% 88%, rgba(48, 14, 82, 0.12), transparent 65%),
+    linear-gradient(165deg, #050508 0%, #09071a 38%, #060a18 72%, #03040a 100%);
 }
 
 .space-nebula {
@@ -36,9 +36,9 @@
   height: min(52vw, 28rem);
   top: 8%;
   left: -8%;
-  opacity: 0.32;
-  background: radial-gradient(circle, rgba(58, 18, 92, 0.28) 0%, rgba(32, 10, 58, 0.1) 42%, transparent 72%);
-  animation: space-nebula-drift-a 140s ease-in-out infinite alternate;
+  opacity: 0.42;
+  background: radial-gradient(circle, rgba(88, 28, 142, 0.34) 0%, rgba(48, 14, 82, 0.14) 42%, transparent 72%);
+  animation: space-nebula-drift-a 240s ease-in-out infinite alternate;
 }
 
 .space-nebula--blue {
@@ -46,9 +46,9 @@
   height: min(48vw, 24rem);
   right: -10%;
   bottom: 6%;
-  opacity: 0.3;
-  background: radial-gradient(circle, rgba(22, 48, 110, 0.26) 0%, rgba(12, 28, 72, 0.09) 45%, transparent 74%);
-  animation: space-nebula-drift-b 180s ease-in-out infinite alternate;
+  opacity: 0.38;
+  background: radial-gradient(circle, rgba(36, 72, 158, 0.32) 0%, rgba(18, 42, 108, 0.13) 45%, transparent 74%);
+  animation: space-nebula-drift-b 300s ease-in-out infinite alternate;
 }
 
 .space-stars {
@@ -70,8 +70,8 @@
     radial-gradient(1.5px 1.5px at 340px 150px, rgba(220, 230, 255, 0.65), transparent);
   background-size: 360px 360px;
   animation:
-    space-stars-rotate-a 420s linear infinite,
-    space-stars-twinkle-a 14s ease-in-out infinite;
+    space-stars-rotate-a 720s linear infinite,
+    space-stars-twinkle-a 24s ease-in-out infinite;
 }
 
 .space-stars--mid {
@@ -84,8 +84,8 @@
     radial-gradient(1px 1px at 50px 200px, rgba(255, 255, 255, 0.45), transparent);
   background-size: 320px 320px;
   animation:
-    space-stars-rotate-b 300s linear infinite reverse,
-    space-stars-twinkle-b 11s ease-in-out infinite;
+    space-stars-rotate-b 540s linear infinite reverse,
+    space-stars-twinkle-b 19s ease-in-out infinite;
 }
 
 .space-stars--near {
@@ -96,8 +96,8 @@
     radial-gradient(2px 2px at 260px 30px, rgba(230, 240, 255, 0.85), transparent);
   background-size: 280px 280px;
   animation:
-    space-stars-rotate-c 220s linear infinite,
-    space-stars-twinkle-c 9s ease-in-out infinite;
+    space-stars-rotate-c 400s linear infinite,
+    space-stars-twinkle-c 16s ease-in-out infinite;
 }
 
 .library-grid,
