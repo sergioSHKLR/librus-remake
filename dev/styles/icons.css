@@ -44,9 +44,9 @@ svg.icon-btn-glyph {
   justify-content: center;
   width: 2.25rem;
   height: 2.25rem;
-  background: #eeeeee;
+  background: #222222;
   border-radius: 0.5rem;
-  color: #222222;
+  color: #eeeeee;
   flex-shrink: 0;
 }
 
