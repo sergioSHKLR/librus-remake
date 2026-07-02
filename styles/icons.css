@@ -38,20 +38,27 @@ svg.icon-btn-glyph {
   height: 2.25rem;
 }
 
+.topbar .icon-btn .icon,
+.topbar .icon-btn-glyph,
+.topbar .library-grid-filter-icon,
+.topbar .icon-brand-logo {
+  width: var(--topbar-icon-size, 1.75rem);
+  height: var(--topbar-icon-size, 1.75rem);
+}
+
 .icon-brand-wrap {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2.25rem;
-  height: 2.25rem;
+  width: var(--topbar-icon-size, 1.75rem);
+  height: var(--topbar-icon-size, 1.75rem);
   background: transparent;
-  color: var(--topbar-fg);
   flex-shrink: 0;
 }
 
-.icon-brand-wrap .icon {
-  width: 2.25rem;
-  height: 2.25rem;
+.icon-brand-logo {
+  display: block;
+  object-fit: contain;
 }
 
 .md-block-expand-icon {
@@ -79,7 +86,3 @@ svg.icon-btn-glyph {
   color: #eeeeee;
 }
 
-.floating-github .icon {
-  width: 2.25rem;
-  height: 2.25rem;
-}

@@ -9,7 +9,8 @@
   --library-chrome-height: calc(var(--topbar-height) + var(--library-topbar-secondary-height));
   --btn-size: 3.5rem;
   --btn-size-sm: 2.75rem;
-  --icon-btn-glyph-size: 1.75rem;
+  --topbar-icon-size: 1.75rem;
+  --icon-btn-glyph-size: var(--topbar-icon-size);
   --toc-width: 18.75rem;
   --toc-inset-inline: 0.625rem;
   --notes-width: 22.5rem;
@@ -279,7 +280,6 @@ textarea:focus-visible {
   padding: 0 var(--padding);
   gap: var(--gap);
   flex-shrink: 0;
-  border-top: 0.0625rem solid var(--topbar-border);
 }
 
 .topbar {

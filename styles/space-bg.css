@@ -1,0 +1,167 @@
+/* Library deep-space background — pure CSS, slow drift */
+
+#library {
+  background: #050508;
+}
+
+.library-body {
+  position: relative;
+  isolation: isolate;
+}
+
+.library-space-bg {
+  grid-row: 1;
+  grid-column: 1;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 90% 60% at 15% 25%, rgba(88, 28, 135, 0.22), transparent 68%),
+    radial-gradient(ellipse 70% 55% at 82% 68%, rgba(30, 64, 175, 0.24), transparent 70%),
+    radial-gradient(ellipse 55% 40% at 48% 88%, rgba(76, 29, 149, 0.16), transparent 65%),
+    linear-gradient(165deg, #050508 0%, #0a0618 38%, #060a14 72%, #03040a 100%);
+}
+
+.space-nebula {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(52px);
+  opacity: 0.55;
+  will-change: transform;
+}
+
+.space-nebula--purple {
+  width: min(70vw, 36rem);
+  height: min(52vw, 28rem);
+  top: 8%;
+  left: -8%;
+  background: radial-gradient(circle, rgba(147, 51, 234, 0.42) 0%, rgba(88, 28, 135, 0.18) 42%, transparent 72%);
+  animation: space-nebula-drift-a 140s ease-in-out infinite alternate;
+}
+
+.space-nebula--blue {
+  width: min(62vw, 32rem);
+  height: min(48vw, 24rem);
+  right: -10%;
+  bottom: 6%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.38) 0%, rgba(30, 58, 138, 0.16) 45%, transparent 74%);
+  animation: space-nebula-drift-b 180s ease-in-out infinite alternate;
+}
+
+.space-stars {
+  position: absolute;
+  inset: -50%;
+  opacity: 0.85;
+  background-repeat: repeat;
+  will-change: transform;
+}
+
+.space-stars--far {
+  background-image:
+    radial-gradient(1px 1px at 25px 35px, rgba(255, 255, 255, 0.55), transparent),
+    radial-gradient(1px 1px at 85px 120px, rgba(255, 255, 255, 0.35), transparent),
+    radial-gradient(1px 1px at 145px 65px, rgba(255, 255, 255, 0.45), transparent),
+    radial-gradient(1px 1px at 210px 180px, rgba(255, 255, 255, 0.3), transparent),
+    radial-gradient(1px 1px at 280px 40px, rgba(255, 255, 255, 0.5), transparent),
+    radial-gradient(1.5px 1.5px at 340px 150px, rgba(220, 230, 255, 0.65), transparent);
+  background-size: 360px 360px;
+  animation: space-stars-drift-a 240s linear infinite;
+}
+
+.space-stars--mid {
+  opacity: 0.65;
+  background-image:
+    radial-gradient(1.5px 1.5px at 40px 90px, rgba(255, 255, 255, 0.75), transparent),
+    radial-gradient(1px 1px at 120px 30px, rgba(255, 255, 255, 0.5), transparent),
+    radial-gradient(1px 1px at 200px 140px, rgba(255, 255, 255, 0.4), transparent),
+    radial-gradient(2px 2px at 290px 70px, rgba(210, 225, 255, 0.8), transparent),
+    radial-gradient(1px 1px at 50px 200px, rgba(255, 255, 255, 0.45), transparent);
+  background-size: 320px 320px;
+  animation: space-stars-drift-b 160s linear infinite reverse;
+}
+
+.space-stars--near {
+  opacity: 0.4;
+  background-image:
+    radial-gradient(2px 2px at 60px 50px, rgba(255, 255, 255, 0.9), transparent),
+    radial-gradient(1.5px 1.5px at 170px 110px, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(2px 2px at 260px 30px, rgba(230, 240, 255, 0.85), transparent);
+  background-size: 280px 280px;
+  animation: space-stars-drift-c 100s linear infinite;
+}
+
+.space-shooting-star {
+  position: absolute;
+  top: 18%;
+  left: -12%;
+  width: 7rem;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.15) 35%, rgba(255, 255, 255, 0.95) 100%);
+  transform: rotate(-32deg);
+  opacity: 0;
+  filter: drop-shadow(0 0 6px rgba(180, 210, 255, 0.8));
+  animation: space-shooting-star 22s ease-in-out infinite;
+}
+
+.library-grid,
+.library-grid-empty {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+}
+
+.library-grid-empty {
+  color: rgba(245, 245, 255, 0.82);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.55);
+}
+
+@keyframes space-nebula-drift-a {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(6%, 4%) scale(1.06); }
+  100% { transform: translate(-4%, 7%) scale(0.96); }
+}
+
+@keyframes space-nebula-drift-b {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-7%, -5%) scale(1.08); }
+  100% { transform: translate(5%, -3%) scale(0.94); }
+}
+
+@keyframes space-stars-drift-a {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-360px, -180px, 0); }
+}
+
+@keyframes space-stars-drift-b {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(320px, 160px, 0); }
+}
+
+@keyframes space-stars-drift-c {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-280px, 120px, 0); }
+}
+
+@keyframes space-shooting-star {
+  0%, 86%, 100% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) rotate(-32deg);
+  }
+  88% { opacity: 1; }
+  94% {
+    opacity: 1;
+    transform: translate3d(115vw, 42vh, 0) rotate(-32deg);
+  }
+  96% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .space-nebula,
+  .space-stars,
+  .space-shooting-star {
+    animation: none !important;
+  }
+}

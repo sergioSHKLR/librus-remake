@@ -40,12 +40,13 @@
   <link rel="shortcut icon" href="favicon.png">
 
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-  <meta name="theme-color" content="#222222">
+  <meta name="theme-color" content="#111111">
 
   <link rel="stylesheet" href="styles/layout-opt.css">
   <link rel="stylesheet" href="styles/fonts-opt.css">
   <link rel="stylesheet" href="styles/colors-opt.css">
   <link rel="stylesheet" href="styles/icons.css">
+  <link rel="stylesheet" href="styles/space-bg.css">
 
   <link rel="manifest" href="manifest.webmanifest">
   <script src="js/base-path.js"></script>
@@ -73,7 +74,7 @@
           </div>
           <div class="library-topbar-center">
             <div class="library-topbar-brand">
-              <span class="icon-brand-wrap" aria-hidden="true"><svg class="icon"><use href="icons/sprite.svg#columns-4"/></svg></span>
+              <span class="icon-brand-wrap" aria-hidden="true"><img class="icon-brand-logo" src="pwa/librus-logo-transparent.png" width="28" height="28" alt=""></span>
               <div class="library-topbar-brand-title">LIBRUS</div>
               <div class="app-meta" id="app-version-meta" title="Deployed build">
                 <span class="u-sr-only" id="app-status-led-label">Up to date and online</span>
@@ -93,13 +94,21 @@
           </div>
         </div>
         <div class="library-topbar-secondary library-grid-filter">
-          <svg class="icon icon--md library-grid-filter-icon" aria-hidden="true"><use href="icons/sprite.svg#list-filter"/></svg>
+          <svg class="icon library-grid-filter-icon" aria-hidden="true"><use href="icons/sprite.svg#list-filter"/></svg>
           <label for="library-filter" class="u-sr-only">Filter library</label>
           <input type="text" id="library-filter" placeholder="type to filter…">
         </div>
       </header>
       <!-- BLOCK 05: LIBRARY-BODY | V31-260617s/a — DYNAMIC BOOK GRID -->
       <div class="library-body" id="library-body">
+        <div class="library-space-bg" aria-hidden="true">
+          <div class="space-nebula space-nebula--purple"></div>
+          <div class="space-nebula space-nebula--blue"></div>
+          <div class="space-stars space-stars--far"></div>
+          <div class="space-stars space-stars--mid"></div>
+          <div class="space-stars space-stars--near"></div>
+          <div class="space-shooting-star"></div>
+        </div>
         <div class="library-grid" id="book-grid" aria-live="polite"></div>
         <p class="library-grid-empty is-hidden" id="library-grid-empty">No books match. Restore hidden titles in
           Settings.</p>
