@@ -2,6 +2,17 @@
 
 Production deploy log for the `librus-remake` rewrite (major **32**).
 
+## V32-r26 — 2026-07-01 — Cleanup, dark notes, user logo, btn-wide
+
+**Build:** `v32-r26` · **Cache:** `librus-v32-r26`
+
+| Area | Change |
+|------|--------|
+| Books | Removed stress-test `lde` book |
+| UI | `.btn-wide` uses `--theme-base` (no green accent) |
+| Dark | Note cards, highlights, quote preview use theme tokens |
+| PWA | `pwa/librus logo.png` preferred for icon/favicon PNG generation |
+
 ## V32-r25 — 2026-07-01 — Inverted brand icon
 
 **Build:** `v32-r25` · **Cache:** `librus-v32-r25`

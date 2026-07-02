@@ -327,9 +327,12 @@
   var mark = document.createElement('mark');
   mark.className = 'librus-highlight';
   if (annotation.motivation === 'highlighting' && !annotation.body) {
-   mark.style.backgroundColor = '#fff44f';
+   mark.classList.add('librus-highlight--yellow');
   } else {
-   mark.style.backgroundColor = '#77c9ff';
+   mark.classList.add('librus-highlight--blue');
+  }
+  if (annotation.body && annotation.body.value) {
+   mark.dataset.note = '1';
   }
   mark.style.padding = '1px 3px';
   mark.style.borderRadius = '3px';
