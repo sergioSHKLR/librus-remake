@@ -1323,6 +1323,48 @@ function openBookById(bookId) {
   });
 }
 
+function openEmptyReader() {
+  lastOpenedBookId = null;
+  switchView('reader');
+  var readerTitleEl = document.getElementById('reader-title');
+  readerTitleEl.textContent = 'Select a book';
+  readerTitleEl.title = '';
+  var viewport = document.getElementById('main-text-viewport');
+  viewport.replaceChildren();
+  viewport.insertAdjacentHTML(
+    'afterbegin',
+    '<p class="reader-empty-state">Open a book from the library to begin reading.</p>'
+  );
+  var scrollEl = readerMainScrollEl();
+  if (scrollEl) scrollEl.scrollTop = 0;
+  tocFilterQuery = '';
+  var tocFilterInput = document.getElementById('toc-filter-input');
+  if (tocFilterInput) {
+    tocFilterInput.value = '';
+    syncInputClearButton(tocFilterInput);
+  }
+  resetNotesFilters();
+  lastTocActiveId = '';
+  tocLinkBySection = Object.create(null);
+  tocExpandedH2Ids = Object.create(null);
+  readerHeadingIndex = [];
+  renderTocList([]);
+  resetReaderChromeState();
+  showContextPlaceholder();
+  lastLookupSelection = '';
+  clearNotesSelectionCache();
+  var searchInput = document.getElementById('reader-search-input');
+  if (searchInput) {
+    searchInput.value = '';
+    syncInputClearButton(searchInput);
+  }
+  resetSearchCounter();
+  syncBookShareHash(null);
+  updateReaderShareButtonState();
+  persistSession();
+  refreshNotesPanel();
+}
+
 function loadBook(book, skipPersist) {
   lastOpenedBookId = book.id;
   switchView('reader');
@@ -2615,6 +2657,7 @@ function bindLibraryListeners() {
     libraryFilterQuery = e.target.value.trim();
     renderLibraryGrid();
   });
+  document.getElementById('library-reader-btn').addEventListener('click', openEmptyReader);
 }
 
 function bindReaderNavListeners() {

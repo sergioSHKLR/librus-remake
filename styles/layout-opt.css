@@ -569,6 +569,14 @@ textarea:focus-visible {
   max-width: var(--library-filter-max-width);
 }
 
+.library-grid-filter-divider {
+  flex: 0 0 auto;
+  align-self: stretch;
+  width: 0.0625rem;
+  min-height: 1.5rem;
+  background: color-mix(in srgb, var(--topbar-fg) 22%, var(--topbar-bg));
+}
+
 .library-grid-filter .icon-btn {
   flex-shrink: 0;
 }

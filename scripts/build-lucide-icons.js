@@ -12,6 +12,7 @@ const SPRITE_ICONS = [
   'settings',
   'list-filter',
   'library-big',
+  'book-open',
   'table-of-contents',
   'search',
   'sticky-note',
