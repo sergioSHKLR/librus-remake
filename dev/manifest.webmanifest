@@ -1,0 +1,61 @@
+{
+  "id": "./",
+  "name": "LIBRUS",
+  "short_name": "LIBRUS",
+  "description": "A lightweight digital reading workspace with a local markdown library.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#333333",
+  "theme_color": "#333333",
+  "lang": "en-US",
+  "icons": [
+    {
+      "src": "pwa/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "pwa/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "pwa/icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "pwa/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "pwa/screenshot-wide.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Library catalog on desktop"
+    },
+    {
+      "src": "pwa/screenshot-narrow.png",
+      "sizes": "407x904",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Reader workspace on mobile"
+    }
+  ],
+  "categories": [
+    "books & reference",
+    "developer",
+    "education",
+    "travel"
+  ]
+}

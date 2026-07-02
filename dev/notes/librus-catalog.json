@@ -1,0 +1,426 @@
+{
+  "exported": "2026-06-28T19:15:38.419Z",
+  "books": [
+    {
+      "id": "adv_01_scandal_in_bohemia",
+      "title": "A Scandal in Bohemia",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/adv_01_scandal_in_bohemia.md"
+    },
+    {
+      "id": "adv_02_red_headed_league",
+      "title": "The Red-Headed League",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/adv_02_red_headed_league.md"
+    },
+    {
+      "id": "adv_03_a_case_of_identity",
+      "title": "A Case of Identity",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/adv_03_a_case_of_identity.md"
+    },
+    {
+      "id": "adv_04_boscombe_valley_mystery",
+      "title": "The Boscombe Valley Mystery",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/adv_04_boscombe_valley_mystery.md"
+    },
+    {
+      "id": "adv_05_five_orange_pips",
+      "title": "The Five Orange Pips",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/adv_05_five_orange_pips.md"
+    },
+    {
+      "id": "adv_06_the_man_with_the_twisted_lip",
+      "title": "The Man with the Twisted Lip",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/adv_06_the_man_with_the_twisted_lip.md"
+    },
+    {
+      "id": "adv_07_the_blue_carbuncle",
+      "title": "The Adventure of the Blue Carbuncle",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/adv_07_the_blue_carbuncle.md"
+    },
+    {
+      "id": "adv_08_the_speckled_band",
+      "title": "The Adventure of the Speckled Band",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/adv_08_the_speckled_band.md"
+    },
+    {
+      "id": "adv_09_the_engineers_thumb",
+      "title": "The Adventure of the Engineer's Thumb",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/adv_09_the_engineers_thumb.md"
+    },
+    {
+      "id": "adv_10_the_noble_bachelor",
+      "title": "The Adventure of the Noble Bachelor",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/adv_10_the_noble_bachelor.md"
+    },
+    {
+      "id": "adv_11_the_beryl_coronet",
+      "title": "The Adventure of the Beryl Coronet",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/adv_11_the_beryl_coronet.md"
+    },
+    {
+      "id": "adv_12_the_copper_beeches",
+      "title": "The Adventure of the Copper Beeches",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/adv_12_the_copper_beeches.md"
+    },
+    {
+      "id": "mem_01_silver_blaze",
+      "title": "Silver Blaze",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/mem_01_silver_blaze.md"
+    },
+    {
+      "id": "mem_02_cardboard_box",
+      "title": "The Adventure of the Cardboard Box",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/mem_02_cardboard_box.md"
+    },
+    {
+      "id": "mem_03_yellow_face",
+      "title": "The Yellow Face",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/mem_03_yellow_face.md"
+    },
+    {
+      "id": "mem_04_stockbrokers_clerk",
+      "title": "The Stockbroker\\u2019s Clerk",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/mem_04_stockbrokers_clerk.md"
+    },
+    {
+      "id": "mem_05_gloria_scott",
+      "title": "The Gloria Scott",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/mem_05_gloria_scott.md"
+    },
+    {
+      "id": "mem_06_musgrave_ritual",
+      "title": "The Musgrave Ritual",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/mem_06_musgrave_ritual.md"
+    },
+    {
+      "id": "mem_07_reigate_squires",
+      "title": "The Reigate Squires",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/mem_07_reigate_squires.md"
+    },
+    {
+      "id": "mem_08_crooked_man",
+      "title": "The Crooked Man",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/mem_08_crooked_man.md"
+    },
+    {
+      "id": "mem_09_resident_patient",
+      "title": "The Resident Patient",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/mem_09_resident_patient.md"
+    },
+    {
+      "id": "mem_10_greek_interpreter",
+      "title": "The Greek Interpreter",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/mem_10_greek_interpreter.md"
+    },
+    {
+      "id": "mem_11_naval_treaty",
+      "title": "The Naval Treaty",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/mem_11_naval_treaty.md"
+    },
+    {
+      "id": "mem_12_final_problem",
+      "title": "The Final Problem",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/mem_12_final_problem.md"
+    },
+    {
+      "id": "ret_01_empty_house",
+      "title": "The Adventure of the Empty House",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/ret_01_empty_house.md"
+    },
+    {
+      "id": "ret_02_norwood_builder",
+      "title": "The Adventure of the Norwood Builder",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/ret_02_norwood_builder.md"
+    },
+    {
+      "id": "ret_03_dancing_men",
+      "title": "The Adventure of the Dancing Men",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/ret_03_dancing_men.md"
+    },
+    {
+      "id": "ret_04_solitary_cyclist",
+      "title": "The Adventure of the Solitary Cyclist",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/ret_04_solitary_cyclist.md"
+    },
+    {
+      "id": "ret_05_priory_school",
+      "title": "The Adventure of the Priory School",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/ret_05_priory_school.md"
+    },
+    {
+      "id": "ret_06_black_peter",
+      "title": "The Adventure of Black Peter",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/ret_06_black_peter.md"
+    },
+    {
+      "id": "ret_07_charles_milverton",
+      "title": "The Adventure of Charles Augustus Milverton",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/ret_07_charles_milverton.md"
+    },
+    {
+      "id": "ret_08_six_napoleons",
+      "title": "The Adventure of the Six Napoleons",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/ret_08_six_napoleons.md"
+    },
+    {
+      "id": "ret_09_three_students",
+      "title": "The Adventure of the Three Students",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/ret_09_three_students.md"
+    },
+    {
+      "id": "ret_10_golden_pince_nez",
+      "title": "The Adventure of the Golden Pince-Nez",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/ret_10_golden_pince_nez.md"
+    },
+    {
+      "id": "ret_11_missing_three_quarter",
+      "title": "The Adventure of the Missing Three-Quarter",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/ret_11_missing_three_quarter.md"
+    },
+    {
+      "id": "ret_12_abbey_grange",
+      "title": "The Adventure of the Abbey Grange",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/ret_12_abbey_grange.md"
+    },
+    {
+      "id": "ret_13_second_stain",
+      "title": "The Adventure of the Second Stain",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/ret_13_second_stain.md"
+    },
+    {
+      "id": "hlb_01_wisteria_lodge",
+      "title": "The Adventure of Wisteria Lodge",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/hlb_01_wisteria_lodge.md"
+    },
+    {
+      "id": "hlb_02_bruce_partington_plans",
+      "title": "The Adventure of the Bruce-Partington Plans",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/hlb_02_bruce_partington_plans.md"
+    },
+    {
+      "id": "hlb_03_devils_foot",
+      "title": "The Adventure of the Devil's Foot",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/hlb_03_devils_foot.md"
+    },
+    {
+      "id": "hlb_04_red_circle",
+      "title": "The Adventure of the Red Circle",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/hlb_04_red_circle.md"
+    },
+    {
+      "id": "hlb_05_lady_frances_carfax",
+      "title": "The Disappearance of Lady Frances Carfax",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/hlb_05_lady_frances_carfax.md"
+    },
+    {
+      "id": "hlb_06_dying_detective",
+      "title": "The Adventure of the Dying Detective",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/hlb_06_dying_detective.md"
+    },
+    {
+      "id": "hlb_07_his_last_bow",
+      "title": "His Last Bow: The War Service of Sherlock Holmes",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/hlb_07_his_last_bow.md"
+    },
+    {
+      "id": "cb_01_illustrious_client",
+      "title": "The Adventure of the Illustrious Client",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/cb_01_illustrious_client.md"
+    },
+    {
+      "id": "cb_02_blanched_soldier",
+      "title": "The Adventure of the Blanched Soldier",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/cb_02_blanched_soldier.md"
+    },
+    {
+      "id": "cb_03_mazarin_stone",
+      "title": "The Adventure of the Mazarin Stone",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/cb_03_mazarin_stone.md"
+    },
+    {
+      "id": "cb_04_three_gables",
+      "title": "The Adventure of the Three Gables",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/cb_04_three_gables.md"
+    },
+    {
+      "id": "cb_05_sussex_vampire",
+      "title": "The Adventure of the Sussex Vampire",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/cb_05_sussex_vampire.md"
+    },
+    {
+      "id": "cb_06_three_garridebs",
+      "title": "The Adventure of the Three Garridebs",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/cb_06_three_garridebs.md"
+    },
+    {
+      "id": "cb_07_thor_bridge",
+      "title": "The Problem of Thor Bridge",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/cb_07_thor_bridge.md"
+    },
+    {
+      "id": "cb_08_creeping_man",
+      "title": "The Adventure of the Creeping Man",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/cb_08_creeping_man.md"
+    },
+    {
+      "id": "cb_09_lions_mane",
+      "title": "The Adventure of the Lion\\u2019s Mane",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/cb_09_lions_mane.md"
+    },
+    {
+      "id": "cb_10_veiled_lodger",
+      "title": "The Adventure of the Veiled Lodger",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/cb_10_veiled_lodger.md"
+    },
+    {
+      "id": "cb_11_shoscombe_old_place",
+      "title": "The Adventure of Shoscombe Old Place",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/cb_11_shoscombe_old_place.md"
+    },
+    {
+      "id": "cb_12_retired_colourman",
+      "title": "The Adventure of the Retired Colourman",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/cb_12_retired_colourman.md"
+    },
+    {
+      "id": "novel_study_in_scarlet",
+      "title": "A Study in Scarlet",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/novel_study_in_scarlet.md"
+    },
+    {
+      "id": "novel_sign_of_four",
+      "title": "The Sign of the Four",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/novel_sign_of_four.md"
+    },
+    {
+      "id": "novel_hound_of_baskervilles",
+      "title": "The Hound of the Baskervilles",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/novel_hound_of_baskervilles.md"
+    },
+    {
+      "id": "novel_valley_of_fear",
+      "title": "The Valley of Fear",
+      "author": "Arthur Conan Doyle",
+      "source": "bundled",
+      "path": "books/novel_valley_of_fear.md"
+    }
+  ],
+  "hiddenIds": []
+}

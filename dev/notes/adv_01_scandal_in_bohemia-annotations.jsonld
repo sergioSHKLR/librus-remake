@@ -1,0 +1,36 @@
+{
+  "@context": "http://www.w3.org/ns/anno.jsonld",
+  "type": "AnnotationCollection",
+  "label": "Annotations — adv_01_scandal_in_bohemia",
+  "items": [
+    {
+      "@context": "http://www.w3.org/ns/anno.jsonld",
+      "id": "urn:uuid:da38f6c0-592e-4612-8f58-bafa18d920cd",
+      "type": "Annotation",
+      "motivation": "highlighting",
+      "created": "2026-06-28T13:36:08.072Z",
+      "modified": "2026-06-28T13:36:08.074Z",
+      "creator": {
+        "type": "Person",
+        "name": "You"
+      },
+      "target": {
+        "source": "https://sergioshklr.github.io/librus-zero/books/adv_01_scandal_in_bohemia.md",
+        "selector": [
+          {
+            "type": "TextQuoteSelector",
+            "exact": "woman",
+            "prefix": "erlock Holmes she is always the ",
+            "suffix": ". I have seldom heard him mentio",
+            "start": 103,
+            "end": 108
+          },
+          {
+            "type": "FragmentSelector",
+            "value": "main-text-viewport"
+          }
+        ]
+      }
+    }
+  ]
+}

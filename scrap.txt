@@ -1,8 +1,0 @@
-// Simulate update available
-document.getElementById('settings-update-badge-mini').classList.add('is-update');
-
-// Also show full badge in settings panel
-if (document.getElementById('settings-update-badge')) {
-  document.getElementById('settings-update-badge').classList.add('is-update');
-  document.getElementById('settings-update-detail').textContent = 'Update available';
-}

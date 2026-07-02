@@ -1,0 +1,15 @@
+{
+  "exported": "2026-06-28T19:15:41.199Z",
+  "lastOpenedBookId": "adv_01_scandal_in_bohemia",
+  "settings": {
+    "theme": "dark",
+    "hiddenIds": [],
+    "providers": {
+      "wiki": "https://en.wikipedia.org/w/index.php?search={query}",
+      "dictionary": "https://en.wiktionary.org/w/index.php?search={query}",
+      "map": "pages/map.html?q={query}"
+    },
+    "readerFontScale": 1.1875
+  },
+  "uploads": []
+}

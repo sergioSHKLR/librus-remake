@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en-US" class="theme--system">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reference Lookup</title>
+  <script src="context-theme.js"></script>
+  <link rel="stylesheet" href="context-theme.css">
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--panel-bg);
+      font-family: system-ui, -apple-system, sans-serif;
+      padding: 1.5rem;
+      box-sizing: border-box;
+    }
+
+    .context-placeholder {
+      text-align: center;
+      max-width: 14rem;
+    }
+
+    .icon {
+      display: block;
+      color: var(--icon-muted);
+    }
+
+    .context-placeholder-icon {
+      width: 3rem;
+      height: 3rem;
+      margin: 0 auto 0.75rem;
+    }
+
+    .context-placeholder-text {
+      margin: 0;
+      font-size: 0.875rem;
+      line-height: 1.55;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="context-placeholder">
+    <!-- Fixed duplicate alt tag here -->
+    <svg id="context-placeholder-icon" class="icon context-placeholder-icon is-online" aria-hidden="true"><use href="../icons/sprite.svg#wifi"/></svg>
+
+    <p class="context-placeholder-text" id="context-placeholder-text">
+      Select text in the book, then choose a lookup provider above.
+    </p>
+  </div>
+
+  <script>
+    (function () {
+      var TEXT_ONLINE = 'Select text in the book, then choose a lookup provider above.';
+      var TEXT_OFFLINE = 'You’re offline. This panel is unavailable';
+
+      function applyConnectivityState(isOnline) {
+        var icon = document.getElementById('context-placeholder-icon');
+        var textEl = document.getElementById('context-placeholder-text');
+
+        if (icon) {
+          var use = icon.querySelector('use');
+          if (use) use.setAttribute('href', '../icons/sprite.svg#' + (isOnline ? 'wifi' : 'wifi-off'));
+          icon.classList.toggle('is-online', isOnline);
+          icon.classList.toggle('is-offline', !isOnline);
+        }
+        if (textEl) textEl.textContent = isOnline ? TEXT_ONLINE : TEXT_OFFLINE;
+      }
+
+      var params = new URLSearchParams(location.search);
+      var onlineParam = params.get('online');
+
+      var initialOnline = navigator.onLine;
+      if (onlineParam === '0') initialOnline = false;
+      if (onlineParam === '1') initialOnline = true;
+
+      applyConnectivityState(initialOnline);
+
+      window.addEventListener('online', function () { applyConnectivityState(true); });
+      window.addEventListener('offline', function () { applyConnectivityState(false); });
+      window.addEventListener('message', function (e) {
+        if (e.origin !== location.origin) return;
+        if (e.data && e.data.type === 'librus:connectivity') {
+          var messageState = e.data.online === false ? false : !!e.data.online;
+          applyConnectivityState(messageState);
+        }
+      });
+    })(); // Added missing closing wrapper here to fix syntax error
+  </script>
+</body>
+
+</html>

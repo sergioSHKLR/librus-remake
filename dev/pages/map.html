@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Librus Map</title>
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+ <style>
+  :root {
+   color-scheme: light dark;
+   --bg: #f8f9fa;
+   --text: #212529;
+   --muted: #6c757d;
+   --panel: rgba(255, 255, 255, 0.92);
+   --border: rgba(0, 0, 0, 0.08);
+   --shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.12);
+  }
+
+  @media (prefers-color-scheme: dark) {
+   :root {
+    --bg: #121212;
+    --text: #f1f3f5;
+    --muted: #adb5bd;
+    --panel: rgba(30, 30, 30, 0.92);
+    --border: rgba(255, 255, 255, 0.08);
+    --shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.4);
+   }
+  }
+
+  * {
+   box-sizing: border-box;
+  }
+
+  html,
+  body,
+  #map {
+   height: 100%;
+   margin: 0;
+  }
+
+  body {
+   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+   background: var(--bg);
+   color: var(--text);
+  }
+
+  #map {
+   width: 100%;
+   z-index: 0;
+  }
+
+  .map-status {
+   position: absolute;
+   top: 0.75rem;
+   left: 50%;
+   transform: translateX(-50%);
+   z-index: 1000;
+   max-width: calc(100% - 1.5rem);
+   padding: 0.5rem 0.875rem;
+   border-radius: 999px;
+   background: var(--panel);
+   border: 0.0625rem solid var(--border);
+   box-shadow: var(--shadow);
+   font-size: 0.8125rem;
+   line-height: 1.35;
+   text-align: center;
+   pointer-events: none;
+  }
+
+  .map-status.is-hidden {
+   display: none;
+  }
+
+  .map-status.is-error {
+   color: #c92a2a;
+  }
+
+  @media (prefers-color-scheme: dark) {
+   .map-status.is-error {
+    color: #ff8787;
+   }
+  }
+
+  .map-footer {
+   position: absolute;
+   right: 0.75rem;
+   bottom: 0.75rem;
+   z-index: 1000;
+  }
+
+  .map-footer a {
+   display: inline-flex;
+   align-items: center;
+   padding: 0.375rem 0.75rem;
+   border-radius: 999px;
+   background: var(--panel);
+   border: 0.0625rem solid var(--border);
+   box-shadow: var(--shadow);
+   color: var(--text);
+   font-size: 0.75rem;
+   text-decoration: none;
+  }
+
+  .map-footer a:hover {
+   text-decoration: underline;
+  }
+ </style>
+</head>
+
+<body>
+ <div id="status" class="map-status is-hidden" role="status" aria-live="polite"></div>
+ <div id="map" role="application" aria-label="Map lookup"></div>
+ <div class="map-footer" id="map-footer"></div>
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+ <script>
+  (function () {
+   var DEFAULT_VIEW = { lat: 39.5, lon: -8.0, zoom: 6 };
+   var params = new URLSearchParams(window.location.search);
+   var query = normalizePlaceQuery(params.get('q') || '');
+   var presetLat = parseFloat(params.get('lat'));
+   var presetLon = parseFloat(params.get('lon'));
+   var presetLabel = (params.get('label') || '').trim();
+   var statusEl = document.getElementById('status');
+   var footerEl = document.getElementById('map-footer');
+   var markerLayer = null;
+   var searchToken = 0;
+
+   function normalizePlaceQuery(value) {
+    return String(value || '').trim()
+     .replace(/^[\s"'\u201C\u201D\u2018\u2019]+|[\s"'\u201C\u201D\u2018\u2019.,;:!?]+$/g, '');
+   }
+
+   function setStatus(message, isError) {
+    if (!message) {
+     statusEl.textContent = '';
+     statusEl.classList.add('is-hidden');
+     statusEl.classList.remove('is-error');
+     return;
+    }
+    statusEl.textContent = message;
+    statusEl.classList.remove('is-hidden');
+    statusEl.classList.toggle('is-error', !!isError);
+   }
+
+   function setFooterLink(href, label) {
+    footerEl.innerHTML = '<a href="' + href + '" target="_blank" rel="noopener noreferrer">' + label + '</a>';
+   }
+
+   var map = L.map('map', { zoomControl: true }).setView([DEFAULT_VIEW.lat, DEFAULT_VIEW.lon], DEFAULT_VIEW.zoom);
+   L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+   }).addTo(map);
+
+   var refreshRaf = 0;
+   var refreshLateTimer = null;
+
+   function refreshMapView() {
+    map.invalidateSize({ animate: false });
+   }
+
+   function scheduleMapRefresh(includeLate) {
+    if (refreshRaf) cancelAnimationFrame(refreshRaf);
+    refreshRaf = requestAnimationFrame(function () {
+     refreshRaf = 0;
+     refreshMapView();
+    });
+    if (includeLate === false) return;
+    if (refreshLateTimer) clearTimeout(refreshLateTimer);
+    refreshLateTimer = setTimeout(function () {
+     refreshLateTimer = null;
+     refreshMapView();
+    }, 150);
+   }
+
+   function showPlace(lat, lon, label, zoom) {
+    if (markerLayer) {
+     map.removeLayer(markerLayer);
+    }
+    markerLayer = L.marker([lat, lon]).addTo(map);
+    markerLayer.bindPopup(label).openPopup();
+    map.setView([lat, lon], zoom || 13);
+    scheduleMapRefresh();
+   }
+
+   function renderGeocodeResults(placeQuery, results) {
+    if (!results.length) {
+     setStatus('No map results for \u201C' + placeQuery + '\u201D.', true);
+     setFooterLink(
+      'https://www.openstreetmap.org/search?query=' + encodeURIComponent(placeQuery),
+      'Search on OpenStreetMap'
+     );
+     return;
+    }
+    var hit = results[0];
+    showPlace(parseFloat(hit.lat), parseFloat(hit.lon), hit.display_name, 13);
+    setStatus(hit.display_name);
+    setFooterLink(
+     'https://www.openstreetmap.org/search?query=' + encodeURIComponent(placeQuery),
+     'Open in OpenStreetMap'
+    );
+   }
+
+   function fetchOpenMeteoGeocode(placeQuery) {
+    var url = 'https://geocoding-api.open-meteo.com/v1/search?name='
+     + encodeURIComponent(placeQuery) + '&count=1&language=en';
+    return fetch(url)
+     .then(function (response) {
+      if (!response.ok) throw new Error('open-meteo failed');
+      return response.json();
+     })
+     .then(function (data) {
+      if (!data.results || !data.results.length) return [];
+      return data.results.map(function (hit) {
+       var label = [hit.name, hit.admin1, hit.country].filter(Boolean).join(', ');
+       return {
+        lat: String(hit.latitude),
+        lon: String(hit.longitude),
+        display_name: label
+       };
+      });
+     });
+   }
+
+   function fetchGeocode(placeQuery) {
+    return fetchOpenMeteoGeocode(placeQuery);
+   }
+
+   function searchPlace(placeQuery) {
+    var token = ++searchToken;
+    var normalized = normalizePlaceQuery(placeQuery);
+    if (!normalized) {
+     setStatus('Select a place name in the book, then open Map lookup.');
+     return;
+    }
+    setStatus('Searching\u2026');
+    fetchGeocode(normalized)
+     .then(function (results) {
+      if (token !== searchToken) return;
+      renderGeocodeResults(normalized, results);
+     })
+     .catch(function () {
+      if (token !== searchToken) return;
+      setStatus('Map lookup is unavailable right now.', true);
+      setFooterLink(
+       'https://www.openstreetmap.org/search?query=' + encodeURIComponent(normalized),
+       'Search on OpenStreetMap'
+      );
+     });
+   }
+
+   function applyPresetCoords() {
+    if (!query || isNaN(presetLat) || isNaN(presetLon)) return false;
+    var label = presetLabel || query;
+    showPlace(presetLat, presetLon, label, 13);
+    setStatus(label);
+    setFooterLink(
+     'https://www.openstreetmap.org/search?query=' + encodeURIComponent(query),
+     'Open in OpenStreetMap'
+    );
+    return true;
+   }
+
+   var inParentFrame = window.parent && window.parent !== window;
+
+   window.addEventListener('resize', function () {
+    scheduleMapRefresh(false);
+   });
+   window.addEventListener('message', function (event) {
+    if (event.origin !== window.location.origin) return;
+    if (!event.data) return;
+    if (event.data.type === 'librus:map-invalidate') {
+     scheduleMapRefresh();
+     return;
+    }
+    if (event.data.type === 'librus:map-place') {
+     var lat = parseFloat(event.data.lat);
+     var lon = parseFloat(event.data.lon);
+     if (isNaN(lat) || isNaN(lon)) return;
+     searchToken++;
+     renderGeocodeResults(event.data.query || query, [{
+      lat: String(lat),
+      lon: String(lon),
+      display_name: event.data.label || event.data.query || query
+     }]);
+    }
+   });
+
+   scheduleMapRefresh();
+   if (inParentFrame) {
+    if (query) setStatus('Searching\u2026');
+    window.parent.postMessage({ type: 'librus:map-ready', query: query }, window.location.origin);
+   } else if (!applyPresetCoords() && query) {
+    requestAnimationFrame(function () {
+     scheduleMapRefresh();
+     searchPlace(query);
+    });
+   } else if (!query) {
+    setStatus('Select a place name in the book, then open Map lookup.');
+    setFooterLink('https://www.openstreetmap.org', 'Browse OpenStreetMap');
+   }
+  })();
+ </script>
+</body>
+
+</html>
