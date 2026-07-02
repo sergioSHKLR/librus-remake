@@ -44,15 +44,14 @@ svg.icon-btn-glyph {
   justify-content: center;
   width: 2.25rem;
   height: 2.25rem;
-  background: #222222;
-  border-radius: 0.5rem;
-  color: #eeeeee;
+  background: transparent;
+  color: var(--topbar-fg);
   flex-shrink: 0;
 }
 
 .icon-brand-wrap .icon {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 2.25rem;
+  height: 2.25rem;
 }
 
 .md-block-expand-icon {
