@@ -56,6 +56,7 @@ function clearDir(dir) {
   if (!fs.existsSync(dir)) return;
   fs.readdirSync(dir).forEach(function (name) {
     if (name === 'dev' && dir === WORKTREE) return;
+    if (name === '.git') return;
     const target = path.join(dir, name);
     fs.rmSync(target, { recursive: true, force: true });
   });
