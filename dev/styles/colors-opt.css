@@ -1,7 +1,7 @@
-/* Colors — theme tokens derived from --theme-base (#222) */
+/* Colors — theme tokens derived from --theme-base (#111) */
 
 :root {
-  --theme-base: #222222;
+  --theme-base: #111111;
   --led-green: #34c759;
   --led-orange: #ff9f0a;
   --led-red: #ff453a;
@@ -199,14 +199,29 @@ textarea {
   color: var(--topbar-fg);
 }
 
-.library-grid-filter,
-#library-topbar .library-topbar-secondary {
-  background: var(--bg-chrome);
-  color: var(--text-primary);
+#library-topbar .library-topbar-secondary,
+#library-topbar .library-grid-filter {
+  background: transparent;
+  color: var(--topbar-fg);
 }
 
-.library-grid {
-  background: var(--bg-primary);
+#library-topbar .library-grid-filter-icon {
+  color: var(--topbar-fg);
+}
+
+#library-topbar .library-grid-filter input,
+#library-topbar .library-grid-filter .input-clearable > input[type="text"] {
+  background: color-mix(in srgb, var(--topbar-fg) 8%, var(--topbar-bg));
+  border-color: color-mix(in srgb, var(--topbar-fg) 22%, var(--topbar-bg));
+  color: var(--topbar-fg);
+}
+
+#library-topbar .library-grid-filter input::placeholder {
+  color: color-mix(in srgb, var(--topbar-fg) 55%, transparent);
+}
+
+#library-topbar .library-grid-filter .input-clear-btn {
+  color: color-mix(in srgb, var(--topbar-fg) 65%, transparent);
 }
 
 #library-settings .toolbar {
