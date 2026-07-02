@@ -6,6 +6,8 @@
   --gap-sm: 0.25rem;
   --padding: 0.75rem;
   --topbar-height: 3.375rem;
+  --library-topbar-secondary-height: 2.75rem;
+  --library-chrome-height: calc(var(--topbar-height) + var(--library-topbar-secondary-height));
   --btn-size: 3.5rem;
   --btn-size-sm: 2.75rem;
   --icon-btn-glyph-size: 1.75rem;
@@ -160,6 +162,16 @@ textarea:focus-visible {
   pointer-events: auto;
 }
 
+#librus-app:has(#library:not(.is-hidden)) .settings-overlay-backdrop {
+  top: var(--library-chrome-height);
+}
+
+#librus-app:has(#library:not(.is-hidden)) #library-settings.is-overlay {
+  top: var(--library-chrome-height) !important;
+  height: calc(100vh - var(--library-chrome-height)) !important;
+  height: calc(100dvh - var(--library-chrome-height)) !important;
+}
+
 #librus-app.has-settings-overlay #library-body,
 #librus-app.has-settings-overlay .reader-layout {
   pointer-events: none;
@@ -244,7 +256,42 @@ textarea:focus-visible {
   z-index: var(--z-bar);
 }
 
+#library-topbar.topbar {
+  flex-direction: column;
+  align-items: stretch;
+  height: var(--library-chrome-height);
+  padding: 0;
+}
+
+.library-topbar-primary {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: var(--topbar-height);
+  padding: 0 var(--padding);
+  flex-shrink: 0;
+}
+
+.library-topbar-secondary {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: var(--library-topbar-secondary-height);
+  padding: 0 var(--padding);
+  gap: var(--gap);
+  flex-shrink: 0;
+  border-top: 0.0625rem solid var(--topbar-border);
+}
+
 .topbar {
+  border-bottom: 0.0625rem solid var(--topbar-border);
+}
+
+#library-topbar {
+  border-bottom: none;
+}
+
+#library-topbar .library-topbar-secondary {
   border-bottom: 0.0625rem solid var(--topbar-border);
 }
 
@@ -453,10 +500,12 @@ textarea:focus-visible {
 }
 
 .library-topbar-logo {
-  width: 1.9rem;
-  height: 1.9rem;
+  width: 2.25rem;
+  height: 2.25rem;
   flex-shrink: 0;
   display: block;
+  object-fit: contain;
+  border-radius: 0.5rem;
 }
 
 .reader-topbar-title {
@@ -495,7 +544,7 @@ textarea:focus-visible {
 
 .library-body {
   display: grid;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: 1fr;
   grid-template-columns: 1fr;
   height: 100%;
   min-height: 0;
@@ -503,13 +552,22 @@ textarea:focus-visible {
 }
 
 .library-grid-filter {
-  grid-row: 1;
-  height: var(--topbar-height);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: var(--gap);
-  padding: 0 var(--padding);
+  min-width: 0;
+}
+
+#library-topbar .library-grid-filter {
+  justify-content: flex-start;
+}
+
+#library-topbar .library-grid-filter .input-clearable,
+#library-topbar #library-filter {
+  flex: 1 1 auto;
+  width: auto;
+  max-width: none;
 }
 
 .library-grid-filter-icon {
@@ -528,7 +586,7 @@ textarea:focus-visible {
 
 .library-grid,
 .library-grid-empty {
-  grid-row: 2;
+  grid-row: 1;
   grid-column: 1;
 }
 

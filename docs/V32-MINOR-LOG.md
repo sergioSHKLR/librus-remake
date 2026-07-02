@@ -2,6 +2,16 @@
 
 Production deploy log for the `librus-remake` rewrite (major **32**).
 
+## V32-r27 — 2026-07-01 — Two-row library topbar + user logo
+
+**Build:** `v32-r27` · **Cache:** `librus-v32-r27`
+
+| Area | Change |
+|------|--------|
+| Topbar | Library: row 1 = brand/actions, row 2 = filter (always visible) |
+| Brand | Topbar uses `pwa/librus logo.png` at icon size (2.25rem) via `librusPath()` |
+| Layout | Settings overlay offset for taller library chrome |
+
 ## V32-r26 — 2026-07-01 — Cleanup, dark notes, user logo, btn-wide
 
 **Build:** `v32-r26` · **Cache:** `librus-v32-r26`
