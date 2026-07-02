@@ -35,19 +35,19 @@ function readSvgOrDefault(filePath, fallback) {
 const brandMarkSvg = `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
   <rect width="512" height="512" rx="96" fill="${BRAND_BG}"/>
-  ${columns4Mark(512, 28, 0.078)}
+  ${columns4Mark(512, 28, 0.03)}
 </svg>`;
 
 const maskableSvg = `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
   <rect width="512" height="512" fill="${BRAND_BG}"/>
-  ${columns4Mark(512, 24, 0.11)}
+  ${columns4Mark(512, 26, 0.05)}
 </svg>`;
 
 const faviconSvg = `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
   <rect width="32" height="32" rx="6" fill="${BRAND_BG}"/>
-  ${columns4Mark(32, 2, 0.0625)}
+  ${columns4Mark(32, 2, 0.03)}
 </svg>`;
 
 function screenshotWideSvg() {
@@ -94,7 +94,7 @@ function socialCardSvg() {
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <rect width="1200" height="630" fill="${BRAND_BG}"/>
   <g transform="translate(80 80)">
-    ${columns4Mark(180, 10, 0.08)}
+    ${columns4Mark(180, 10, 0.03)}
   </g>
   <text x="300" y="170" fill="${FG}" font-family="Tahoma, sans-serif" font-size="72" font-weight="700">LIBRUS</text>
   <text x="300" y="240" fill="${MUTED}" font-family="system-ui, sans-serif" font-size="32">Digital reading workspace</text>

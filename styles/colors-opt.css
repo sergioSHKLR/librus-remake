@@ -2,7 +2,6 @@
 
 :root {
   --theme-base: #222222;
-  --brand-fg: #eeeeee;
   --led-green: #34c759;
   --led-orange: #ff9f0a;
   --led-red: #ff453a;
@@ -25,8 +24,6 @@ body.theme--light {
   --border-color: color-mix(in srgb, var(--theme-base) 14%, #d4d4d4);
   --text-primary: #111111;
   --text-muted: #5e5e5e;
-  --library-toolbar-bg: var(--bg-chrome);
-  --library-toolbar-fg: var(--text-primary);
   --input-bg: #ffffff;
   --input-border: var(--border-color);
   --panel-toc-bg: var(--bg-chrome);
@@ -41,7 +38,6 @@ body.theme--light {
   --note-card-bg: #ffffff;
   --note-card-with-body-bg: #e8f4fd;
   --note-quote-bg: color-mix(in srgb, var(--panel-yellow-accent) 14%, var(--bg-secondary));
-  --highlight-note-bg: #a5d6ff;
   --highlight-yellow: #fff44f;
   --highlight-blue: #a5d6ff;
 }
@@ -57,8 +53,6 @@ body.theme--dark {
   --border-color: color-mix(in srgb, var(--theme-base) 45%, #666666);
   --text-primary: #f1f1f1;
   --text-muted: #a8a8a8;
-  --library-toolbar-bg: var(--bg-chrome);
-  --library-toolbar-fg: var(--text-primary);
   --input-bg: color-mix(in srgb, var(--theme-base) 75%, #1a1a1a);
   --input-border: var(--border-color);
   --panel-toc-bg: var(--bg-chrome);
@@ -73,7 +67,6 @@ body.theme--dark {
   --note-card-bg: color-mix(in srgb, var(--bg-chrome) 88%, var(--bg-primary));
   --note-card-with-body-bg: color-mix(in srgb, var(--bg-chrome) 50%, #2a4a62);
   --note-quote-bg: color-mix(in srgb, var(--bg-chrome) 75%, #3d3500);
-  --highlight-note-bg: color-mix(in srgb, #2a6a9e 42%, var(--bg-chrome));
   --highlight-yellow: #7a6818;
   --highlight-blue: color-mix(in srgb, #3a8fd4 48%, var(--bg-chrome));
 }
@@ -90,8 +83,6 @@ body.theme--dark {
     --border-color: color-mix(in srgb, var(--theme-base) 14%, #d4d4d4);
     --text-primary: #111111;
     --text-muted: #5e5e5e;
-    --library-toolbar-bg: var(--bg-chrome);
-    --library-toolbar-fg: var(--text-primary);
     --input-bg: #ffffff;
     --input-border: var(--border-color);
     --panel-toc-bg: var(--bg-chrome);
@@ -106,7 +97,6 @@ body.theme--dark {
     --note-card-bg: #ffffff;
     --note-card-with-body-bg: #e8f4fd;
     --note-quote-bg: color-mix(in srgb, var(--panel-yellow-accent) 14%, var(--bg-secondary));
-    --highlight-note-bg: #a5d6ff;
     --highlight-yellow: #fff44f;
     --highlight-blue: #a5d6ff;
   }
@@ -124,8 +114,6 @@ body.theme--dark {
     --border-color: color-mix(in srgb, var(--theme-base) 45%, #666666);
     --text-primary: #f1f1f1;
     --text-muted: #a8a8a8;
-    --library-toolbar-bg: var(--bg-chrome);
-    --library-toolbar-fg: var(--text-primary);
     --input-bg: color-mix(in srgb, var(--theme-base) 75%, #1a1a1a);
     --input-border: var(--border-color);
     --panel-toc-bg: var(--bg-chrome);
@@ -140,7 +128,6 @@ body.theme--dark {
     --note-card-bg: color-mix(in srgb, var(--bg-chrome) 88%, var(--bg-primary));
     --note-card-with-body-bg: color-mix(in srgb, var(--bg-chrome) 50%, #2a4a62);
     --note-quote-bg: color-mix(in srgb, var(--bg-chrome) 75%, #3d3500);
-    --highlight-note-bg: color-mix(in srgb, #2a6a9e 42%, var(--bg-chrome));
     --highlight-yellow: #7a6818;
     --highlight-blue: color-mix(in srgb, #3a8fd4 48%, var(--bg-chrome));
   }
@@ -161,8 +148,8 @@ body {
 }
 
 .toolbar {
-  background: var(--library-toolbar-bg);
-  color: var(--library-toolbar-fg);
+  background: var(--bg-chrome);
+  color: var(--text-primary);
   border-color: var(--border-color);
 }
 
@@ -179,7 +166,7 @@ textarea {
 .reader-context-toolbar,
 .reader-notes-toolbar {
   border-color: var(--border-color);
-  background: var(--library-toolbar-bg);
+  background: var(--bg-chrome);
 }
 
 .reader-toc-toolbar {
@@ -214,8 +201,8 @@ textarea {
 
 .library-grid-filter,
 #library-topbar .library-topbar-secondary {
-  background: var(--library-toolbar-bg);
-  color: var(--library-toolbar-fg);
+  background: var(--bg-chrome);
+  color: var(--text-primary);
 }
 
 .library-grid {
@@ -305,7 +292,7 @@ mark.reader-search-hit.is-current {
 }
 
 .librus-highlight[data-note] {
-  background-color: var(--highlight-note-bg) !important;
+  background-color: var(--highlight-blue) !important;
 }
 
 .reader-notes-annotation:has(.reader-notes-body-text) {

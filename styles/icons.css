@@ -42,16 +42,16 @@ svg.icon-btn-glyph {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2rem;
-  height: 2rem;
+  width: 2.25rem;
+  height: 2.25rem;
   background: transparent;
-  color: var(--brand-fg, #eeeeee);
+  color: var(--topbar-fg);
   flex-shrink: 0;
 }
 
 .icon-brand-wrap .icon {
-  width: 2rem;
-  height: 2rem;
+  width: 2.25rem;
+  height: 2.25rem;
 }
 
 .md-block-expand-icon {

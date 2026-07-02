@@ -1,7 +1,6 @@
 /* Layout ------------------------------- */
 
 :root {
-  --library-toolbar-fg: var(--text-primary);
   --gap: 0.75rem;
   --gap-sm: 0.25rem;
   --padding: 0.75rem;
@@ -563,7 +562,8 @@ textarea:focus-visible {
   flex-shrink: 0;
 }
 
-.library-grid-filter .input-clearable {
+.library-grid-filter .input-clearable,
+.library-grid-filter #library-filter {
   flex: 0 1 var(--library-filter-max-width);
   width: min(100%, var(--library-filter-max-width));
   max-width: var(--library-filter-max-width);
@@ -1596,7 +1596,7 @@ mark.reader-search-hit.is-current {
   }
 }
 
-@media (max-width: 32rem) {
+@media (max-width: 32rem) and (orientation: portrait) {
   :root {
     --topbar-height: 3rem;
     --btn-size: 2.75rem;
